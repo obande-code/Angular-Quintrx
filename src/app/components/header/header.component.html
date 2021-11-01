@@ -12,7 +12,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="list-unstyled ml-auto" style="display:flex;">
+      <!-- <ul class="list-unstyled ml-auto" style="display:flex;"> -->
         <li *ngFor="let itemMenu of menus">
           <a *ngIf="!itemMenu.dropDownTarget" class='nav-link mainMenu' [routerLink]="itemMenu.alias"><span>{{ itemMenu.name }}</span></a>
           <a href='#{{itemMenu.dropDownTarget}}' (blur)="submenublur($event)" *ngIf="itemMenu?.subMenuList.length > 0" class='nav-link dropdown-toggle mainMenu'

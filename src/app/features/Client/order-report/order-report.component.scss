@@ -1,0 +1,126 @@
+
+
+.order-report {
+  font-family: "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-size: 14px;
+  font-size: 10px !important;
+
+
+  // line-height: 1.42857143;
+  // color: #333;
+  // background-color: #fff;
+  // font-family: "Roboto",
+  //   sans-serif;
+  // background-image: linear-gradient(to top, #033647, #afe5f7);
+  // /* background-image: url(/assets/images/bg-common.jpg); */
+  // background-size: cover;
+  // height: 100vh;
+}
+
+
+
+
+
+
+::ng-deep .ng-autocomplete {
+
+
+  margin-top: 20px;
+
+
+
+  a {
+    font-size: 20px;
+  }
+}
+
+::ng-deep .autocomplete-container {
+  height: 45px !important;
+  font-size: 1.4rem !important;
+  border: 1px solid lightgray;
+  box-shadow: none !important;
+
+  border-radius: 4px;
+  input {
+
+    font-size: 1.4rem !important;
+
+  }
+}
+
+// ::ng-deep .autocomplete-container .suggestions-container.is-visible {
+//   margin-top: -25rem;
+
+//   visibility: visible;
+// }
+
+ul {
+  padding: 10px;
+}
+
+
+
+
+input[type=text],input[type=email],input[type=number],input[type=date] {
+  height: 3.2rem;
+}
+
+.order__buttons{
+  padding: 10px;
+  display: inline-block;
+  white-space: nowrap;
+
+}
+
+.order__font {
+  margin-left: 0.1rem;
+  margin-bottom: 0rem;
+  font-size: 1.2rem !important;
+}
+
+.emailCheck{
+  margin-left: -0.65rem;
+}
+
+.order__emailCheck input {
+  margin: 0 5px 0 0rem;
+}
+.order__emailCheck label{
+  vertical-align: middle;
+}
+.order__emailCheck {
+  font-size: 1.2rem;
+}
+
+.order__header{
+  font-size: 2rem;
+}
+
+
+.ss__num{
+  padding-top: 2rem;
+}
+::ng-deep .mat-calendar-body-today:not(.mat-calendar-body-selected){
+  border-color:darkblue;
+}
+
+.mat-datepicker-toggle {
+  color: #19A195;
+}
+
+// .report__heading {
+//   padding-top: 3rem;
+//   text-align: center;
+// }
+
+// .h1,h1{
+//   font-size: 4rem;
+
+//   margin-top: 2px;
+// }
+
+
+

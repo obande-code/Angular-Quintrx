@@ -1,0 +1,258 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+        <main class="main">
+            <section class="form-div">
+                
+                    <header class="header-div">
+                        <h1 class="header-label">Provider</h1>
+                        
+                    </header>
+                    <div
+                        id="errorLabel"
+                        class="alert alert-danger text-center"
+                        *ngIf = "pkgMsgs"
+                        >
+                        {{msg}}
+                    </div>
+                    <div
+                        id="errorLabel"
+                        class="alert alert-success text-center"
+                        *ngIf = "servMsgs"
+                        >
+                        {{msg}}
+                    </div>
+
+
+
+                    <div class="row mt-4 gx-5 user__Form container mt-3">
+                        <div class="col-md-3 mt-auto" >
+                            <label
+                            for="user-Fname"
+                            class="form-label user__font"
+                            >Provider Name*</label
+                            >
+                            <input
+                            type="text"
+                            class="form-control user__font"
+                            
+                            id="user-Fname"
+                            placeholder="Provider Name"
+                            name="firstName"
+                            [class.border-danger] = "!newProvider.name"
+                            [disabled]="isDisabled"
+                            [(ngModel)]="newProvider.name"
+                            value="{{providerName}}"
+                            
+                            />
+    
+                            
+                        </div>
+
+                        <div class="col-md-3 mt-auto" >
+                            <label
+                            for="user-Fname"
+                            class="form-label user__font"
+                            >Provider Email*</label
+                            >
+                            <input
+                            type="text"
+                            class="form-control user__font"
+                            
+                            id="provider-email"
+                            placeholder="Provider Email"
+                            name="email"
+                            [class.border-danger] = "!newProvider.pocEmailAddress"
+                            [(ngModel)]="newProvider.pocEmailAddress"
+                            [disabled]="isDisabled"
+                           
+                            
+                            />
+    
+                            
+                        </div>
+
+                        <div class="col-md-3 mt-auto" >
+                            <label
+                            for="user-Fname"
+                            class="form-label user__font"
+                            >Provider Phone</label
+                            >
+                            <input
+                            type="text"
+                            class="form-control user__font"
+                            
+                            id="provider-phone"
+                            placeholder="Phone Number"
+                            name="phone"
+                          
+                            [(ngModel)]="newProvider.pocPhone"
+                            onkeypress="return /[0-9]/i.test(event.key)"
+                            [disabled]="isDisabled"
+                           
+                            
+                            />
+    
+                            
+                        </div>
+
+                        <div class="col-md-3  mt-auto"> 
+                            <div>
+                                
+                           
+                            <label
+                            for="user-status"
+                            class="form-label user__font">Status*</label>
+                            <select  [(ngModel)]="newProvider.status"   [class.border-danger] = "!newProvider.status" id="provider_status" class="form-control user__font">
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+
+
+
+                            </select>
+
+                            </div>
+
+                        </div>
+    
+
+                    </div>
+                    <div class="d-flex mt-5">
+                        <button mdbBtn color="primary" id="add_user" (click)="submit()" class="btn btn-active" type="button">
+                            Save
+                            <span *ngIf="apihit" class="spinner-border" role="status" aria-hidden="true"></span>
+                        </button>
+                        
+                    </div>
+                   
+
+                    
+                 
+
+                    <header class="header-div">
+                        <h1 class="header-label">APIs</h1>
+                        
+                    </header>
+
+
+                    <form  #serviceForm = "ngForm" class="user__Form container mt-3">
+                        <input type="submit" value="Add API" *ngIf="this.isButtonVisible" class="btn btn-active" id="add_user" [disabled]="isDisabled" (click)="addService()" />
+                     
+
+                        <section class="container border mb-4 p-3" *ngFor="let service of services; let i = index;" >
+                            <div  class="row">
+                                <div class="col-6">
+
+                                    <h4>API {{i + 1}}</h4>
+
+                                </div>
+                                <div class="col-6 text-right">
+                                    <button class="btn"><i class="fa fa-trash"style='font-size:20px;color:red' (click)="removeAddress(i, service)"></i></button>
+                                </div>
+
+                            </div>
+
+                            <div class="row mt-4 gx-5">
+                                <div class="col-md-3 mt-auto">
+
+                                    <div class="form-group">
+                                        <label class="">API Name*</label>
+                                        <input class="form-control user__font" placeholder="Api Name"  [class.border-danger] = "!service.apiName" type="text" [(ngModel)]="service.apiName"
+                                        [name]="'name' +i">
+
+                                    </div>
+
+                                    
+
+                                </div>
+                                <div class="col-md-3 mt-auto ">
+
+                                    <div class="form-group">
+                                        <label class="">API Cost*</label>
+                                         <input class="form-control user__font"  onkeypress="return /[0-9]/i.test(event.key)" placeholder="Api Cost" [class.border-danger] = "!service.apiCost" type="text" [(ngModel)]="service.apiCost"
+                                         [name]="'cost' +i">
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-3 "> 
+                                    <div>
+
+                                   
+                                    <label>API Price*</label>
+                                    <input class="form-control user__font"  onkeypress="return /[0-9]/i.test(event.key)" placeholder="Api Price" [class.border-danger] = "!service.apiPrice" type="text" [(ngModel)]="service.apiPrice"
+                                    [name]="'price' +i">
+
+                                    </div>
+
+                                </div>
+
+                               
+                                <div class="col-md-3 "> 
+                                    <div>
+                                        
+                                   
+                                    <label>Status*</label>
+                                    <select [name]="'status' +i" [(ngModel)]="service.status" [class.border-danger] = "!service.status" id="service_status" class="form-control user__font">
+                                        <option value="1">Active</option>
+                                        <option value="0">Inactive</option>
+
+
+
+                                    </select>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-3 "> 
+                                    <div>
+                                        
+                                   
+                                    <label>Master Services*</label>
+                                    <select [name]="'serviceMasterId' +i" [(ngModel)]="service.serviceMasterId" [class.border-danger] = "!service.serviceMasterId" id="service_master" class="form-control user__font">
+                                        <option value="">--Select Service--</option>
+                                        <option *ngFor = "let ser of displayAllServices" [ngValue]="ser.serviceMasterId">{{ser.serviceAlias}}</option>
+
+
+
+                                    </select>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                           
+                         
+
+
+                        </section>
+
+
+
+
+
+                    </form>
+
+                   
+
+
+            </section>
+
+
+
+
+
+
+        </main>
+
+
+
+
+
+

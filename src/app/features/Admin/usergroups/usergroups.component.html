@@ -1,0 +1,165 @@
+
+
+        <main class="main" >
+            <section class="form-div">
+
+
+
+                <header class="header-div">
+                    <h1 class="header-label">Add Groups</h1>
+
+                </header>
+
+                <div
+                    id="errorLabel"
+                    class="alert alert-danger text-center"
+                    *ngIf = "groupMsgs"
+                    >
+                    {{msg}}
+                </div>
+                <div
+                    id="errorLabel"
+                    class="alert alert-success text-center"
+                    *ngIf = "userGroupMsgs"
+                    >
+                    {{msg}}
+                </div>
+                <form class="user_form container">
+
+
+                    <div class="row mt-4 gx-5">
+                        <div class="col-md-4 mt-auto" >
+                            <label
+                            for="user-Fname"
+                            class="form-label user__font fw-bold"
+                            >Group Name*</label
+                            >
+
+                            <input
+                            type="text"
+                            class="form-control user__font"
+                            placeholder="Group Name"
+                            [class.border-danger] = "!groups.name"
+                            id="user-Fname"
+                            name="firstName"
+                            [(ngModel)]="groups.name"
+                            onkeypress="return /[a-z]/i.test(event.key)"
+
+                            />
+
+                        </div>
+
+                        <div class="col-md-4 mt-auto" >
+                            <label
+                            for="user-gr"
+                            class="form-label user__font fw-bold"
+                            >Description*</label
+                            >
+                            <input
+                            type="text"
+                            class="form-control user__font"
+                            placeholder="Description"
+                            id="user-Lname"
+                            name="description"
+                            [(ngModel)]="groups.description"
+                            [class.border-danger] = "!groups.description"
+
+
+                            />
+
+                        </div>
+
+                        <div class="col-md-4 mt-auto" >
+                            <label
+                            for="user-group"
+                            class="form-label user__font fw-bold"
+                            >Status*</label
+                            >
+                            <select name="userType" [(ngModel)]="groups.status"   [class.border-danger] = "!groups.status"  id="user-userType" class="form-control user__font">
+                                <option value="" disabled>--Select--</option>
+                                <option value = "E">Enable</option>
+                                <option value="Y">Disable</option>
+
+
+                            </select>
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class=" mt-5">
+                        <input type="submit" value="{{btnCheck}}" class="btn btn-active" id="add_user" (click)="submit()"/>
+
+                    </div>
+
+                    <header class="header-div">
+                        <h1 class="header-label">Groups</h1>
+
+                    </header>
+
+
+                    <mat-form-field fxFlex="40%">
+                        <input matInput class="asas" type="text" (keyup)="doFilter($event.target.value)" >
+                        <mat-placeholder class="placeholder">Search</mat-placeholder>
+                      </mat-form-field>
+
+                    <table mat-table [dataSource]="dataSource" matSort matSortStart="desc" class="table table-striped table-responsive-md btn-table">
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="name">
+                          <th mat-header-cell *matHeaderCellDef> Name </th>
+                          <td mat-cell *matCellDef="let element" > {{element.name}} </td>
+                        </ng-container>
+
+                         <!-- Name Column -->
+                         <ng-container matColumnDef="Description">
+                            <th mat-header-cell *matHeaderCellDef> Description </th>
+                            <td mat-cell *matCellDef="let element" > {{element.Description}} </td>
+                          </ng-container>
+
+                        <!-- Status Column -->
+                        <ng-container matColumnDef="Status">
+                          <th mat-header-cell *matHeaderCellDef > Status </th>
+                          <td mat-cell *matCellDef="let element" >  {{element.Status}} </td>
+
+                        </ng-container>
+
+                          <!-- Action Column -->
+                          <ng-container matColumnDef="Action">
+                            <th mat-header-cell *matHeaderCellDef> Action </th>
+                            <td mat-cell *matCellDef="let element" >  <button class="btn"><i class='fa fa-edit' style='font-size:20px;color: green;' (click)="editUser(element)"></i></button>
+                                <button class="btn"><i class="fa fa-trash"style='font-size:20px;color:red' (click)="deleteUser(element)"></i></button> </td>
+
+                          </ng-container>
+
+                           <!-- Action Column -->
+                           <ng-container matColumnDef="Menus">
+                            <th mat-header-cell *matHeaderCellDef> Group Menu </th>
+                            <td mat-cell *matCellDef="let element" >  <button class="btn"><i class="fa fa-eye" style="font-size:24px" (click) = "editMenus(element)"></i></button>  </td>
+
+                          </ng-container>
+
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      </table>
+
+                      <i class="fa fa-spinner fa-spin spinner" *ngIf="loading"></i>
+
+                      <mat-paginator [pageSizeOptions]="[15, 30, 50]" showFirstLastButtons></mat-paginator>
+
+
+                </form>
+
+
+
+
+
+
+
+            </section>
+
+        </main>

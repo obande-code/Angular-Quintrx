@@ -1,0 +1,138 @@
+
+
+
+
+
+.main {
+    padding: 30px 0 50px 0;
+  }
+
+.header__heading {
+    margin-top: 5%;
+    background-color: #006b7f;
+    
+   
+    
+    
+  }
+  .consent__heading {
+    text-align: center;
+    color : white;
+}
+.userData {
+    padding: 5px 50px;
+}
+.main {
+  background-image: white;
+}
+.main__user {
+    margin: auto;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 10px 13px 36px rgba(0, 0, 0, 0.33);
+    padding: 30px;
+    width: 70%;
+    
+  }
+  .user__submit1 {
+      width: 50%;
+      border: none;
+      background-color: rgb(107, 189, 107);
+      border-radius: 5px;
+      
+  }
+
+  .user__submit2 {
+    width: 50%;
+    background-color: rgb(207, 48, 48);
+    border-radius: 5px;
+    border: none;
+    
+    
+}
+  .user__submit {
+    border: none;
+    outline: none;
+    font-size: 1rem !important;
+    margin: 1rem auto;
+    border-radius: 5px;
+    padding: 5px 50px;
+    font-size: 1rem;
+    color: white;
+    background-color: #006b7f;  }
+  
+  .user__submit:hover {
+    opacity: 0.8;
+    background-color: #2196F3;
+  }
+
+
+    
+table {
+  width: 100%;
+  background-color: white;
+  
+  }
+
+  .mat-cell {
+    color: black;
+}
+
+.userHover:hover {
+  background-color: #2196F3;
+}
+.mat-header-cell {
+  color: black;
+  background-color: #73CEBF;
+  color: white;
+  
+  font-size: large;
+  padding-bottom: 2%;
+}
+.mat-form-field {
+  color: black;
+}
+
+.dbody:hover {
+  background-color: #73CEBF;
+}
+
+
+
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: green !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: black !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: green !important;;
+}
+
+.placeholder {
+  color: black;
+}
+.mat-paginator {
+background-color: white;
+color: black;
+
+}
+
+::ng-deep .mat-select-value {
+
+color: black;
+
+}
+
+::ng-deep .mat-option-text {
+
+color: black;
+
+
+}

@@ -1,0 +1,165 @@
+<main class="main">
+  <div class="row mx-0 align-items-center">
+  <div class="col-md-10 col-lg-3 pt-5">
+    <img src="./assets/images/logo.png" alt="Vetzu" class="img-fluid loginLogo" />
+  </div>
+  <div class="col-md-10 col-lg-5 pt-5">
+  <section class="main__signup">
+    <div class="signup">
+      <h1 class="title-center mb-0 heading header-label">Welcome</h1>
+      <h5 class="signup__create">Create an Account</h5>
+      <div
+      class="alert alert-danger"
+      *ngIf = "userNotFoundCheck"
+    >
+      {{ userNotFound }}
+    </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="errorMessage && errorMessage.length"
+      >
+        {{ errorMessage }}
+      </div>
+
+      <form
+        class="signup__formContainer"
+        name="form"
+        th:action="@{/register}"
+        th:object="${registrant}"
+        (ngSubmit)="register()"
+      >
+        <div class="signup__fieldContainer">
+          <input
+            onkeypress="return /[a-z]/i.test(event.key)"
+            class="signup__textField form-control"
+            type="text"
+            placeholder="First Name"
+            id="firstName"
+            name="firstName"
+            [(ngModel)]="user.firstname"
+            th:field="*{firstName}"
+            [class.border-danger]="user.errors && user.errors.firstname"
+          />
+        </div>
+        <div class="signup__fieldContainer">
+          <input
+            onkeypress="return /[a-z]/i.test(event.key)"
+            class="signup__textField form-control"
+            type="text"
+            placeholder="Last Name"
+            id="lastName"
+            name="lastName"
+            th:field="*{lastName}"
+            [(ngModel)]="user.lastname"
+            [class.border-danger]="user.errors && user.errors.lastname"
+          />
+        </div>
+        <div class="signup__fieldContainer">
+          <input
+            class="signup__textField form-control"
+            type="text"
+            placeholder="Email Address"
+            id="email"
+            name="email"
+            th:field="*{email}"
+            [(ngModel)]="user.email"
+            [class.border-danger]="user.errors && user.errors.email"
+          />
+        </div>
+        <div class="signup__fieldContainer signup__password">
+          <input
+            class="signup__textField form-control"
+            [type]="showPassword ? 'text' : 'password'"
+            placeholder="Password"
+            id="password1"
+            name="password1"
+            th:field="*{password}"
+            [(ngModel)]="user.password"
+            [class.border-danger]="user.errors && user.errors.password"
+          />
+          <span (click)="showPassword = !showPassword"
+            ><i
+              style="font-size: 1.7rem"
+              class="las la-eye"
+
+              id="eye"
+            ></i
+          ></span>
+        </div>
+        <div class="signup__fieldContainer signup__password">
+          <input
+            class="signup__textField form-control"
+            [type]="showConfirmPassword ? 'text' : 'password'"
+            placeholder="Confirm Password"
+            id="password2"
+            name="password2"
+            th:field="*{password}"
+            [(ngModel)]="user.confirmPassword"
+            [class.border-danger]="user.errors && user.errors.confirmPassword"
+          />
+          <span (click)="showConfirmPassword = !showConfirmPassword"
+            ><i
+              style="font-size: 1.7rem"
+              class="las la-eye"
+
+              id="eye"
+            ></i
+          ></span>
+        </div>
+        <div class="loginBox__checkbox" id="cb" style="display: inline-block">
+          <input
+            title="Open both forms to continue"
+            style="cursor: pointer; border: 1px solid #ced4da"
+            type="checkbox"
+            id="policy"
+            name="policy"
+            [(ngModel)]="user.policy"
+            [class.border-danger]="user.errors && user.errors.policy"
+            [disabled]="!isPolicySeen || !isTermsSeen"
+          />
+          <span
+            class="loginBox__checkbox--label font-weight-bold"
+            for="checkbox"
+          >
+            I understand and agree to the
+
+            <button
+              type="button"
+              class="pdfbtn p-0 m-1"
+              (click)="openTermsModal()"
+            >
+              Terms of Use
+            </button>
+            and
+            <button
+              type="button"
+              class="pdfbtn p-0 m-1"
+              (click)="openPrivacyModal()"
+            >
+              Privacy Policy
+            </button>
+          </span>
+        </div>
+
+        <div class="button">
+          <button
+          type="submit"
+          name="signup_vetzu"
+          class="btn btn-signup"
+
+
+
+          >Sign Up
+          <div class="loader" *ngIf="isLoading$"></div>
+
+
+        </button>
+
+        </div>
+
+      </form>
+    </div>
+  </section>
+</div>
+</div>
+</main>

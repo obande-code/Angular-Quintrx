@@ -1,0 +1,349 @@
+<main class="main">
+	<section class="form-div">
+
+    	<div class="consent">
+            <header class="header-div">
+              <h1 class="header-label">Edit Profile Details</h1>
+            </header>
+
+            <div class="alert alert-success text-center" *ngIf = "showSucMsg">
+              {{ successMessage }}
+            </div>
+            <div class="alert alert-danger text-center" *ngIf = "showErrorMsg">
+              {{ errorMessage }}
+            </div>
+
+
+            <img
+
+
+
+          class="imgg1" [src]="url2" *ngIf="url2" alt="Avatar" style="width:150px" id="profIMG">
+
+          <input type="file" name="file" accept="image/*" value="file" id="pzFile" (change)="onFileChanged1($event)" class="uploadLogo"
+          placeholder="Choose Image"/>
+          <label for="pzFile"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Upload New Profile Picture</span></label>
+
+
+
+
+
+          <form
+          class="consent__form"
+          id="consent-individualForm"
+          >
+
+
+            <div class="row gx-5">
+              <div class="col-md-4">
+
+                <label
+                  for="consent-Fname"
+                  class="form-label consent__font fw-bold"
+                  >First Name</label>
+                <input
+                  onkeypress="return /[a-z]/i.test(event.key)"
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="First Name"
+                  id="Fname"
+                  name="indFname"
+                  [(ngModel)]="userDetailsInd.firstname"
+
+              	/>
+
+              </div>
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-Lname"
+                  class="form-label consent__font fw-bold"
+                  >Last Name</label
+                >
+                <input
+                  onkeypress="return /[a-z]/i.test(event.key)"
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="Last Name"
+                  id="consent-ILname"
+                  name="indLname"
+                  [(ngModel)]="userDetailsInd.lastname"
+                />
+              </div>
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-Email"
+                  class="form-label consent__font fw-bold"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  class="form-control consent__font"
+                  placeholder="Email Address"
+                  id="consent-IEmail"
+                  name="indEmail"
+                  [(ngModel)]="userDetailsInd.email"
+                />
+
+              </div>
+            </div>
+            <div class="row mt-4 gx-5">
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-Adress"
+                  class="form-label consent__font fw-bold"
+                  >Address</label
+                >
+                <input
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="Street Name"
+                  id="consent-IAddress"
+                  name="indStreet"
+                  [(ngModel)]="userDetailsInd.address"
+
+                />
+              </div>
+              <div class="col-md-4 mt-auto">
+                <input
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="Suite/Appt. #"
+                  id="consent-ISuite"
+                  name="indSuite"
+                  [(ngModel)]="userDetailsInd.aptSuite"
+
+                />
+
+              </div>
+
+
+              <div class="col-md-4 mt-auto">
+                <input
+                  type="number"
+                  class="form-control consent__font"
+                  placeholder="Zip Code"
+                  id="consent-IZip"
+                  name="indZip"
+                  [(ngModel)]="userDetailsInd.zipcode"
+
+                />
+
+              </div>
+            </div>
+          </form>
+
+          <form
+          class="consent__form"
+          style="display: visible;"
+          id="consent-companyForm"
+          >
+
+              <div class="row mt-4 gx-5">
+                <div class="col-md-4 mt-auto" >
+                  <h2>Company Details</h2>
+                  <label
+                    for="consent-companyName"
+                    class="form-label consent__font fw-bold"
+                    >Company Registered Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control consent__font"
+                    placeholder="ABC pvt ltd"
+                    id="consent-companyName"
+                    name="companyName"
+                    [(ngModel)]="userDetailsComp.companyRegisteredName"
+                  />
+                </div>
+                <div class="col-md-4 mt-auto">
+                  <label
+                    for="consent-idNumber"
+                    class="form-label consent__font fw-bold"
+                    >Employer Identification #</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control consent__font"
+                    placeholder="xx-xxxxx"
+                    id="consent-idNumber"
+                    name="employerVID"
+                    [(ngModel)]="userDetailsComp.employerIdentificationNumber"
+                  />
+                </div>
+
+              </div>
+            <div class="row mt-4 gx-5">
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-ContactFName"
+                  class="form-label consent__font fw-bold"
+                  >Contact First Name</label
+                >
+
+                <input
+                  type="text"
+                  onkeypress="return /[a-z]/i.test(event.key)"
+                  class="form-control consent__font"
+                  placeholder="First Name"
+                  id="consent-ContactFName"
+                  name="CntctPerFname"
+                  [(ngModel)]="userDetailsComp.contactPersonFirstname"
+
+                />
+              </div>
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-ContactLName"
+                  class="form-label consent__font fw-bold"
+                  >Contact Last Name</label
+                >
+                <input
+                  onkeypress="return /[a-z]/i.test(event.key)"
+                  type="text"
+                  class="form-control consent__font"
+                  id="consent-ContactLName"
+                  placeholder=""
+                  name="CntctPerLname"
+                  [(ngModel)]="userDetailsComp.contactPersonLastname"
+
+                />
+              </div>
+            </div>
+            <div class="row mt-4 gx-5">
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-ContactEmail"
+                  class="form-label consent__font fw-bold"
+                  >Contact Email</label
+                >
+                <input
+                  type="email"
+                  class="form-control consent__font"
+                  id="consent-ContactEmail"
+                  placeholder="Email Address"
+                  name="CntctPerEmail"
+                  [(ngModel)]="userDetailsComp.contactPersonEmail"
+
+                />
+              </div>
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-CPhone"
+                  class="form-label consent__font fw-bold"
+                  >Phone Number</label
+                >
+                <input
+
+                  type="number"
+                  class="form-control consent__font"
+                  id="consent-CPhone"
+                  placeholder="Phone Number"
+                  name="PhoneNum"
+                  [(ngModel)]="userDetailsComp.contactPersonPhone"
+                />
+              </div>
+            </div>
+            <div class="row mt-4 gx-5">
+              <div class="col-md-4">
+                <label
+                  for="consent-Adress"
+                  class="form-label consent__font fw-bold"
+                  >Address</label
+                >
+                <input
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="Street Name"
+                  id="consent-Address"
+                  value="1"
+                  name="streetN"
+
+                />
+              </div>
+              <div class="col-md-4 mt-auto">
+                <input
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="Suite/Appt. #"
+                  id="consent-SuiteN"
+                  name="suiteN"
+
+                />
+              </div>
+              <div class="col-md-4 mt-auto">
+                <input
+                  type="number"
+                  class="form-control consent__font"
+                  placeholder="Zip Code"
+                  id="consent-Zip"
+                  name="zipCode"
+
+                />
+              </div>
+
+
+
+            </div>
+            <div class="row mt-4 gx-5">
+
+              <div class="col-md-4 mt-auto">
+
+
+                <ng-template #itemTemplate let-item >
+                  <a [innerHTML]="item.name"></a>
+                </ng-template>
+
+                <ng-template #notFoundTemplate let-notFound>
+                  <div [innerHTML]="notFound"></div>
+                </ng-template>
+              </div>
+
+
+              <div class="col-md-4 mt-auto">
+
+
+                <ng-template #itemTemplate let-item>
+                  <a [innerHTML]="item.name"></a>
+
+                </ng-template>
+
+                <ng-template #notFoundTemplate let-notFound>
+                  <div [innerHTML]="notFound"></div>
+                </ng-template>
+                </div>
+
+
+
+                <div class="col-md-4 mt-auto" >
+
+                <ng-template #itemTemplate let-item>
+                  <a [innerHTML]="item.name" ></a>
+
+                </ng-template>
+
+                <ng-template #notFoundTemplate let-notFound>
+                  <div [innerHTML]="notFound"></div>
+                </ng-template>
+                  </div>
+
+
+
+            </div>
+            <div class="d-flex mt-5 button">
+              <!-- <input type="submit" value="Submit" class="btn btn-active" id="consent-companySubmit" (click)="submitCompany()" /> -->
+
+
+              <button type="submit"class="btn btn-active" (click)="updateUserDetails()">Update
+
+                <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+
+
+
+              </button>
+
+            </div>
+          </form>
+        </div>
+
+      </section>
+    </main>

@@ -1,0 +1,1171 @@
+<div class="modal-body">
+<div id="document" class="main-doc">
+   <div class="modal-header">
+      <img src="./assets/images/terms-banner.png" alt="Vetzu"/>
+      <!-- <h5 class="modal-title">Terms of use</h5> -->
+      <button type="button" class="btn" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+      </button>
+   </div>
+   <div class="modal-body" contentEditable="false" #document>
+      <!-- <ngx-doc-viewer
+         [url]="_ClientDocumentBllService.selectedDocument" [viewer]="viewer" style="width:100%;height:100%;"
+         overrideLocalhost="localhost:4200" disableContent="none"
+         ></ngx-doc-viewer> -->
+      <!-- First document -->
+      <div  id="document1" *ngIf="type === 0" _ngcontent-pll-c113="">
+         <strong>CBSV Addendum</strong>
+         <p>This Supplement  to Vetzu’s Master Services Agreement dated <strong>{{myDate | date:'MM-dd-yyyy'}}</strong>
+            (<strong>“MSA”</strong>)
+         </p>
+         is made on: <strong>{{myDate | date:'MM-dd-yyyy'}}</strong> (“<strong>Effective Date</strong>”), by and between Vetzu Inc, an Illinois corporation, located at 1700 Park Street, Suite 212, Naperville, IL- 60563 (“<strong>Vetzu</strong>” ), and: <strong>{{name}}</strong>
+         “<strong>Client</strong>,” a <input type="text"> corporation, with its office at <strong>: {{address}}</strong>.
+         <p> </p>
+         <p>This Content Based Social Security (CBSV) Addendum serves as a supplement to the parties’ MSA and does not modify, amend, or delete any existing terms therein, except as expressly set forth in this Agreement.</p>
+         <p><strong>NOW THEREFORE, </strong>for good and valuable consideration by both parties, the receipt and sufficiency of which is hereby acknowledged, the Parties hereby agree as follows:</p>
+         <p>Client requests to receive Consent Based Social Security Verification (CBSV) as part of the consumer report being delivered, and therefore, Client shall agree as follows:</p>
+         <ol>
+            <li>Client certifies that it will request, receive and use the Services in compliance with the FCRA and other applicable laws. </li>
+            <li>Client understands and acknowledges that Section 1140 of the Social Security Act authorizes the Social Security Administration (“SSA”) to impose civil monetary penalties on any person who uses the words “Social Security” or other program-related words, acronyms, emblems and symbols in connection with an advertisement, solicitation or other communication, “in a manner which such person knows or should know would convey, or in a manner which reasonably could be interpreted or construed as conveying, the false impression that such item is approved, endorsed, or authorized by the Social Security Administration ”.</li>
+            <li>Client understands Client, and any of its agents or end- user(a business organization or institution that is the original requesting source for the SSN verification by a contractual relationship with Client), is SPECIFICALLY PROHIBITED from using the words “Social Security” or other CBSV program-related words, acronyms, emblems and symbols in connection with an advertisement for “identity verification.” Client represents and certifies that under no circumstances shall Client, nor any of its agents or end-users, use the words “Social Security” or other CBSV program-related words, acronyms, emblems and symbols in connection with an advertisement for “identity verification.” </li>
+            <li>Client understands Client, and any of its agents or end-users, is SPECIFICALLY PROHIBITED from advertising that SSN verification provides or serves as identity verification. Client represents and certifies that under no circumstances shall Client, nor any of its agents or end-users, advertise that SSN verification provides or serves as identity verification.</li>
+            <li>Client understands and agrees the SSA has the right of access to all books and records of the Client, or agents or end-users, associated with the CBSV program at any time. Client shall fully cooperate with SSA.</li>
+            <li>Client understands and acknowledges that SSA will verify social security numbers (“SSNs” or “SSN”) solely for the purposes specified on the individual Consent Forms associated with the verification requests. Client certifies that Client shall use the verified SSN only for the purpose(s) specified by the Client and shall make no further use or re- disclosure of the verified SSN. Client shall ensure that its employees use the verified SSN for no other purpose. Client understands and acknowledges exceeding the scope of the consent as specified in the signed Consent Form violates state or Federal law and subjects the Client to civil and criminal liability. SSA recognizes that the Client may seek verification of the Client’s SSN on behalf of a principal or end-user pursuant to the terms of the Client’s Consent Form. In this case, the Client shall ensure that the principal or end-user agrees in writing to use the verification only for the purpose stated in the Consent Form, and make no further use or re-disclosure of the verified SSN.</li>
+            <li>Client understands and acknowledges the information obtained from records maintained by SSA is protected by federal statutes and regulations, including 5 u.s.c. § 552a(i)(3) of the privacy act. Vetzu shall have no liability for any fines or penalty imposed on the Client pursuant to these provisions.</li>
+            <li>Client understands and agrees Client shall be entirely responsible for its use, and that of its end-users, use of the Services. Client agrees to indemnify, defend and hold harmless Vetzu from and against any and all claims, liabilities, judgments, penalties, losses, costs, damages and expenses, including reasonable attorneys' fees, of whatsoever kind or nature, arising by reason of or in connection with any act under or in violation of this Addendum or resulting from the use, disclosure, sale or transfer of the Services or by virtue of Client’s, or its end-user’s, use of the Services or any information obtained from Services or through use of the Services, either directly or indirectly.</li>
+            <li>Client understands and agrees that Personally Identifiable Information (PII) is defined as any information about an individual maintained by an entity, including any information that can be used to distinguish or trace an individual’s identity, such as name, SSN, date and place of birth, mother’s maiden name, or biometric records; and any other information that is linked or linkable to an individual, such as medical education, financial, and employment information.</li>
+            <li>Client understands and agrees that Client shall establish, maintain, and follow its own policy and procures to protect PII, including policies and procedures for reporting lost or compromised, or potentially lost or compromised PII. The Client shall inform its end-users which handle PII of their individual responsibility to safeguard such information. In addition, the Client shall, within reason, take appropriate and necessary action to: (1) educate its end-users on the proper procedures designed to protect PII; and (2) enforce their compliance with the policy and products prescribed. Client shall properly safeguard PII from loss, theft, or inadvertent disclosure. Client is responsible for safeguarding this information at all times, regardless of whether or not the user is at his or her regular duty station.</li>
+            <li>
+               Client understands and agrees that Client or its end-users becomes aware or suspects that PII has been lost, compromised, or potentially compromised, the Client, in accordance with its incident reporting process, shall provide immediate notification of the incident to Vetzu. The Client shall ensure that it or its end-users has been given information as to who the primary and alternate SSA contacts are and how to contact them. The Client has provided the primary SSA contact or the alternate as applicable with updates on the status of the reported PII or loss or compromise as they become available bust shall not delay the initial report. The Client shall provide complete and accurate information about the details of the possible PII loss to assist the
+               <p></p>
+               SSA contact/alternate, including the following information:
+               <ol>
+                  <li>Contact information;</li>
+                  <li>Description of the loss, compromise, or potential compromise (i.e., nature of loss/compromise/potential compromise, scope, number of files or records, type of equipment or media, etc.,) including the approximate time and location of the loss;</li>
+                  <li>A description of safeguards used, where applicable (e.g., locked briefcase, redacted personal information, password protection, encryption, etc.);</li>
+                  <li>Name of SSA employee contacted;</li>
+                  <li>Whether the Client or the Authorized User has contacted or been contacted by external organizations (i.e., other agencies, law enforcement, press, etc.);</li>
+                  <li>Whether the Client or the Authorized User has filed any other reports (i.e., Federal Protective Service, local police, and SSA reports); and</li>
+                  <li>Any other pertinent information.</li>
+               </ol>
+            </li>
+            <li>Client understands and agrees that neither Client, nor its end-users, shall request CBSV searches unless Client has accepted this Agreement.</li>
+         </ol>
+         <p>Except as provided herein or modified hereby, all terms, covenants and conditions of the MSA remain unchanged. To the extent any provision in this Addendum conflicts with any similar provision in the MSA, the terms set forth on this Addendum shall control. </p>
+         <div class="header1">
+            <p>
+               <strong class="header">FOR CLIENT :</strong>
+            </p>
+         </div>
+         <!-- <p>Authorized Client Representative Signature:{{signature}} </p> -->
+         <!-- <div>
+            <p>Staff Signature</p>
+            <input [(ngModel)]="staffSignature" />
+            </div> -->
+      </div>
+      <!-- Second Document -->
+      <div id="document2" *ngIf="type === 1" _ngcontent-wta-c113="">
+         <p><strong>Substance Abuse Testing Services (SAT) Addendum</strong></p>
+         <p>THIS Substance Abuse Testing Third Party Administrator Services Addendum  is entered on: <strong>{{myDate | date:'MM-dd-yyyy'}}</strong> (“<strong>Effective Date</strong>”), </p>
+         by and between Vetzu Inc, an Illinois corporation, located at 1700 Park Street, Suite 212, Naperville, IL- 60563 (“<strong>Vetzu</strong>”), and: <strong>{{name}} </strong>  “<strong>Client</strong>,” a <input type="text"> corporation, with its office at <strong>: {{address}}</strong>.
+         <p>This SAT Addendum serves as a supplement to the parties’ Master Services Agreement (“<strong>MSA</strong>”) dated <strong>{{myDate | date:'MM-dd-yyyy'}}</strong> and does not modify, amend, or delete any existing terms therein, except as expressly set forth in this SAT Addendum. Unless as otherwise provided herein, capitalized terms in this SAT Addendum shall have the same meaning as set forth in the MSA. </p>
+         <ol>
+            <li><strong>SERVICES</strong></li>
+         </ol>
+         <p>Upon Client’s request and subject to the terms and conditions of the MSA, including this SAT Addendum and any pricing documents between the parties, Vetzu agrees to provide or facilitate the provision of substance abuse (i.e., drug and alcohol) testing, medical review officer (“<strong>MRO</strong>”) and related program administration and other services, in connection with Client’s screening of Applicant(s). All reports and screening results, regardless of format, provided by Vetzu to Client pursuant to this SAT Addendum are Screening Report(s). Client hereby certifies that all of its orders for Screening Report(s) from Vetzu shall be made, and the resulting reports shall be used, for Fair Credit Reporting Act, permissible purposes only. References to “Screening Report” may refer to an entire Screening Report for an Applicant, as well as any and all specific information contained in such Screening Report. Client acknowledges and agrees that a Client-ordered Screening Report may be combined with one (1) or more Client-ordered Screening Report(s) and the result may be one (1) Screening Report for an Applicant. Client further acknowledges and agrees that certain products and Services hereunder may be provided by or through Vetzu’s affiliates and/or subsidiaries and/or third party vendors. </p>
+         <p>As a condition precedent to receiving the Services under this SAT Addendum, Client agrees to, in all situations where legally required, (a) maintain and distribute a written drug and alcohol testing policy, and only conduct drug and alcohol testing with respect to Applicants in a manner consistent with such policy and applicable Laws, and/or (b) obtain legally compliant written consents and releases from each Applicant for employment, authorizing Vetzu (as an agent) to receive their individual test results directly from the laboratory or clinic administering such tests on behalf of Client. Client represents and warrants that to the extent legally required, its written drug and alcohol testing policy was in effect and/or all such consents were obtained prior to requesting Vetzu (and its relevant third party vendors) to provide Services hereunder.</p>
+         <p>Vetzu will maintain reasonable procedures designed to properly transmit test results to Client, but Client acknowledges and agrees that for the fee charged, Vetzu does not in any way warrant, certify, or guarantee the accuracy of any test result reported, and that Vetzu is operating only as a distributor of products and services and does not in any way warrant the products or Services or any specific use thereof.  Accordingly, in the event Client conclusively determines that test results provided by Vetzu hereunder were transmitted or communicated incorrectly by Vetzu, Client’s sole and exclusive remedy from Vetzu shall be for such test results to be re-transmitted or re-communicated to Client properly. </p>
+         <ol>
+            <li>
+               <strong>CLIENT OBLIGATIONS </strong>
+               <ol>
+                  <li>Regulatory Compliance: Client shall be responsible for identifying and complying with all Laws applicable to Client in connection with its obligations in this SAT Addendum, including but not limited to those affecting the circumstances in which Applicants may be tested, those related to making appropriate disclosures and those related to obtaining appropriate consent from each Applicant as part of the testing process. </li>
+                  <li>Authorization for Additional Testing: Client authorizes Vetzu, in its good faith discretion, to request specific information from any individual and/or to order additional tests as necessary or appropriate and related to tests performed for Client. Client agrees to pay for additional costs, fees and expenses related to such information requests or additional testing performed. </li>
+                  <li>Delayed Results: Client acknowledges that performance of necessary verification procedures may be dependent upon cooperation by Client representatives, tested Applicants, personal physicians and/or health care providers that may possess relevant information. Client agrees that Vetzu shall have no responsibility for Services or service levels that are delayed or cannot be provided due to lack of such cooperation.</li>
+                  <li>Disclosure/Authorization Retention: Client shall keep and maintain copies of all Applicant disclosure and authorization forms and Applicant notices for a minimum period of five (5) years (or such longer period as may be required by applicable Laws) and Client shall promptly make available to Vetzu for compliance review purposes such records and other documentation reasonably requested.</li>
+               </ol>
+            </li>
+            <li>
+               <strong>VETZU OBLIGATIONS </strong>
+               <ol>
+                  <li>Regulatory Compliance: Vetzu shall be responsible for identifying and complying with all Laws applicable to Vetzu in connection with its obligations in this SAT Addendum. Vetzu may act as a Third Party Administrator (“<strong>TPA</strong>”) as that term is defined by the U.S. Department of Transportation (“<strong>DOT</strong>”) in administering Client’s drug and alcohol testing program and will comply with DOT regulations to the extent applicable in fulfilling its obligations in this SAT Addendum.</li>
+                  <li>Medical Review Officer:  MRO services provided under this SAT Addendum shall be performed in accordance with Client-specific requirements, if any.</li>
+                  <li>Vetzu will use reasonable efforts to promptly report non-negative test results after receiving all necessary testing results and documentation required for reporting.</li>
+                  <li>If applicable, test information maintained by Vetzu for DOT testing programs will be provided to Client for its use in completing the DOT Drug and Alcohol Testing MIS Data Collection Form.</li>
+                  <li>Except as otherwise required or authorized by applicable Laws, Vetzu will not release individual test results to any person without first obtaining specific written authorization from the tested Applicant; provided, however, that nothing in this paragraph shall prohibit Vetzu from releasing such information to: (a) Client or its agents; (b) any federal, state, or local agency with regulatory authority over Client’s testing program, the tested individual, or as part of an accident investigation, etc.; (c) comply with its legal obligations related to requests resulting from legal action initiated by an Applicant, including but not limited to lawsuits, unemployment hearings, workers’ compensation hearings, or grievances; or (d) in response to court orders or valid subpoenas.</li>
+               </ol>
+            </li>
+            <li><strong>SIGNATURE AUTHORITY</strong></li>
+         </ol>
+         <p>Each party represents that it has caused this SAT Addendum to be executed on its behalf as of the date written below by a representative empowered to bind that party with respect to the obligations in this SAT Addendum.</p>
+         <div class="header1">
+            <p>
+               <strong class="header">FOR CLIENT :</strong>
+            </p>
+         </div>
+         <!-- <div class="header2">
+            <p>
+              <strong class="header">FOR VETZU :</strong>
+            </p>
+            </div> -->
+      </div>
+      <!-- Third Document -->
+      <div id="document3" *ngIf="type === 2" _ngcontent-nde-c113="">
+         <p><a></a><strong>Master Services Agreement</strong></p>
+         <p>THIS MASTER SERVICES AGREEMENT (“<strong>Agreement</strong>”) is entered into on <strong>{{myDate | date:'MM-dd-yyyy'}}</strong> (“<strong>Effective Date</strong>”),</p>
+         by and between Vetzu Inc, an Illinois corporation, located at 1700 Park Street, Suite 212, Naperville, IL- 60563 (“<strong>Vetzu</strong>”), and <strong>{{getLabel('corporation')}} </strong> “<strong>Client</strong>,” a <strong>{{getLabel('office')}}</strong>. The Client is engaged in the business of providing <strong >{{getLabel('providing')}}</strong>.
+         <p>The parties hereto agree as follows:</p>
+         <p>In performing its services under this Agreement, Vetzu may be deemed to be a “consumer reporting agency” pursuant to the Fair Credit Reporting Act, 15 U.S.C. § 1681 et seq. (the “<strong>FCRA</strong>”);  </p>
+         <p>Vetzu is in the business of providing employment “<strong>Screening Report(s)</strong>,” which may be deemed under the FCRA and applicable state law to be “consumer report(s)” and/or “investigative consumer report(s),” and related services to its clients; </p>
+         <p>Vetzu offers to provide Screening Report(s) and “<strong>Services</strong>,” as such services are described in this Agreement, including in one (1) or more exhibit(s) agreed to between the parties, which may be called “<strong>Scope of Services and/or Pricing</strong>,” or a similar variation (Each is an “<strong>Exhibit A</strong>,” which may be superseded by a more recent Exhibit A as set forth therein.), to Client ; and,</p>
+         <p>Subject to the terms and conditions set forth in this Agreement and its exhibits and any addenda, at the request of Client (the subscriber of the services), Vetzu shall provide Screening Report(s) of Client  job applicant(s), employee(s), contractor(s), volunteer(s), and/or other person(s) (“<strong>Applicant(s)</strong>”) and Services to Client .  The Client would fill an application as set out in “<strong>Exhibit B</strong>”</p>
+         <ol>
+            <li>
+               <strong>CLIENT  OBLIGATIONS </strong>
+               <ol>
+                  <li>Type of Business: Client warrants that the nature of its business is not a credit repair company/clinic, private detective, private detective agency, attorney service, bail bondsman, law firm, credit counseling firm, financial counseling firm, pawn shop, check cashing, genealogical or heir research firm, dating service, massage or tattoo service, business that operates out of a residence, an individual seeking information for their private use, an adult entertainment service, companies that locate missing children, companies that handle third party repossession, company seeking information in connection with time shares or subscriptions, company or individual involved in spiritual counseling, or any person or entity that is not an end user. Client  agrees to participate in an onsite inspection to verify the legitimacy of the business in the account set up phase. Client  shall bear the cost of the inspection.</li>
+                  <li>Account Maintenance: Client  shall designate a main contact to execute Client  account management duties, including without limitation: (a) serving as Client ’s contact person for Vetzu to communicate changes in service; (b) being responsible for the strict administration and control of Client ’s account; and (c) promptly notifying Vetzu if Client  believes it has failed to fulfill any obligations in this Agreement including without limitation, those obligations related to confidentiality, consumer privacy, data protection, or compliance with Laws. </li>
+                  <li>Legally Permissible Employment Purpose: Client  certifies that Screening Reports will be ordered only when intended to be used for the permissible purpose of establishing an Applicant’s eligibility for employment, which includes, but is not limited to, (a) initial employment; (b) promotion; (c) reassignment; and/or (d) retention as an employee; as defined by FCRA § 603(h) and/or (e) an employee investigation of wrongdoing described in FCRA § 603(y). Client  end user will certify the specific permissible purpose at the time each Screening Report is requested. </li>
+                  <li>Ongoing Compliance with FCRA and other Applicable Laws: In using Vetzu’s Screening Reports and Services, Client  is considered an “end user” and/or “user” of consumer reports and/or investigative consumer reports under the FCRA and applicable state law. Client  agrees and certifies to comply with all applicable international, federal, state, and local statutes, regulations, and ordinances (collectively, “<strong>Laws</strong>”) that govern the use and distribution of data furnished by Vetzu, including but not limited to all provisions of the FCRA, Title VII of the Civil Rights Act of 1964, the federal Driver’s Privacy Protection Act (“<strong>DPPA</strong>”), federal Equal Credit Opportunity Act, and all state consumer report laws governing the use of credit reports, sex offender information, and restrictions in the use of criminal record information. To that end, Client  agrees to comply with and provide all statutorily required notices (including in sections 604, 606, and 615) of the FCRA or other state laws when using information products provided by Vetzu, including Screening Reports. Client  further accepts full responsibility for any and all consequences of use and/or dissemination of the Screening Reports. Client  further agrees that each Screening Report will only be used for a one-time use. Client  agrees and certifies that it is responsible for identifying and taking all steps necessary to comply with any and all Laws in connection with the procurement and use of Screening Reports and any Services ordered hereunder. Moreover, Client  acknowledges and understands that if it obtains non-U.S. information products or Services under this Agreement, Client  may have additional or different legal obligations than those described in this Agreement.</li>
+                  <li>Applicant Disputes: Client  agrees to hold the job open for all applicants that dispute results contained on their consumer report until the dispute of information has been resolved.</li>
+                  <li>Confidentiality of Screening Report Information: Client  agrees to keep all Screening Report information provided by Vetzu, including but not limited to background, substance abuse test results, or any other report, whether oral or written, strictly confidential and, except as required by law, reveal no such information to any person except the person reported on or a person whose duty requires him to participate in the decision for the transaction for which the report was ordered.</li>
+                  <li>Client expressly acknowledges and understands that Vetzu has no role in in any decision making process in relation to the Screening Report and hiring or evaluation criteria of the Client.   </li>
+                  <li>Client  Certification: Client  agrees to review and understand the requirements set forth in “<strong>Exhibit C</strong>,”<strong> Client  Certification of Additional Obligations</strong>.</li>
+                  <li>End User Certification: Client  agrees to have reasonable procedures for the fair and equitable use of background information and to secure the confidentiality of private information.  Client  agrees to review and understand the requirements of “<strong>Exhibit D</strong>,”<strong> End User Certification to Comply with Data Security &amp; FCRA Requirements</strong> and to take all reasonable measures to ensure that each and every Client  user having access to Vetzu’s system reviews, signs, and returns a completed Exhibit D to Vetzu. In addition, Client  agrees to ensure compliance with Exhibit D requirements within Client ’s company.</li>
+                  <li>Use of Email: Client  understands that e-mailing of a Screening Report is not a secure method of transmission, unless the document has been encrypted or is password protected prior to transmittal. Client  agrees to use care whenever removing a consumer report from Vetzu’s secure web portals. </li>
+                  <li>Use of Vetzu’s Web-based Services: For Client  that utilize Vetzu’s web portal to order and retrieve consumer reports, Client  certifies it will abide by all conditions covered in the end use licensing agreement required to be agreed upon during the initial login process. Additionally, for Client  that utilizes electronic systems developed by Vetzu to assist in executing its end user responsibilities, Client  certifies that its responsibility, as end user of consumer reports, is not transferred to Vetzu, and Client  remains responsible for its own compliance including the procurement of required consent, disclosure, and authorization forms and the language contained in all electronic documents utilized for this purpose. Vetzu is not responsible for the accuracy or completeness of the information submitted electronically in any of the web portal services provided by Vetzu and Client  agrees that it is responsible for maintaining complete and accurate files containing all required consent, authorization, and disclosure forms with regard to each Applicant/consumer for whom a report has been requested, and for maintaining strict security procedures and controls to assure that its personnel are not able to use Client ’s Internet access to obtain reports for improper, illegal, or unauthorized purposes.  </li>
+                  <li>Data Breach Notification: Client  will immediately notify Vetzu of a data breach occurring within Client ’s systems within 48 hours of the occurrence.</li>
+                  <li>Summary of Consumer Rights: Client s hereby acknowledges that it has received a copy of and agrees to review and understand<strong> </strong>“<strong>Exhibit E</strong>,”<strong> Summary of Consumer Rights Under the Fair Credit Reporting Act</strong>.</li>
+                  <li>Obligations of Users Under FCRA: Client  hereby acknowledges that it has received a copy of and agrees to read and understand the requirements of “<strong>Exhibit F</strong>,”<strong> Notice to Users of Consumer Reports: Obligations of Users Under FCRA</strong> and to take all reasonable measures to enforce such requirements within Client ’s company.</li>
+                  <li>Audits and Records Retention: Client  agrees to allow Vetzu to audit its processes and documentation relating to Screening Reports and Services requests under this Agreement, including but not limited to, the existence of properly executed consent, disclosure, and authorization forms as required under this Agreement, upon reasonable notice and during normal business hours. Client  shall maintain copies of all consumer authorization forms and pre-adverse and adverse communications for a period of no less than five (5) years from the date the Screening Report was received and make such information available to Vetzu upon request.</li>
+               </ol>
+            </li>
+            <li><strong>VETZU OBLIGATIONS</strong></li>
+         </ol>
+         <p>  </p>
+         <ul>
+            <li>
+               <ol>
+                  <li>Ongoing Compliance with All Applicable Laws: Vetzu shall be responsible for identifying and taking all commercially reasonable steps necessary to comply with all applicable Laws in the preparation and transmission of Screening Reports.</li>
+                  <li>Reasonable Procedures; Disclaimer of Warranty: Vetzu will follow reasonable quality assurance procedures to assure maximum possible accuracy of the information contained in a screening report and to maintain procedures designed to confirm, to the extent reasonably possible, that the reported public record information is complete and up to date. Vetzu will use its best efforts to fulfill its obligations under this agreement. However, Vetzu does not guarantee or warrant and hereby disclaims any guaranty or warranty that the information provided to client  is correct, complete, current, merchantable or fit for a particular purpose, or that the information will be available or delivered to client  at any specific time.</li>
+                  <li>Data Security: Vetzu shall use industry standard data security measures to protect all information entrusted to Vetzu by Client .</li>
+                  <li>Disputed Information: Vetzu will re-verify at no cost any disputed report when either Client  or Applicant makes a request in accordance with applicable law. Vetzu shall respond in writing on a timely basis.</li>
+               </ol>
+            </li>
+         </ul>
+         <ol>
+            <li>
+               <strong>SERVICE REPRESENTATIONS</strong>
+               <ol>
+                  <li>Database Criminal Record Locator Services: Client  acknowledges that database products, including but not limited to, the National Criminal File (“<strong>NATCRIM</strong>”) Search and the National Sex Offender Search offered by Vetzu, may not contain the most current information available, and are only utilized as search tools to assist Vetzu in formulating additional jurisdictions to search. Client  understands that to comply with FCRA § 613, Vetzu will not report any criminal information (arrest or conviction) obtained only from a database search. Vetzu will confirm the result at the corresponding county-level court or equivalent primary source records repository (Additional charges may be incurred when such additional research is required depending on the set up of Client ’s account.).</li>
+                  <li>Motor Vehicle Report(s) (“<strong>MVR(s)</strong>”): For Client s utilizing Vetzu MVR Services, Client  certifies that MVRs (e.g., driving records) shall only be ordered in strict compliance with the DPPA and any related applicable state laws. Client  further certifies that no MVRs shall be ordered without first providing disclosure to Applicant that a report will be processed, then only by obtaining the written authorization of Applicant to obtain an MVR. Client  also certifies that it will use this information only in the normal course of business to obtain lawful information provided by an Applicant. Client  shall not transmit any data contained in the MVR via any unsecured means or resell MVRs to any third party. Client  certifies it will request MVRs for only direct employees and applicants of Client .</li>
+                  <li>Administrative Function: Client  understands and agrees that Vetzu performs an administrative function only regarding any and all grading or scoring or application of Client ’s hiring guidelines. Client  further understands and agrees that any and all determinations are based on evaluation criteria provided solely by Client . Therefore, Client  understands and agrees that any employment decision regarding an Applicant arising from or relating to any and all such determinations is the sole responsibility of Client  – and not any Vetzu Parties. </li>
+               </ol>
+            </li>
+         </ol>
+         <p>Client  agrees to defend, indemnify, and hold Vetzu and its affiliated companies, and all of their respective officers, agents, and employees, and Vetzu’s independent contractors and their affiliates (collectively, “<strong>Vetzu Parties</strong>”) harmless from any and all liabilities, losses, claims, injuries, damages, suits, judgments, expenses, fines, interest or penalties of any kind or nature whatsoever, including, without limitation, reasonable attorneys’ fees and costs (collectively, “<strong>Losses</strong>”) arising out of or related to Client ’s employment decision resulting from any and all such determinations and/or the performance of this administrative function. </p>
+         <ul>
+            <li>
+               <ol>
+                  <li>Also Known As (“<strong>AKA</strong>”) Policy: Vetzu utilizes credit bureau header and other address information along with Applicant- and Client -provided information to determine any AKAs to be used as search criteria. Vetzu cannot guarantee that all AKAs for an Applicant will be discovered for such search. Vetzu will not use AKAs it determines to be: (a) obvious typographical errors; (b) suffixes; (c) variations of middle names or middle initials; (d) any initial replacing a first or last name; or, (e) opposite gender names.</li>
+                  <li>International Searches:<strong> </strong>When applicable, Client  certifies that it shall comply with the applicable data privacy laws governing the transfer, storage, and access of personal information including, but not limited to the EU – U.S. Privacy Shield. International services are conducted via third party independent contractors. Therefore, Vetzu cannot be either insurer or guarantor of the accuracy of the information reported.</li>
+                  <li>Workers’ Compensation Searches:<strong> </strong>Client understands that specific rules apply when using workers’ compensation history information, including but not limited to, all requests for workers’ compensation history must be made post job offer and special circumstances must be considered if making an adverse employment decision based thereof. Client  certifies that it will comply with all Laws required for Client  to utilize workers’ compensation information.</li>
+                  <li>Automated Systems:<strong> </strong>Client  acknowledges and agrees that Client  is responsible for approving all language contained in documents provided by Vetzu on behalf of Client  and Client  must approve all processes prior to implementation. Therefore, Client  agrees to defend, indemnify, and hold Vetzu Parties harmless from any Losses arising out of or related to the use of Vetzu’s automated systems by Client .  </li>
+                  <li>Credit Provisions: Client  understands that the credit bureaus require specific written approval from Vetzu before the following persons, entities and/or businesses may obtain credit reports: private detectives, private detective agencies, private investigative companies, bail bondsmen, attorneys, law firms, credit counseling firms, security services, members of the media, resellers, financial counseling firms, credit repair clinics, pawn shops (except companies that do only title pawn), check cashing companies (except companies that do only loans, no check cashing), genealogical or heir research firms, dating services, massage or tattoo services, businesses that operate out of an apartment, individuals seeking information for their own private use, adult entertainment services of any kind, companies that locate missing children, companies that handle third party repossession, companies seeking information in connection with time shares, subscriptions companies, individuals involved in spiritual counseling or persons or entities that are not an end-user or decision maker.</li>
+                  <li>Credit Report Policies and Procedures: Client  represents that, if it orders credit reports, Client  will have a policy and procedures in place to investigate any discrepancy in a consumer’s address when notified by the credit bureau that the consumer’s address, as submitted by Client , substantially varies from the address the credit bureau has on file for that consumer.</li>
+               </ol>
+            </li>
+         </ul>
+         <ol>
+            <li><strong>NO LEGAL OPINION</strong></li>
+         </ol>
+         <p>Vetzu is not Client ’s legal counsel or representative. Client  understands and acknowledges that any sample forms/kits, compliance alerts, education, best practices, conversations, or communication with Vetzu are not to be construed as legal opinion or counsel in any way and should not be relied upon for legal compliance. The provision of any notices or forms, pre-adverse or adverse action letters and the contents thereof is the sole responsibility of Client . Client  agrees and acknowledges that Client  will consult with Client ’s own legal counsel to ensure Client  is in compliance with the following, including but not limited to: (a) overall screening program compliance; (b) interpretation of and obligations under the Laws, including but not limited to the FCRA; and, (c) the use of Screening Report information, including relying upon such information and complying with EEOC Guidance; and (d) review of any forms as well as the content of prescribed notices, adverse or pre-adverse action letters for compliance with applicable Laws.</p>
+         <ol>
+            <li><strong>CONFIDENTIAL INFORMATION</strong></li>
+         </ol>
+         <p>Neither party shall reveal, publish, or otherwise disclose any Confidential Information to any third party without the prior written consent of the other party. “<strong>Confidential Information</strong>” is defined as any and all proprietary or secret data; sales or pricing information relating to each party or its operations, employees, products, or services; financial information and, all information relating to any customer, potential customer, agent, independent sales outlet, contractor, employee and/or applicant. The parties agree to keep the other party’s Confidential Information confidential at all times during the term of this Agreement, and continuing for five (5) years after termination of this Agreement. Despite anything to the contrary in this Agreement, in no event shall Vetzu be required to destroy, erase, or return any Screening Reports or Applicant data related thereto in Vetzu’s files, all of which Vetzu shall maintain as a consumer reporting agency in strict accordance with all applicable Laws.</p>
+         <p>Client  agrees not to sell, lease, sub-license, deliver, display, or otherwise distribute to any third party any of the Confidential Information addressed herein, whether alone, in conjunction with Client ’s own data, or otherwise, except as required by law.  </p>
+         <p>Client understands that apart from any other remedy in law that might be available, Vetzu will be entitled to seek interim relief by way of injunction or otherwise for any breach or threatened breach of confidential information by Client or its agents. </p>
+         <ol>
+            <li>
+               <strong>PRICING AND METHOD OF PAYMENT</strong>
+               <ol>
+                  <li>Pricing</li>
+               </ol>
+            </li>
+         </ol>
+         <p>  Except as otherwise provided in this Agreement, the fees for all Screening Reports and Services performed by Vetzu under this Agreement, would be as per services selected by the Client and as specified in an order form. </p>
+         <p> The aforementioned fees would be exclusive of all taxes and applicable surcharges. All such taxes and surcharges would be separately mentioned in the order form and invoice.</p>
+         <ul>
+            <li>
+               <ol>
+                  <li>Method of Payment </li>
+               </ol>
+            </li>
+         </ul>
+         <p>Vetzu shall invoice or bill Client  monthly for services. All payments are due at the time of billing. </p>
+         <p>A service charge of one and one-half percent (1.5%) per month shall be charged on any balance that remains unpaid forty-five (45) days after the invoice or bill date. Client  agrees to pay any such service charge and all collection costs, including attorneys’ fees and collection agency costs, if applicable.</p>
+         <p><strong>The Client has an option to choose one of the following methods of payment at the time if executing this Agreement. Client  shall initial next to one (1) preferred method of payment: </strong></p>
+         <p>Invoice To:</p>
+         <table>
+            <tbody>
+               <tr>
+                  <td colspan="3">
+                     <p>Client  Legal Name:  <strong>{{getLabel('clientlegalName')}}</strong></p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="3">
+                     <p>Address:  <strong>{{getLabel('clientlegalAddress')}}</strong></p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>City:  <strong>{{getLabel('clientlegalCity')}}</strong></p>
+                  </td>
+                  <td>
+                     <p>State:  <strong>{{getLabel('clientlegalState')}}</strong></p>
+                  </td>
+                  <td>
+                     <p>Zip:  <strong>{{getLabel('clientlegalZip')}}</strong></p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Attention:  <strong>{{getLabel('clientlegalAttention')}}</strong></p>
+                  </td>
+                  <td colspan="2">
+                     <p>Email:  <strong>{{getLabel('clientlegalEmail')}}</strong></p>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <p>&ensp;&ensp;&ensp;&ensp;&ensp; Credit Card Payment. Payment is due at the time of billing.</p>
+         <p>&ensp;&ensp;&ensp;&ensp;&ensp; Automated Clearing House. Payment is due at the time of billing.</p>
+         <ul>
+            <li>
+               <ol>
+                  <li>Vetzu fees for Screening Reports and Services are exclusive of any third party fees, including but not limited to access fees (government or private), sales taxes, or value added taxes applicable to Services provided (collectively, “<strong>Additional Fees</strong>”). Client  acknowledges and agrees that Client  is responsible for payment of such Additional Fees.  Therefore, in addition to Vetzu fees for Services as for any Additional Fees, Vetzu shall pass through costs of such Additional Fees to Client , without additional mark-up. Fees and taxes are subject to change without notice. In case such fees and taxes change, Vetzu will only inform the Client, and such change would be deemed to be accepted by<br><br><br> Client. No change in any purchase order or agreement would be required to effectuate such change. </li>
+                  <li>Change Orders. During the term of this Agreement, Vetzu and Client  may incorporate additional services into this Agreement. Authorization for additional services will be incorporated into this Agreement only by written change orders or Exhibit A(s).</li>
+                  <li>Support Services: Except to the extent required by law, Vetzu is under no obligation to provide Support Services to Client  and will evaluate such matters on a case-by-case basis. If Vetzu assists Client  or is otherwise required to participate in preparation for, defense of, or respond to any legal or regulatory proceeding involving or relating to Client , including, without limitation subpoenas, depositions, hearings and trials (collectively, “<strong>Support Services</strong>”), Client  shall reimburse Vetzu for all costs and expenses Vetzu incurs in connection with any such Support Services, including, without limitation, reasonable attorneys’ fees and disbursements. </li>
+                  <li>On site inspections: For certain services, Vetzu or its authorized agent(s) may conduct on-site inspections. Such on-site inspections would be chargeable by Vetzu at additional costs to Client and Client will be responsible for paying the same. In case, there is a failure to conduct on-spite inspection, as per fixed time slot, for any reason, other than that of fault of Vetzu, then Vetzu will charge the Client, $25.00 for such unsuccessful on-site inspections and the Client shall be responsible to pay the same.  </li>
+               </ol>
+            </li>
+         </ul>
+         <ol>
+            <li><strong>TERM; TERMINATION</strong></li>
+         </ol>
+         <p>7.1 Term: The term of this Agreement shall be 3 (three) years. </p>
+         <p>This Agreement shall automatically renew for additional one (1) year term unless the Agreement has been terminated in accordance with this Agreement or unless either party terminates in writing 30 days prior to the expiry of the Term.</p>
+         <ul>
+            <li>
+               <ol>
+                  <li>Termination for Convenience: Either party may terminate this Agreement for its convenience by giving the other party thirty  (30) days’ written notice.</li>
+                  <li>Termination for Cause: Notwithstanding, anything as aforementioned any breach of this Agreement and/or violations of applicable law by Client , which are discovered by Vetzu, may result in immediate suspension and/or termination of the account, legal action and/or referral to federal or state regulatory agencies. Should the Client fail to remedy the default within thirty (30) business days of receipt of written notice of default, Vetzu may at its discretion terminate this Agreement. However, in case of such termination all rights of Vetzu to be paid for the services rendered will accrue and remain valid. Client would be obligated to pay Vetzu its outstanding fees even in such cases of termination. </li>
+               </ol>
+            </li>
+         </ul>
+         <p>The term “<strong>default</strong>” for purposes of this section includes if Client  institutes or has instituted against itself insolvency, receivership, or bankruptcy proceedings or makes an assignment for the benefit of creditors, or materially breaches the obligations under this Agreement or commits fraud, misconduct etc.</p>
+         <ul>
+            <li>
+               <ol>
+                  <li>Termination for Force Majeure: </li>
+               </ol>
+            </li>
+         </ul>
+         <p>In no event will Vetzu be liable to the Client for any delay or failure to perform hereunder, which delay or failure to perform is due to causes beyond the control of said party for unforeseen causes beyond the control, including acts of God, acts of the public enemy, governmental acts, fires and epidemics if such causes irrecoverably disrupt or render impossible Vetzu’s performance hereunder. </p>
+         <p>The performance of Services under this Agreement may be terminated by Vetzu in case such event continues beyond a reasonable time period., </p>
+         <p>However, in case of such termination all rights of Vetzu to be paid for the services rendered will accrue and remain valid. Client would be obligated to pay Vetzu ,its outstanding fees even in such cases of termination.</p>
+         <p> </p>
+         <ol>
+            <li><strong>RESTRICTIVE COVENANT </strong></li>
+         </ol>
+         <p>Client agrees during the term of this Agreement or any extension thereof, and for a period of two years thereafter, neither it nor any of its employees, agents, officers etc.  will directly, or indirectly, or in any capacity, compete or attempt to compete with the Vetzu. or employ  any such personnel for the purpose of engaging in such activities. </p>
+         <ol>
+            <li><strong>NOTICES</strong></li>
+         </ol>
+         <p>Except for invoices submitted to Client  by Vetzu, all notices under this Agreement shall be in writing and shall be delivered by registered or certified U.S. mail, return receipt requested, postage prepaid, or sent by Federal Express or other recognized overnight courier service, and addressed to the party to be notified at their physical address set forth below. All such notices shall be deemed given when delivered one (1) day after being deposited with Federal Express or other recognized overnight courier service, or five (5) days after being deposited in the U.S. mail, postage prepaid and addressed as follows, or to such other address as each party may designate in writing:</p>
+         <p>To:    </p>
+         <table>
+            <tbody>
+               <tr>
+                  <td colspan="3">
+                     <p>Client  Legal Name:  <strong>{{getLabel('clientName')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="2">
+                     <p>Attention:<strong>{{getLabel('clientAttention')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td>
+                     <p>Title: <strong>{{getLabel('clientTitle')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="3">
+                     <p>Street Address: <strong>{{getLabel('clientAddress')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>City: <strong>{{getLabel('clientCity')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td>
+                     <p>State: <strong>{{getLabel('clientState')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td>
+                     <p>Zip: <strong>{{getLabel('clientZip')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Email: <strong>{{getLabel('clientEmail')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td>
+                     <p>Phone Number: <strong>{{getLabel('clientphoneNumber')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td></td>
+               </tr>
+            </tbody>
+         </table>
+         <p>To: Vetzu Inc,</p>
+         <p>Attn: Ms. Rumnah Chaudhuri</p><br>
+         <p>1700 Park Street, Suite 212, </p>
+         <p>Naperville, IL- 60563</p>
+         <ol>
+            <li>
+               <strong>INDEMNIFICATION</strong>
+               <ol>
+                  <li>
+                     Client  shall indemnify, defend, and hold Vetzu Parties harmless from and against any and all Losses, which may be incurred by Vetzu Parties arising out of or related to:
+                     <ol>
+                        <li>The illegal or wrongful use by Client  of a Screening Report; or</li>
+                        <li>The negligence or intentional wrongdoing by Client  in connection with the use of a Screening Report or arising from the Services; or</li>
+                        <li>Client ’s failure to comply with its obligations (a) under this Agreement or (b) under applicable Laws in connection with the procurement or use of a Screening Report; or</li>
+                        <li>Client ’s employment decisions and/or hiring or evaluation criteria in connection with Client ’s use of a Screening Report; or</li>
+                        <li>The content, compliance, method of delivery, or effectiveness of any notices (including disclosure or authorization forms, pre-adverse or adverse action letters).</li>
+                     </ol>
+                  </li>
+               </ol>
+            </li>
+            <li>
+               <strong>LIMITATION OF LIABILITY</strong>
+               <ol>
+                  <li>Client  agrees that Vetzu’s total liability under this Agreement including as a result of any negligence on the part of Vetzu would not exceed fees paid by Client and collected by Vetzu for the period immediately preceding two (2) months from the date of event giving rise to liability. Vetzu shall not be liable to Client  for any other Losses whether arising in contract, equity, or tort (including any claim for negligence), except as expressly agreed including  incidental, special, punitive, exemplary, or consequential damages, including lost profits, lost income, or lost savings.</li>
+                  <li>Limitation Recognition and No Warranty: Client  recognizes that Vetzu provides a range of information products, Screening Reports, and Services, each of which has a distinct scope and limitation. Client  represents and warrants that it has been fully informed as to the scope and limitation of Vetzu’s information products, Screening Reports, and Services, acknowledges Client ’s own role in selecting them, and agrees that Vetzu cannot insure or guarantee their suitability for any particular Client  need. Client  understands that Vetzu obtains the information reported in its Screening Reports from various third party sources “AS IS,” and therefore is providing the information to Client  “AS IS.” Vetzu makes no representation or warranty whatsoever, express or implied, including but not limited to, implied warranties of merchantability or fitness for particular purpose, or implied warranties arising from the course of dealing or a course of performance with respect to the accuracy, validity, or completeness of any information products and/or consumer reports, including Screening Reports, that the information products and/or consumer reports will meet Client ’s needs, or will be provided on an uninterrupted basis. Vetzu expressly disclaims any and all such representations and warranties.</li>
+               </ol>
+            </li>
+            <li><strong>OWNERSHIP OF WORK PRODUCT; TITLE</strong></li>
+         </ol>
+         <p>All raw data assembled by Vetzu or obtained from others by Vetzu in connection with the Services under this Agreement shall be the sole property of Vetzu. All reports and any other documents, materials and products prepared or assembled by Vetzu or obtained from others by Vetzu in connection with the Services under this Agreement shall be the sole property of Vetzu. Vetzu shall be responsible for the preservation of any and all such raw data, documents, materials and products prior to transmittal to Client .</p>
+         <p>Client  acknowledges that title, ownership rights and intellectual property rights in and to the Vetzu system of services shall remain Vetzu’s and/or its suppliers, and that all content contained in any Screening Report is the property of the applicable content owner and may be protected by applicable contract and/or copyright law.</p>
+         <ol>
+            <li><strong>GOVERNING LAW AND DISPUTE RESOLUTION</strong></li>
+         </ol>
+         <p>All questions pertaining to the validity and interpretation of this Agreement shall be determined in accordance with the laws of the State of Illinois applicable to agreements made and to be performed within the state, without regard to choice of law rules.</p>
+         <p>This Agreement shall be deemed to be a contract made under the laws of the State of Illinois and for all purposes shall be governed by, construed, interpreted, and enforced according to the laws of the State of Illinois. The courts in Cook County, Illinois would have exclusive jurisdiction to adjudicate any matter related hereto. </p>
+         <ol>
+            <li>
+               <strong>MISCELLANEOUS</strong>
+               <ol>
+                  <li>Assignment: Neither party shall assign this Agreement without the prior written consent of the other party; provided, however, that Vetzu shall have the right to assign or otherwise transfer this Agreement in connection with a merger, acquisition, corporate reorganization, public stock offering, or sale of all or substantially all of its assets. The foregoing limitation on Client ’s ability to assign this Agreement is due, in part, to Vetzu’s regulatory obligations and related customer credentialing procedures and requirements.  Notwithstanding the foregoing, this section shall not apply to assignment by Vetzu to any affiliates of Vetzu. </li>
+                  <li>Benefit of Agreement: This Agreement shall bind and benefit the parties hereto and their heirs, successors and permitted assigns.</li>
+                  <li>Severability; Interpretation: If any provision of this Agreement is held by a court of competent jurisdiction to be invalid, void, or unenforceable, the remaining provision shall nevertheless continue in full force without being impaired or invalidated in any way. This Agreement shall be considered drafted mutually by the parties.</li>
+                  <li>Survival: All provisions of this Agreement that by their nature are reasonably intended to have effect after termination of this Agreement (including without limitation, compliance, audit rights, privacy, data protection, confidentiality, dispute resolution, indemnity and limitation of liability) shall survive such termination. </li>
+                  <li>Independent Contractors: The parties will perform their obligations in this Agreement as independent contractors. Nothing contained in this Agreement shall be deemed to create any association, partnership, joint venture, or relationship of principal and agent between the parties. </li>
+                  <li>Entire Agreement: This Agreement (which shall include all current and future exhibits hereto) embodies the entire understanding between Vetzu and Client  with respect to the subject matter hereof.</li>
+                  <li>Captions/Headings: The captions or headings in this Agreement are for convenience only and in no way define, limit, or describe the scope or intent of any provisions of this Agreement.</li>
+                  <li>No Waiver: No delay or omission by either party in exercising any right, power or remedy hereunder or otherwise afforded by contract, at law, in equity or by statute, shall constitute an acquiescence therein, impair any other right, power or remedy hereunder, or otherwise afforded by contract, at law in equity or by statute, or operate as a waiver of such right, power or remedy.</li>
+                  <li>Amendment: Except as otherwise set forth in this Agreement, this Agreement may be modified only by a writing executed by authorized representatives of the parties.</li>
+                  <li>Counterparts; Validity: The parties agree that this Agreement (and/or any of the Agreement’s mutually agreed upon exhibit(s) or amendment(s)) may be electronically signed. The parties agree that any electronic signature appearing on this Agreement (and/or such exhibit(s) or amendment(s)) is the same as a handwritten signature thereof for the purposes of validity, enforceability, and admissibility. Further, the parties agree that this Agreement (and/or such exhibit(s) or amendment(s)) may be executed in counterparts, each of which shall be deemed one and the same instrument. Moreover, the exchange of this executed Agreement (and/or such exhibit(s) or amendment(s)) that is in photo static or portable document format (.pdf) form by electronic mail or by another electronic means (e.g., facsimile) shall be considered original(s) and shall constitute effective execution and delivery of the original(s).</li>
+                  <li>Signature Authority: Each party represents that this Agreement has been executed on its behalf by a representative authorized to bind such party with respect to the undertakings and obligations contained in this Agreement.</li>
+               </ol>
+            </li>
+         </ol>
+         <!-- <p><strong>FOR CLIENT :         FOR VETZU :</strong></p> -->
+         <!-- <table>
+            <tbody>
+               <tr>
+                  <td>
+                     <p>Client  Representative Signature:<strong>{{getLabel('clientlegalEmail')}}</strong></p>
+                  </td>
+                  <td></td>
+                  <td>
+                     <p>Vetzu Representative Signature:</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Print Name: <strong>{{getLabel('clientlegalEmail')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td></td>
+                  <td>
+                     <p>Print Name:  <strong>{{getLabel('clientlegalEmail')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Title: <strong>{{getLabel('clientlegalEmail')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td></td>
+                  <td>
+                     <p>Title: <strong>{{getLabel('clientlegalEmail')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp; </p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Date: <strong>{{getLabel('clientlegalEmail')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td></td>
+                  <td>
+                     <p>Date: <strong>{{getLabel('clientlegalEmail')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+            </tbody>
+         </table> -->
+         <p><a></a></p>
+         <p><strong>Exhibit A</strong></p>
+         <p><strong>Scope of Services </strong></p>
+         <ol>
+            <li>Employment Verification</li>
+            <li>Substance Abuse Test</li>
+            <li>Consent bases social security verification</li>
+         </ol>
+         <p><a></a><strong>Exhibit B</strong></p>
+         <p><strong>Vetzu Client  Application</strong></p>
+         <table>
+            <tbody>
+               <tr>
+                  <td colspan="7">
+                     <p>Company Name (Full Legal Entity Name): <strong>{{getLabel('compName')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="7">
+                     <p>Doing Business As - DBA (if applicable): <strong>{{getLabel('compBus')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="2">
+                     <p>Street Address: <strong>{{getLabel('comAdd')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="3">
+                     <p>City: <strong>{{getLabel('compCity')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td>
+                     <p>State: <strong>{{getLabel('compState')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td>
+                     <p>Zip Code: <strong>{{getLabel('compZip')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Phone: <strong>{{getLabel('compPhone')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="3">
+                     <p>Fax: <strong>{{getLabel('compFax')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="3">
+                     <p>email: <strong>{{getLabel('compEmail')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="3">
+                     <p>Business Type: <strong>{{getLabel('compBussType')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="4">
+                     <p>No of Employees:<strong>{{getLabel('compEmp')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="3">
+                     <p>Web Address 1: <strong>{{getLabel('compAdd1')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="4">
+                     <p>Web Address 2: <strong>{{getLabel('compAdd2')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <p><a></a><strong>Client  Corporation Information</strong></p>
+         <table>
+            <tbody>
+               <tr>
+                  <td colspan="9">
+                     <p><a></a>Company Type: <strong>{{getLabel('compType')}}</strong>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Year Incorporated:<strong>{{getLabel('clientCompYear')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="8">
+                     <p>Federal Tax ID Number: <strong>{{getLabel('clientCompFax')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="9">
+                     <p><strong>Corporations Only: Enter Corporate Headquarters Information</strong></p>
+                     <p>*please include corporation/parent name if different than subsidiary*</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="9">
+                     <p>Corporation Name: <strong>{{getLabel('corpName')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="2">
+                     <p>Street Address: <strong>{{getLabel('corpAdd')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="4">
+                     <p>City: <strong>{{getLabel('corpCity')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td>
+                     <p>State: <strong>{{getLabel('corpState')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="2">
+                     <p>Zip Code: <strong>{{getLabel('corpZip')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Phone:<strong>{{getLabel('corpPhone')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="4">
+                     <p>Fax:<strong>{{getLabel('corpFax')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="4">
+                     <p>email:<strong>{{getLabel('corpEmail')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="9">
+                     <p><strong>Sole Proprietorship/Partnerships:</strong> (Information is mandatory for set up)</p>
+                     <p>*please note that it is mandatory to process a credit report on the owner of all privately held companies*</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="9">
+                     <p>Primary Owner’s Full Name:<strong>{{getLabel('primaryName')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="3">
+                     <p>Primary Owner’s Social Security Number: <strong>{{getLabel('primarySsn')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="6">
+                     <p>Primary Owner’s email address: <strong>{{getLabel('primaryEmail')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="9">
+                     <p>Payment Method:<strong>{{getLabel('method')}}</strong> </p>
+
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="9">
+                     <p><strong>Main Contact Information</strong></p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="4">
+                     <p>Contact Name:<strong>{{getLabel('contactName')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="5">
+                     <p>Contact Title:<strong>{{getLabel('contactTitle')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Contact Phone:<strong>{{getLabel('contactPhone')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="4">
+                     <p>Contact Fax:<strong>{{getLabel('contactFax')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="4">
+                     <p>Contact Email:<strong>{{getLabel('contactEmail')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Street Address:<strong>{{getLabel('contactAdd')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="4">
+                     <p>City:<strong>{{getLabel('contactCity')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="3">
+                     <p>State:<strong>{{getLabel('contactState')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td>
+                     <p>Zip Code:<strong>{{getLabel('contactZip')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="9">
+                     <p><strong>Banking Information</strong></p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="9">
+                     <p>Bank Name:<strong>{{getLabel('bankName')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="9">
+                     <p>Bank Contact Name:<strong>{{getLabel('bankContact')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Street Address:<strong>{{getLabel('bankAdd')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="4">
+                     <p>City:<strong>{{getLabel('bankCity')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="3">
+                     <p>State:<strong>{{getLabel('bankState')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td>
+                     <p>Zip Code:<strong>{{getLabel('bankZip')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Phone:<strong>{{getLabel('bankPhone')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="4">
+                     <p>Fax:<strong>{{getLabel('bankFax')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="4">
+                     <p>email:<strong>{{getLabel('bankEmail')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Date Account Opened:<strong>{{getLabel('accountDate')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="4">
+                     <p>Type of Account:<strong>{{getLabel('accountType')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td colspan="4">
+                     <p>Account Number: <strong>{{getLabel('accountNum')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+
+               <tr>
+                  <td colspan="9">
+                     <p><strong>Terms and Conditions</strong></p>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="9">
+                     <ol>
+                        <li>All invoices are to be paid upon receipt, except if different payment terms are specified in the Vetzu Master Services Agreement, such terms shall prevail.</li>
+                        <li>Claims arising from invoices must be made within seven (7) working days.</li>
+                        <li>By applying for credit, you authorize Vetzu to check your credit history with a credit reporting agency.</li>
+                        <li>By submitting this application, you authorize Vetzu or its agents to make an inquiry into the bank reference that you have supplied.</li>
+                     </ol>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <p><strong>Client  Corporate Information </strong>(cont.)</p>
+         <table>
+            <tbody>
+               <tr>
+                  <td colspan="2">
+                     <p><a></a><strong>Client  Authorization</strong></p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Name:<strong>{{getLabel('authName')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td>
+                     <p>Title:<strong>{{getLabel('authTitle')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Signature:<strong>{{getLabel('authSig')}}</strong></p>
+                  </td>
+                  <td>
+                     <p>Date:<strong>{{getLabel('authDate')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <p><strong>Exhibit C</strong></p>
+         <p><strong>Client  Certification of Additional Obligations</strong></p>
+         <p><a></a>In compliance with the Fair Credit Reporting Act (“FCRA”) and applicable state law, Client  hereby certifies the following to Vetzu:</p>
+         <ul>
+            <li>Client  will only obtain a “consumer report” or “investigative consumer report” from Vetzu for a permissible purpose under the FCRA and not for any other purpose.  </li>
+            <li>Prior to causing a “consumer report” or an “investigative consumer report” to obtained for a permissible purpose under the FCRA, a clear and conspicuous disclosure, in a document consisting solely of the disclosure, has been made in writing to the consumer. The disclosure explained that a consumer report and/or an investigative consumer report may be obtained for employment purposes, and such disclosure was presented to the consumer before the report was procured or caused to be procured. The disclosure satisfied all requirements identified in the FCRA (604, 606, 615) as well as any applicable state or local laws. The consumer has authorized in writing the obtaining of the report by Client . Client  understands that Vetzu will not initiate a report in the absence of a written authorization. Client  certifies that each time it orders a report, Client  is reaffirming the above certification.</li>
+            <li>Should the consumer make a written request within a reasonable amount of time, Client  will provide:</li>
+            <li>Information about whether an investigative consumer report has been requested;</li>
+            <li>If an investigative consumer report has been requested, written disclosure of the nature and scope of the investigation requested; and</li>
+            <li>The name and address of the outside agency to whom requests for any of these reports has been made.</li>
+            <li>This information will be provided no later than five (5) days after the date on which the request for such disclosure was received from the consumer or such report was first requested. </li>
+            <li>Should the consumer be denied employment, or other adverse action taken, in whole or in part on the basis of the report, Client  will provide to the applicant or employee:</li>
+            <li>A copy of the report; and</li>
+            <li>A description, in writing, of the rights of the consumer entitled: “A Summary of Your Rights Under the Fair Credit Reporting Act” as well as any applicable state law rights. </li>
+            <li>Before taking adverse action based on a criminal record the EEOC Criminal History Guidance recommends that you perform an individualized assessment and or other considerations.  To obtain a copy of the EEOC Criminal History Guidance please go to the following website:</li>
+            <li>http://www.eeoc.gov/laws/guidance/arrest_conviction.cfm.</li>
+            <li>Client  will comply or has complied at all times with the FCRA and all applicable local, state, and federal laws and regulations relating to the use of the background information including but not limited to equal employment laws and regulations.</li>
+            <li>Client  hereby acknowledges receipt of Notice to Users of Consumer Reports: Obligations of Users Under the Fair Credit Reporting Act and Summary of Consumer Rights Under the Fair Credit Reporting Act and agrees to comply with the terms and conditions contained therein.</li>
+            <li>Client  agrees that the reports and information contained in the reports is confidential and will employ appropriate data security procedures to ensure that they are only used for the permissible purpose described herein.</li>
+            <li>Client  hereby certifies that, under the Investigative Consumer Reporting Agencies Act (“ICRA”), California Civil Code Sections 1786 et seq., and the Consumer Credit Reporting Agencies Act (“CCRAA”), California Civil Code Sections 1785.1 et seq., if the Client  is located in the State of California, and/or the Client ’s request for and/or use of Screening Reports (“Information Products”) pertains to a California resident or worker, Client  as an end user will do the following:</li>
+            <li>(i) Request and use Information Products solely for permissible purpose(s) identified under California Civil Code Sections 1785.11 and 1786.12.</li>
+            <li>(ii)       When, at any time, Information Products are sought for employment purposes other than suspicion of wrongdoing or misconduct by the consumer who is the subject of the investigation, provide a clear and conspicuous disclosure in writing to the consumer, which solely discloses: (1) that an investigative Information Products may be obtained; (2) the permissible purpose of the investigative Information Products; (3) that information on the consumer’s character, general reputation, personal characteristics and mode of living may be disclosed; and (4) the name, address, telephone number, and website of the Consumer Reporting Agency conducting the investigation; and (5) the nature and scope of the investigation requested, including a summary of the provisions of California Civil Code Section 1786.22.</li>
+            <li>(iii)      When, at any time, Information Products are sought for employment purposes other than suspicion of wrongdoing or misconduct by the consumer who is the subject of the investigation, only request an Information Product if the applicable consumer has authorized in writing the procurement of the Information Product.</li>
+            <li>(iv)      When Information Products are sought in connection with the hiring of a dwelling unit, notify the consumer in writing that an Information Product will be made regarding the consumer’s character, general reputation, personal characteristics.  The notification shall include the name and address of end user as well as a summary of the provisions of California Civil Code Section 1786.22, no later than three (3) days after the date on which the Information Product was first requested.</li>
+            <li>(v)       When Information Products are sought in connection with the underwriting of insurance, clearly and accurately disclose in writing at the time the application form, medical form, binder, or similar document is signed by the consumer that an Information Product regarding the consumer’s character, general reputation, personal characteristics, and mode of living may be made, or, if no signed application form, medical form, binder, or similar document is involved in the underwriting transaction, the disclosure shall be made to the consumer in writing and mailed or otherwise delivered to the consumer not later than three (3) days after the report was first requested.  The disclosure shall include the name and address of end user, the nature and scope of the investigation requested, and a summary of the provisions of California Civil Code Section 1786.22.</li>
+            <li>(vi)     Provide the consumer a means by which he/she may indicate on a written form, by means of a box to check, that the consumer wishes to receive a copy of any Information Products that are prepared.</li>
+            <li>(vii)     If the consumer wishes to receive a copy of the Information Products, the end user shall send (or contract with another entity to send) a copy of the Information Product to the consumer within three (3) business days of the date that the Information Product is provided to end user.  The copy of the Information Product shall contain the name, address, and telephone number of the person at end user who issued the report and how to contact him/her.</li>
+            <li>(viii)     Under all applicable circumstances, comply with California Civil Code Sections 1785.20 and 1786.40 if the taking of adverse action is a consideration, which shall include, but may not be limited to, advising the consumer against whom an adverse action has been taken that the adverse action was based in whole or in part upon information contained in the Information Product, informing the consumer in writing of end user’s name, address, and telephone number, and provide the consumer of a written notice of his/her rights under the ICRA and the CCRAA.</li>
+            <li>(ix)     Comply with all other requirements under applicable California law, including, but, not limited to any statutes, regulations and rules governing the procurement, use and/or disclosure of any Information Products, including, but not limited to, the ICRA and CCRAA.</li>
+         </ul>
+         <table>
+            <tbody>
+               <tr>
+                  <td>
+                     <p>Client  Representative Signature: <strong></strong></p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Print Name:<strong>{{getLabel('exhibitCName')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Title:<strong>{{getLabel('exhibitCTitle')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Date:<strong>{{getLabel('exhibitCDate')}}</strong></p><br><br>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <p><a></a><strong>Exhibit D: End User Certification to Comply with Data Security</strong></p>
+         <p><strong>&amp; Fair Credit Reporting Act Requirements</strong></p>
+         <p><a></a><a></a><strong>Note: This document is intended to be distributed to each member of the Client ’s Team who will be ordering and retrieving consumer reports to ensure that all End Users understand their responsibility for Data Privacy and Regulatory Compliance.</strong></p>
+         <p>Parties must work together to protect the privacy of consumers. The following requirements are designed to reduce unauthorized access of consumer reports and other private information. By signing this document, you as the “<strong>End User</strong>,” certify you will comply with the following:</p>
+         <ol>
+            <li><a></a>End User will protect your Vetzu login ID and password so that only End User knows this sensitive information. Unauthorized persons should never have knowledge of End User’s login ID and password. Do not post this information in any manner within End User’s facility.</li>
+            <li>Systems access software, whether developed by End User’s organization or purchased from a third party vendor, must have the Vetzu login ID and password “hidden” or embedded and be known only by authorized supervisory personnel. </li>
+            <li>Do not discuss the Vetzu login ID and password by telephone with any unknown caller, even if the caller claims to be an employee of Vetzu.</li>
+            <li>Restrict the ability to obtain consumer information with End User’s login ID and password to End User.</li>
+            <li>Place all terminal devices used to obtain consumer reports in a secure location within End User’s facility. Secure these devices so that unauthorized persons cannot easily access them. Log off the system when not in use.</li>
+            <li>After normal business hours, log off the system and properly secure and power down all devices or systems used to obtain consumer reports.</li>
+            <li>Secure hard copies and electronic files of consumer reports within End User’s facility so unauthorized persons cannot easily access them.</li>
+            <li>Disposal of printed reports: Shred or destroy all hard copy consumer reports when no longer needed.</li>
+            <li>Erase or scramble electronic files containing consumer information when no longer needed and when applicable regulation(s) permit destruction.</li>
+            <li>End User can access consumer reports only for the permissible purpose of employment per the Agreement signed by End User’s organization’s representative. End User may not access your own report or the report of a family member or friend if you do not have a permissible purpose.</li>
+            <li>Each login ID and password is unique to each user of the system and not transferable. <strong>Login IDs and passwords are not to be shared.</strong> If End User shares the Vetzu login ID and password, End User may lose access privileges to the system for exposing both End User’s organization and Vetzu to potential liability.</li>
+         </ol>
+         <p><strong>FCRA REQUIREMENTS</strong></p>
+         <p>In compliance with the FCRA as amended by the Consumer Reporting Act of 1996, End User hereby certifies to Vetzu that End User will comply with the following provisions:</p>
+         <ol>
+            <li>End User certifies that prior to procurement or causing the procurement of a consumer report for employment purposes:</li>
+            <li>a clear and conspicuous disclosure has been made in writing to the consumer at any time before the report is procured or caused to be procured, in a document that consists solely of the disclosure, that a consumer report may be obtained for employment purposes; and</li>
+            <li>the consumer has authorized in writing the procurement of the report by the Client  (your organization).</li>
+            <li>In using a consumer report for employment purposes, before taking any adverse action based in whole or in part on the report, End User certifies that it shall provide to the consumer to whom the report relates:</li>
+            <li>A copy of the report; and</li>
+            <li>a description in writing of the rights of the consumer under the Act, a copy of which is attached hereto as Exhibit E<strong> “Summary of Consumer Rights</strong>.”</li>
+            <li>Provide oral, written or electronic notice of the intended adverse action to the consumer, as defined by Section 615 of the FCRA (Vetzu will provide you with sample Adverse Action letters that will fulfill this obligation).</li>
+            <li>The information from the consumer report will not be used in violation of any applicable federal or state consumer reporting or equal employment opportunity law or regulation.</li>
+            <li>End User certifies it has reviewed Exhibit F<strong> “Notice to Users of Consumer Reports: Obligations of Users under FCRA,” </strong>attached hereto and available online at: <a href="http://www.vetzu.com">www.vetzu.com</a>.</li>
+            <li>Record Retention: It is important that you keep all Disclosure, Authorization, and Adverse Action documents for a period of no less than five [5] years for litigation purposes as the statute of limitation for the Fair Credit Reporting Act is five [5] years.</li>
+         </ol>
+         <p><em>Under Section 621 (a)(2)(A) of the Fair Credit Reporting Act (“‘</em><strong><em>FCRA</em></strong><em>”), any person that violates any of the provisions of the FCRA may be liable for a civil penalty of not more than $3,500 per violation.</em></p>
+         <p>End User hereby acknowledges receipt of <strong>Summary of Consumer Rights</strong> and <strong>Notice to Users of Consumer Reports: Obligations of Users Under FCRA</strong>.</p>
+         <table>
+            <tbody>
+               <tr>
+                  <td>
+                     <p>Print Name: <strong>{{getLabel('exhibitDName')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td>
+                     <p>Print Title: <strong>{{getLabel('exhibitDTitle')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Signature:<strong>{{getLabel('exhibitDSig')}}</strong></p>
+                  </td>
+                  <td>
+                     <p>Date:<strong>{{getLabel('exhibitDDate')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>Telephone:<strong>{{getLabel('exhibitDTel')}}</strong></p>
+                     <p>( &ensp;&ensp;&ensp;&ensp;&ensp; ) &ensp;&ensp;&ensp;&ensp;&ensp; - &ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+                  <td>
+                     <p>Email:<strong>{{getLabel('exhibitDEmail')}}</strong></p>
+                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <p><a></a><strong>Exhibit E</strong></p>
+         <p><strong>Summary of Consumer Rights Under the Fair Credit Reporting Act</strong></p>
+         <p><a></a>The federal <strong>Fair Credit Reporting Act (FCRA)</strong> promotes the accuracy, fairness, and privacy of information in the files of consumer reporting agencies. There are many types of consumer reporting agencies, including credit bureaus and specialty agencies (such as agencies that sell information about check writing histories, medical records, and rental history records). Here is a summary of your major rights under the FCRA.  <strong>For more information, including information about additional rights, go to: www.consumerfinance.gov/learnmore or write to: Consumer Financial Protection Bureau, 1700 G Street N.W., Washington, DC 20552. </strong></p>
+         <ul>
+            <li><strong>You must be told if information in your file has been used against you.</strong> Anyone who uses a credit report or another type of consumer report to deny your application for credit, insurance, or employment—or to take another adverse action against you—must tell you, and must give you the name, address, and phone number of the agency that provided the information.</li>
+            <li><strong>You have the right to know what is in your file</strong>. You may request and obtain all the information about you in the files of a consumer reporting agency (your “file disclosure”). You will be required to provide proper identification, which may include your Social Security number. In many cases, the disclosure will be free. You are entitled to a free file disclosure if: </li>
+            <li>a person has taken adverse action against you because of information in your credit report; </li>
+            <li>you are the victim of identity theft and place a fraud alert in your file; </li>
+            <li>your file contains inaccurate information as a result of fraud; </li>
+            <li>you are on public assistance; </li>
+            <li>you are unemployed but expect to apply for employment within 60 days. </li>
+         </ul>
+         <p>In addition, all consumers are entitled to one free disclosure every 12 months upon request from each nationwide Credit Bureau and from nationwide specialty consumer reporting agencies. See www.consumerfinance.gov/learnmore for additional information.</p>
+         <ul>
+            <li><strong>You have the right to ask for a credit score</strong>. Credit scores are numerical summaries of your credit-worthiness based on information from credit bureaus. You may request a credit score from consumer reporting agencies that create scores or distribute scores used in residential real property loans, but you will have to pay for it. In some mortgage transactions, you will receive credit score information for free from the mortgage lender. </li>
+            <li><strong>You have the right to dispute incomplete or inaccurate information</strong>. If you identify information in your file that is incomplete or inaccurate, and report it to the consumer reporting agency, the agency must investigate unless your dispute is frivolous. See www.consumerfinance.gov/learnmore for an explanation of dispute procedures. </li>
+            <li><strong>Consumer reporting agencies must correct or delete inaccurate, incomplete, or unverifiable information</strong>. Inaccurate, incomplete or unverifiable information must be removed or corrected, usually within 30 days. However, a consumer reporting agency may continue to report information it has verified as accurate. </li>
+            <li><strong>Consumer reporting agencies may not report outdated negative information</strong>. In most cases, a consumer reporting agency may not report negative information that is more than seven years old, or bankruptcies that are more than 10 years old. </li>
+            <li><strong>Access to your file is limited. </strong>A consumer reporting agency may provide information about you only to people with a valid need -- usually to consider an application with a creditor,<br><br> insurer, employer, landlord, or other business. The FCRA specifies those with a valid need for access. </li>
+            <li><strong>You must give your consent for reports to be provided to employers</strong>. A consumer reporting agency may not give out information about you to your employer, or a potential employer, without your written consent given to the employer. Written consent generally is not required in the trucking industry. For more information, go to <a href="http://www.consumerfinance.gov/learnmore">www.consumerfinance.gov/learnmore</a>.</li>
+            <li><strong>You may limit “prescreened” offers of credit and insurance you get based on information in your credit report</strong>. Unsolicited “prescreened offers” for credit and insurance must include a toll-free phone number you can call if you choose to remove your name and address from the lists these offers are based on. You may opt-out with the nationwide credit bureaus at 1-888-567-8688. </li>
+            <li><strong>The following FCRA right applies with respect to nationwide consumer reporting agencies:</strong></li>
+         </ul>
+         <p><strong>Consumers Have the Right To Obtain a Security Freeze</strong></p>
+         <p><strong>You have a right to place a “security freeze” on your credit report, which will prohibit a consumer reporting agency from releasing information in your credit report without your express authorization.</strong>  The security freeze is designed to prevent credit, loans, and services from being approved in your name without your consent.  However, you should be aware </p>
+         <p>that using a security freeze to take control over who gets access to the personal and financial information in your credit report may delay, interfere with, or prohibit the timely approval of any subsequent request or application you make regarding a new loan, credit, mortgage, or any other account involving the extension of credit.</p>
+         <p>As an alternative to a security freeze, you have the right to place an initial or extended fraud alert on your credit file at no cost.  An initial fraud alert is a 1-year alert that is placed on a consumer’s credit file.  Upon seeing a fraud alert display on a consumer’s credit file, a business is required to take steps to verify the consumer’s identity before extending new credit.  If you are a victim of identity theft, you are entitled to an extended fraud alert, which is a fraud alert lasting 7 years.</p>
+         <p>A security freeze does not apply to a person or entity, or its affiliates, or collection agencies acting on behalf of the person or entity, with which you have an existing account that requests information in your credit report for the purposes of reviewing or collecting the account.  Reviewing the account includes activities related to account maintenance, monitoring, credit line increases, and account upgrades and enhancements.</p>
+         <ul>
+            <li><strong>You may seek damages from violators</strong>. If a consumer reporting agency, or, in some cases, a user of consumer reports or a furnisher of information to a consumer reporting agency violates the FCRA, you may be able to sue in state or federal court. </li>
+            <li><strong>Identity theft victims and active duty military personnel have additional rights</strong>. For more information, visit www.consumerfinance.gov/learnmore.  </li>
+            <li><strong>States may enforce the FCRA, and many states have their own consumer reporting laws. In some cases, you may have more rights under state law. For more information, contact your state or local consumer protection agency or your state Attorney General. For information about your federal rights, contact:</strong></li>
+         </ul>
+         <p><em>Para información en español, visite www.consumerfinance.gov/learnmore o escriba a la</em></p>
+         <p><em>Consumer Financial Protection Bureau, 1700 G Street N.W., Washington, DC 20552.</em></p>
+         <table>
+            <tbody>
+               <tr>
+                  <td>
+                     <p><strong>TYPE OF BUSINESS: </strong></p>
+                  </td>
+                  <td>
+                     <p><strong>CONTACT: </strong></p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>1.a. Banks, savings associations, and credit unions with total assets of over $10 billion and their affiliates</p>
+                     <p>b.  Such affiliates that are not banks, savings associations, or credit unions also should list, in addition to the CFPB:</p>
+                  </td>
+                  <td>
+                     <p>a. Consumer Financial Protection Bureau</p>
+                     <p>1700 G Street NW</p>
+                     <p>Washington, DC 20552</p>
+                     <p>b.  Federal Trade Commission: Consumer Response Center--FCRA</p>
+                     <p>Washington, DC 20580</p>
+                     <p>(877) 382- 4357</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>2. To the extent not included in item 1 above:</p>
+                     <p>a. National banks, federal savings associations, and federal branches and federal agencies of foreign banks</p>
+                     <p>b. State member banks, branches and agencies of foreign banks (other than federal branches, federal agencies, and Insured State Branches of Foreign Banks), commercial lending companies owned or controlled by foreign banks, and organizations operating under section 25 or 25A of the Federal Reserve Act</p><br>
+                     <p>c. Nonmember Insured Banks, Insured State Branches of Foreign</p>
+                     <p>Banks, and insured state savings associations</p>
+                     <p>d. Federal Credit Unions</p>
+                  </td>
+                  <td>
+                     <p>a. Office of the Comptroller of the Currency</p>
+                     <p>Customer Assistance Group</p>
+                     <p>1301 McKinney Street, Suite 3450</p>
+                     <p>Houston, TX <br>77010-9050</p>
+                     <p>b. Federal Reserve Consumer Help Center</p>
+                     <p>P.O. Box 1200</p>
+                     <p>Minneapolis, MN 55480</p>
+                     <p>c. FDIC Consumer Response Center</p>
+                     <p>1100 Walnut Street, Box #11</p>
+                     <p>Kansas City, MO 64106</p>
+                     <p>d. National Credit Union Administration</p>
+                     <p>Office of Consumer Protection (OCP)</p>
+                     <p>Division of Consumer Compliance and Outreach (DCCO)</p>
+                     <p>1775 Duke Street</p>
+                     <p>Alexandria, VA 22314</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>3. Air carriers</p>
+                  </td>
+                  <td>
+                     <p>Asst. General Counsel for Aviation Enforcement &amp; Proceedings</p>
+                     <p>Aviation Consumer Protection Division</p>
+                     <p>Department of Transportation</p>
+                     <p>1200 New Jersey Avenue, S.E.</p>
+                     <p>Washington, DC 20590</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>4. Creditors Subject to the Surface Transportation Board</p>
+                  </td>
+                  <td>
+                     <p>Office of Proceedings, Surface Transportation Board</p>
+                     <p>Department of Transportation</p>
+                     <p>395 E. Street, S.W.</p>
+                     <p>Washington, DC 20423</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>5. Creditors Subject to Packers and Stockyards Act, 1921</p>
+                  </td>
+                  <td>
+                     <p>Nearest Packers and Stockyards Administration area supervisor</p><br>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>6. Small Business Investment Companies</p>
+                  </td>
+                  <td>
+                     <p>Associate Deputy Administrator for Capital Access</p>
+                     <p>United States Small Business Administration</p>
+                     <p>409 Third Street, SW, 8th Floor</p>
+                     <p>Washington, DC 20416</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>7. Brokers and Dealers</p>
+                  </td>
+                  <td>
+                     <p>Securities and Exchange Commission</p>
+                     <p>100 F St., N.E.</p>
+                     <p>Washington, DC 20549</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>8. Federal Land Banks, Federal Land Bank Associations, Federal</p>
+                     <p>Intermediate Credit Banks, and Production Credit Associations</p>
+                  </td>
+                  <td>
+                     <p>Farm Credit Administration</p>
+                     <p>1501 Farm Credit Drive</p>
+                     <p>McLean, VA <br> 22102-5090</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <p>9. Retailers, Finance Companies, and All Other Creditors Not Listed Above</p>
+                  </td>
+                  <td>
+                     <p>FTC Regional Office for region in which the creditor operates or</p>
+                     <p>Federal Trade Commission: Consumer Response Center – FCRA</p>
+                     <p>Washington, DC 20580</p>
+                     <p>(877) 382-4357</p>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <p><strong>Exhibit F</strong></p>
+         <p><strong>Notice of Users of Consumer Reports: Obligations of Users under FCRA</strong></p>
+         <p><strong>All users of consumer reports must comply with all applicable regulations. Information about applicable regulations currently in effect can be found at the Consumer Financial Protection Bureau’s website, </strong><a href="http://www.consumerfinance.gov/learnmore"><strong>www.consumerfinance.gov/learnmore</strong></a><strong>.</strong></p><br><br>
+         <p>The Fair Credit Reporting Act (FCRA), 15 U.S.C. §1681-1681y, requires that this notice be provided to inform users of consumer reports of their legal obligations. State law may impose<br> additional requirements. The text of the FCRA is set forth in full at the Consumer Financial Protection Bureau’s (CFPB) website at <a href="http://www.consumerfinance.gov/learnmore">www.consumerfinance.gov/learnmore</a>. At the end of this document is a list of United States Code citations for the FCRA. Other information about user duties is also available at the CFPB’s website. <strong>Users must consult the relevant provisions of the FCRA for details about their obligations under the FCRA.</strong></p>
+         <p>The first section of this summary sets forth the responsibilities imposed by the FCRA on all users of consumer reports. The subsequent sections discuss the duties of users of reports that contain specific types of information, or that are used for certain purposes, and the legal consequences of violations. If you are a furnisher of information to a consumer reporting agency (CRA), you have additional obligations and will receive a separate notice from the CRA describing your duties as a furnisher.</p>
+         <p><strong>I. OBLIGATIONS OF ALL USERS OF CONSUMER REPORTS</strong></p>
+         <p><strong>A. Users Must Have a Permissible Purpose</strong></p>
+         <p>Congress has limited the use of consumer reports to protect consumers’ privacy. All users must have a permissible purpose under the FCRA to obtain a consumer report. Section 604 contains a list of the permissible purposes under the law. These are:</p>
+         <ul>
+            <li>As ordered by a court or a federal grand jury subpoena. Section 604(a)(1)</li>
+            <li>As instructed by the consumer in writing. Section 604(a)(2)</li>
+            <li>For the extension of credit as a result of an application from a consumer, or the review or collection of a consumer’s account. Section 604(a)(3)(A)</li>
+            <li>For employment purposes, including hiring and promotion decisions, where the consumer has given written permission. Sections 604(a)(3)(B) and 604(b)</li>
+            <li>For the underwriting of insurance as a result of an application from a consumer. Section 604(a)(3)(C)</li>
+            <li>When there is a legitimate business need, in connection with a business transaction that is initiated by the consumer. Section 604(a)(3)(F)(i)</li>
+            <li>To review a consumer’s account to determine whether the consumer continues to meet the terms of the account. Section 604(a)(3)(F)(ii)</li>
+            <li>To determine a consumer’s eligibility for a license or other benefit granted by a governmental instrumentality required by law to consider an applicant’s financial responsibility or status. Section 604(a)(3)(D)</li>
+            <li>For use by a potential investor or servicer, or current insurer, in a valuation or assessment of the credit or prepayment risks associated with an existing credit obligation. Section 604(a)(3)(E)</li>
+            <li>For use by state and local officials in connection with the determination of child support payments, or modifications and enforcement thereof. Sections 604(a)(4) and 604(a)(5)</li>
+         </ul>
+         <p>In addition, creditors and insurers may obtain certain consumer report information for the purpose of making “prescreened” unsolicited offers of credit or insurance. Section 604(c). The particular obligations of users of “prescreened” information are described in Section II below. </p>
+         <p><strong>B. Users Must Provide Certifications</strong></p>
+         <p>Section 604(f) prohibits any person from obtaining a consumer report from a consumer reporting agency (CRA) unless the person has certified to the CRA the permissible purpose(s) for which the report is being obtained and certifies that the report will not be used for any other purpose. </p>
+         <p><strong>C. Users Must Notify Consumers When Adverse Actions Are Taken</strong></p>
+         <p>The term “adverse action” is defined very broadly by Section 603. “Adverse actions” include all business, credit, and employment actions affecting consumers that can be considered to have a negative impact as defined by Section 603(k) of the FCRA – such as denying or canceling credit or insurance, or denying employment or promotion. No adverse action occurs in a credit transaction where the creditor makes a counteroffer that is accepted by the consumer.</p>
+         <p><strong>1. Adverse Actions Based on Information Obtained From a CRA</strong></p>
+         <p><strong> </strong>If a user takes any type of adverse action as defined by the FCRA that is based at least in part on information contained in a consumer report, Section 615(a) requires the user to notify the consumer. The notification may be done in writing, orally, or by electronic means. It must include the following: </p>
+         <ul>
+            <li>The name, address, and telephone number of the CRA (including a toll-free telephone number, if it is a nationwide CRA) that provided the report.</li>
+            <li>A statement that the CRA did not make the adverse decision and is not able to explain why the decision was made.</li>
+            <li>A statement setting forth the consumer’s right to obtain a free disclosure of the consumer’s file from the CRA if the consumer makes a request within 60 days.</li>
+            <li>A statement setting forth the consumer’s right to dispute directly with the CRA the accuracy or completeness of any information provided by the CRA.</li>
+         </ul>
+         <p><strong>2. Adverse Actions Based on Information Obtained From Third Parties Who Are Not Consumer Reporting Agencies</strong></p>
+         <p>If a person denies (or increases the charge for) credit for personal, family, or household purposes based either wholly or partly upon information from a person other than a CRA, and the information is the type of consumer information covered by the FCRA, Section 615(b)(1) requires that the user clearly and accurately disclose to the consumer his or her right to be told the nature of the information that was relied upon if the consumer makes a written request within 60 days of notification. The user must provide the disclosure within a reasonable period of time following the consumer’s written request.</p>
+         <p><strong>3. Adverse Actions Based on Information Obtained From Affiliates</strong></p>
+         <p>If a person takes an adverse action involving insurance, employment, or a credit transaction<br><br> initiated by the consumer, based on information of the type covered by the FCRA, and this information was obtained from an entity affiliated with the user of the information by common ownership or control, Section 615(b)(2) requires the user to notify the consumer of the adverse action. The notice must inform the consumer that he or she may obtain a disclosure of the nature of the information relied upon by making a written request within 60 days of receiving the adverse action notice. If the consumer makes such a request, the user must disclose the nature of the information not later than 30 days after receiving the request. If consumer report information is shared among affiliates and then used for an adverse action, the user must make an adverse action disclosure as set forth in I.C.1 above.</p>
+         <p><strong>D. Users Have Obligations When Fraud and Active Duty Military Alerts are in Files</strong></p>
+         <p>When a consumer has placed a fraud alert, including one relating to identity theft, or an active duty military alert with a nationwide consumer reporting agency as defined in Section 603(p) and resellers, Section 605A(h) imposes limitations on users of reports obtained from the consumer reporting agency in certain circumstances, including the establishment of a new credit plan and the issuance of additional credit cards. For initial fraud alerts and active duty alerts, the user must have reasonable policies and procedures in place to form a belief that the user knows the identity of the applicant or contact the consumer at a telephone number specified by the consumer; in the case of extended fraud alerts, the user must contact the consumer in accordance with the contact information provided in the consumer’s alert.</p>
+         <p><strong>E. Users Have Obligations When Notified of an Address Discrepancy</strong></p>
+         <p>Section 605(h) requires nationwide CRAs, as defined in Section 603(p), to notify users that request reports when the address for a consumer provided by the user in requesting the report is substantially different from the addresses in the consumer’s file. When this occurs, users must comply with regulations specifying the procedures to be followed. Federal regulations are available at <a href="http://www.consumerfinance.gov/learnmore/">www.consumerfinance.gov/learnmore</a>.</p>
+         <p><strong>F. Users Have Obligations When Disposing of Records</strong></p>
+         <p>Section 628 requires that all users of consumer report information have in place procedures to properly dispose of records containing this information. Federal regulations are available at <a href="http://www.consumerfinance.gov/learnmore">www.consumerfinance.gov/learnmore</a>.</p>
+         <p><strong>II. CREDITORS MUST MAKE ADDITIONAL DISCLOSURES</strong></p>
+         <p>If a person uses a consumer report in connection with an application for, or a grant, extension, or provision of, credit to a consumer on material terms that are materially less favorable than the most favorable terms available to a substantial proportion of consumers from or through that person, based in whole or in part on a consumer report, the person must provide a risk-based pricing notice to the consumer in accordance with regulations prescribed by the CFPB.</p>
+         <p>Section 609(g) requires a disclosure by all persons that make or arrange loans secured by residential real property (one to four units) and that use credit scores. These persons must<br><br> provide credit scores and other information about credit scores to applicants, including the disclosure set forth in Section 609(g)(1)(D) (“Notice to the Home Loan Applicant”).</p>
+         <p><strong>III. OBLIGATIONS OF USERS WHEN CONSUMER REPORTS ARE OBTAINED FOR EMPLOYMENT PURPOSES</strong></p>
+         <p><strong>A. Employment Other Than in the Trucking Industry</strong></p>
+         <p>If the information from a CRA is used for employment purposes, the user has specific duties, which are set forth in Section 604(b) of the FCRA. The user must:</p>
+         <ul>
+            <li>Make a clear and conspicuous written disclosure to the consumer before the report is obtained, in a document that consists solely of the disclosure, that a consumer report may be obtained.</li>
+            <li>Obtain from the consumer prior written authorization. Authorization to access reports during the term of employment may be obtained at the time of employment.</li>
+            <li>Certify to the CRA that the above steps have been followed, that the information being obtained will not be used in violation of any federal or state equal opportunity law or regulation, and that, if any adverse action is to be taken based on the consumer report, a copy of the report and a summary of the consumer’s rights will be provided to the consumer.</li>
+            <li><strong>Before </strong>taking an adverse action, the user must provide a copy of the report to the consumer as well as the summary of consumer’s rights (The user should receive this summary from the CRA.) A Section 615(a) adverse action notice should be sent after the adverse action is taken.</li>
+         </ul>
+         <p>An adverse action notice also is required in employment situations if credit information (other than transactions and experience data) obtained from an affiliate is used to deny employment. Section 615(b)(2). </p>
+         <p>The procedures for investigative consumer reports and employee misconduct investigations are set forth below.</p>
+         <p><strong>B. Employment in the Trucking Industry</strong></p>
+         <p>Special rules apply for truck drivers where the only interaction between the consumer and the potential employer is by mail, telephone, or computer. In this case, the consumer may provide consent orally or electronically, and an adverse action may be made orally, in writing, or electronically. The consumer may obtain a copy of any report relied upon by the trucking company by contacting the company.</p>
+         <p><strong>IV. OBLIGATIONS WHEN INVESTIGATIVE CONSUMER REPORTS ARE USED</strong></p>
+         <p>Investigative consumer reports are a special type of consumer report in which information about a consumer’s character, general reputation, personal characteristics, and mode of living is obtained through personal interviews by an entity or person that is a consumer reporting agency. Consumers who are the subjects of such reports are given special rights under the FCRA. If a<br><br> user intends to obtain an investigative consumer report, Section 606 requires the following:</p>
+         <ul>
+            <li>The user must disclose to the consumer that an investigative consumer report may be obtained. This must be done in a written disclosure that is mailed, or otherwise delivered, to the consumer at some time before or not later than three days after the date on which the report was first requested. The disclosure must include a statement informing the consumer of his or her right to request additional disclosures of the nature and scope of the investigation as described below, and the summary of consumer rights required by Section 609 of the FCRA. (The summary of consumer rights will be provided by the CRA that conducts the investigation.)</li>
+            <li>The user must certify to the CRA that the disclosures set forth above have been made and that the user will make the disclosure described below. Upon the written request of a consumer made within a reasonable period of time after the disclosures required above, the user must make a complete disclosure of the nature and scope of the investigation. This must be made in a written statement that is mailed or otherwise delivered, to the consumer no later than five days after the date on which the request was received from the consumer or the report was first requested, whichever is later in time.</li>
+         </ul>
+         <p><strong>V. SPECIAL PROCEDURES FOR EMPLOYEE INVESTIGATIONS</strong></p>
+         <p>Section 603(x) provides special procedures for investigations of suspected misconduct by an employee or for compliance with Federal, state or local laws and regulations or the rules of a self-regulatory organization, and compliance with written policies of the employer. These investigations are not treated as consumer reports so long as the employer or its agent complies with the procedures set forth in Section 603(x), and a summary describing the nature and scope of the inquiry is made to the employee if an adverse action is taken based on the investigation.</p>
+         <p><strong>VI. OBLIGATIONS OF USERS OF MEDICAL INFORMATION</strong></p>
+         <p>Section 604(g) limits the use of medical information obtained from consumer reporting agencies (other than payment information that appears in a coded form that does not identify the medical provider). If the information is to be used for an insurance transaction, the consumer must give consent to the user of the report or the information must be coded. If the report is to be used for employment purposes – or in connection with a credit transaction (except as provided in federal regulations) – the consumer must provide specific written consent and the medical information must be relevant. Any user who receives medical information shall not disclose the information to any other person (except where necessary to carry out the purpose for which the information was disclosed, or as permitted by statute, regulation, or order).</p>
+         <p><strong>VII. OBLIGATIONS OF USERS OF “PRESCREENED” LISTS</strong></p>
+         <p>The FCRA permits creditors and insurers to obtain limited consumer report information for use in connection with unsolicited offers of credit or insurance under certain circumstances. Sections 603(1), 604(c), 604(e), and 614(d). This practice is known as “preConsumer” and typically involves obtaining from a CRA a list of consumers who meet certain pre-established criteria.  If<br><br> any person intends to use prescreened lists, that person must (1) before the offer is made, establish the criteria that will be relied upon to make the offer and grant credit or insurance, and (2) maintain such criteria on file for a three-year period beginning on the date on which the offer is made to each consumer. In addition, any user must provide with each written solicitation a clear and conspicuous statement that:</p>
+         <ul>
+            <li>Information contained in a consumer’s CRA file was used in connection with the transaction.</li>
+            <li>The consumer received the offer because he or she satisfied the criteria for credit worthiness or insurability used to screen for the offer.</li>
+            <li>Credit or insurance may not be extended if, after the consumer responds, it is determined that the consumer does not meet the criteria used for Consumer or any applicable criteria bearing on credit worthiness or insurability, or the consumer does not furnish required collateral.</li>
+            <li>The consumer may prohibit the use of information in his or her file in connection with future prescreened offers of credit or insurance by contacting the notification system established by the CRA that provided the report. The statement must include the address and toll-free telephone number of the appropriate notification system.</li>
+            <li>In addition, the CFPB has established the format, type size, and manner of the disclosure required by Section 615(d), with which users must comply. The regulation is 12 CFR 1022.54.</li>
+         </ul>
+         <p><strong>VIII. OBLIGATIONS OF RESELLERS</strong></p>
+         <p><strong>A. Disclosure and Certification Requirements</strong></p>
+         <p>Section 607(e) requires any person who obtains a consumer report for resale to take the following steps:</p>
+         <ul>
+            <li>Disclose the identity of the end-user to the source CRA.</li>
+            <li>Identify to the source CRA each permissible purpose for which the report will be furnished to the end-user.</li>
+            <li>Establish and follow reasonable procedures to ensure that reports are resold only for permissible purposes, including procedures to obtain:</li>
+         </ul>
+         <p>(1) the identity of all end-users;</p>
+         <p>(2) certifications from all users of each purpose for which reports will be used; and</p>
+         <p>(3) certifications that reports will not be used for any purpose other than the purpose(s) specified to the reseller. Resellers must make reasonable efforts to verify this information before selling the report.</p>
+         <p><strong>B. Reinvestigations by Resellers</strong></p>
+         <p>Under Section 611(f), if a consumer disputes the accuracy or completeness of information in a report prepared by a reseller, the reseller must determine whether this is a result of an action or omission on its part and, if so, correct or delete the information. If not, the reseller must send the dispute to the source CRA for reinvestigation. When any CRA notifies the reseller of the results of an investigation, the reseller must immediately convey the information to the consumer.</p>
+         <p><strong>C. Fraud Alerts and Resellers</strong></p>
+         <p>Section 605A(f) requires resellers who receive fraud alerts or active duty alerts from another consumer reporting agency to include these in their reports.</p>
+         <p><strong>IX. LIABILITY FOR VIOLATIONS OF THE FCRA</strong></p>
+         <p>Failure to comply with the FCRA can result in state government or federal government enforcement actions, as well as private lawsuits. Sections 616, 617, and 621. In addition, any person who knowingly and willfully obtains a consumer report under false pretenses may face criminal prosecution. Section 619.</p>
+         <p><strong>The CFPB’s website, www.consumerfinance.gov/learnmore, has more information about the FCRA, including publications for businesses and the full text of the FCRA.</strong></p>
+         <div class="header1">
+            <p>
+               <strong class="header">FOR CLIENT :</strong>
+            </p>
+         </div>
+      </div>
+   </div>
+   <div>
+      <p>Authorized Client Representative Signature:<span class="signature">{{clientSignature}}</span> </p>
+      <p>IP Address: <span>{{ipAddress}}</span>
+      <div class="header2">
+         <strong class="header">FOR VETZU :</strong>
+      </div>
+      <div>
+         <p>Staff Signature</p>
+         <input [(ngModel)]="staffSignature" onkeypress="return /[a-z]/i.test(event.key)" id="signature"
+         (focusout)="onBlurEvent($event)" />
+      </div>
+   </div>
+   <p>Date: <strong>{{myDate | date:'MM-dd-yyyy'}}</strong></p>
+   <button class="btn btn-active" [disabled]="isSignatureDone" (click)="onEsignClick()">
+      Esign
+      <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+    </button>
+</div>

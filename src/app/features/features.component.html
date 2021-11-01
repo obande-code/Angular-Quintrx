@@ -1,0 +1,13 @@
+<div class="container-fluid px-0" style="position: relative; min-height: 100vh;">
+  <app-header *ngIf="!router.url.includes('login') && !router.url.includes('verified-email')
+                      && !router.url.includes('consent-page') && !router.url.includes('application-disclosure')
+                      && !router.url.includes('verify')  && !router.url.includes('register')
+                      && !router.url.includes('forgetPassword')  && !router.url.includes('reset-password')
+                      && !router.url.includes('thank-submission') && !router.url.includes('confirmation')
+                      && !router.url.includes('consentdocuments') && !router.url.includes('user-details')
+                      && !router.url.includes('client-document')"></app-header>
+  <div id="app-body">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer *ngIf="!router.url.includes('consentdocuments')"></app-footer>
+</div>

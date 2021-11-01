@@ -1,0 +1,65 @@
+<div class="main">
+  <div class="report__container_order">
+    <div class="row">
+      <div class="col-12">
+        <header class="header-div">
+          <h1 class="header-label">Sign the agreements</h1>
+        </header>
+
+
+        <div class="buttons row">
+
+          <div class="">
+            <div id="check1" class="check1" style="display: none;">&#10004; </div>
+            <!-- <button class="btn btn-active" (click)="openDocument(0 ,'doc1.pdf', 1)"
+              [disabled]="isLoading$ | async">
+              Consent Based Social Security Number Verification (CBSV) Service
+              <div class="loader" *ngIf="isLoading$ | async"></div>
+            </button> -->
+
+            <button (click)="openDocument(0, 'CBSV.pdf', 1)" type="submit" id="buttonOne" class="btn btn-active login-btn"
+              [disabled]="isLoading$ | async">
+              Consent Based Social Security Number Verification (CBSV) Service
+              <div class="loader" *ngIf="isLoading$ | async"></div>
+            </button>
+
+          </div>
+
+          <div class="">
+            <div id="check2" class="check2" style="display: none;">&#10004;</div>
+            <button class="btn btn-active" id="buttonTwo" (click)="openDocument(1 , 'SAT.pdf', 2)">Substance Abuse Testing (SAT) Service</button>
+          </div>
+
+          <div class="">
+            <div id="check3" class="check3" style="display: none;">&#10004;</div>
+            <button   class="btn btn-active" id="buttonThree" (click)="openDocument(2 ,'MSA.pdf', 3)">Master Service Agreement (MSA)</button>
+          </div>
+        </div>
+
+        <!-- <input type="file" class="Filess mt-2"  name="file" accept="image" value="file" id="pzFile" (change)="getFile1($event)"
+          placeholder="Choose File"/>
+
+        <input type="file" class="Filess mt-2"  name="file" accept="image" value="file" id="pzFile" (change)="getFile2($event)"
+          placeholder="Choose File"/> -->
+
+
+        <div class="buttons2">
+          <div class="homeButton">
+            <button class="btn btn-active" (click)="redirect()">Continue</button>
+          </div>
+        </div>
+
+        <!-- <div class="buttons2">
+          <div class="homeButton">
+            <button class="btn btn-active" (click)="uploadFiles()">Submit</button>
+          </div>
+        </div> -->
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+

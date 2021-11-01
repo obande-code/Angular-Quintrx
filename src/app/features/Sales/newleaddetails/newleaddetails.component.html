@@ -1,0 +1,352 @@
+
+        <main class="main">
+            <section class="form-div " *ngIf="showContent" >
+                <section class="userFORUM container mb-4 p-3">
+
+
+                    <header class="header-div" >
+                        <h2 class="header-label">New Lead</h2>
+
+                    </header>
+
+
+                    <div class="col-md-12 mt-auto" >
+                        <label
+                        for="user-Fname"
+                        class="form-label user__font fw-bold"
+                        >Name : </label>
+
+                        <label
+                        for="user-Fname"
+                        class="form-label user__font"
+                        >{{name}}</label>
+
+                    </div>
+                    <div class="col-md-12 mt-auto" >
+                        <label
+                        for="user-Fname"
+                        class="form-label user__font fw-bold"
+                        >Email : </label>
+
+                        <label
+                        for="user-Fname"
+                        class="form-label user__font"
+                        > {{email}}</label>
+
+                    </div>
+
+                    <div class="col-md-12 mt-auto" >
+                        <label
+                        for="user-Fname"
+                        class="form-label user__font fw-bold"
+                        >Company Name : </label>
+
+                        <label
+                        for="user-Fname"
+                        class="form-label user__font"
+                        >{{companyname}}</label>
+
+                    </div>
+
+
+
+                    <div *ngIf="isStatus1">
+
+                    <div id = "serviceList">
+                    <header class="header-div">
+                        <h2 class="header-label">Interested In</h2>
+
+                    </header>
+
+
+
+                    <div class="row user__Form container mt-3 md-3" >
+
+                        <div class="col-md-4 mt-auto"   *ngFor="let item of dis">
+                            <input class="check__space"  type="checkbox" id="check_service" checked="checked" name="checked_services" >{{item.serviceAlias}}
+
+                        </div>
+
+
+                    </div>
+                    <label
+                        for="user-Fname"
+                        class="container mt-3 form-label user__font fw-bold"
+                        >Comment :</label>
+
+                    <div class="container mt-1">
+
+
+                        <textarea style="font-family:sans-serif;font-size:1.2em;" disabled  rows="4" cols="50" name="comment" >{{comments}}</textarea>
+
+
+                    </div>
+                    <div class="d-flex mt-5">
+                        <input type="submit" value="Save" class="btn btn-active" id="add_user" />
+                    </div>
+
+                </div>
+
+                    <form  #serviceForm = "ngForm" class="user__Form container mt-3">
+
+
+
+
+                    </form>
+
+                    <header id="sendDecuheading"  class="header-div">
+                        <h2 class="header-label">Documents</h2>
+
+                    </header>
+
+
+
+                    <div id="docuList"  class="row user__Form container mt-3 md-3" >
+
+                        <div class="col-md-4 mt-auto" *ngFor="let item of documents">
+                            <input class="check__space"  type="checkbox" id="check_service" checked="checked" name="checked_services" >{{item.name}}
+
+                        </div>
+
+
+                    </div>
+
+                    <div >
+                    <div id="sendDocuButton">
+
+                   <div *ngIf = "isSend">
+                    <div class="d-flex mt-5" >
+
+                        <input   type="submit" value="Send Documents" class="btn btn-active" id="add_user" (click) = "sendDocuments()"/>
+
+                    </div>
+                    </div>
+
+
+                     </div>
+                    <div *ngIf = "isCode" id="statusButtons">
+                        <div  class="d-flex mt-5" >
+
+                            <input   type="submit" value="Under Client Review" class="btn btn-active" id="underClient" />
+                            <input style="display: none;"  type="submit" value="Under Legal Review" class="btn btn-active" id="underLegal" />
+                            <input   type="submit" value="Re-Send Documents" class="btn btn-active" id="reSend" />
+
+                        </div>
+                    </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+
+                    <div *ngIf="isStatus" >
+
+
+                    <header id="PkgHeading" class="header-div">
+                        <h2 class="header-label">Packages</h2>
+
+                    </header>
+
+
+                    <div  id="crtpackage">
+                        <div  class=" container mt-2"  *ngFor="let item of addedPackages">
+                            <label class="">{{item.name}}</label>
+
+
+                        </div>
+                     </div>
+
+                    <div  id="crtpackage">
+                        <div class=" container mt-2" >
+
+                            <input   type="submit" value="Create First Package" class="btn btn-active" id="add_user" (click) = createPackage()/>
+
+                        </div>
+                     </div>
+
+
+
+                </div>
+
+                <div class="row gx-5">
+                    <div
+                      id="errorLabel"
+                      class="alert alert-success text-center"
+                      *ngIf = "checkPkg"
+                      >
+                      {{msg}}
+                    </div>
+                    <div
+                    id="errorLabel"
+                    class="alert alert-danger text-center"
+                    *ngIf = "checkpkgFail"
+                    >
+                    {{msg}}
+                  </div>
+                  </div>
+                  <div class="row gx-5">
+                    <div
+                      id="errorLabel"
+                      class="alert alert-danger text-center"
+                      *ngIf = "checkPrice"
+                      >
+                      {{msg2}}
+                    </div>
+                    <div
+                      id="errorLabel"
+                      class="alert alert-danger text-center"
+                      *ngIf = "showErrMsg"
+                      >
+                      {{errMessage}}
+                    </div>
+                  </div>
+
+
+
+
+                <form *ngIf = "isPackage"  [formGroup]="packagesData" >
+
+                    <div class="user__Form container mt-3" formArrayName = "packages">
+
+                        <div class="container border mb-4 p-3" *ngFor = "let package of packages().controls; let empIndex = index">
+                            <div [formGroupName] = "empIndex">
+                                <div class="row gx-5">
+                                    <div class="col-6">
+
+                                        <h4>Package {{empIndex + 1}}</h4>
+
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <button class="btn"><i class="fa fa-minus-circle" style="font-size:36px;color:red" (click)="removePackage(empIndex)" ></i></button>
+                                    </div>
+                                    <div class="col-md-4 mt-auto">
+                                        <label class="">Package Name</label>
+                                        <input class="form-control user__font" type="text" formControlName = "packageName" [ngClass]="{ 'is-invalid': submitted && package.get('packageName').errors }"/>
+                                        <div
+                                        *ngIf="submitted && package.get('packageName').errors"
+                                        class="invalid-feedback"
+                                        >
+                                        <div *ngIf="package.get('packageName').errors.required">
+                                            Package Name is required
+                                        </div>
+
+                                    </div>
+
+
+
+                                    </div>
+                                    <div class="col-md-4 mt-auto">
+                                        <label class="">Package Price</label>
+                                        <input class="form-control user__font" type="number" formControlName = "packagePrice" [ngClass]="{ 'is-invalid': submitted && package.get('packagePrice').errors }"/>
+
+
+                                        <div
+                                        *ngIf="submitted && package.get('packagePrice').errors"
+                                        class="invalid-feedback"
+                                        >
+                                        <div *ngIf="package.get('packagePrice').errors.required">
+                                            Package Name is required
+                                        </div>
+                                    </div>
+
+
+
+                                    </div>
+
+                                </div>
+
+
+                                <div formArrayName="serviceData">
+                                    <section  class="container mb-4 p-3"  *ngFor="let service of servicedatas(empIndex).controls; let skillIndex=index">
+
+                                        <div class="row gx-5" [formGroupName] = "skillIndex">
+
+                                            <div class="col-md-3 mt-auto">
+                                                <label>Service</label>
+                                                <select formControlName = "service" (change) = "onChangedService($event)"  id="service_status" [ngClass]="{ 'is-invalid': submitted && service.get('service').errors }" class="form-control user__font">
+                                                    <option value="1">--Select--</option>
+                                                    <option *ngFor = "let ser of getAllServices" [ngValue]="ser">
+                                                        {{ser.serviceAlias}}
+                                                    </option>
+                                                </select>
+
+                                                <div
+                                                    *ngIf="submitted && service.get('service').errors"
+                                                    class="invalid-feedback"
+                                                    >
+                                                    <div *ngIf="package.get('service').errors.required">
+                                                        Package Name is required
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+
+                                            <div class="col-md-3 mt-auto">
+                                                <label class="">Service Alias</label>
+                                                <input class="form-control user__font" type="text" formControlName = "serviceAlias"/>
+
+
+
+                                            </div>
+
+                                            <div class="col-md-3 mt-auto">
+                                                <label class="">Service Price</label>
+                                                <input class="form-control user__font" type="number" formControlName = "servicePrice"/>
+
+
+
+                                            </div>
+
+                                            <div class="col-md-3 mt-auto">
+                                                <button class="btn"><i class="fa fa-trash"style='font-size:20px;color:red' (click)="removeServiceData(empIndex,skillIndex)"></i></button>
+                                            </div>
+
+
+                                        </div>
+
+                                    </section>
+
+                                </div>
+
+                                <div class=" container mt-5">
+
+
+                                    <input   type="submit" value="Add Service" class="btn btn-active" id="add_user" (click) = "addServiceData(empIndex)"/>
+
+                                </div>
+
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div   id="documentStatus">
+                        <div  class="d-flex mt-5" >
+
+                            <input   type="submit" value="Save" class="btn btn-active" id="savepkg" (click) = sendPackage()/>
+                            <input   type="submit" value="Add Package" class="btn btn-active" id="addpkg" (click)="addPackage()"/>
+                            <input   type="submit" value="Cancel" class="btn btn-active" id="cancelpkg" />
+
+                        </div>
+                    </div>
+
+                </form>
+
+
+
+
+
+
+             </section>
+            </section>
+
+        </main>

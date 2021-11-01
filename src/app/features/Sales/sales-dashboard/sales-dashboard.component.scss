@@ -1,0 +1,55 @@
+.dashboard__container {
+  margin: auto;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 10px 13px 36px rgba(0, 0, 0, 0.33);
+  padding: 30px;
+  width: 70%;
+}
+
+
+.dashboard__heading{
+  color:white;
+  padding: 1rem 0;
+  font-size: 3rem;
+  text-align: center;
+  background-color: var(--primary-color);
+
+}
+
+.user__dashboard {
+  padding: 30px;
+}
+
+
+
+.in__progress {
+  width: 10rem;
+  height: 10rem;
+  text-align: center;
+
+}
+
+
+.user__dashboard {
+  text-align: center;
+
+}
+
+.btn {
+  margin: 5rem;
+  width:13rem;
+  height:6rem;
+  border-style: solid;
+  border-color: grey;
+  background-image: linear-gradient(to bottom, white 0%, #c2e9fb 51%, white 100%);
+  box-shadow: 2px 4px lightgray;
+  color: var(--primary-color);
+
+
+}
+
+.btn:hover {
+  opacity: 0.5;
+  background-position: right center;
+}

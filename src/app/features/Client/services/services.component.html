@@ -1,0 +1,73 @@
+    <!-- Main Content -->
+<!DOCTYPE html>
+
+    <div class="main__content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="card">
+
+
+                        <!-- Brand Logo -->
+
+
+                        <header class="header-div">
+                            <h1 class="header-label">I'm Interested in..</h1>
+
+                        </header>
+
+                        <!-- Services Title & Counter -->
+                        <div class="row">
+                            <div class="col-6 text-start">
+
+                            </div>
+
+                            <!-- <div class="col-6 d-flex-row text-end"> -->
+                            <div class="col-6 d-flex justify-content-end"  >
+                                <h5 class="title mt-auto mb-0 pr-5" style="display: none;">
+                                    (<span id="selectedCounter">0</span>) Items Selected
+                                    &nbsp;|&nbsp;
+                                    Total Cost: <span id="costCounter">$0</span>
+                                </h5>
+                            </div>
+
+
+
+                            <div class="col-12">
+                                <hr>
+                            </div>
+                        </div>
+
+
+                        <!-- Services Form Items -->
+                        <form class="user__form" >
+
+                            <ul class="checkbox-items" >
+                                <li *ngFor="let item of services" class="user__list">
+                                    <div class="sm-2 checked__label">
+                                        <label class="container" >
+                                            <input type="checkbox" id="check_service" checked="checked" name="checked_services" [(ngModel)]="item.isChecked" (change)="changeSelection()">{{item.serviceName}}
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+
+                                </li>
+                              </ul>
+                              <hr>
+
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+
+
+
+
+                              </div>
+                              <div class="col-12 text-center mt-5">
+                                <button id="submitButton" type="submit" class="btn btn-active" (click)="createPackage()" [disabled]="isDisabled" >Submit</button>
+                            </div>
+
+
+    <!-- End Main Content -->

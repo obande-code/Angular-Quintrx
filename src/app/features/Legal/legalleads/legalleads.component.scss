@@ -1,0 +1,114 @@
+
+
+  .main {
+    padding: 30px 0 50px 0;
+   
+  }
+
+  
+.userData {
+    padding: 5px 50px;
+    margin-top: 5%;
+  
+    
+    
+}
+
+.main__user {
+    margin: auto;
+    background-color: white;
+   
+    box-shadow: 10px 13px 36px rgba(0, 0, 0, 0.33);
+    padding: 30px;
+    width: 70%;
+    
+  }
+  
+  .header__heading {
+    margin-top: 5%;
+    background-color: #006b7f;
+    
+   
+    
+    
+  }
+  .consent__heading {
+    text-align: center;
+    color : white;
+}
+  
+
+
+
+
+table {
+  width: 100%;
+  background-color: white;
+  
+  }
+
+  .mat-cell {
+    color: black;
+}
+
+.userHover:hover {
+  background-color: #2196F3;
+}
+.mat-header-cell {
+  color: black;
+  background-color: #73CEBF;
+  color: white;
+  
+  font-size: large;
+  padding-bottom: 2%;
+}
+.mat-form-field {
+  color: black;
+}
+
+.dbody:hover {
+  background-color: #73CEBF;
+}
+
+
+
+
+
+
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: green !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: black !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: green !important;;
+}
+
+.placeholder {
+  color: black;
+}
+.mat-paginator {
+background-color: white;
+color: black;
+
+}
+
+::ng-deep .mat-select-value {
+
+color: black;
+
+}
+
+::ng-deep .mat-option-text {
+
+color: black;
+
+
+}

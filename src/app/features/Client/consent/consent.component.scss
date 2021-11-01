@@ -1,0 +1,240 @@
+.main {
+  padding: 30px 0 50px 0;
+}
+
+.loader{
+  margin-left: 8rem;
+  margin-top: -1.7rem;
+}
+
+.btn-loader {
+  height: 3.5rem;
+  width: 20%;
+  outline: none;
+  font-size: 1.5rem !important;
+  margin: 1rem auto;
+  border-radius: 5px;
+  padding: 5px 50px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #19A195;
+  border-color: #19A195;
+}
+
+.main__consent {
+  margin: auto;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 10px 13px 36px rgba(0, 0, 0, 0.33);
+  padding: 30px;
+  width: 70%;
+
+}
+
+.consent__logo img {
+  margin: 2rem 0;
+  margin-bottom: 4rem;
+  max-width: 200px;
+  height: auto;
+}
+
+.h2Class {
+  margin-top: 1%;
+}
+
+.consent__checkboxContainer{
+    list-style:none;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+
+
+}
+
+.form-check-label{
+    display:inline;
+}
+
+.imgg {
+    border-radius: 50%;
+}
+
+.imgg1 {
+  border-radius: 50%;
+}
+
+::ng-deep .ng-autocomplete {
+  margin-top: 20px;
+
+
+
+  a {
+    font-size: 20px;
+  }
+}
+
+::ng-deep .autocomplete-container {
+  height: 45px !important;
+  font-size: 1.4rem !important;
+  border: 1px solid lightgray;
+  box-shadow: none !important;
+
+  border-radius: 4px;
+  input {
+
+    font-size: 1.4rem !important;
+
+  }
+}
+
+.imgg1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+.imgg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.uploadLogo {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.uploadLogo + label {
+  max-width: 80%;
+  font-size: 1.25rem;
+  /* 20px */
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  /* 10px 20px */
+}
+
+
+
+.uploadLogo + label {
+  color: #f1e5e6;
+  background-color: #19A195;
+}
+
+
+.uploadLogo + label svg {
+width: 1em;
+height: 1em;
+vertical-align: middle;
+fill: currentColor;
+margin-top: -0.25em;
+/* 4px */
+margin-right: 0.25em;
+/* 4px */
+}
+
+.uploadLogo:focus + label,
+.uploadLogo.has-focus + label,
+.uploadLogo + label:hover {
+  background-color: #722040;
+}
+.uploadLogo + label {
+cursor: pointer; /* "hand" cursor */
+}
+
+
+
+.col-md-4 i {
+  position: absolute;
+  top: 55px;
+  right: 25px;
+
+}
+
+
+.col-md-4 i.fa-exclamation-circle
+{
+  color: #e74c3c;
+
+}
+
+.countt {
+  height: 20%;
+}
+
+.consent__option {
+  display: flex;
+  margin: 2rem 0;
+  flex-wrap: nowrap;
+  /* flex-direction: row; */
+}
+
+.consent__option h2 {
+  margin-right: 3rem;
+
+}
+
+.consent__form {
+  margin: 2rem 0;
+}
+
+
+.consent__font {
+  font-size: 1.4rem !important;
+}
+
+.consent__checkbox {
+  /* font-size: 1.8rem !important; */
+  font-size: 2vw;
+  vertical-align: -2px;
+  margin:10px
+}
+
+.consent__documentsCon {
+  margin: 2rem 0;
+}
+
+.consent__documents {
+  display: inline-block;
+}
+
+.consent__uploadLabel {
+  background-color: var(--secondary-color) !important;
+  color: white !important;
+}
+
+.consent__submit {
+  border: none;
+  outline: none;
+  font-size: 1.8rem !important;
+  margin: 1rem auto;
+  border-radius: 5px;
+  padding: 5px 60px;
+  font-size: 1rem;
+  color: white;
+  background-color: #19a195;
+}
+
+.consent__submit:hover {
+  opacity: 0.8;
+}
+
+
+/* .form-check-input:checked {
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+} */

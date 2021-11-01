@@ -1,0 +1,30 @@
+.modal-body {
+    height: 100% !important;
+  }
+
+
+
+
+  input, input:focus-visible, input:focus {
+    line-height: 2.5rem;
+    margin-top: 30px;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    outline-style: none;
+    box-shadow: none;
+    //font-family: 'Brush Script MT', 'Brush Script Std', cursive;
+    font-size: 2rem;
+    font-family: 'Mistral';
+}
+
+
+.header1, .header2 {
+  display: inline-block !important;
+}
+
+.header2 {
+  padding-left: 21em;
+}
+
+

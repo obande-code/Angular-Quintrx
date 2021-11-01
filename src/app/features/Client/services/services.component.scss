@@ -1,0 +1,162 @@
+
+
+
+
+
+
+.main__content {
+  padding: 30px 0 50px 0;
+  
+
+}
+
+.card {
+  padding: 30px;
+  border-radius: 20px;
+  border: none;
+  background-color: white;
+  box-shadow: 10px 13px 36px rgba(0, 0, 0, 0.33);
+}
+
+.header__heading {
+  
+  background-color: #006b7f;
+  text-align: center;
+  color : white;
+  
+}
+
+.services__logo {
+  margin: 1rem 0 2rem 0;
+  max-width: 200px;
+  height: auto;
+}
+
+.form-check-input[type=checkbox] {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.form-check-input[type=checkbox]:checked {
+  background-color: #0c4d61e5;
+}
+
+.form-check-label {
+  margin-top: 2px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+/* input[type=number]:focus,
+input[type=checkbox]:focus,
+button {
+  border-color: #0a3d624f;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #0a3d6233;
+  outline: 0 none;
+} */
+
+ul {
+  list-style-type:none;
+  
+  
+}
+.user__list{
+  
+  
+  position: relative;
+  padding-left: 35px;
+  
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+}
+
+.checked__label input
+{
+  vertical-align: middle;
+}
+
+
+.container input{
+  margin: 150 0px 0 30px;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  
+  vertical-align: middle;
+  
+}
+
+.check_service
+{
+  padding-bottom: 35px;
+}
+
+.checkmark {
+  position: absolute;
+  
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 100%;
+  vertical-align: middle;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.user__list:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+.package__btn {
+  margin: 0 10px 0 30px;
+}
+
+input[type=checkbox] {
+  transform: scale(1.5);
+}
+
+.btn-custom {
+  background-color: #0c4d61e5;
+  color: #ffffff;
+  font-size: 1.8rem !important;
+  padding: 5px 45px;
+}
+
+.btn-custom:hover {
+  opacity: 0.8;
+  background-color: #2196F3;
+}
+

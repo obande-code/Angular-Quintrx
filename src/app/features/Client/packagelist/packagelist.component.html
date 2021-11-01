@@ -1,0 +1,75 @@
+<div class="main">
+  <div class="packages__container">
+    <div class="row">
+      <div class="col-12">
+
+        <header class="header-div">
+          <h1 class="header-label">Order Report</h1>
+        </header>
+        <div
+        id="errorLabel"
+        class="alert alert-danger text-center"
+        *ngIf = "showStatusPkg"
+        >
+        {{msg}}
+      </div>
+
+     
+
+        <div class="order__list">
+
+
+
+
+              <mat-list>
+
+
+                <mat-list-item *ngFor="let item of names">
+                  <mat-checkbox class="checky"
+                  [(ngModel)]="item.checked"
+                  [disabled]="item.disabled"
+                  [labelPosition]="item.labelPosition"
+                  (change)="list_change()"
+
+
+                  >{{ item.name }}</mat-checkbox>
+                </mat-list-item>
+
+              </mat-list>
+
+
+
+        </div>
+
+        <div
+        id="errorLabel"
+        class="alert alert-danger text-center"
+        *ngIf = "showStatusMsg"
+        >
+        {{msg}}
+      </div>
+
+        <div class="buttonRow" id="buttonRow">
+              <div class="col-md-12 text-center mt-5 buttons" id="buttons">
+                <button
+                  routerLink="/ORDER_REPORT"
+                  type="button"
+
+                  class="btn btn-active submitButton"
+                  router.navigate="/orderReport"
+                >
+                  Back
+
+                </button>
+                <button id="submitButton2" [disabled]="isChecked" type="submit" class="btn btn-active btn-active" (click)='placeOrder()'>
+                  Place Order
+                  <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+                </button>
+              </div>
+            </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

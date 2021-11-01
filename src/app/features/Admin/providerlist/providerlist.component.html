@@ -1,0 +1,95 @@
+
+
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+<script src="vendor/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.min.js"></script>
+
+
+        <main class="main" >
+            <section class="main__user">
+
+
+                    <header class="header-div">
+                        <h1 class="header-label">Provider List</h1>
+
+                    </header>
+
+                <div
+                    id="errorLabel"
+                    class="alert alert-danger text-center"
+                    *ngIf = "pkgMsgs"
+                    >
+                    {{msg}}
+                </div>
+                <div
+                    id="errorLabel"
+                    class="alert alert-success text-center"
+                    *ngIf = "successcheck"
+                    >
+                    {{msg}}
+                </div>
+                
+
+
+                <form class="userData">
+
+                    <div >
+                        <mat-form-field fxFlex="40%">
+                          <input matInput class="asas" type="text" (keyup)="doFilter($event.target.value)" >
+                          <mat-placeholder class="placeholder">Search</mat-placeholder>
+                        </mat-form-field>
+
+                      <table  class="dbody" mat-table [dataSource]="dataSource" matSort matSortStart="desc" class="table table-striped table-responsive-md btn-table">
+
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element" > {{element.name}} </td>
+                          </ng-container>
+
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="pocEmailAddress">
+                                <th mat-header-cell *matHeaderCellDef> Email </th>
+                                <td mat-cell *matCellDef="let element" > {{element.pocEmailAddress}} </td>
+                              </ng-container>
+
+                           <!-- Name Column -->
+                           <ng-container matColumnDef="status">
+                              <th mat-header-cell *matHeaderCellDef> Status </th>
+                              <td mat-cell *matCellDef="let element" > {{element.statusUp}} </td>
+                            </ng-container>
+
+
+                            <!-- Action Column -->
+                            <ng-container matColumnDef="Action">
+                              <th mat-header-cell *matHeaderCellDef> Action </th>
+                              <td mat-cell *matCellDef="let element">
+                                <button class="btn"><i class='fa fa-edit' style='font-size:20px;color: green;' (click)="editUser(element)"></i></button>
+                                <button class="btn"><i class="fa fa-trash"style='font-size:20px;color:red' (click)="deleteUser(element)"></i></button>
+
+                                 </td>
+
+                            </ng-container>
+
+
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+
+                        <i class="fa fa-spinner fa-spin spinner" *ngIf="loading"></i>
+
+                        <mat-paginator [pageSizeOptions]="[15, 30, 15]" showFirstLastButtons></mat-paginator>
+
+
+                        </div>
+
+
+                </form>
+            </section>
+
+        </main>

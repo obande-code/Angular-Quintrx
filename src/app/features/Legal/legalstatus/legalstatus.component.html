@@ -1,0 +1,99 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+        <main class="main">
+            <section class="form-div " *ngIf="showContent" >
+                <section class="userFORUM container mb-4 p-3">
+
+                    <header class="header-div" >
+                        <h2 class="header-label">Client Details</h2>
+                    </header>
+
+                    <div class="col-md-12 mt-auto" >
+                        <label
+                        for="user-Fname"
+                        class="form-label user__font fw-bold"
+                        >Name : </label>
+
+                        <label
+                        for="user-Fname"
+                        class="form-label user__font"
+                        >{{name}}</label>
+                    </div>
+
+                    <div class="col-md-12 mt-auto" >
+                        <label
+                        for="user-Fname"
+                        class="form-label user__font fw-bold"
+                        >Email : </label>
+
+                        <label
+                        for="user-Fname"
+                        class="form-label user__font"
+                        > {{email}}</label>
+                    </div>
+
+                    <div class="col-md-12 mt-auto" >
+                        <label
+                        for="user-Fname"
+                        class="form-label user__font fw-bold"
+                        >Company Name : </label>
+
+                        <label
+                        for="user-Fname"
+                        class="form-label user__font"
+                        >{{companyname}}</label>
+
+                    </div>
+                    <div >
+
+
+
+
+
+
+
+
+
+
+
+                    <header id="sendDecuheading"  class="header-div">
+                        <h2 class="header-label">Documents</h2>
+
+                    </header>
+
+                </div>
+                    <div>
+                    <div class="documentStatus">
+                        <div class="d-flex mt-5" id="bottomButtons">
+
+                          <div class="section1">
+                            <div id="check1" class="check1" style="display: none;">&#10004; </div>
+                            <button class="btn btn-active"  [disabled]="disableCBSV"  (click)="openDocument(0 ,'CBSV.pdf', 1)">CBSV Addendum</button>
+
+                          </div>
+
+                          <div class="section2">
+                            <div id="check2" class="check2" style="display: none;">&#10004;</div>
+                            <button class="btn btn-active"  [disabled]="disableSAT"  (click)="openDocument(1 , 'SAT.pdf', 2)">SAT Addendum</button>
+                          </div>
+
+                          <div class="section3">
+                            <div id="check3" class="check3" style="display: none;">&#10004;</div>
+                            <button class="btn btn-active"  [disabled]="disableMSA"  (click)="openDocument(2 ,'MSA.pdf', 3)">Vetzu MSA</button>
+                          </div>
+                        </div>
+
+                        <div class="text-center viewDocs">
+                          <button class="btn btn-active viewDocs" (click) = "viewDocs()">View Documents</button>
+                        </div>
+
+                    </div>
+
+                </div>
+             </section>
+            </section>
+
+        </main>

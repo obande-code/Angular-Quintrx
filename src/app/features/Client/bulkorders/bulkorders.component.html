@@ -1,0 +1,274 @@
+<main class="main ">
+    <div class="form-div">
+      <header class="header-div">
+        <h1 class="header-label">Order Reports</h1>
+      </header>
+        <h3 class="order__heading">Bulk Orders</h3>
+        <form
+
+        [formGroup]="ordersData"
+        >
+        <div
+        id="errorLabel"
+        class="alert alert-danger text-center"
+        *ngIf = "showStatusMsg"
+        >
+        {{msg}}
+
+      </div>
+      <div
+        id="errorLabel"
+        class="alert alert-danger text-center"
+        *ngIf = "showSsnMsg"
+        >
+        {{ssnMsg}}
+      </div>
+
+        <div class="user__Form container mt-3" formArrayName = "orders">
+
+            <div class="container border mb-4 p-3" *ngFor = "let order of orders().controls; let empIndex = index">
+                <div [formGroupName] = "empIndex">
+                    <div class="row gx-5">
+                        <div class="col-6">
+
+                            <h4 class="form-label order__font fw-bold">Order {{empIndex + 1}}</h4>
+
+                        </div>
+                        <div class="col-6 text-right">
+                            <button class="btn"><i class="fa fa-minus-circle" style="font-size:36px;color:red" (click)="removeOrder(empIndex)"></i></button>
+                        </div>
+                        <div class="col-md-4 mt-auto">
+                            <label class="form-label order__font fw-bold">First Name</label>
+                            <input class="form-control user__font" placeholder="First Name" type="text" formControlName = "firstName" onkeypress="return /[a-z]/i.test(event.key)"  [ngClass]="{ 'is-invalid': submitted && order.get('firstName').errors }"/>
+                            <div
+                                *ngIf="submitted && order.get('firstName').errors"
+                                class="invalid-feedback"
+                                >
+                                <div *ngIf="order.get('firstName').errors.required">
+                                    First Name is required
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-4 mt-auto">
+                            <label class="form-label order__font fw-bold">Middle Name</label>
+                            <input class="form-control user__font" placeholder="Middle Name" type="text" formControlName = "middleName" onkeypress="return /[a-z]/i.test(event.key)"/>
+
+
+                        </div>
+                        <div class="col-md-4 mt-auto">
+                            <label class="form-label order__font fw-bold">Last Name</label>
+                            <input  class="form-control user__font" placeholder="Last Name" type="text" formControlName = "lastName" onkeypress="return /[a-z]/i.test(event.key)" [ngClass]="{ 'is-invalid': submitted && order.get('lastName').errors }"/>
+                            <div
+                                *ngIf="submitted && order.get('lastName').errors"
+                                class="invalid-feedback"
+                                >
+                                <div *ngIf="order.get('lastName').errors.required">
+                                    Last Name is required
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="col-md-4 mt-auto">
+                            <label class="form-label order__font fw-bold">Email Address</label>
+                            <input class="form-control user__font" placeholder="Email" type="text" formControlName = "email" [ngClass]="{ 'is-invalid': submitted && order.get('email').errors }"/>
+                                <div
+                                *ngIf="submitted && order.get('email').errors"
+                                class="invalid-feedback"
+                                >
+                                <div *ngIf="order.get('email').errors.required">
+                                    Email is required
+                                </div>
+
+                             </div>
+
+
+
+                        </div>
+                        <div class="col-md-4 mt-auto">
+                            <label class="form-label order__font fw-bold">Date of Birth</label>
+                            <input class="form-control user__font" placeholder="mm-dd-yyyy" type="text" formControlName = "dateOfBirth" (keypress)="onSearchChange($event)" [ngClass]="{ 'is-invalid': submitted && order.get('dateOfBirth').errors }"/>
+                            <div
+                                *ngIf="submitted && order.get('dateOfBirth').errors"
+                                class="invalid-feedback"
+                                >
+                                <div *ngIf="order.get('dateOfBirth').errors.required">
+                                    Date of Birth is required
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-4 mt-auto">
+                            <label class="form-label order__font fw-bold">Phone Number</label>
+                            <input class="form-control user__font" placeholder="Phone Number" type="number" formControlName = "phoneNumber"/>
+
+
+
+                        </div>
+
+                        <div class="col-md-4 mt-auto">
+                            <label class="form-label order__font fw-bold">Social Security #</label>
+                            <input class="form-control user__font" placeholder="123-45-6789" type="text"  formControlName = "socialSecurityNumber" onkeypress="return /[0-9]/i.test(event.key)"  (keypress)="onRestrictZero($event)" [ngClass]="{ 'is-invalid': submitted && order.get('socialSecurityNumber').errors }"/>
+                            <div
+                                *ngIf="submitted && order.get('socialSecurityNumber').errors"
+                                class="invalid-feedback"
+                                >
+                                <div *ngIf="order.get('socialSecurityNumber').errors.required">
+                                    SSN is required
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-4 mt-auto">
+                            <label class="form-label order__font fw-bold">House/Apt #</label>
+                            <input class="form-control user__font" placeholder="House/Apt #" type="text" formControlName = "houseApt" [ngClass]="{ 'is-invalid': submitted && order.get('houseApt').errors }"/>
+                            <div
+                                *ngIf="submitted && order.get('houseApt').errors"
+                                class="invalid-feedback"
+                                >
+                                <div *ngIf="order.get('houseApt').errors.required">
+                                    House/Apt # is required
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-auto">
+                            <label class="form-label order__font fw-bold">Address</label>
+                            <input class="form-control user__font" placeholder="Street Address" type="text" formControlName = "streetAddress" [ngClass]="{ 'is-invalid': submitted && order.get('streetAddress').errors }"/>
+                            <div
+                                *ngIf="submitted && order.get('streetAddress').errors"
+                                class="invalid-feedback"
+                                >
+                                <div *ngIf="order.get('streetAddress').errors.required">
+                                    Address is required
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-4 mt-auto">
+                            <label [for]="'select-country' + $empIndex" class="form-label order__font fw-bold">Country</label>
+                            <select name="userType" formControlName = "country" (change) = "onChangedCountry(empIndex)"   id="'select-country' + $empIndex" class="form-control user__font" [ngClass]="{ 'is-invalid': submitted && order.get('country').errors }">
+                                <option value="" disabled>--Select Country--</option>
+                                <option *ngFor = "let ser of Countries" [ngValue]="ser.id"   >
+                                    {{ser.name}}
+                                </option>
+
+
+                            </select>
+                            <div
+                                *ngIf="submitted && order.get('country').errors"
+                                class="invalid-feedback"
+                                >
+                                <div *ngIf="order.get('country').errors.required">
+                                    Country is required
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-4 mt-auto">
+                            <label [for]="'select-state' + $empIndex" class="form-label order__font fw-bold">State</label>
+                            <select name="userType"   formControlName = "state"  (change) = "onChangedState(empIndex)"  id="'select-state' + $empIndex" class="form-control user__font" [ngClass]="{ 'is-invalid': submitted && order.get('state').errors }">
+                                <option value="" disabled>--Select State--</option>
+                                <option *ngFor = "let ser of byid[empIndex]" [ngValue]="ser.id">
+                                    {{ser.name}}
+                                </option>
+                            </select>
+                            <div
+                                *ngIf="submitted && order.get('state').errors"
+                                class="invalid-feedback"
+                                >
+                                <div *ngIf="order.get('state').errors.required">
+                                    State is required
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-4 mt-auto">
+                            <label [for]="'select-city' + $empIndex" class="form-label order__font fw-bold">City</label>
+                            <select name="userType" formControlName = "city"  (change) = "onChangedCity($event)"  id="'select-city' + $empIndex" class="form-control user__font" [ngClass]="{ 'is-invalid': submitted && order.get('city').errors }">
+                                <option value="" disabled>--Select City--</option>
+                                <option *ngFor = "let ser of Cities[empIndex]" [ngValue]="ser.id">
+                                    {{ser.name}}
+                                </option>
+                            </select>
+                            <div
+                                *ngIf="submitted && order.get('city').errors"
+                                class="invalid-feedback"
+                                >
+                                <div *ngIf="order.get('city').errors.required">
+                                    City is required
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-4 mt-auto">
+                            <label class="form-label order__font fw-bold">Zipcode</label>
+                            <input class="form-control user__font" type="text" placeholder="Zipcode" onkeypress="return /[0-9]/i.test(event.key)" type="number" formControlName = "zipcode" [ngClass]="{ 'is-invalid': submitted && order.get('zipcode').errors }"/>
+                            <div
+                                *ngIf="submitted && order.get('zipcode').errors"
+                                class="invalid-feedback"
+                                >
+                                <div *ngIf="order.get('zipcode').errors.required">
+                                    Zipcode is required
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-auto">
+                            <label class="form-label order__font fw-bold">Packages</label>
+                            <select  formControlName = "pid" id="select-pkg" class="form-control user__font" [ngClass]="{ 'is-invalid': submitted && order.get('pid').errors }">
+                                <option value="" disabled>--Select Package--</option>
+                                <option *ngFor = "let pak of getAllPackages" [ngValue]="pak.id">
+                                    {{pak.name}}
+                                </option>
+                            </select>
+
+                            <div
+                                *ngIf="submitted && order.get('pid').errors"
+                                class="invalid-feedback"
+                                >
+                                <div *ngIf="order.get('pid').errors.required">
+                                    Package is required
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        </form>
+        <div class="d-flex mt-5">
+            <input   type="submit" value="Add Order" class="btn btn-active" id="addpkg" (click)="addOrder()"/>
+            <input   type="submit" value="Submit" class="btn btn-active" id="submitOrder" (click)="submit()"/>
+        </div>
+
+
+
+    </div>
+  </main>

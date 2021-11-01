@@ -1,0 +1,84 @@
+body {
+  font-family: "Roboto", sans-serif;
+
+}
+.main {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.main__topLogoContainer {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+.signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.signup__resend{
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.signup__welcome {
+  text-align: center;
+  font-size: 3.2rem;
+  margin: 2rem 0;
+}
+.signup__logo {
+  max-width: 150px;
+  margin-top: -0.8rem;
+}
+.main__signup {
+  margin: auto;
+  position: relative;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 10px 13px 36px rgb(0 0 0 / 33%);
+  padding: 30px;
+  width: 500px;
+}
+.loginBox__loginbtn {
+  border: none;
+  outline: none;
+  font-size: 1.8rem !important;
+  margin: 1rem auto;
+  border-radius: 5px;
+  padding: 5px 60px;
+  font-size: 1rem;
+  color: white;
+  background-color: #19a195;
+
+}
+
+h4 {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  /* font-weight: bold; */
+}
+h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  /* font-weight: bold; */
+}
+i {
+  font-style: italic;
+}

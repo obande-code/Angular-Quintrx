@@ -1,0 +1,40 @@
+<nav  class="navbar navbar-expand-lg navbar-light headersss">
+  <a class="navbar-brand" (click)="navigate()">
+    <img src="./assets/images/logo.png" alt="Vetzu" class="navbar__logo" />
+  </a>
+
+
+
+  <ng-container>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" (click)="onCloseOnMobile()" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="list-unstyled ml-auto" style="display:flex;">
+        <li *ngFor="let itemMenu of menus">
+          <a *ngIf="!itemMenu.dropDownTarget" class='nav-link mainMenu' [routerLink]="itemMenu.alias"><span>{{ itemMenu.name }}</span></a>
+          <a href='#{{itemMenu.dropDownTarget}}' (blur)="submenublur($event)" *ngIf="itemMenu?.subMenuList.length > 0" class='nav-link dropdown-toggle mainMenu'
+            data-toggle='collapse' data-target='#{{itemMenu.dropDownTarget}}' [attr.aria-controls]='itemMenu.dropDownTarget'
+            attr.aria-label='Toggle {{itemMenu.dropDownTarget}}'
+            aria-expanded='false'><span>{{ itemMenu.name }}</span></a>
+          <div *ngIf="itemMenu.subMenuList.length > 0" class="collapse" [id]="itemMenu.dropDownTarget">
+            <ul class="list-unstyled subMenu">
+              <li class="subMenuItems" *ngFor="let subMenu of itemMenu.subMenuList">
+                <a class='ml-5 nav-link' [routerLink]="subMenu.alias" ><span>{{ subMenu.name }}</span></a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </ng-container>
+
+
+
+
+
+
+<!-- </nav> -->

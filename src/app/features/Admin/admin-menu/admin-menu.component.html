@@ -1,0 +1,45 @@
+<div class="main">
+  <div class="admin__menu">
+    <div class="col-12">
+
+      <header class="header-div">
+        <h1 class="header-label">Menu & Action</h1>
+      </header>
+
+      <!-- <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div> -->
+
+
+
+      <div class="selectMenu">
+        <div class="menu__list">
+
+          <mat-list-item *ngFor="let item of menusData; let i =index;">
+            <h2 class="menus">{{item.name}}</h2>
+
+
+
+            <div class="subMenus">
+              <h2 class="subMenus" *ngFor="let ite of item.childMenus; let i =index;">{{ite.name}}</h2>
+            </div>
+
+
+            <button class="plus-button plus-button--small" (click)="routeMenu()"></button>
+            <i class="addLabel" (click)="routeMenu()"> Add Item</i>
+
+
+          </mat-list-item>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+  </div>
+</div>

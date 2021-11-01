@@ -1,0 +1,590 @@
+
+
+        <main class="main" >
+          <section class="form-div">
+
+              <header class="header-div">
+                  <h1 class="header-label">Applicant Report</h1>
+
+              </header>
+              <form class="user_form container">
+
+                <div *ngIf = "isAdminSide" >
+                  <div
+                    id="errorLabel"
+                    class="alert alert-danger text-center"
+                    *ngIf = "checkfieldstatus"
+                    >
+                    {{fieldMsgs}}
+                </div>
+                  <div class="row mt-4 gx-5">
+                    <div class="col-md-4 mt-auto" >
+                      <label
+                      for="user-Fname"
+                      class="form-label user__font fw-bold"
+                      >First Name</label
+                      >
+                      
+                      <input
+                      onkeypress="return /[a-z]/i.test(event.key)"
+                      type="text"
+                      class="form-control user__font"
+                      placeholder="First Name"
+                  
+                      
+                      id="user-Fname"
+                      name="firstName"
+                      [(ngModel)]="orderReportData.firstName"
+                      [class.border-danger] = "firstCheck"
+                     
+                      
+                      />
+                      
+                  </div>
+                  <div class="col-md-4 mt-auto" >
+                    <label
+                    for="user-Mname"
+                    class="form-label user__font fw-bold"
+                    >Middle Name</label
+                    >
+                    
+                    <input
+                    onkeypress="return /[a-z]/i.test(event.key)"
+                    type="text"
+                    class="form-control user__font"
+                    placeholder="Middle Name"
+                
+                    
+                    id="user-Mname"
+                    name="middleName"
+                    [(ngModel)]="orderReportData.middleName"
+                    
+                   
+                    
+                    />
+                    
+                </div>
+
+                  <div class="col-md-4 mt-auto" >
+                    <label
+                    for="user-Lname"
+                    class="form-label user__font fw-bold"
+                    >Last Name</label
+                    >
+                    
+                    <input
+                    onkeypress="return /[a-z]/i.test(event.key)"
+                    type="text"
+                    class="form-control user__font"
+                    placeholder="First Name"
+                
+                    
+                    id="user-Lname"
+                    name="lastName"
+                    [(ngModel)]="orderReportData.lastName"
+                    [class.border-danger] = "lastCheck"
+                   
+                    
+                    />
+                    
+                </div>
+
+                  </div>
+
+                  <div class="row mt-4 gx-5">
+                    <div class="col-md-4 mt-auto" >
+                      <label
+                      for="user-Ename"
+                      class="form-label user__font fw-bold"
+                      >Email</label
+                      >
+                      
+                      <input
+                      type="text"
+                      class="form-control user__font"
+                      placeholder="Email"
+                  
+                      
+                      id="user-Ename"
+                      name="emailName"
+                      [(ngModel)]="orderReportData.email"
+                      [class.border-danger] = "emailCheck"
+                     
+                      
+                      />
+                      
+                  </div>
+                  <div class="col-md-4 mt-auto" >
+                    <label
+                    for="user-Dname"
+                    class="form-label user__font fw-bold"
+                    >Date Of Birth</label
+                    >
+                    
+                    <input
+                    type="text"
+                    class="form-control user__font"
+                    placeholder="MM-DD-YYYY"
+                
+                    
+                    id="user-Dname"
+                    name="dateName"
+                    [(ngModel)]="orderReportData.dateOfBirth"
+                    [class.border-danger] = "dateCheck"
+                   
+                    
+                    />
+                    
+                </div>
+                <div class="col-md-4 mt-auto" >
+                  <label
+                  for="user-Phname"
+                  class="form-label user__font fw-bold"
+                  >Phone Number</label
+                  >
+                  
+                  <input
+                  onkeypress="return /[0-9]/i.test(event.key)"
+                  type="text"
+                  class="form-control user__font"
+                  placeholder="Phone Number"
+              
+                  
+                  id="user-Phname"
+                  name="phoneName"
+                  [(ngModel)]="orderReportData.phoneNumber"
+               
+
+                 
+                  
+                  />
+                  
+              </div>
+                  </div>
+
+                  <div  class="row mt-4 gx-5">
+                    <div class="col-md-4 mt-auto" >
+                      <label
+                      for="user-House"
+                      class="form-label user__font fw-bold"
+                      >House/Apt #</label
+                      >
+                      
+                      <input
+                      type="text"
+                      class="form-control user__font"
+                      placeholder="house/apt#"
+                  
+                      
+                      id="user-House"
+                      name="HouseName"
+                      [(ngModel)]="orderReportData.houseApt"
+                      [class.border-danger] = "houseCheck"
+
+                     
+                      
+                      />
+                      
+                  </div>
+
+                  <div class="col-md-4 mt-auto" >
+                    <label
+                    for="user-House"
+                    class="form-label user__font fw-bold"
+                    >Street Address</label
+                    >
+                    
+                    <input
+                    type="text"
+                    class="form-control user__font"
+                    placeholder="Street Address"
+                
+                    
+                    id="user-street"
+                    name="streetName"
+                    [(ngModel)]="orderReportData.streetAddress"
+                    [class.border-danger] = "streetCheck"
+                   
+                    
+                    />
+                    
+                </div>
+                <div class="col-md-4 mt-auto" >
+                  <label
+                  for="user-zip"
+                  class="form-label user__font fw-bold"
+                  >Zip Code</label
+                  >
+                  
+                  <input
+                  onkeypress="return /[0-9]/i.test(event.key)"
+                  type="text"
+                  class="form-control user__font"
+                  placeholder="zipcode"
+              
+                  
+                  id="user-zip"
+                  name="zipName"
+                  [(ngModel)]="orderReportData.zipcode"
+                  [class.border-danger] = "zipCheck"
+                 
+                  
+                  />
+                  
+              </div>
+
+              <div class="col-md-4 mt-auto" >
+                <label
+                for="user-ssn"
+                class="form-label user__font fw-bold"
+                >Social Security #</label
+                >
+                
+                <input
+                onkeypress="return /[0-9]/i.test(event.key)"
+                type="text"
+                class="form-control user__font"
+                placeholder="SSN"
+            
+                
+                id="user-ssn"
+                name="SSnName"
+                [(ngModel)]="orderReportData.socialSecurityNumber"
+                [class.border-danger] = "ssnCheck"
+               
+                
+                />
+                
+            </div>
+
+               
+                  </div>
+
+                  <div class="row mt-4 gx-5">
+                    <div class="col-md-4 mt-auto" >
+                      <label
+                      for="comments"
+                      class="form-label user__font fw-bold"
+                      >Comments</label
+                      >
+                      
+                      <textarea
+                      type="text"
+                      class="form-control user__font"
+                      [(ngModel)]="orderReportData.orderComment"
+                      id="user-comments"
+                      name="comments"
+                      ></textarea>
+                      
+                  </div>
+                  </div>
+                 
+
+                  <div class="row mt-4 gx-5">
+                    <div class="col-md-4 mt-auto">
+                      <input
+                      type="button"
+                      value="Update Report"
+                     
+                      class="mt-3 btn btn-active"
+                      (click) = "updateReportData()"
+                      />
+
+
+                    </div>
+                  </div>
+                 
+                  
+
+                </div>
+
+                <div *ngIf = "isClientLegal">
+
+               
+                    <div class="row mt-3">
+
+                        <div class="col-md-12 mt-auto" >
+                          <label
+                          for="user-Fname"
+                          class="form-label user__font fw-bold"
+                          >Name : </label>
+
+                          <label
+                          for="user-Fname"
+                          class="form-label user__font"
+                          >{{fullname}}</label>
+
+                      </div>
+
+
+                        <div class="col-md-12 mt-auto" >
+                          <label
+                          for="user-Fname"
+                          class="form-label user__font fw-bold"
+                          >Email : </label>
+
+                          <label
+                          for="user-Fname"
+                          class="form-label user__font"
+                          >{{email}}</label>
+
+                      </div>
+                      <div class="col-md-12 mt-auto" >
+                        <label
+                        for="user-Fname"
+                        class="form-label user__font fw-bold"
+                        >Date of Birth : </label>
+
+                        <label
+                        for="user-Fname"
+                        class="form-label user__font"
+                        >{{dob}}</label>
+
+                    </div>
+                    <div class="col-md-12 mt-auto" >
+                      <label
+                      for="user-Fname"
+                      class="form-label user__font fw-bold"
+                      >Address : </label>
+                      <label
+                      for="user-Fname"
+                      class="form-label user__font"
+                      >{{fullAddress}}</label>
+    
+                  </div>
+                  
+                
+
+
+
+                        <div class="col-md-12 mt-auto" >
+                          <label
+                          for="user-Fname"
+
+                          class="form-label user__font fw-bold"
+                          >Selected Options : </label>
+                          <label
+                          for="user-Fname"
+                          *ngFor="let citi of displayServices;"
+                          class="form-label user__font"
+                          >  {{citi.serviceAlias}},</label>
+
+                        </div>
+
+
+                      </div>
+
+                </div>
+                  <div class="mt-3"  *ngIf="showGroup">
+
+                    <header class="header-div">
+                      <h1 class="header-label">Consent Documents</h1>
+
+                  </header>
+
+                  <div class="row gx-5">
+                    <div
+                      id="errorLabel"
+                      class="alert alert-success text-center"
+                      *ngIf = "checkfileStatus"
+                      >
+                      {{msg2}}
+                    </div>
+
+                    <mat-progress-bar mode="determinate" style="color: white;" [value]="count"></mat-progress-bar>
+                  </div>
+
+
+
+                    <table datatable ="ng"    class="table " >
+                        <thead>
+                          <tr class="heady user__font">
+                            <th>Sr. #</th>
+                            <th>Document Name</th>
+
+
+                            <th>Action</th>
+                            <th>Upload Documents</th>
+
+                          </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let citi of displayDocuments; let i = index" class="dbody">
+                                <td class="user__font">{{ i  + 1}}</td>
+                                <td class="user__font">{{ citi.documentName}}</td>
+
+
+                              <td>
+                                <input  type="button" value="View Document" class="btn btn-active mt-1" id="add_user" (click)="openDoc(citi)" />
+
+                              </td>
+                              <td>
+                                <input type="file" class="Filess mt-2"  name="file" accept="application/pdf" value="file" id="pzFile" (change)="onFileChanged1($event, citi)"
+                                placeholder="Choose File"/>
+                              </td>
+
+
+                            </tr>
+
+
+                        </tbody>
+                      </table>
+                    </div>
+                  <div *ngIf = "isAdmin">
+                    <header class="header-div">
+                      <h1 class="header-label">Reports</h1>
+
+                  </header>
+                <div class="row gx-5">
+                  <div
+                    id="errorLabel"
+                    class="alert alert-success text-center"
+                    *ngIf = "checkReport"
+                    >
+                  {{msg}}
+                  </div>
+                  <div
+                  id="errorLabel"
+                  class="alert alert-danger text-center"
+                  *ngIf = "checkSocial"
+                  >
+                  {{msg1}}
+                </div>
+                  <div
+                  id="errorLabel"
+                  class="alert alert-success text-center"
+                  *ngIf = "showReportUploadMsg"
+                  >
+                  {{msg3}}
+                </div>
+                </div>
+                <mat-progress-bar mode="indeterminate"  *ngIf="isCompleted"></mat-progress-bar>
+
+                <div class="mt-3">
+
+
+                  <table datatable ="ng"   class="table " >
+                      <thead>
+                        <tr class="heady user__font">
+                          <th>Sr. #</th>
+                          <th>Search Type</th>
+
+                          <th>Status</th>
+                          <th >Report</th>
+                          <th *ngIf="showupLoadReport">Upload Report Documents</th>
+
+                        </tr>
+
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let citi of displayServices; let i = index" class="dbody">
+                              <td class="user__font">{{ i  + 1}}</td>
+                              <td class="user__font">{{ citi.serviceAlias}}</td>
+
+
+                              <td class="user__font">{{ citi.status}}</td>
+
+                            <td >
+                              <input  type="button" [disabled]="citi.status === 'Incomplete' && showLegalButton === 'legal'"  [value]="getColor(citi.status) ? 'View Document' : 'Run Report'" class="btn btn-active mt-1" id="add_user" (click)="runReport(citi)" />
+
+                            </td>
+
+                            <td  *ngIf="showupLoadReport">
+                              <input type="file" class="Filess mt-2"  name="file" accept="application/pdf" value="file" id="pzFile" (change)="onFileChanged2($event, citi)"
+                              placeholder="Choose File"/>
+
+                            </td>
+
+
+                          </tr>
+
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                  <div class=" mt-1 col-md-4">
+                    <input
+                    type="button"
+                    value="View Report"
+                    *ngIf="showreportDoc"
+                    class="mt-3 btn btn-active"
+                    (click) = "seeReport()"
+                    />
+
+
+                  </div>
+
+                  <div class=" mt-1 col-md-4">
+                    <input
+                    type="button"
+                    value="View Report - In Progress"
+                    *ngIf="isClient"
+                    class="mt-3 btn btn-active"
+                    disabled
+                    />
+
+
+                  </div>
+
+
+
+
+              </form>
+              <div
+              id="errorLabel"
+              class="alert alert-danger text-center"
+              *ngIf = "showStatusMsg"
+              >
+              Please Select the Status
+            </div>
+             
+              <div class="report__buttons row" *ngIf="showbuttons">
+                <div class=" mt-1 col-md-4">
+
+                  <select name="userType" [(ngModel)]="statusselected.status"   id="order-Status" class="d-flex mt-2 form-control user__font">
+                      <option value="x">--Select Status--</option>
+                      <option value = "0">In Progress</option>
+                      <option value = "1">Completed</option>
+                      <option value = "2">Needs Attention</option>
+                      <option value = "3">Cancel</option>
+                      <option value = "4">Archived</option>
+                      <option value = "5">Consolidate Report</option>
+
+
+
+                  </select>
+
+
+                </div>
+                <div class=" mt-1 col-md-4">
+                  <button
+                  type="button"
+                  value="Update Status"
+                  *ngIf="showContent"
+                  class="btn btn-active"
+                  (click) = "updateStatus()"
+
+
+                  >Update Status
+                  <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+
+
+                  </button>
+
+
+
+                </div>
+
+
+
+              </div>
+
+
+
+
+          </section>
+
+      </main>

@@ -1,0 +1,32 @@
+.buttons {
+
+  display:flex;
+  padding: 3rem;
+
+}
+
+.buttons2 {
+  display:flex;
+  padding-left: 35%;
+}
+
+.check1,.check2,.check3 {
+  display: contents;
+  color: green;
+  font-size: 2rem;
+}
+
+.section1, .section2, .section3 {
+  margin: auto;
+  display: flex;
+}
+
+
+.backButton, .homeButton {
+  margin: 2rem;
+  display: flex;
+}
+
+
+
+

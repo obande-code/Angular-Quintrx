@@ -1,0 +1,88 @@
+.main__content {
+  padding: 60px 0 0 0;
+  // background-image: linear-gradient(to top, #2d3246, #dcf5fe)
+}
+
+.buttons {
+  padding: 100px;
+}
+
+.card {
+  padding: 30px;
+  border-radius: 20px;
+  border: none;
+  background-color: white;
+  box-shadow: 10px 13px 36px rgba(0, 0, 0, 0.33);
+}
+
+.services__logo {
+  margin: 1rem 0 2rem 0;
+  max-width: 200px;
+  height: auto;
+}
+
+.form-check-input[type=checkbox] {
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+}
+
+.form-check-input[type=checkbox]:checked {
+  background-color: #0c4d61e5;
+}
+
+.form-check-label {
+  margin-top: 2px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* input[type=number]:focus,
+input[type=checkbox]:focus,
+button {
+  border-color: #0a3d624f;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #0a3d6233;
+  outline: 0 none;
+} */
+
+.btn-custom {
+  background-color: #0c4d61e5;
+  color: #ffffff;
+  padding: 5px 45px;
+  margin: 0 5px;
+}
+
+.horizontal-divider {
+  border-left: 2px solid black;
+  height: 22px;
+  padding: 0 5px;
+}
+
+.border-left {
+  border-left: 2px solid black;
+}
+.align-center{
+  align-items: center;
+}
+
+.report__profile {
+  letter-spacing: 1px;
+  font-size: 0.5rem;
+}
+
+.h2,h2 {
+  text-decoration: underline;
+  font-size: 1.5rem;
+
+}
+.h3,h3 {
+  font-size: 1rem;
+}
+
+.package__container {
+  margin-top: 5%;
+}
+
+.name {
+  padding: 50px;
+}

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+	width:70%;
+	margin-left: auto;
+    margin-right: auto;
+}
+table {
+	border: 2px solid #d4d4d4;
+	border-collapse: collapse;
+}
+
+tr {
+	border: 2px solid #d4d4d4;
+	border-collapse: collapse;
+}
+
+th {
+	background-color: #d4d4d4;
+	text-align: left;
+}
+
+.content {
+	margin: 150 auto;
+	font-family: serif;
+}
+
+@page {
+    size: 7in 9.25in;
+    margin: 27mm 16mm 27mm 16mm;
+}
+</style>
+
+
+</head>
+
+
+
+<body>
+<br>
+	<div class="content">
+		<table width="100%">
+			<tr>
+				<th colspan=8>APPLICANT INFORMATION</th>
+			</tr>
+			<tr>
+				<td>Last Name</td>
+				<td><input type="text" id="lname" name="lname" /></td>
+				<td>First Name</td>
+				<td><input type="text" id="fname" name="fname" /></td>
+				<td>M.I.</td>
+				<td><input type="text" id="mname" name="mname" /></td>
+				<td>Date</td>
+				<td><input type="date" id="date" name="date" /></td>
+			</tr>
+
+			<tr>
+				<td>Street Address</td>
+				<td><input type="text" id="address" name="address" /></td>
+				<td>Apartment/Unit #</td>
+				<td><input type="text" id="aptn" name="aptn" /></td>
+			</tr>
+
+
+			<tr>
+				<td>City</td>
+				<td><input type="text" id="city" name="city" /></td>
+				<td>Prov./State</td>
+				<td><input type="text" id="state" name="state" /></td>
+				<td>Postal Code</td>
+				<td><input type="text" id="zip" name="zip" /></td>
+			</tr>
+
+
+			<tr>
+				<td>Phone</td>
+				<td><input type="text" id="phone" name="phone" /></td>
+				<td>E-mail Address</td>
+				<td><input type="text" id="email" name="email" /></td>
+			</tr>
+
+
+			<tr>
+				<td>Date of Birth</td>
+				<td><input type="text" id="dob" name="dob" /></td>
+				<td>Social Sec. #</td>
+				<td><input type="text" id="ssn" name="ssn" /></td>
+				<td>Position Applied for</td>
+				<td><input type="text" id="position" name="position" /></td>
+			</tr>
+
+			<tr>
+				<td>Are you a U.S. citizen?</td>
+				<td></td>
+				<td><input type="radio" id="citizenYes" name="citizen"
+					value="Yes"><label for="citizenYes">Yes</label> <input
+					type="radio" id="citizenNo" name="citizen" value="No"><label
+					for="citizenNo">No</label></td>
+				<td></td>
+				<td>If no, explain</td>
+				<td><input type="text" id="citizenNoReason"
+					name="citizenNoReason" /></td>
+			</tr>
+
+			<tr>
+				<td>Have you ever been convicted of a felony?</td>
+				<td></td>
+				<td><input type="radio" id="felonyYes" name="felony"
+					value="Yes"><label for="felonyYes">Yes</label> <input
+					type="radio" id="felonyNo" name="felony	" value="No"><label
+					for="felonyNo">No</label></td>
+				<td></td>
+				<td>If yes, explain</td>
+				<td><input type="text" id="felonyYesReason"
+					name="felonyYesReason" /></td>
+			</tr>
+
+		</table>
+	<br>
+
+		<table width="100%">
+			<tr>
+				<th colspan=6>EDUCATION</th>
+			</tr>
+
+
+			<tr>
+				<td>High School</td>
+				<td><input type="text" id="highschool" name="highschool" /></td>
+				<td>Did you graduate?</td>
+				<td><input type="radio" id="graduateYes" name="graduate"
+					value="Yes"><label for="graduateYes">Yes</label> <input
+					type="radio" id="graduateNo" name="graduate" value="No"><label
+					for="graduateNo">No</label></td>
+				<td>Diploma</td>
+				<td><input type="text" id="diploma" name="diploma" /></td>
+			</tr>
+
+			<tr>
+				<td>School Name & Address</td>
+				<td colspan=5><input type="text" id="school" name="school" /></td>
+			</tr>
+
+			<tr>
+				<td>College/University</td>
+				<td><input type="text" id="college" name="college" /></td>
+				<td>Did you graduate?</td>
+				<td><input type="radio" id="collegeYes" name="collegeU"
+					value="Yes"><label for="collegeYes">Yes</label> <input
+					type="radio" id="collegeNo" name="collegeU" value="No"><label
+					for="collegeNo">No</label></td>
+				<td>Degree</td>
+				<td><input type="text" id="degree" name="degree" /></td>
+			</tr>
+
+			<tr>
+				<td>University Name & Address</td>
+				<td colspan=5><input type="text" id="university"
+					name="university" /></td>
+			</tr>
+
+		</table>
+
+<br>
+		<table width="100%">
+			<tr>
+				<th colspan=6>REFERENCES</th>
+			</tr>
+			<tr>
+				<td>Full Name</td>
+				<td><input type="text" id="ref1" name="ref1" /></td>
+				<td>Relationship</td>
+				<td><input type="text" id="ref1rel" name="ref1rel" /></td>
+			</tr>
+
+			<tr>
+				<td>Company</td>
+				<td><input type="text" id="ref1Company" name="ref1Company" /></td>
+				<td>Address</td>
+				<td><input type="text" id="ref1Add" name="ref1Add" /></td>
+				<td>Phone</td>
+				<td><input type="text" id="ref1Phone" name="ref1Phone" /></td>
+			</tr>
+
+			<tr>
+				<td>Full Name</td>
+				<td><input type="text" id="ref2" name="ref2" /></td>
+				<td>Relationship</td>
+				<td><input type="text" id="ref2rel" name="ref2rel" /></td>
+			</tr>
+
+			<tr>
+				<td>Company</td>
+				<td><input type="text" id="ref2Company" name="ref2Company" /></td>
+				<td>Address</td>
+				<td><input type="text" id="ref2Add" name="ref2Add" /></td>
+				<td>Phone</td>
+				<td><input type="text" id="ref2Phone" name="ref2Phone" /></td>
+			</tr>
+		</table>
+<br>
+		<table width="100%">
+			<tr>
+				<th colspan=6>PREVIOUS EMPLOYMENT</th>
+			</tr>
+
+			<tr>
+				<td>Company</td>
+				<td><input type="text" id="company1" name="company1" /></td>
+				<td>Phone</td>
+				<td><input type="text" id="company1phone" name="company1" /></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td>Address</td>
+				<td><input type="text" id="company1Add" name="company1Add" /></td>
+				<td>Supervisor</td>
+				<td><input type="text" id="company1Sup" name="company1Sup" /></td>
+
+			</tr>
+
+			<tr>
+				<td>City</td>
+				<td><input type="text" id="company1City" name="company1City" /></td>
+				<td>State</td>
+				<td><input type="text" id="company1State" name="company1State" /></td>
+				<td>Job Title</td>
+				<td><input type="text" id="company1Job" name="company1Job" /></td>
+			</tr>
+
+			<tr>
+				<td>From</td>
+				<td><input type="date" id="company1From" name="company1From" /></td>
+				<td>To</td>
+				<td><input type="date" id="company1To" name="company1To" /></td>
+				<td>Reason for Leaving</td>
+				<td><input type="text" id="company1Reason"
+					name="company1Reason" /></td>
+			</tr>
+
+			<tr>
+				<td>May we contact your previous supervisor for a reference?</td>
+				<td><input type="radio" id="Company1Yes" name="Company1Ref"
+					value="Yes"><label for="Company1Yes">Yes</label> <input
+					type="radio" id="Company1No" name="Company1Ref" value="No"><label
+					for="Company1No">No</label></td>
+
+			</tr>
+
+			<tr>
+				<td>Company</td>
+				<td><input type="text" id="company2" name="company2" /></td>
+				<td>Phone</td>
+				<td><input type="text" id="company2phone" name="company2" /></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td>Address</td>
+				<td><input type="text" id="company2Add" name="company2Add" /></td>
+				<td>Supervisor</td>
+				<td><input type="text" id="company2Sup" name="company2Sup" /></td>
+
+			</tr>
+
+			<tr>
+				<td>City</td>
+				<td><input type="text" id="company2City" name="company2City" /></td>
+				<td>State</td>
+				<td><input type="text" id="company2State" name="company2State" /></td>
+				<td>Job Title</td>
+				<td><input type="text" id="company2Job" name="company2Job" /></td>
+			</tr>
+
+			<tr>
+				<td>From</td>
+				<td><input type="date" id="company2From" name="company2From" /></td>
+				<td>To</td>
+				<td><input type="date" id="company2To" name="company2To" /></td>
+				<td>Reason for Leaving</td>
+				<td><input type="text" id="company2Reason"
+					name="company2Reason" /></td>
+			</tr>
+
+			<tr>
+				<td>May we contact your previous supervisor for a reference?</td>
+				<td><input type="radio" id="Company2Yes" name="Company2Ref"
+					value="Yes"><label for="Company2Yes">Yes</label> <input
+					type="radio" id="Company2No" name="Company2Ref" value="No"><label
+					for="Company2No">No</label></td>
+
+			</tr>
+
+		</table>
+
+<br>
+
+		<table width="100%">
+			<tr>
+				<th colspan=6>EMERGENCY CONTACT</th>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td><input type="text" id="emeName1" name="emeName1" /></td>
+				<td>Relationship</td>
+				<td><input type="text" id="emeRel1" name="emeRel1" /></td>
+				<td>Phone</td>
+				<td><input type="text" id="emePhone1" name="emePhone1" /></td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td><input type="text" id="emeName2" name="emeName2" /></td>
+				<td>Relationship</td>
+				<td><input type="text" id="emeRel2" name="emeRel2" /></td>
+				<td>Phone</td>
+				<td><input type="text" id="emePhone2" name="emePhone2" /></td>
+			</tr>
+
+		</table>
+<br>
+		<table width="100%">
+			<tr>
+				<th>DISCLAIMER AND SIGNATURE</th>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						I, <input type="text" id="printName" name="printName" />(PRINT
+						NAME), certify that my answers are true and complete to the best
+						of my knowledge. If this application leads to employment, I
+						understand that false or misleading information in my application
+						or interview may result in my release. If a job offer is made, I
+						understand and am hereby notified and authorize to run a
+						background check and procure a consumer report from a consumer
+						reporting agency in accordance with the Fair Credit Reporting Act,
+						15 U.S.C. 1681 et seq.(the “FCRA”),or any ”person” as defined
+						under the California Consumer Credit Reporting Agencies Act (if a
+						CA applicant) for evaluation of me for employment (i.e.
+						employment, promotion, reassignment, or retention as an employee).
+						I understand that these consumer reports may contain information
+						from public records, including written, oral, or other
+						communications bearing on my credit worthiness, credit standing,
+						credit capacity, character, general reputation, personal
+						characteristics, or mode of living, which may or may not be used
+						as a factor for employment purposes. I further understand that
+						such inquires may include, but are not limited to, criminal
+						history, motor vehicle records, employment history and
+						verification, income verification, DOT verifications, military
+						background, civil listings, education background, and professional
+						background, from any individual, corporation, partnership, law
+						enforcement agency, institution, school, organization, credit
+						bureau, state board, licensing agency, and other entities,
+						including present and past employers. In connection with my
+						application for employment and/or employment with Company, I
+						further understand and am hereby notified that Company may procure
+						an investigative consumer report concerning me from a consumer
+						reporting agency or any “person" as defined by the California
+						Consumer Credit Reporting Agencies Act (if a CA applicant). I
+						understand that an investigative consumer report may contain
+						information from public records, including but not limited to,
+						written, oral or other communications bearing on my credit
+						worthiness, credit standing, character, general reputation,
+						personal characteristics, or mode of living, which may be obtained
+						through personal interviews with neighbors, friends or associates
+						of me and may or may not be used as a factor for employment
+						purposes. I further understand that such inquires may include, but
+						are not limited to, investigations regarding worker’s
+						compensation, harassment, violence, theft, or fraud. I have
+						received and reviewed a copy of the Summary of Rights under the
+						FCRA and the California Investigative Consumer Reporting Agencies
+						Act (If a California applicant). I understand that I have the
+						right to request, in writing, information regarding the nature and
+						scope of any investigative report prepared on me. I authorize
+						without reservation any party or agency contacted by this employer
+						to furnish the above- referenced information. I further authorize
+						ongoing procurement of the above-referenced reports at any time,
+						either during the time my application for employment is being
+						considered or throughout the duration of my employment in the
+						event that I am hired or am a current Company employee. <br>Oklahoma,
+						Minnesota and California applicants only: You have the right to
+						receive a copy of your Consumer Credit Report free of charge
+						should one be requested for employment purposes. I wish to be
+						furnished with a copy of my consumer credit report should one be
+						ordered. <br>If you knowingly have background issues, you must inform
+						us prior to us conducting the background information check in
+						order not to be penalized for the background reimbursement cost.
+						By signing below you accept the background clause, acknowledging
+						that if you fail the required background check, you are liable to
+						pay the background fees within 24 hours of being notified of the
+						failed results. Additionally, if you accept an offered position
+						and you later decide not to take the position after your drug and
+						background screening, you are liable for the cost of the
+						background processing. If you accept the offered position and are
+						terminated for inability (or willfully quit) within 72 hours of
+						employment, you will not be eligible for compensation for that
+						time period.<br> **The Age Discrimination in Employment Act
+						of 1967 prohibits discrimination on the basis of age with respect
+						to individuals who are at least 40 years of age. *If ME, MI, MN,
+						OH, PA, RI, or WV applicant DO NOT provide DOB. Instead call
+						630-635-7410 within 2 hours of submitting your application.<br>
+						I acknowledge that I have voluntarily provided the information
+						contained in this form for employment purposes, and I have
+						carefully read, and I understand this authorization. Signature <input
+							type="text" id="sign" name="sign" /> Date <input type="date"
+							id="" name="" />
+
+					</p>
+
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

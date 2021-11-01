@@ -1,0 +1,627 @@
+<main class="main">
+	<section class="form-div">
+
+    	<div class="consent">
+            <header class="header-div">
+              <h1 class="header-label">User Details</h1>
+            </header>
+
+
+
+
+
+          <div class="consent__option">
+          	<h2 class="h2Class"><i>I'm signing up as</i></h2>
+            <div class="consent__checkboxContainer">
+              <div class="form-check consent__checkbox">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="consent"
+                  id="Radio2"
+                  value="1"
+                  [(ngModel)]="companyDetails.clientType"
+                  (click)="showComp()"
+                  checked
+
+
+
+                />
+                <label class="form-check-label" for="Radio2">
+                  A Company
+                </label>
+              </div>
+              <div class="form-check consent__checkbox mb-3">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="consent"
+                  id="Radio1"
+                  value="2"
+                  [(ngModel)]="individualDetails.clientType"
+                  (click)="showIndi()"
+
+                />
+                <label class="form-check-label" for="Radio1">
+                  An Individual
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <form
+          class="consent__form"
+          style="display: none;"
+          id="consent-individualForm"
+          th:action="@{/consent}"
+          th:object="${constenInd}"
+
+          >
+
+
+          <img
+
+          class="imgg1" [src]="url2" *ngIf="url2" alt="Avatar" style="width:150px" id="profIMG">
+
+          <input type="file" name="file" accept="image/*" value="file" id="pzFile" (change)="onFileChanged1($event)" class="uploadLogo"
+          placeholder="Choose Image"/>
+          <label for="pzFile"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Upload Profile Picture</span></label>
+
+            <div class="row gx-5">
+                <div
+            id="errorLabel"
+            class="alert alert-danger"
+            *ngIf="errorMsg && errorMsg.length"
+            >
+            {{ errorMsg }}
+            </div>
+            <small class="text-danger">{{msg}}</small>
+              <div class="col-md-4">
+                <label
+                  for="consent-Fname"
+                  class="form-label consent__font fw-bold"
+                  >First Name</label>
+                <input
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="First Name"
+                  id="Fname"
+                  name="indFname"
+                  [(ngModel)]="individualDetails.contactPersonFirstname"
+                  th:field="*{indFname}"
+                  [class.border-danger]="individualDetails.indErrors && individualDetails.indErrors.indiFname"
+
+              	/>
+
+              </div>
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-Lname"
+                  class="form-label consent__font fw-bold"
+                  >Last Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="Last Name"
+                  id="consent-ILname"
+                  name="indLname"
+                  [(ngModel)]="individualDetails.contactPersonLastname"
+                  th:field="*{indLname}"
+                  [class.border-danger]="individualDetails.indErrors && individualDetails.indErrors.indiLname"
+                />
+
+              </div>
+            </div>
+            <div class="row mt-4 gx-5">
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-Email"
+                  class="form-label consent__font fw-bold"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  class="form-control consent__font"
+                  placeholder="Email Address"
+                  id="consent-IEmail"
+                  name="indEmail"
+                  [(ngModel)]="individualDetails.contactPersonEmail"
+                  th:field="*{indEmail}"
+                  [class.border-danger]="individualDetails.indErrors && individualDetails.indErrors.indiEmail"
+                />
+
+              </div>
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-Phone"
+                  class="form-label consent__font fw-bold"
+                  >Phone Number</label
+                >
+                <input
+                  type="number"
+                  class="form-control consent__font"
+                  id="consent-IPhone"
+                  name="indPhone"
+                  [(ngModel)]="individualDetails.contactPersonPhone"
+                  th:field="*{indPhone}"
+                  [class.border-danger]="individualDetails.indErrors && individualDetails.indErrors.indiPhone"
+                />
+
+              </div>
+            </div>
+            <div class="row mt-4 gx-5">
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-Adress"
+                  class="form-label consent__font fw-bold"
+                  >Address</label
+                >
+                <input
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="Street Name"
+                  id="consent-IAddress"
+                  name="indStreet"
+                  [(ngModel)]="individualDetails.address"
+                  th:field="*{indStreet}"
+                  [class.border-danger]="individualDetails.indErrors && individualDetails.indErrors.indiStreet"
+                />
+
+
+              </div>
+              <div class="col-md-4 mt-auto">
+                <input
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="Suite/Appt. #"
+                  id="consent-ISuite"
+                  name="indSuite"
+                  [(ngModel)]="individualDetails.aptSuite"
+                  th:field="*{indSuite}"
+                  [class.border-danger]="individualDetails.indErrors && individualDetails.indErrors.indiSuite"
+                />
+
+              </div>
+
+
+              <div class="col-md-4 mt-auto">
+                <input
+                  type="number"
+                  class="form-control consent__font"
+                  placeholder="Zip Code"
+                  id="consent-IZip"
+                  name="indZip"
+                  [(ngModel)]="individualDetails.zipcode"
+                  [class.border-danger]="individualDetails.indErrors && individualDetails.indErrors.indiZip"
+                />
+
+              </div>
+            </div>
+            <div class="row mt-4 gx-5">
+
+              <div class="col-md-4 mt-auto">
+                <ng-autocomplete
+
+                  [data]="countryObject"
+                  [searchKeyword]="keyword"
+                  [initialValue]="initialVal"
+                  placeholder="Search Country"
+                  (selected)="selectEvent($event)"
+                  (inputChanged)='onChangeSearch($event)'
+                  (inputFocused)='onFocused($event)'
+                  (inputCleared)="searchCleared()"
+
+                  [itemTemplate]="itemTemplate"
+                  [notFoundTemplate]="notFoundTemplate"
+                  [class.border-danger]="individualDetails.indErrors && individualDetails.indErrors.indiCountry"
+                  >
+
+                </ng-autocomplete>
+
+                <ng-template #itemTemplate let-item >
+                  <a [innerHTML]="item.name"></a>
+                </ng-template>
+
+                <ng-template #notFoundTemplate let-notFound>
+                  <div [innerHTML]="notFound"></div>
+                </ng-template>
+              </div>
+
+
+
+              
+              <div class="col-md-4 mt-auto">
+                <ng-autocomplete
+                class="consent__AutoComp"
+                [data]="byid"
+                [searchKeyword]="keyword2"
+                placeholder="Search State"
+                (selected)='selectEvent2($event)'
+                (inputChanged)='onChangeSearch2($event)'
+                (inputFocused)='onFocused2($event)'
+                (inputCleared)="searchCleared2()"
+                [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate"
+                id="stateD"
+                name = "stateVal1"
+               
+
+                [class.border-danger]="individualDetails.indErrors && individualDetails.indErrors.indiState"
+
+
+                >
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+              <a [innerHTML]="item.name"></a>
+
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+              <div [innerHTML]="notFound"></div>
+            </ng-template>
+              </div>
+              
+
+
+
+              <div class="col-md-4 mt-auto">
+                <ng-autocomplete
+
+                    [data]="Cities"
+                    [searchKeyword]="keyword1"
+                    placeholder="Search City"
+                    (selected)='selectEvent1($event)'
+                    (inputChanged)='onChangeSearch1($event)'
+                    (inputFocused)='onFocused1($event)'
+                    (inputCleared)="searchCleared1()"
+
+                    [itemTemplate]="itemTemplate"
+                    [notFoundTemplate]="notFoundTemplate"
+                    name = "cityVal1"
+                   
+
+                    [class.border-danger]="individualDetails.indErrors && individualDetails.indErrors.indiCity"
+
+                    >
+                </ng-autocomplete>
+
+                <ng-template #itemTemplate let-item>
+                  <a [innerHTML]="item.name" ></a>
+
+                </ng-template>
+
+                <ng-template #notFoundTemplate let-notFound>
+                  <div [innerHTML]="notFound"></div>
+                </ng-template>
+
+              </div>
+
+              </div>
+            <div class="d-flex mt-5">
+              <!-- <input type="submit" value="Submit" id="consent-individualSubmit"  class="consent__submit" (click)=" submitIndi()" /> -->
+              <button type="submit"class="btn btn-active" (click)="submitIndi()">Submit
+                <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+              </button>
+            </div>
+
+
+          </form>
+
+          <form
+          class="consent__form"
+          style="display: visible;"
+          id="consent-companyForm"
+          th:action="@{/consent}"
+          th:object="${constenComp}"
+
+
+
+          >
+
+          <img
+
+          class="imgg" [src]="url" *ngIf="url" alt="Avatar" style="width:150px" id="profIMG">
+
+          <input type="file" name="file" accept="image/*" value="file" id="ezFile" (change)="onFileChanged($event)" class="uploadLogo"
+          placeholder="Choose Image"/>
+          <label for="ezFile"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Upload Company Logo</span></label>
+            <div class="row gx-5">
+                <div
+          id="errorLabel"
+            class="alert alert-danger"
+            *ngIf="errorMessage && errorMessage.length"
+      >
+            {{ errorMessage }}
+          </div>
+
+          <small class="text-danger">{{msg}}</small>
+              <div class="col-md-4 mt-auto" >
+                <label
+                  for="consent-companyName"
+                  class="form-label consent__font fw-bold"
+                  >Company Registered Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="ABC pvt ltd"
+                  id="consent-companyName"
+                  name="companyName"
+                  [(ngModel)]="companyDetails.companyRegisteredName"
+                  th:field="*{companyName}"
+                  [class.border-danger]="companyDetails.CompErrors && companyDetails.CompErrors.CompRegN"
+                />
+              </div>
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-idNumber"
+                  class="form-label consent__font fw-bold"
+                  >Employer Identification #</label
+                >
+                <input
+                  type="number"
+                  class="form-control consent__font"
+                  placeholder="xx-xxxxx"
+                  id="consent-idNumber"
+                  name="employerVID"
+                  [(ngModel)]="companyDetails.employerIdentificationNumber"
+                  th:field="*{employerVID}"
+                  [class.border-danger]="companyDetails.CompErrors && companyDetails.CompErrors.employerID"
+                />
+              </div>
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-website"
+                  class="form-label consent__font fw-bold"
+                  >Website</label
+                >
+                <input
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="www.abc.com"
+                  id="consent-website"
+                  name="webSite"
+                  [(ngModel)]="companyDetails.webSite"
+                  th:field="*{webSite}"
+                  [class.border-danger]="companyDetails.CompErrors && companyDetails.CompErrors.CompWeb"
+                />
+              </div>
+            </div>
+            <div class="row mt-4 gx-5">
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-ContactFName"
+                  class="form-label consent__font fw-bold"
+                  >Contact First Name</label
+                >
+
+                <input
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="First Name"
+                  id="consent-ContactFName"
+                  name="CntctPerFname"
+                  [(ngModel)]="companyDetails.contactPersonFirstname"
+                  th:field="*{CntctPerFname}"
+                  [class.border-danger]="companyDetails.CompErrors && companyDetails.CompErrors.CompFN"
+
+                />
+              </div>
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-ContactLName"
+                  class="form-label consent__font fw-bold"
+                  >Contact Last Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control consent__font"
+                  id="consent-ContactLName"
+                  placeholder="Last Name"
+                  name="CntctPerLname"
+                  [(ngModel)]="companyDetails.contactPersonLastname"
+                  th:field="*{CntctPerLname}"
+                  [class.border-danger]="companyDetails.CompErrors && companyDetails.CompErrors.CompLN"
+                />
+              </div>
+            </div>
+            <div class="row mt-4 gx-5">
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-ContactEmail"
+                  class="form-label consent__font fw-bold"
+                  >Contact Email</label
+                >
+                <input
+                  type="email"
+                  class="form-control consent__font"
+                  placeholder="xyz@domain.com"
+                  id="consent-ContactEmail"
+                  name="CntctPerEmail"
+                  [(ngModel)]="companyDetails.contactPersonEmail"
+                  th:field="*{CntctPerEmail}"
+                  [class.border-danger]="companyDetails.CompErrors && companyDetails.CompErrors.Compemail"
+                />
+              </div>
+              <div class="col-md-4 mt-auto">
+                <label
+                  for="consent-CPhone"
+                  class="form-label consent__font fw-bold"
+                  >Phone Number</label
+                >
+                <input
+
+                  type="text"
+                  class="form-control consent__font"
+                  id="consent-CPhone"
+                  placeholder="Phone Number"
+                  name="PhoneNum"
+                  [(ngModel)]="companyDetails.contactPersonPhone"
+                  th:field="*{PhoneNum}"
+                  [class.border-danger]="companyDetails.CompErrors && companyDetails.CompErrors.CompPhone"
+                />
+              </div>
+            </div>
+            <div class="row mt-4 gx-5">
+              <div class="col-md-4">
+                <label
+                  for="consent-Adress"
+                  class="form-label consent__font fw-bold"
+                  >Address</label
+                >
+                <input
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="Street Name"
+                  id="consent-Address"
+                  value="1"
+                  name="streetN"
+                  [(ngModel)]="companyDetails.address"
+                  th:field="*{streetN}"
+                  [class.border-danger]="companyDetails.CompErrors && companyDetails.CompErrors.CompStreet"
+                />
+              </div>
+              <div class="col-md-4 mt-auto">
+                <input
+                  type="text"
+                  class="form-control consent__font"
+                  placeholder="Suite/Appt. #"
+                  id="consent-SuiteN"
+                  name="suiteN"
+                  [(ngModel)]="companyDetails.aptSuite"
+                  th:field="*{suiteN}"
+                  [class.border-danger]="companyDetails.CompErrors && companyDetails.CompErrors.CompSuite"
+                />
+              </div>
+              <div class="col-md-4 mt-auto">
+                <input
+                  type="number"
+                  class="form-control consent__font"
+                  placeholder="Zip Code"
+                  id="consent-Zip"
+                  name="zipCode"
+                  [(ngModel)]="companyDetails.zipcode"
+                  th:field="*{zipCode}"
+                  [class.border-danger]="companyDetails.CompErrors && companyDetails.CompErrors.CompZip"
+                />
+              </div>
+
+
+
+            </div>
+            <div class="row mt-4 gx-5">
+
+               <div class="col-md-4 mt-auto">
+                    <ng-autocomplete
+
+                      [data]="countryObject"
+                      [searchKeyword]="keyword"
+                      [initialValue]="initialVal"
+                      placeholder="Search Country"
+                      (selected)="selectEvent($event)"
+                      (inputChanged)='onChangeSearch($event)'
+                      (inputFocused)='onFocused($event)'
+                      (inputCleared)="searchCleared()"
+
+                      [itemTemplate]="itemTemplate"
+                      name = "countryVal"
+
+
+
+                      [notFoundTemplate]="notFoundTemplate">
+                    </ng-autocomplete>
+
+                    <ng-template #itemTemplate let-item >
+                      <a [innerHTML]="item.name"></a>
+                    </ng-template>
+
+                    <ng-template #notFoundTemplate let-notFound>
+                      <div [innerHTML]="notFound"></div>
+                    </ng-template>
+                  </div>
+                
+
+              <div class="col-md-4 mt-auto">
+                <ng-autocomplete
+                    class="consent__AutoComp"
+                    [data]="byid"
+                    [searchKeyword]="keyword2"
+                   
+                    placeholder="Search State"
+                    (selected)='selectEvent2($event)'
+                    (inputChanged)='onChangeSearch2($event)'
+                    (inputFocused)='onFocused2($event)'
+                    (inputCleared)="searchCleared2()"
+                    [itemTemplate]="itemTemplate"
+                    [notFoundTemplate]="notFoundTemplate"
+                    name = "stateVal"
+                    
+
+
+                    [class.border-danger]="companyDetails.CompErrors && companyDetails.CompErrors.CompState"
+                    >
+                </ng-autocomplete>
+
+                <ng-template #itemTemplate let-item>
+                  <a [innerHTML]="item.name"></a>
+
+                </ng-template>
+
+                <ng-template #notFoundTemplate let-notFound>
+                  <div [innerHTML]="notFound"></div>
+                </ng-template>
+                </div>
+
+
+
+                <div class="col-md-4 mt-auto" >
+                  <ng-autocomplete
+                    id="conCity"
+
+                    [data]="Cities"
+
+                    [searchKeyword]="keyword1"
+                    placeholder="Search City"
+                    (selected)='selectEvent1($event)'
+                    (inputChanged)='onChangeSearch1($event)'
+                    (inputFocused)='onFocused1($event)'
+                    (inputCleared)="searchCleared1()"
+                    name = "cityVal"
+                  
+
+                    [itemTemplate]="itemTemplate"
+
+
+                    [class.border-danger]="companyDetails.CompErrors && companyDetails.CompErrors.CompCity"
+                    >
+                </ng-autocomplete>
+
+                <ng-template #itemTemplate let-item>
+                  <a [innerHTML]="item.name" ></a>
+
+                </ng-template>
+
+                <ng-template #notFoundTemplate let-notFound>
+                  <div [innerHTML]="notFound"></div>
+                </ng-template>
+                  </div>
+
+
+
+            </div>
+            <div class="d-flex mt-5 button">
+              <!-- <input type="submit" value="Submit" class="btn btn-active" id="consent-companySubmit" (click)="submitCompany()" /> -->
+
+
+              <button type="submit"class="btn btn-active" (click)="submitCompany()">Submit
+                <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+              </button>
+
+            </div>
+          </form>
+        </div>
+
+      </section>
+    </main>

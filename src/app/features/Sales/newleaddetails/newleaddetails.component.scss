@@ -1,0 +1,109 @@
+
+
+input[type=checkbox] {
+  vertical-align: middle;
+  position: relative;
+  bottom: 5px;
+ 
+ 
+}
+
+
+.check__space{
+  margin-right: 5px;
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
+  
+  
+}
+
+
+
+.main {
+    padding: 30px 0 50px 0;
+
+   
+  }
+
+
+
+.main__provider {
+    margin: auto;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 10px 13px 36px rgba(0, 0, 0, 0.33);
+    padding: 30px;
+    width: 70%;
+    
+  }
+  .userFORUM {
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #006b7f;
+  }
+  .header__heading {
+    margin-top: 5%;
+    background-color: #006b7f;
+    
+   
+    
+    
+  }
+  .consent__heading {
+    text-align: center;
+    color : white;
+}
+  
+.user__font {
+    font-size: 1.4rem !important;
+    margin-right: 10px;
+    
+    
+}
+
+.btnAdd {
+    margin-bottom: 2%;
+    border-radius: 2px;
+}
+
+.btnAdd {
+    border: none;
+    outline: none;
+    font-size: 1rem !important;
+    
+    border-radius: 5px;
+    padding: 5px 50px;
+    font-size: 1rem;
+    color: white;
+    background-color: #006b7f;
+  }
+  
+.user__Form {
+    margin-top: 5%;
+}
+
+.user__submit {
+    border: none;
+    outline: none;
+    font-size: 1rem !important;
+    margin: 1rem auto;
+    border-radius: 5px;
+    padding: 5px 50px;
+    font-size: 1rem;
+    color: white;
+    background-color: #006b7f;
+  }
+
+  .user__submit:hover {
+    opacity: 0.8;
+    background-color: #2196F3;
+  }
+
+  .btnAdd:hover {
+    opacity: 0.8;
+    background-color: #2196F3;
+  }
+
+  

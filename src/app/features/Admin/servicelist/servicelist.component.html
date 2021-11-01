@@ -1,0 +1,140 @@
+
+
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+<script src="vendor/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.min.js"></script>
+
+        <main class="main" >
+
+            <section class="form-div">
+                <header class="header-div">
+                    <h1 id="headerss" class="header-label">Services</h1>
+
+                </header>
+
+
+                <form class="user_form container">
+                    <div
+                    id="errorLabel"
+                    class="alert alert-danger text-center"
+                    *ngIf = "serviceMsgs"
+                    >
+                    {{msg}}
+                </div>
+                <div
+                    id="errorLabel"
+                    class="alert alert-success text-center"
+                    *ngIf = "successcheck"
+                    >
+                    {{msg}}
+                </div>
+                    <div class="row mt-4 gx-5">
+                        <div class="col-md-4 mt-auto" >
+                            <label
+                            for="user-Fname"
+                            class="form-label user__font fw-bold"
+                            >Service Name*</label
+                            >
+
+                            <input
+                            onkeypress="return /[a-z]/i.test(event.key)"
+                            type="text"
+                            class="form-control user__font"
+                            placeholder="Service Name"
+
+                            id="user-Fname"
+                            name="firstName"
+
+                            [(ngModel)]="serviceMasterData.serviceName"
+                            [class.border-danger] = "serviceCheck"
+
+
+
+                            />
+
+                        </div>
+
+
+
+                        <div class="col-md-4 mt-auto" >
+                            <label
+                            for="user-group"
+                            class="form-label user__font fw-bold"
+                            >Document*</label
+                            >
+                            <select name="userType" [(ngModel)]="serviceMasterData.documentId"    [class.border-danger] = "documentCheck"   id="user-userType" class="form-control user__font">
+                                <option value="" disabled>--Select Document--</option>
+                                <option *ngFor = "let ser of displayDocuments" [ngValue]="ser.documentId">{{ser.documentName}}</option>
+
+
+
+                            </select>
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+                    <div class=" mt-3">
+                        <input type="submit" value="{{btnName}}" class="btn btn-active" id="add_user" (click)="submit()"/>
+
+                    </div>
+
+                    <div class="mt-3">
+                        <mat-form-field fxFlex="40%">
+                          <input matInput class="asas" type="text" (keyup)="doFilter($event.target.value)" >
+                          <mat-placeholder class="placeholder">Search</mat-placeholder>
+                        </mat-form-field>
+
+                      <table  class="dbody" #myTable mat-table [dataSource]="dataSource" matSort matSortStart="desc" class="table table-striped table-responsive-md btn-table">
+
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Service Name </th>
+                            <td mat-cell *matCellDef="let element" > {{element.serviceName}} </td>
+                          </ng-container>
+
+                           <!-- Name Column -->
+                           <ng-container matColumnDef="documentid">
+                              <th mat-header-cell *matHeaderCellDef> Document Id </th>
+                              <td mat-cell *matCellDef="let element" > {{element.documentId}} </td>
+                            </ng-container>
+
+
+                            <!-- Action Column -->
+                            <ng-container matColumnDef="Action">
+                              <th mat-header-cell *matHeaderCellDef> Action </th>
+                              <td mat-cell *matCellDef="let element">
+                                <button class="btn"><i class='fa fa-edit' style='font-size:20px;color:green;' (click)="editUser(element)"></i></button>
+                                <button class="btn"><i class="fa fa-trash"style='font-size:20px;color:red' (click)="deleteUser(element)"></i></button>
+
+                                 </td>
+
+                            </ng-container>
+
+
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+
+                        <i class="fa fa-spinner fa-spin spinner" *ngIf="loading"></i>
+
+                        <mat-paginator [pageSizeOptions]="[15, 30, 50]" showFirstLastButtons></mat-paginator>
+
+
+                        </div>
+
+
+
+                </form>
+            </section>
+
+        </main>

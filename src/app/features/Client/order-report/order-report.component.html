@@ -1,0 +1,347 @@
+<main class="main ">
+  <div class="form-div">
+    <header class="header-div">
+      <h1 class="header-label">Order Report</h1>
+    </header>
+
+      <h3 class="order__heading">Applicant Profile</h3>
+      <div
+      id="errorLabel"
+      class="alert alert-danger text-center"
+      *ngIf = "isSSN"
+      >
+      {{msg}}
+    </div>
+      <form
+        (ngSubmit)="onSubmit()"
+        [formGroup]="form"
+        class="order__form"
+        id="order_report_form"
+
+      >
+
+        <span id="error"></span>
+
+        <div class="order__nameContainer">
+          <div class="row">
+
+          </div>
+          <div class="col-sm-4">
+            <label class="form-label order__font fw-bold">First Name</label>
+            <input
+              onkeypress="return /[a-z]/i.test(event.key)"
+              type="text"
+              placeholder="First Name"
+              formControlName="firstName"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+            />
+            <div
+              *ngIf="submitted && f.firstName.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.firstName.errors.required">
+                First Name is required
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <label class="form-label order__font fw-bold">Middle Name</label>
+            <input
+              onkeypress="return /[a-z]/i.test(event.key)"
+              type="text"
+              placeholder="Middle Name"
+              formControlName="middleName"
+              class="form-control"
+            />
+          </div>
+          <div class="col-sm-4">
+            <label class="form-label order__font fw-bold">Last Name</label>
+            <input
+              onkeypress="return /[a-z]/i.test(event.key)"
+              type="text"
+              placeholder="Last Name"
+              formControlName="lastName"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+            />
+            <div
+              *ngIf="submitted && f.lastName.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.lastName.errors.required">
+                Last Name is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order__emailContainer">
+          <div class="col-md-4">
+            <label class="form-label order__font fw-bold">Email Address</label>
+            <input
+              type="email"
+              placeholder="Email Address"
+              formControlName="email"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+            />
+            <div
+              *ngIf="submitted && f.email.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.email.errors.required">Email is required</div>
+            </div>
+            <br />
+
+          </div>
+
+          <div class="order__dob col-md-4">
+            <label class="form-label order__font fw-bold">Date Of Birth</label>
+            <input
+              type="date"
+              max = {{currentDate}}
+              placeholder="DOB"
+              formControlName="dateOfBirth"
+              id="datesss"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }"
+              required
+
+            />
+            <div
+              *ngIf="submitted && f.dateOfBirth.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.dateOfBirth.errors.required">Date of birth is required</div>
+            </div>
+          </div>
+
+          <div class="order__phone col-md-4">
+            <label class="form-label order__font fw-bold">Phone Number</label>
+            <input
+              type="number"
+              placeholder="Phone Number"
+              formControlName="phoneNumber"
+              id="phoneNs"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+              required
+
+            />
+            <div
+              *ngIf="submitted && f.phoneNumber.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
+            </div>
+          </div>
+
+          <div class="row col-4 emailCheck">
+            <div class="sm-2 order__emailCheck">
+              <input type="checkbox" name="e_sign"  formControlName="sendDocumentToEsign"  id="e_sign" checked="true" (change)="getStatus()"  />
+              <label for="e_sign">Send email to e-sign</label>
+            </div>
+            <div class="sm-2 order__emailCheck" *ngIf="showSSN">
+              <label class="form-label order__font fw-bold">Social Security #</label>
+              <input type="text" onkeypress="return /[0-9]/i.test(event.key)" name="e_sign"  formControlName="socialSecurityNumber" (input)="onSearchChange($event.target.value)" id="order-SSn" class="form-control" placeholder="Enter SSN"
+              [ngClass]="{ 'is-invalid': submitted && ssnCheck }"
+              required />
+               <div
+              *ngIf="submitted && ssnCheck"
+              class="invalid-feedback"
+            >
+              <div *ngIf="ssnCheck">SSN# is required</div>
+            </div>
+              <br />
+            </div>
+          </div>
+
+
+
+          <!-- <div class="col-sm-4 order__socialSec">
+            <label class="form-label order__font fw-bold">Social Security Number</label>
+            <input
+              type="number"
+              placeholder="###-##-####"
+              formControlName="socialSecurityNumber"
+              class="form-control"
+              for="SSN"
+              [ngClass]="{ 'is-invalid': submitted && f.socialSecurityNumber.errors }"
+              required
+            />
+            <div
+              *ngIf="submitted && f.socialSecurityNumber.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.socialSecurityNumber.errors.required">Social-Security-Number is required</div>
+            </div>
+          </div> -->
+
+
+        </div>
+        <div class="order__streetContainer">
+          <div class="col-sm-3">
+            <label class="form-label order__font fw-bold">House/Apt #</label>
+            <input
+              type="text"
+              placeholder="House/Apt. #"
+              formControlName="houseApt"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.houseApt.errors }"
+              required
+            />
+            <div
+              *ngIf="submitted && f.houseApt.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.houseApt.errors.required">
+                House/Apt is required
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <label class="form-label order__font fw-bold">Street Address</label>
+            <input
+              type="text"
+              placeholder="Street Address"
+              formControlName="streetAddress"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.streetAddress.errors }"
+              required
+            />
+            <div
+              *ngIf="submitted && f.streetAddress.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.streetAddress.errors.required">
+                Street Address is required
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <label class="form-label order__font fw-bold">Zip Code</label>
+            <input
+              onkeypress="return /[0-9]/i.test(event.key)"
+              autocomplete="none"
+              type="text"
+              placeholder="Zip code"
+              formControlName="zipcode"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.zipcode.errors }"
+              required
+            />
+            <div
+              *ngIf="submitted && f.zipcode.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.zipcode.errors.required">
+                Zip code is required
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-sm-4">
+            <label class="form-label order__font fw-bold">Zip code</label>
+            <input
+              type="number"
+              placeholder="Zip Code"
+              formControlName="zipcode"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.zipcode.errors }"
+              required
+            />
+          </div>
+          <div
+              *ngIf="submitted && f.zipcode.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.zipcode.errors.required">
+                Zip code is required
+              </div>
+            </div> -->
+
+        </div>
+        <div class="order__cityContainer" id="city">
+          <div class="col-md-4 mt-auto">
+            <label class="form-label order__font fw-bold">Country</label>
+            <select name="userType" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" autocomplete="none" formControlName = "country" (change) = "onChangedCountry($event)"   id="user-userType" class="form-control user__font" required>
+              <option value="231">United States</option>
+              <option *ngFor = "let ser of Countries" [ngValue]="ser.id"   >
+                  {{ser.name}}
+              </option>
+
+
+          </select>
+          <div
+          *ngIf="submitted && f.country.errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="f.country.errors.required">
+            Country is required
+          </div>
+        </div>
+
+          </div>
+          <div class="col-md-4 mt-auto">
+            <label class="form-label order__font fw-bold">State</label>
+            <select name="userType" [ngClass]="{ 'is-invalid': submitted && stateCheck }" autocomplete="none" formControlName = "state"  (change) = "onChangedState($event)"  id="user-userType" class="form-control user__font" required>
+              <option value="" disabled>--Select State--</option>
+              <option *ngFor = "let ser of byid" [ngValue]="ser.id">
+                  {{ser.name}}
+              </option>
+          </select>
+          <div
+          *ngIf="submitted && stateCheck"
+          class="invalid-feedback"
+        >
+          <div *ngIf="stateCheck">
+            State is required
+          </div>
+        </div>
+
+          </div>
+          <div class="col-md-4 mt-auto">
+            <label class="form-label order__font fw-bold">City</label>
+            <select name="userType" [ngClass]="{ 'is-invalid': submitted && cityCheck }" autocomplete="none" formControlName = "city"  (change) = "onChangedCity($event)"  id="user-userType" class="form-control user__font" required>
+              <option value="" disabled>--Select City--</option>
+              <option *ngFor = "let ser of Cities" [ngValue]="ser.id">
+                  {{ser.name}}
+              </option>
+          </select>
+          <div
+          *ngIf="submitted && cityCheck"
+          class="invalid-feedback"
+        >
+          <div *ngIf="cityCheck">
+            City is required
+          </div>
+        </div>
+
+          </div>
+
+        </div>
+
+        <!-- <div>
+          <input
+          type="submit"
+          value="Submit"
+          name="submit_order"
+          id="submit_order"
+          class="btn btn-active "
+          />
+        </div> -->
+
+        <div>
+          <input
+          type="submit"
+          value="Select Package/Service"
+          name="submit_order"
+          id="submit_order"
+          class="btn btn-active"
+          />
+        </div>
+
+      </form>
+
+
+  </div>
+</main>

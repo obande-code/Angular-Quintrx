@@ -1,0 +1,79 @@
+.user__font {
+    font-size: 1.4rem !important;
+    margin-right: 10px;
+    
+    
+}
+
+.Filess {
+    margin-bottom: 7%;
+}
+
+.uploadLogo {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+   // overflow: hidden;
+   // position: absolute;
+   // z-index: -1;
+  }
+  .uploadLogo + label {
+    max-width: 80%;
+    font-size: 1.25rem;
+    /* 20px */
+    font-weight: 700;
+ //   text-overflow: ellipsis;
+ //   white-space: nowrap;
+    cursor: pointer;
+ //   display: inline-block;
+  //  overflow: hidden;
+    padding: 0.625rem 1.25rem;
+   // text-align: center;
+   // margin-left: auto;
+  //  margin-right: auto;
+   // margin-top: 2%;
+    /* 10px 20px */
+  }
+  
+  
+  
+  .uploadLogo + label {
+    color: #f1e5e6;
+    background-color: #19A195;
+  }
+  
+  
+  .uploadLogo + label svg {
+  width: 1em;
+  height: 1em;
+ // vertical-align: middle;
+  fill: currentColor;
+ // margin-top: -0.25em;
+  /* 4px */
+  margin-right: 0.25em;
+  /* 4px */
+  }
+  
+  .uploadLogo:focus + label,
+  .uploadLogo.has-focus + label,
+  .uploadLogo + label:hover {
+    background-color: #722040;
+  }
+  .uploadLogo + label {
+  cursor: pointer; /* "hand" cursor */
+  }
+
+
+
+  ::ng-deep .mat-progress-bar-fill::after {
+    background-color: #1E457C;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+    background: #E4E8EB;
+}
+
+::ng-deep .mat-progress-bar {
+    border-radius: 2px;
+}
+  

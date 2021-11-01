@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <body>
+         <div class="align-items-center">
+    <img src="./assets/images/logo.png" alt="Vetzu" class="img-fluid publicPageLogo" />
+  </div>
+        <main class="main"  >
+            <section class="form-div" id="convPdf">
+
+
+
+                <header class="header-div">
+                    <h1 class="header-label">Applicant Profile</h1>
+
+                </header>
+                <div class="row gx-5">
+                    <div
+                      id="errorLabel"
+                      class="alert alert-danger text-center"
+                      *ngIf = "checkReport"
+                      >
+                      {{msg}}
+                    </div>
+                    <div
+                      id="errorLabel"
+                      class="alert alert-danger text-center"
+                      *ngIf = "checkSsn"
+                      >
+                      {{invalid}}
+                    </div>
+                  </div>
+                <form class="user_form container">
+
+
+                    <div class="row mt-4 gx-5">
+                        <div class="col-md-4 mt-auto" >
+                            <label
+                            for="user-Fname"
+                            class="form-label user__font fw-bold"
+                            >First Name</label
+                            >
+
+                            <input
+                            type="text"
+                            class="form-control user__font"
+                            placeholder="First Name"
+
+
+                            id="user-Fname"
+                            name="firstName"
+                            [(ngModel)]="orderData.firstName"
+                            disabled
+
+
+                            />
+
+                        </div>
+                        <div class="col-md-4 mt-auto" >
+                            <label
+                            for="user-Lname"
+                            class="form-label user__font fw-bold"
+                            >Middle Name</label
+                            >
+                            <input
+                            type="text"
+                            class="form-control user__font"
+                            placeholder="Middle Name"
+                            id="user-Mname"
+                            name="midName"
+                            [(ngModel)]="orderData.middleName"
+                            disabled
+
+
+                            />
+
+                        </div>
+
+
+                        <div class="col-md-4 mt-auto" >
+                            <label
+                            for="user-Lname"
+                            class="form-label user__font fw-bold"
+                            >Last Name</label
+                            >
+                            <input
+                            type="text"
+                            class="form-control user__font"
+                            placeholder="Last Name"
+                            id="user-Lname"
+                            name="lastName"
+                            [(ngModel)]="orderData.lastName"
+                            disabled
+
+
+                            />
+
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="row mt-4 gx-5">
+
+
+
+
+                        <div class="col-md-4 mt-auto" >
+                            <label
+                            for="user-Lname"
+                            class="form-label user__font fw-bold"
+                            >Social Security #</label
+                            >
+                            <input
+                            type="number"
+                            class="form-control user__font"
+                            placeholder="123456789"
+                            id="user-SSNname"
+                            name="SSNname"
+                            [(ngModel)]="ssndata.ssn"
+
+
+                            />
+
+
+
+                        </div>
+
+                        <div class="col-md-4 mt-auto" >
+                            <label
+                            for="user-email"
+                            class="form-label user__font fw-bold"
+                            >E-mail Address</label
+                            >
+                            <input
+                            type="text"
+                            class="form-control user__font"
+                            placeholder="E-mail"
+
+                            id="user-email"
+                            name="userEmail"
+                            [(ngModel)]="orderData.email"
+
+                            disabled
+
+
+                            />
+
+                        </div>
+
+
+                        <div class="col-md-4 mt-auto" >
+                            <label
+                            for="user-email"
+                            class="form-label user__font fw-bold"
+                            >Date of Birth</label
+                            >
+                            <input
+                            type="text"
+                            class="form-control user__font"
+                            placeholder="mm//dd/yyyy"
+
+                            id="user-date"
+                            name="userdate"
+                            [(ngModel)]="orderData.date"
+                            disabled
+
+
+                            />
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+
+                    <div class="row mt-4 gx-5">
+
+
+
+                        <div class="col-md-4 mt-auto" >
+                            <label
+                            for="user-Address"
+                            class="form-label user__font fw-bold"
+                            >Address</label
+                            >
+                            <input
+                            type="text"
+                            class="form-control user__font"
+                            placeholder="St. Address"
+
+                            id="user-Address"
+                            name="userAddress"
+                            [(ngModel)]="orderData.streetAddress"
+                            disabled
+
+
+                            />
+
+                        </div>
+
+
+                        <div class="col-md-4 mt-auto" >
+                            <label
+                            for="user-Zip"
+                            class="form-label user__font fw-bold"
+                            >Zip Code</label
+                            >
+                            <input
+                            type="text"
+                            class="form-control user__font"
+                            placeholder="Zip"
+
+                            id="user-Zip"
+                            name="Zip"
+                            [(ngModel)]="orderData.zipcode"
+                            disabled
+
+
+                            />
+
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="row mt-4 gx-5">
+
+
+
+
+
+                    </div>
+
+                    <div class="d-flex mt-5">
+                        <input type="submit" value="Sign Documents" class="btn btn-active" id="add_user" (click) = "app()"/>
+                    </div>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </body>
+</html>

@@ -1,0 +1,363 @@
+<div class="main">
+  <div class="report__container_order">
+    <div class="row">
+      <div class="col-12">
+          <!-- Services Title & Counter -->
+          <div class="row">
+            <div class="col-12 text-center">
+              <h1 class="report__heading">Order Report</h1>
+            </div>
+
+            <div class="col-12">
+              <hr />
+            </div>
+          </div>
+
+          <div class="user__profile" *ngIf="savedValues">
+            <h2>Applicant Profile</h2>
+            <h3>Name: {{name}}</h3>
+            <h3>Address: {{address}}</h3>
+            <h3>Email Address: {{savedValues.email}}</h3>
+          </div>
+
+
+
+
+
+
+
+          <!-- <table id="tabled" datatable="ng" class="table " >
+            <thead class="heady">
+              <tr >
+                <th>Service Name</th>
+                <th>Select</th>
+              </tr>
+
+
+
+            </thead>
+            <tbody >
+                <tr *ngFor="let citi of names; let i = index"  class="dbody">
+                    <td style="color: black;">{{ citi.name }}</td>
+
+                    <td class="text">
+                      <input type="checkbox">
+                  </td>
+
+
+
+                </tr>
+
+            </tbody>
+          </table> -->
+
+          <table datatable="ng"  class="table" >
+            <thead>
+              <tr class="heady">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+
+
+
+            </thead>
+            <tbody>
+                <tr *ngFor="let citi of names; let i = index" class="dbody">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ citi.name }}</td>
+                    <td [ngStyle]="{'color': getColor(citi.statusUp)}" class="fw-bold">{{ citi.statusUp }}</td>
+                    <td><button class="btn"><i class='fa fa-edit' style='font-size:20px;color: green;' (click)="editUser(citi)"></i></button>
+                        <button class="btn"><i class="fa fa-trash"style='font-size:20px;color:red' (click)="deleteUser(citi)"></i></button></td>
+                </tr>
+
+            </tbody>
+          </table>
+
+
+
+
+
+          <!-- <div class="package__container">
+            <h2>All Packages</h2>
+            <div *ngFor="let name of names">
+              <input type="checkbox" value="name" name="name" id="name" />
+              <label for="name">{{name}}</label>
+            </div>
+          </div> -->
+
+          <div class="package-search">
+            <input type="text" [(ngModel)]="packageId" placeholder="Search by ID" />
+            <button id="btn" (click)="handleSearch()">Find Package</button>
+          </div>
+          <div class="package-search-result">
+            {{ searchedPackageName }}
+          </div>
+
+          <!-- Services Form Items -->
+          <!-- <form (ngSubmit)="onSubmit()" [formGroup]="form">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="">
+                  <label> Client </label>
+                </div>
+                <select class="form-control">
+                  <option value=""></option>
+                  <option selected value="Barbecue">Option 1</option>
+                  <option value="Ketchup">Option 2</option>
+                  <option selected value="Mayonaise">Option 3</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <div class="">
+                  <label> Package Name: </label>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="employment_reference_amount"
+                />
+              </div>
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-md-4">
+                <div class="">
+                  <label> Services </label>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="">
+                  <label> Package Name: </label>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="">
+                  <label> Prices ($) </label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <select class="form-control">
+                  <option>SSN Trace/Social Check</option>
+
+                  <option>Criminal records</option>
+
+                  <option>Terrorists watch list (OFAC)</option>
+
+                  <option>OIG</option>
+
+                  <option>FACIS 3</option>
+
+                  <option>Drug Test</option>
+
+                  <option>FACIS 1</option>
+
+                  <option>Abuse Registery</option>
+
+                  <option>Motor Vehicle Records</option>
+
+                  <option>License verification</option>
+
+                  <option>Employment Verification</option>
+
+                  <option>Education Verification</option>
+
+                  <option>Affiliation Verification</option>
+
+                  <option>
+                    Controlled Substance Registration Verification
+                  </option>
+
+                  <option>DEA Verification</option>
+
+                  <option>
+                    Malpractice certificate of insurance Verification
+                  </option>
+
+                  <option>Malpractice claims history Verification</option>
+
+                  <option>Medical Training Verification</option>
+
+                  <option>Military History Verificaiton</option>
+
+                  <option>National Practitioner Data Bank</option>
+                  <option>NPI Validation</option>
+                  <option>Sex Offender Verification</option>
+                  <option>
+                    Social Security Death Master File Verification
+                  </option>
+                  <option>Eviction Check</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="employment_reference_amount"
+                />
+              </div>
+              <div class="col-md-3">
+                <div class="d-flex align-center">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="$"
+                    formControlName="reference_amount_1"
+                    (keyup)="onKey('reference_amount_1')"
+                  />
+                  <div style="margin-left: 5px; cursor: pointer"
+                   (click)="increase('reference_amount_1')">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-plus-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                      ></path>
+                      <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-md-4">
+                <select class="form-control" multiple>
+                  <option>SSN Trace/Social Check</option>
+
+                  <option>Criminal records</option>
+
+                  <option>Terrorists watch list (OFAC)</option>
+
+                  <option>OIG</option>
+
+                  <option>FACIS 3</option>
+
+                  <option>Drug Test</option>
+
+                  <option>FACIS 1</option>
+
+                  <option>Abuse Registery</option>
+
+                  <option>Motor Vehicle Records</option>
+
+                  <option>License verification</option>
+
+                  <option>Employment Verification</option>
+
+                  <option>Education Verification</option>
+
+                  <option>Affiliation Verification</option>
+
+                  <option>
+                    Controlled Substance Registration Verification
+                  </option>
+
+                  <option>DEA Verification</option>
+
+                  <option>
+                    Malpractice certificate of insurance Verification
+                  </option>
+
+                  <option>Malpractice claims history Verification</option>
+
+                  <option>Medical Training Verification</option>
+
+                  <option>Military History Verificaiton</option>
+
+                  <option>National Practitioner Data Bank</option>
+                  <option>NPI Validation</option>
+                  <option>Sex Offender Verification</option>
+                  <option>
+                    Social Security Death Master File Verification
+                  </option>
+                  <option>Eviction Check</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="employment_reference_amount"
+                />
+              </div>
+              <div class="col-md-3">
+                <div class="d-flex align-center">
+                  <input
+                    type="number"
+                    class="form-control"
+                    formControlName="reference_amount_2"
+                    placeholder="$"
+                    (keyup)="onKey('reference_amount_2')"
+                  />
+                  <div style="margin-left: 5px; cursor: pointer"
+                  (click)="increase('reference_amount_2')">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-plus-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                      ></path>
+                      <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div class="row">
+              <div class="col-md-5"></div>
+              <div class="col-md-3">
+                <div class="text-right">
+                  <label> Total Package Prices ($) </label>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="total_amount"
+                  placeholder="$"
+                />
+              </div>
+            </div>
+
+
+            -->
+            <div class="row">
+              <div class="col-md-12 text-center mt-5" id="buttons">
+                <button
+                  routerLink="/ORDER_REPORT"
+                  id="submitButton"
+                  type="button"
+
+                  class="btn btn-custom bg-red"
+                  router.navigate="/orderReport"
+                >
+                  Back
+
+                </button>
+                <button id="submitButton" type="submit" class="btn btn-custom">
+                  Place Order
+                </button>
+              </div>
+            </div>

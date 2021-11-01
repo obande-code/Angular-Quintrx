@@ -1,0 +1,69 @@
+.packages__container{
+  margin: auto;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 10px 13px 36px rgba(0, 0, 0, 0.33);
+  padding: 30px;
+  width: 70%;
+}
+
+.loader{
+  size: 1rem;
+  margin-left: 10rem;
+  margin-top: -1.7rem;
+  padding: 7px;
+}
+
+.order__list{
+
+  margin: 40px;
+
+}
+
+.checkAll {
+  color: black;
+  font-size: 30px;
+}
+
+.checkAll:hover {
+  background-color: lightgray;
+
+}
+
+.checky {
+  color: black;
+  font-size: 27px;
+}
+
+.checky:hover {
+  background-color: rgb(243, 236, 236);
+
+}
+
+::ng-deep .mat-checkbox-frame {
+  border-color: black;
+  border-radius: 70% !important;
+
+
+}
+
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color:lightblue!important;
+
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color:lightblue;
+
+}
+
+
+.buttonRow {
+  display: flex;
+}
+
+.submitButton, .submitButton2 {
+  margin: 2rem;
+}

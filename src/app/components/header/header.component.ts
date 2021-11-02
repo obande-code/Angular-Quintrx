@@ -17,9 +17,9 @@ export class HeaderComponent implements OnInit {
   userId;
 
 
-  tokenData$: Observable<TokenData>;
-  menuData$: Observable<any>;
-  menus = [];
+  // tokenData$: Observable<TokenData>;
+  // menuData$: Observable<any>;
+  // menus = [];
 
   //showMenu = false;
 

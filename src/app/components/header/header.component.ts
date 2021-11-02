@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
       this.authenticationService.getUserGroupRelationDetailByEmail(localStorage.getItem('USER_EMAIL')).subscribe(x => {
       //  console.log(x["responseObject"]["userId"])
 
-        this.UserService.userId = x["responseObject"]["userId"]
+        // this.UserService.userId = x["responseObject"]["userId"]
 /*
 
         if(x["responseObject"]["userGroupRelData"][0]["groupDataProfile"]["name"] == "Client")

@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   title = 'Angular-Client-IP-Address';
   ipAddress: string;
   ngOnInit() {
-   // this.getIP();
+   this.getIP();
   }
   /*
   getIP() {

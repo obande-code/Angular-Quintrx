@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   userId;
 
 
-  // tokenData$: Observable<TokenData>;
+  tokenData$: Observable<TokenData>;
   menuData$: Observable<any>;
   menus = [];
   list: FaqItem[] = [

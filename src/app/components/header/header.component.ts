@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
           answer: 'Remember: load jQuery before AngularJS if you are using jQuery plugins!'
         },
         {
-          question: 'How do I access the DOM from a controller?',
+          // question: 'How do I access the DOM from a controller?',
           answer: 'DO NOT perform DOM selection/traversal from the controller. The HTML hasn\'t rendered yet. Look up \'directives\'.'
         }
   ];

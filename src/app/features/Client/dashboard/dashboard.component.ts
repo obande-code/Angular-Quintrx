@@ -28,6 +28,7 @@ export class DashboardComponent implements OnInit {
   completedReports()
   {
    localStorage.setItem("orderStatus", "1")
+   localStorage.setItem("inComp" , "yes")
    this._route.navigate(['/REPORT_MANAGEMENT'])
   }
 
@@ -44,6 +45,7 @@ export class DashboardComponent implements OnInit {
   attentionReports(){
    // this.UserService.orderStatusCode = 2;
     localStorage.setItem("orderStatus", "2")
+    localStorage.setItem("inNeeds" , "yes")
     this._route.navigate(['/REPORT_MANAGEMENT'])
 
   }
@@ -51,6 +53,7 @@ export class DashboardComponent implements OnInit {
   {
    // this.UserService.orderStatusCode = 4;
     localStorage.setItem("orderStatus", "4")
+    localStorage.setItem("inArchived" , "yes")
     this._route.navigate(['/REPORT_MANAGEMENT'])
   }
 
@@ -61,6 +64,7 @@ export class DashboardComponent implements OnInit {
   {
    // this.UserService.orderStatusCode = 4;
     localStorage.setItem("orderStatus", "0")
+    localStorage.setItem("inProgress" , "yes")
     this._route.navigate(['/REPORT_MANAGEMENT'])
   }
 

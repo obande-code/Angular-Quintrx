@@ -434,9 +434,9 @@
                  <p>
                     *Phone Number:
                     <input id="clientphoneNumber" type="number" (input)="OnInput($event)" name="Client Phone Number">
-                    
+
                   </p>
-                  
+
                  <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
               </td>
            </tr>
@@ -588,9 +588,14 @@
            </tr>
            <tr>
               <td>
-                 <p>*Phone:<input id="compPhone" type="number" name="Company Phone Number"></p>
+                 <p>*Phone:<input id="compPhone" type="number" (input)="OnInput2($event)" name="Company Phone Number"></p>
                  <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                 <tr>
+                  <td></td>
+                  <td><p class="error2" *ngIf="errorshow2">Invalid Phone Number</p></td>
+               </tr>
               </td>
+
               <td colspan="3">
                  <p>*Fax:<input id="compFax" type="number" name="Company Fax"></p>
                  <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
@@ -656,8 +661,12 @@
            </tr>
            <tr>
               <td>
-                 <p>Phone:<input id="corpPhone" type="number" name="Corporation Phone"></p>
+                 <p>Phone:<input id="corpPhone" type="number" (input)="OnInput3($event)" name="Corporation Phone"></p>
                  <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                 <tr>
+                  <td></td>
+                  <td><p class="error2" *ngIf="errorshow3">Invalid Phone Number</p></td>
+               </tr>
               </td>
               <td colspan="4">
                  <p>Fax:<input id="corpFax" type="number" name="Corporation Fax"></p>
@@ -682,8 +691,12 @@
            </tr>
            <tr>
               <td colspan="3">
-                 <p>Primary Owner’s Social Security Number:<input id="primarySsn" type="number" name="Primary Owner’s SSN"></p>
+                 <p>Primary Owner’s Social Security Number:<input id="primarySsn" (input)="OnInput4($event)" type="number" name="Primary Owner’s SSN"></p>
                  <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                 <tr>
+                  <td></td>
+                  <td><p class="error2" *ngIf="errorshow4">Invalid Social Security Number</p></td>
+               </tr>
               </td>
               <td colspan="6">
                  <p>Primary Owner’s email address:<input id="primaryEmail" type="email" name="Primary Owner’s Email Address"></p>
@@ -713,8 +726,12 @@
            </tr>
            <tr>
               <td>
-                 <p>Contact Phone:<input id="contactPhone" type="number" name="Main Contact Number"></p>
+                 <p>Contact Phone:<input id="contactPhone" type="number" (input)="OnInput5($event)" name="Main Contact Number"></p>
                  <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                 <tr>
+                  <td></td>
+                  <td><p class="error3" *ngIf="errorshow5">Invalid Phone Number</p></td>
+               </tr>
               </td>
               <td colspan="4">
                  <p>Contact Fax:<input id="contactFax" type="number" name="Main Contact Fax"></p>
@@ -780,8 +797,12 @@
            </tr>
            <tr>
               <td>
-                 <p>Phone:<input id="bankPhone" type="text" maxlength="10" onkeypress="return /^\d*[.]?\d*$/i.test(event.key)" name="Bank Phone"></p>
+                 <p>Phone:<input id="bankPhone" type="text" (input)="OnInput6($event)" onkeypress="return /^\d*[.]?\d*$/i.test(event.key)" name="Bank Phone"></p>
                  <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+                 <tr>
+                  <td></td>
+                  <td><p class="error2" *ngIf="errorshow6">Invalid Phone Number</p></td>
+               </tr>
               </td>
               <td colspan="4">
                  <p>Fax:<input id="bankFax" type="text" maxlength="10" onkeypress="return /^\d*[.]?\d*$/i.test(event.key)" name="Bank Fax"></p>
@@ -956,10 +977,14 @@
                  <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
            </tr>
            <tr>
-                 <p>*Telephone:<input id="exhibitDTel" type="text" onkeypress="return /^\d*[.]?\d*$/i.test(event.key)" name="Exhibit D Telephone"></p>
-                 <!-- <p>( &ensp;&ensp;&ensp;&ensp;&ensp; ) &ensp;&ensp;&ensp;&ensp;&ensp; - &ensp;&ensp;&ensp;&ensp;&ensp;</p> -->
-                 <p>*Email:<input id="exhibitDEmail" type="text" name="Exhibit D Email"></p>
-                 <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+             <td>
+              <p>*Telephone:<input id="exhibitDTel" type="text" (input)="OnInput7($event)" onkeypress="return /^\d*[.]?\d*$/i.test(event.key)" name="Exhibit D Telephone"></p>
+              <td></td>
+              <td><p class="error3" *ngIf="errorshow7">Invalid Phone Number</p></td>
+             <!-- <p>( &ensp;&ensp;&ensp;&ensp;&ensp; ) &ensp;&ensp;&ensp;&ensp;&ensp; - &ensp;&ensp;&ensp;&ensp;&ensp;</p> -->
+             <p>*Email:<input id="exhibitDEmail" type="text" name="Exhibit D Email"></p>
+             <p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+
            </tr>
         </tbody>
      </table>

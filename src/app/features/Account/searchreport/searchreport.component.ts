@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/APIs/user/authentication.service';
 import { UserService } from 'src/app/APIs/user/user.service';
 import { environment } from 'src/environments/environment';
@@ -14,7 +15,7 @@ import { environment } from 'src/environments/environment';
 })
 export class SearchreportComponent implements OnInit {
 
-  constructor(private UserService : UserService, private auth : AuthenticationService) { }
+  constructor(private UserService : UserService, private auth : AuthenticationService, private _route : Router) { }
   public loading: boolean;
   isFound = false;
 
@@ -23,6 +24,10 @@ export class SearchreportComponent implements OnInit {
   dataSource;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+
+  myDate = new Date();
+  newDate  = formatDate(this.myDate, 'yyyy-MM-dd', 'en-US');
+
 
 
 
@@ -51,7 +56,6 @@ enddatecheck = false;
 
 isData = false;
 isClientSelected = false;
-
 
 displayReports = []
   search()
@@ -273,6 +277,134 @@ displayReports = []
 
   editUser(e)
   {
+    console.log(e)
+    
+    localStorage.setItem("fullname", e["name"])
+  //  localStorage.setItem("fname", e["fname"])
+    if(typeof e["fname"] == 'undefined')
+    {
+      localStorage.setItem("fname","")
+    }
+    else
+    {
+      localStorage.setItem("fname", e["fname"])
+    }
+
+  //  localStorage.setItem("lname", e["lname"])
+
+    if(typeof e["lname"] == 'undefined')
+    {
+      localStorage.setItem("lname","")
+    }
+    else
+    {
+      localStorage.setItem("lname", e["lname"])
+    }
+  //  localStorage.setItem("phoneNumber", e["phone"])
+
+    
+    if(typeof e["phone"] == 'undefined')
+    {
+      localStorage.setItem("phoneNumber","")
+    }
+    else
+    {
+      localStorage.setItem("phoneNumber", e["phone"])
+    }
+
+
+  //  localStorage.setItem("middleName", e["middleName"])
+
+    if(typeof e["middleName"] == 'undefined')
+    {
+      localStorage.setItem("middleName","")
+    }
+    else
+    {
+      localStorage.setItem("middleName", e["middleName"])
+    }
+
+  //  localStorage.setItem("place", e["streetAddress"])
+
+    
+    if(typeof e["streetAddress"] == 'undefined')
+    {
+      localStorage.setItem("place","")
+    }
+    else
+    {
+      localStorage.setItem("place", e["streetAddress"])
+    }
+   // localStorage.setItem("email", e["email"])
+
+
+    if(typeof e["email"] == 'undefined')
+    {
+      localStorage.setItem("email","")
+    }
+    else
+    {
+      localStorage.setItem("email", e["email"])
+    }
+
+    
+    localStorage.setItem("orderId", e["orderId"])
+    localStorage.setItem("status", e["status"])
+  //  localStorage.setItem("dob", e["dateOfBirth"])
+
+    if(typeof e["dateOfBirth"] == 'undefined')
+    {
+      localStorage.setItem("dob","")
+    }
+    else
+    {
+      localStorage.setItem("dob", e["dateOfBirth"])
+    }
+  //  localStorage.setItem("zip", e["zip"])
+
+    if(typeof e["zip"] == 'undefined')
+    {
+      localStorage.setItem("zip","")
+    }
+    else
+    {
+      localStorage.setItem("zip", e["zip"])
+    }
+  //  localStorage.setItem("houseApt", e["houseApt"])
+    if(typeof e["houseApt"] == 'undefined')
+    {
+      localStorage.setItem("houseApt","")
+    }
+    else
+    {
+      localStorage.setItem("houseApt", e["houseApt"])
+    }
+
+    localStorage.setItem("state", e["state"])
+    localStorage.setItem("city", e["state"])
+  
+
+
+    if(typeof e["socialSecurityNumber"] == 'undefined')
+    {
+      localStorage.setItem("ssn","")
+    }
+    else
+    {
+      localStorage.setItem("ssn", e["socialSecurityNumber"])
+    }
+
+    
+    if(typeof e["orderComment"] == 'undefined')
+    {
+      localStorage.setItem("orderComment","")
+    }
+    else
+    {
+      localStorage.setItem("orderComment", e["orderComment"])
+    }
+
+    this._route.navigate(['/report-list'])
 
   }
 
@@ -357,10 +489,16 @@ displayReports = []
 
 
         this.UserService.generateInvoice(apiUrl)
-          .then((result) => {
+          .subscribe(result => {
             console.log(result)
 
-            if(result["responseCode"] == 0)
+            if(result["responseMessage"] == "Invoice generated successfully.")
+            {
+              console.log("Success")
+              this._route.navigate(['/INVOICES'])
+              
+            }
+            else
             {
               this.msg = "Failed to generate invoice. Response Message: " + result["responseMessage"]
               this.validationMsg = true
@@ -369,10 +507,6 @@ displayReports = []
           })
           
   
-          .catch((err) => {
-            console.log(err);
-            
-          });
       }
 
     }

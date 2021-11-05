@@ -7,6 +7,25 @@
         </header>
 
 
+        <div
+            id="errorLabel"
+            class="alert alert-danger text-center"
+            *ngIf = "showDocSign"
+            >
+            {{msg}}
+
+        </div>
+        <div
+            id="successMsg"
+            class="alert alert-success text-center"
+            *ngIf = "showDelegate"
+            >
+            {{delegateMsg}}
+
+        </div>
+
+
+
         <div class="buttons row">
 
           <div class="">
@@ -43,7 +62,38 @@
           placeholder="Choose File"/> -->
 
 
-        <div class="buttons2">
+
+        
+
+          <div *ngIf="isClient">
+            <input type = "checkbox" class="check__space" (change)="delegate()"
+            >Delegate Signature
+          </div>
+         
+          
+          <div *ngIf = "delegateSign" class="row gx-5">
+
+            <div class="col-md-4 mt-auto">
+              <input id="email" class="form-control user__font" type="email" placeholder="Enter Email"
+              >
+
+            </div>
+
+            <div class="col-md-4 mt-auto">
+              <input id="name" class="form-control user__font" type = "text" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" placeholder="Client Name"
+              >
+
+            </div>
+        
+           
+          </div>
+          <div *ngIf = "delegateSign">
+            <button  class="btn btn-active"  (click) = "sendEmail()" >Send Email</button>
+
+          </div>
+         
+
+        <div class="buttons2" *ngIf="isClient">
           <div class="homeButton">
             <button class="btn btn-active" (click)="redirect()">Continue</button>
           </div>

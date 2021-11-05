@@ -1,0 +1,48 @@
+.card {
+	margin-bottom: 27px;
+	margin-top: 27px;
+	text-align: justify;
+}
+
+body {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table {
+	border: 2px solid #d4d4d4;
+	border-collapse: collapse;
+}
+
+tr {
+	border: 2px solid #d4d4d4;
+	border-collapse: collapse;
+}
+
+th {
+	background-color: #d4d4d4;
+	text-align: left;
+}
+
+.content {
+	margin: 150 auto;
+	font-family: serif;
+}
+
+@page {
+	size: 7in 9.25in;
+	margin: 27mm 16mm 27mm 16mm;
+}
+
+.modal-body {
+	width: 100vh;
+	text-align: center;
+	margin: auto;
+  }
+
+
+  
+.fontStyle {
+    font-family: 'Brush Script MT', 'Brush Script Std', cursive;
+}

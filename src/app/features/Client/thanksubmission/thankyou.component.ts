@@ -10,6 +10,8 @@ export class ThankyouSubComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    localStorage.removeItem("consentDatainfo")
   }
 
 }

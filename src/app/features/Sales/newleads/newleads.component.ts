@@ -11,7 +11,7 @@ import { UserService } from 'src/app/APIs/user/user.service';
   styleUrls: ['./newleads.component.scss']
 })
 export class NewleadsComponent implements OnInit {
-
+  public loading: boolean = false;
   constructor(private UserService : UserService, private _route : Router) { }
 
 
@@ -34,7 +34,7 @@ export class NewleadsComponent implements OnInit {
 
     var pkgser = [];
     var counter = 0;
-    
+
 
 
    this._route.navigate(['/newleaddetails']);
@@ -50,10 +50,12 @@ export class NewleadsComponent implements OnInit {
 
   displayLeads = []
   ngOnInit(): void {
+    this.loading = true;
 
 
 
     this.UserService.getAllUsers().subscribe(data => {
+
 
 
 
@@ -89,9 +91,10 @@ export class NewleadsComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.displayLeads);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.loading = false;
     })
 
-   
+
 
 
 

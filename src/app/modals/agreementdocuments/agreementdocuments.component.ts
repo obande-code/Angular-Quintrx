@@ -38,20 +38,35 @@ export class AgreementdocumentsComponent implements OnInit {
 
       this.UserService.getAgreeMentPdf(this.UserService.documentUserRelId).subscribe((data) => {
         //var blob
-        var blob = new Blob([data], {type: 'application/pdf'});
+
+        if(data["size"] < 100)
+        {
+
+         // <HTMLInputElement> document.getElementById("docNotFound");
+         document.getElementById("sign-CBSV").style.display="none"
+         document.getElementById("docNotFound").style.display=""
+
+
+
+        }
+        else
+        {
+          var blob = new Blob([data], {type: 'application/pdf'});
       
-        var downloadURL = window.URL.createObjectURL(blob);
-       // window.open(downloadURL, '_blank')
-        var link = document.createElement('a');
-       // console.log(link)
-        (<HTMLInputElement>document.getElementById("sign-CBSV")).src = downloadURL;
-
-
-
-        //link.innerHTML = downloadURL;
-        //window.open(link.innerHTML, '_blank')
-        //link.download = "help.pdf";
-       // link.click();
+          var downloadURL = window.URL.createObjectURL(blob);
+         // window.open(downloadURL, '_blank')
+          var link = document.createElement('a');
+         // console.log(link)
+          (<HTMLInputElement>document.getElementById("sign-CBSV")).src = downloadURL;
+  
+  
+  
+          //link.innerHTML = downloadURL;
+          //window.open(link.innerHTML, '_blank')
+          //link.download = "help.pdf";
+         // link.click();
+        }
+      
 
       });
 
@@ -70,15 +85,30 @@ export class AgreementdocumentsComponent implements OnInit {
 
       this.UserService.getPDF(this.UserService.orderDetailId).subscribe((data) => {
         //var blob
-        var blob = new Blob([data], {type: 'application/pdf'});
+        if(data["size"] < 100)
+        {
+
+         // <HTMLInputElement> document.getElementById("docNotFound");
+         document.getElementById("sign-CBSV").style.display="none"
+         document.getElementById("docNotFound").style.display=""
+
+
+
+        }
+        else
+        {
+          var blob = new Blob([data], {type: 'application/pdf'});
       
-        var downloadURL = window.URL.createObjectURL(blob);
-        //window.open(downloadURL, '_blank')
-        var link = document.createElement('a');
-        (<HTMLInputElement>document.getElementById("sign-CBSV")).src = downloadURL;
-       // link.href = downloadURL;
-       // link.download = "help.pdf";
-       // link.click();
+          var downloadURL = window.URL.createObjectURL(blob);
+          //window.open(downloadURL, '_blank')
+          var link = document.createElement('a');
+          (<HTMLInputElement>document.getElementById("sign-CBSV")).src = downloadURL;
+         // link.href = downloadURL;
+         // link.download = "help.pdf";
+         // link.click();
+        }
+        
+       
 
       });
     }
@@ -88,15 +118,31 @@ export class AgreementdocumentsComponent implements OnInit {
 
       this.UserService.getPDF(this.UserService.orderDetailId).subscribe((data) => {
         //var blob
-        var blob = new Blob([data], {type: 'application/pdf'});
+
+
+        if(data["size"] < 100)
+        {
+
+         // <HTMLInputElement> document.getElementById("docNotFound");
+         document.getElementById("sign-CBSV").style.display="none"
+         document.getElementById("docNotFound").style.display=""
+
+
+
+        }
+        else
+        {
+          var blob = new Blob([data], {type: 'application/pdf'});
       
-        var downloadURL = window.URL.createObjectURL(blob);
-       // window.open(downloadURL, '_blank')
-        var link = document.createElement('a');
-        (<HTMLInputElement>document.getElementById("sign-CBSV")).src = downloadURL;
-       // link.href = downloadURL;
-       // link.download = "help.pdf";
-       // link.click();
+          var downloadURL = window.URL.createObjectURL(blob);
+         // window.open(downloadURL, '_blank')
+          var link = document.createElement('a');
+          (<HTMLInputElement>document.getElementById("sign-CBSV")).src = downloadURL;
+         // link.href = downloadURL;
+         // link.download = "help.pdf";
+         // link.click();
+        }
+       
       
       });
     }
@@ -104,6 +150,8 @@ export class AgreementdocumentsComponent implements OnInit {
     {
        if(this.UserService.isDefault == true)
        {
+         //console.log(this.UserService.orderId)
+         //console.log(this.UserService.documentName)
         this.UserService.getdefault(this.UserService.orderId, this.UserService.documentName).subscribe((data) => {
           //var blob
           console.log(data)
@@ -144,9 +192,6 @@ export class AgreementdocumentsComponent implements OnInit {
            // <HTMLInputElement> document.getElementById("docNotFound");
            document.getElementById("sign-CBSV").style.display="none"
            document.getElementById("docNotFound").style.display=""
-
-
-
           }
           else
           {
@@ -172,18 +217,99 @@ export class AgreementdocumentsComponent implements OnInit {
     //  console.log(this.UserService.consentorderId)
       this.UserService.getConsolidatedReport(this.UserService.consolodatedORderID).subscribe((data) => {
         //var blob
-        var blob = new Blob([data], {type: 'application/pdf'});
+
+        if(data["size"] < 100)
+        {
+
+         // <HTMLInputElement> document.getElementById("docNotFound");
+         document.getElementById("sign-CBSV").style.display="none"
+         document.getElementById("docNotFound").style.display=""
+
+        }
+        else
+        {
+          var blob = new Blob([data], {type: 'application/pdf'});
       
-        var downloadURL = window.URL.createObjectURL(blob);
-       // window.open(downloadURL, '_blank')
-        var link = document.createElement('a');
-        (<HTMLInputElement>document.getElementById("sign-CBSV")).src = downloadURL;
-       // link.href = downloadURL;
-       // link.download = "help.pdf";
-       // link.click();
+          var downloadURL = window.URL.createObjectURL(blob);
+         // window.open(downloadURL, '_blank')
+          var link = document.createElement('a');
+          (<HTMLInputElement>document.getElementById("sign-CBSV")).src = downloadURL;
+         // link.href = downloadURL;
+         // link.download = "help.pdf";
+         // link.click();
+        }
+     
       
       });
     }
+    else  if(this.UserService.pagestatus == 70)
+    {
+
+    //  console.log(this.UserService.consentorderId)
+      this.UserService.getDocTemplate1(this.UserService.documentId).subscribe((data) => {
+        //var blob
+
+
+        console.log(this.UserService.documentId)
+        if(data["size"] < 100)
+        {
+
+         // <HTMLInputElement> document.getElementById("docNotFound");
+         document.getElementById("sign-CBSV").style.display="none"
+         document.getElementById("docNotFound").style.display=""
+
+
+
+        }
+        else
+        {
+        //  var blob = new Blob([data], {type: 'application/text'});
+      
+          var downloadURL = window.URL.createObjectURL(data);
+         // window.open(downloadURL, '_blank')
+          var link = document.createElement('a');
+          (<HTMLInputElement>document.getElementById("sign-CBSV")).src = downloadURL;
+          //link.href = downloadURL;
+            //link.download = "help.pdf"
+         // link.download = "help.pdf";
+          //link.click();
+        }
+     
+      
+      });
+    }
+    else  if(this.UserService.pagestatus == 88)
+    {
+
+    //  console.log(this.UserService.consentorderId)
+      this.UserService.getInvoiceDoc(this.UserService.invoiceId).subscribe((data) => {
+        //var blob
+
+        if(data["size"] < 100)
+        {
+
+         // <HTMLInputElement> document.getElementById("docNotFound");
+         document.getElementById("sign-CBSV").style.display="none"
+         document.getElementById("docNotFound").style.display=""
+
+        }
+        else
+        {
+          var blob = new Blob([data], {type: 'application/pdf'});
+      
+          var downloadURL = window.URL.createObjectURL(blob);
+         // window.open(downloadURL, '_blank')
+          var link = document.createElement('a');
+          (<HTMLInputElement>document.getElementById("sign-CBSV")).src = downloadURL;
+         // link.href = downloadURL;
+         // link.download = "help.pdf";
+         // link.click();
+        }
+     
+      
+      });
+    }
+    
 
 
   }

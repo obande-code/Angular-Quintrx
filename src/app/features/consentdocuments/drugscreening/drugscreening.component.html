@@ -1,0 +1,90 @@
+
+    <div class="form-div modal-body" id="sign-CBSV">
+    <br><br>
+    <h2 class="text-center"><p>CONSENT AND RELEASE FOR EMPLOYMENT DRUG SCREENING</p></h2>
+    <br>
+    <div
+        id="errorLabel"
+        class="alert alert-danger text-center mt-auto"
+        *ngIf = "showMsg"
+        >
+        {{msg}}
+    </div>
+    <p>
+        As a condition to my employment/prospective employment at <input type="text" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" name="companyName" [class.border-danger] = "!disclosureData.companyName" [(ngModel)]="disclosureData.companyName"  placeholder="Company Name">
+        (Employer), I agree to submit to a drug test through the use of urine, hair, blood, breath, or any sample as
+        specified by statute and regulation at the time of consideration of employment or on an ongoing basis
+        during employment. The purpose of this test is to determine the use of alcohol, Class A drugs or other
+        controlled substances in my body. A positive test indicates the presence of marijuana, cocaine, opiates,
+        amphetamines, and/or phencyclidine etc. <br><br>
+        For the sole purpose of this test, I authorize my Employer’s authorized agents or Vetzu Inc. (Vetzu) to
+        collect samples of my urine, blood etc. and to use these samples or to forward these samples to a testing
+        laboratory chosen by Vetzu Inc (Vetzu). for analysis. I also authorize these results to be reviewed by a
+        Medical Review Officer (MRO). <br><br>
+        Further, I authorize Vetzu to release the results of this test, and any other related documentation to my
+        Employer’s employees with a need-to-know basis. <br><br>
+        I understand that the results of this test, if confirmed positive, may remove me from consideration for
+        employment at <span style="color:white;"><input type="text" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)"  name="compname" [class.border-danger] = "!disclosureData.compname" [(ngModel)]="disclosureData.compname"  placeholder="Company Name"></span>, in accordance with applicable law. <br><br>
+        I agree that a reproduced copy of this Consent and Release for Employment Drug Screening shall have the
+        same force and effect as the original.  <br><br>
+        I further understand that if I am taking prescription drugs approved by a medical physician, I am encouraged to
+        furnish said prescription to an agent of the testing laboratory prior to the collection of my sample. <br><br>
+        I have carefully read the foregoing, and I fully understand its contents. I agree that my signing of this Consent
+        and Release for Employment Drug Screening is voluntary, and that I have not been coerced into signing this
+        document. <br><br>
+        I give my consent to release the results of the test(s) and other medical information from the laboratory to
+        my employer pursuant to statute or regulation with the condition that the results may not be used in any
+        criminal proceeding. <br>
+    </p>
+    <br>
+    <table width="100%">
+        <tr>
+            <td>
+                Applicant Name
+
+                <br>
+                <span style="color:white;"><input onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" type="text" name="fullname" [class.border-danger] = "!disclosureData.name" [(ngModel)]="disclosureData.name"  placeholder="Full Name"></span>
+                <br>
+                <br>
+            </td>
+            <td>
+                Applicant Email
+
+                <br>
+                <span style="color:white;"><input type="text" name="email" [class.border-danger] = "!disclosureData.email" [(ngModel)]="disclosureData.email"  placeholder="E-mail"></span>
+                <br>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Applicant Signature
+                <br>
+                <span style="color:white;"><input class="fontStyle" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)"  type="text" name="signature" [class.border-danger] = "!disclosureData.signature"  [(ngModel)]="disclosureData.signature" ></span>
+            </td>
+            <td>
+                Date
+                <br>
+                <span style="color:white;"><input type="date" max={{newDate}} [class.border-danger] = "!disclosureData.date" [(ngModel)]="disclosureData.date" name="date"></span>
+            </td>
+        </tr>
+    </table>
+    </div>
+    <br>
+    <span style="color:white;">/sn7/</span>
+
+
+
+    <div class="d-flex mt-5">
+
+        <button
+      type="submit"
+      name="sign"
+      id="add_user"
+      class="btn btn-active"
+      (click) = "sign()"
+      >Sign
+      <div class="loader" *ngIf="isLoading$"></div>
+
+    </button>
+    </div>

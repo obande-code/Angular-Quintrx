@@ -26,6 +26,7 @@
 
 
 
+
                 />
                 <label class="form-check-label" for="Radio2">
                   A Company
@@ -70,7 +71,7 @@
             <div class="row gx-5">
                 <div
             id="errorLabel"
-            class="alert alert-danger"
+            class="alert alert-danger text-center"
             *ngIf="errorMsg && errorMsg.length"
             >
             {{ errorMsg }}
@@ -82,13 +83,13 @@
                   class="form-label consent__font fw-bold"
                   >First Name</label>
                 <input
+                  onkeypress="return /[a-zA-Z]+$/.test(event.key)"
                   type="text"
                   class="form-control consent__font"
                   placeholder="First Name"
                   id="Fname"
                   name="indFname"
                   [(ngModel)]="individualDetails.contactPersonFirstname"
-                  th:field="*{indFname}"
                   [class.border-danger]="individualDetails.indErrors && individualDetails.indErrors.indiFname"
 
               	/>
@@ -101,6 +102,7 @@
                   >Last Name</label
                 >
                 <input
+                  onkeypress="return /[a-zA-Z]+$/.test(event.key)"
                   type="text"
                   class="form-control consent__font"
                   placeholder="Last Name"
@@ -230,7 +232,7 @@
 
 
 
-              
+
               <div class="col-md-4 mt-auto">
                 <ng-autocomplete
                 class="consent__AutoComp"
@@ -245,7 +247,7 @@
                 [notFoundTemplate]="notFoundTemplate"
                 id="stateD"
                 name = "stateVal1"
-               
+
 
                 [class.border-danger]="individualDetails.indErrors && individualDetails.indErrors.indiState"
 
@@ -262,7 +264,7 @@
               <div [innerHTML]="notFound"></div>
             </ng-template>
               </div>
-              
+
 
 
 
@@ -280,7 +282,7 @@
                     [itemTemplate]="itemTemplate"
                     [notFoundTemplate]="notFoundTemplate"
                     name = "cityVal1"
-                   
+
 
                     [class.border-danger]="individualDetails.indErrors && individualDetails.indErrors.indiCity"
 
@@ -330,7 +332,7 @@
             <div class="row gx-5">
                 <div
           id="errorLabel"
-            class="alert alert-danger"
+            class="alert alert-danger text-center"
             *ngIf="errorMessage && errorMessage.length"
       >
             {{ errorMessage }}
@@ -541,14 +543,14 @@
                       <div [innerHTML]="notFound"></div>
                     </ng-template>
                   </div>
-                
+
 
               <div class="col-md-4 mt-auto">
                 <ng-autocomplete
                     class="consent__AutoComp"
                     [data]="byid"
                     [searchKeyword]="keyword2"
-                   
+
                     placeholder="Search State"
                     (selected)='selectEvent2($event)'
                     (inputChanged)='onChangeSearch2($event)'
@@ -557,7 +559,7 @@
                     [itemTemplate]="itemTemplate"
                     [notFoundTemplate]="notFoundTemplate"
                     name = "stateVal"
-                    
+
 
 
                     [class.border-danger]="companyDetails.CompErrors && companyDetails.CompErrors.CompState"
@@ -589,7 +591,7 @@
                     (inputFocused)='onFocused1($event)'
                     (inputCleared)="searchCleared1()"
                     name = "cityVal"
-                  
+
 
                     [itemTemplate]="itemTemplate"
 

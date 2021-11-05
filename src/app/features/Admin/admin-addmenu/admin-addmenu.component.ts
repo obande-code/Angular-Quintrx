@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/APIs/user/user.service';
 
@@ -18,7 +18,10 @@ import { TokenData } from 'src/app/modals/token-data.model';
 
 export class AdminAddmenuComponent implements OnInit {
 
+
+
   successMessage = "Menu Added Successfully"
+  subMenuMessage = "Sub Menu Added Successfully"
   errorMessage = "Unable to add menu"
 
   currentUserSubject: BehaviorSubject<TokenData>;
@@ -29,7 +32,9 @@ export class AdminAddmenuComponent implements OnInit {
   currentUser$: Observable<TokenData>;
 
   showSuccessMsg = false
+  showSubMenuMsg = false
   showErrorMsg = false
+
 
 
 
@@ -82,10 +87,10 @@ export class AdminAddmenuComponent implements OnInit {
 
   }
 
+
   navigate() {
     this._route.navigate(['ADMIN_DASHBOARD'])
   }
-
 
 
   menuItem : string = '';
@@ -107,16 +112,9 @@ export class AdminAddmenuComponent implements OnInit {
 
 
 
-
-
   onSubmit(){
 
-
-
-
-
     this.UserService.addMainMenu(this.menuItem1)
-
 
 
     .then((result) => {
@@ -144,6 +142,7 @@ export class AdminAddmenuComponent implements OnInit {
       else {
         this.showErrorMsg = false;
         this.showSuccessMsg = true;
+        this.clearValues()
       }
 
     })
@@ -152,9 +151,8 @@ export class AdminAddmenuComponent implements OnInit {
     .catch((err) => {
       console.log(err);
 
+
     });
-
-
 
 
     console.log(this.menuItem1)
@@ -198,7 +196,9 @@ export class AdminAddmenuComponent implements OnInit {
       }
       else {
         this.showErrorMsg = false;
-        this.showSuccessMsg = true;
+        this.showSuccessMsg = false;
+        this.showSubMenuMsg = true;
+        this.clearValues()
       }
      })
 
@@ -210,17 +210,7 @@ export class AdminAddmenuComponent implements OnInit {
 
     }
 
-
-
-
-
-
-
-
     console.log(this.subMenuItem)
-
-
-
 
   }
 
@@ -231,9 +221,6 @@ export class AdminAddmenuComponent implements OnInit {
      document.getElementById("submenu-form").style.display="none";
 
 
-
-
-
    }
    showSubMenu()
    {
@@ -242,6 +229,14 @@ export class AdminAddmenuComponent implements OnInit {
     document.getElementById("submenu-form").style.display="";
 
    }
+
+   clearValues(){
+    this.menuItem1.name = ' ';
+    this.menuItem1.alias = ' '
+    this.menuItem2.name = ' ';
+    this.subMenuItem.name = ' ';
+    this.subMenuItem.alias = ' ';
+  }
 
 
 }

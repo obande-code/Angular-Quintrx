@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer.component';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserGuideModule } from 'src/app/modals/user-guide/user-guide.module';
+import { NgxMaterialFaqModule } from 'ngx-material-faq';
 
 @NgModule({
   declarations: [FooterComponent],
-  imports: [CommonModule, NgbCarouselModule, UserGuideModule],
+  imports: [CommonModule, NgbCarouselModule, UserGuideModule, NgxMaterialFaqModule],
   exports: [FooterComponent],
 })
 export class FooterModule {}

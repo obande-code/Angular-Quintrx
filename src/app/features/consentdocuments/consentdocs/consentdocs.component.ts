@@ -168,13 +168,7 @@ export class ConsentdocsComponent implements OnInit {
                     
                 
                   })
-                 
-                 
-               
-
-
-
-
+                
 
               }
 

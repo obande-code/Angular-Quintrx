@@ -385,9 +385,9 @@ ssnMsg = "Please Enter a Valid SSN"
               this.showStatusMsg = false
 
             localStorage.setItem("orderSuccess", "yes")
-            
+
             this._route.navigate(['/REPORT_MANAGEMENT']);
-    
+
           }
           else
           {
@@ -449,6 +449,26 @@ ssnMsg = "Please Enter a Valid SSN"
   byid = <any[]>[]
   Cities = <any[]>[]
   id;
+
+
+  errorshow = false;
+  error2show = false;
+  OnInput(event: any) {
+    if ((event.target.value).toString().slice(0, 3) === '000') {
+      this.errorshow = true;
+    }
+    else {
+      this.errorshow = false;
+    }
+  }
+  OnInput2(event: any) {
+    if ((event.target.value).toString().slice(0, 3) === '000') {
+      this.error2show = true;
+    }
+    else {
+      this.error2show = false;
+    }
+  }
 
   ngOnInit(): void {
 

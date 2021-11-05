@@ -19,7 +19,7 @@ export class ProviderComponent implements OnInit {
   getProviderStatus
 
   apihit = false;
-  
+
 
   newProvider : any = {
     name : null,
@@ -31,19 +31,19 @@ export class ProviderComponent implements OnInit {
   }
 
   public services: any = [{
-    
+
     apiId: '',
     apiName: '',
     apiCost: '',
     apiPrice: '',
     serviceMasterId : '',
     status: '1'
-  
+
   }
   ];
 
 
-  
+
 
   provider : any = {
     providerId : null,
@@ -61,13 +61,13 @@ export class ProviderComponent implements OnInit {
     this.pkgMsgs = false;
     this.services.push({
       id: this.services.length + 1,
-      
+
       apiName: '',
       apiCost: '',
       apiPrice: '',
       serviceMasterId : '',
       status: '1'
-      
+
     });
   }
 
@@ -79,11 +79,11 @@ export class ProviderComponent implements OnInit {
 
     if(this.UserService.check == 1)
     {
-      
-      
+
+
       var id = e["apiId"];
       console.log(id);
-    
+
       this.UserService.delService(id)
 
       .then((result) => {
@@ -104,23 +104,23 @@ export class ProviderComponent implements OnInit {
         this.pkgMsgs = true;
       }
 
-      
-      
+
+
       })
       .catch((err) => {
       console.log(err);
 
-     
+
     });
-    
+
     }
     else if(this.UserService.check == 2)
     {
-     
-      
+
+
       var id = e["apiId"];
       console.log(id);
-    
+
       this.UserService.delService(id)
 
       .then((result) => {
@@ -138,8 +138,8 @@ export class ProviderComponent implements OnInit {
         }
 
      // console.log("success")
-      
-      
+
+
       })
       .catch((err) => {
       console.log(err);
@@ -150,20 +150,22 @@ export class ProviderComponent implements OnInit {
       this.services.splice(i, 1);
     }
 
-    
+
     console.log(e)
   }
   getId : number;
   s = {}
-  
+
   newServie = [];
   getPId;
   showContent;
   getNewProviderName : string;
   getProviderName : string;
   msg;
+  emailMsg;
+  emailErr = false;
   pkgMsgs = false;
-  code ; 
+  code;
 
 
   validate(e, i)
@@ -182,8 +184,6 @@ export class ProviderComponent implements OnInit {
   {
 
 
-    
-    
    // console.log(this.provider)
    // console.log(this.services)
   // this.services.splice(0, "providerId", 123);
@@ -201,7 +201,7 @@ export class ProviderComponent implements OnInit {
      // var checcked;
       this.getNewProviderName = (<HTMLInputElement>document.getElementById("user-Fname")).value;
      // this.provider.name = this.getNewProviderName;
-    
+
       this.provider.name = this.newProvider.name;
       this.provider.pocEmailAddress = this.newProvider.pocEmailAddress;
       this.provider.pocPhone = this.newProvider.pocPhone;
@@ -216,16 +216,16 @@ export class ProviderComponent implements OnInit {
     //  this.provider.status = this.newProvider.status;
       this.provider.providerId = this.providerId;
       //console.log(this.provider)
-      
+
     //  var checknewStatus;
       this.newServie = []
 
       for(var d of this.services)
         {
-            
+
             if(d["status"] == 1)
             {
-             
+
               this.newServie.push({"apiId" : d["apiId"] , "apiName" : d["apiName"], "apiCost" : d["apiCost"], "apiPrice" : d["apiPrice"],"serviceMasterId" : d["serviceMasterId"], "status" : true});
 
             }
@@ -234,7 +234,7 @@ export class ProviderComponent implements OnInit {
               this.newServie.push({"apiId" : d["apiId"] ,"apiName" : d["apiName"], "apiCost" : d["apiCost"], "apiPrice" : d["apiPrice"], "serviceMasterId" : d["serviceMasterId"], "status" : false});
             }
           //  console.log(this.code)
-            
+
         }
         console.log(this.newServie)
         this.provider.serviceData = this.newServie;
@@ -245,7 +245,9 @@ export class ProviderComponent implements OnInit {
         this.apihit = true;
 
       console.log(this.newProvider)
-     
+
+
+
 
         if(!this.newProvider.name)
         {
@@ -285,9 +287,9 @@ export class ProviderComponent implements OnInit {
           }
           else
           {
-            
+
             this.pkgMsgs = false;
-                
+
             this.UserService.updateProvider(this.provider)
             .then((result) => {
             // this.getPId = this.UserService.provId;
@@ -301,21 +303,20 @@ export class ProviderComponent implements OnInit {
             {
               this.apihit = false;
             }
-            
 
-              
 
-              
+
+
+
             })
             .catch((err) => {
             // this.errorMessage = err.message;
             });
-            
+
           }
         }
 
 
-      
 
 
 
@@ -331,11 +332,12 @@ export class ProviderComponent implements OnInit {
 
 
 
-    
-      
 
-      
-      
+
+
+
+
+
     }
     else if(this.UserService.check == 2)
     {
@@ -364,18 +366,18 @@ export class ProviderComponent implements OnInit {
       {
         this.UserService.updateService(d)
           .then((result) => {
-            
-            
+
+
             //console.log(this.UserService.getcode)
-        
-        
+
+
           })
           .catch((err) => {
             this.errorMessage = err.message;
           });
       }
       this._route.navigate(['/servicelist'])
-      
+
     }
     else
     {
@@ -387,7 +389,7 @@ export class ProviderComponent implements OnInit {
 
       for(var d of this.services)
         {
-            
+
             if(d["status"] == 1)
             {
               checkStatus = true;
@@ -400,19 +402,19 @@ export class ProviderComponent implements OnInit {
             this.newServie.push({"apiName" : d["apiName"], "apiCost" : d["apiCost"], "apiPrice" : d["apiPrice"], "serviceMasterId" : d["serviceMasterId"] ,"status" : checkStatus});
         }
 
-    
-       
+
+
 
         if(this.newProvider.status == 1)
         {
           this.newProvider.status = 1;
         }
-        
+
         if(this.newProvider.status == 0)
-        { 
+        {
           this.newProvider.status = 0;
         }
-        
+
 
        // this.newProvider.name = this.getProviderName;
         this.newProvider.serviceData = this.newServie;
@@ -472,7 +474,7 @@ export class ProviderComponent implements OnInit {
           }
           else
           {
-            
+
             this.pkgMsgs = false;
             this.UserService.addProvider(this.newProvider)
             .then((result) => {
@@ -486,7 +488,7 @@ export class ProviderComponent implements OnInit {
               {
                 this.apihit = false
               }
-            
+
             })
             .catch((err) => {
               this.errorMessage = err.message;
@@ -496,22 +498,22 @@ export class ProviderComponent implements OnInit {
 
 
       }
-     
-        
-        
-        
-      
-        
-        
+
+
+
+
+
+
+
     }
 
-      
-  
-   
-   
-   //this.check = (<HTMLInputElement>document.getElementById("user-Fname")).value; 
+
+
+
+
+   //this.check = (<HTMLInputElement>document.getElementById("user-Fname")).value;
    //console.log(this.check);
-   
+
 
 
   }
@@ -519,7 +521,7 @@ export class ProviderComponent implements OnInit {
   getservice()
 
   {
-   
+
   }
 
   providerName = ""
@@ -531,8 +533,8 @@ export class ProviderComponent implements OnInit {
   displayAllServices = []
   ngOnInit(): void {
 
-   
-    
+
+
     this.UserService.getAllMasterService().subscribe(data =>
       {
         let toStringCount = JSON.stringify(data);
@@ -552,16 +554,16 @@ export class ProviderComponent implements OnInit {
       })
 
 
-    
+
 
 
 
       if(this.UserService.check == 1)
       {
-       
+
         console.log(this.UserService.check);
           var id;
-    
+
         console.log(this.UserService.prolist)
         if(this.UserService.prolist.length == 0)
         {
@@ -585,13 +587,13 @@ export class ProviderComponent implements OnInit {
             {
               this.newProvider.status = '1'
             }
-            
-            
+
+
           }
         }
 
 
-        this.UserService.getAllServices().subscribe(data => 
+        this.UserService.getAllServices().subscribe(data =>
           {
             let toStringCount = JSON.stringify(data);
             const parseCount = JSON.parse(toStringCount);
@@ -602,11 +604,11 @@ export class ProviderComponent implements OnInit {
             console.log(this.providerId)
             for(var d of getCountArray)
             {
-              
+
 
               if(d["providerId"] == this.providerId)
               {
-                
+
 
                 if(d["status"] == true)
                 {
@@ -619,25 +621,25 @@ export class ProviderComponent implements OnInit {
 
                 this.dummyService.push({"apiId" : d["apiId"] ,"apiName" : d["apiName"], "apiCost" : d["apiCost"], "apiPrice" : d["apiPrice"], "status" : checkStatusCode, "serviceMasterId": d["serviceMasterId"]})
               }
-            
-            
+
+
             }
-            
+
           // console.log(getCountArray)
 
-        
+
           })
-          
+
           this.services = this.dummyService;
           console.log(this.services)
-  
+
       }
       else if(this.UserService.check == 2)
       {
         var proId;
         this.isDisabled = true;
        this.isButtonVisible = false;
-     
+
 
        // console.log(this.UserService.servlist);
         for(var d of this.UserService.servlist)
@@ -645,22 +647,22 @@ export class ProviderComponent implements OnInit {
           proId = d["providerId"];
         }
         var checkStatusCode;
-        
-        this.UserService.getProviderById(proId).subscribe(data => 
+
+        this.UserService.getProviderById(proId).subscribe(data =>
           {
             let toStringCount = JSON.stringify(data);
             const parseCount = JSON.parse(toStringCount);
             var getCountArray = parseCount["responseObject"];
             console.log(getCountArray)
             //this.displayProviders = getCountArray;
-            
+
             var id = getCountArray["providerId"]
             this.providerName = getCountArray["name"]
 
             for (var d of this.UserService.servlist)
             {
-              
-              
+
+
                 console.log(d)
 
                 if(d["status"] == true)
@@ -674,28 +676,28 @@ export class ProviderComponent implements OnInit {
 
                 this.dummyService.push({"serviceId" : d["serviceId"] ,"serviceName" : d["serviceName"], "serviceCost" : d["serviceCost"],
                  "servicePrice" : d["servicePrice"], "providerId" : d["providerId"]  ,"status" : checkStatusCode})
-              
+
             }
             console.log(this.dummyService)
 
 
-            
-    
+
+
           })
           this.services = this.dummyService;
-          
-          
-       
-       
+
+
+
+
       }
 
 
 
         //console.log(this.UserService.check);
-      
-   
-   
+
+
+
   }
- 
+
 
 }

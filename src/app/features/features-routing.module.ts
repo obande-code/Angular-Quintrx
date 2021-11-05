@@ -233,7 +233,7 @@ const routes: Routes = [
       },
       {
         path: 'client-document',
-        canActivate: [AuthGuard],
+        //canActivate: [AuthGuard],
         loadChildren: () =>
           import('./Client/client-documents/client-documents.module').then((m) => m.ClientDocumentsModule),
       },
@@ -316,7 +316,7 @@ const routes: Routes = [
           import('./Client/logout/logout.module').then((m) => m.LogoutModule),
       },
       {
-        path: 'MY_INVOICE',
+        path: 'INVOICES',
          canActivate: [AuthGuard],
         loadChildren: () =>
           import('./Account/myinvoice/myinvoice.module').then((m) => m.MyinvoiceModule),
@@ -334,10 +334,57 @@ const routes: Routes = [
           import('./Client/bulkorders/bulkorders.module').then((m) => m.BulkordersModule),
       },
       {
-        path: 'searchReport',
+        path: 'SEARCH_REPORT',
          canActivate: [AuthGuard],
         loadChildren: () =>
           import('./Account/searchreport/searchreport.module').then((m) => m.SearchreportModule),
+      },
+      {
+        path: 'consent/socr',
+         //canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./consentdocuments/summaryofconsumerrights/summaryofconsumerrights.module').then((m) => m.SummaryofconsumerrightsModule),
+      },
+      {
+        path: 'consent/adf',
+         //canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./consentdocuments/applicationdisclosureform/applicationdisclosureform.module').then((m) => m.ApplicationdisclosureformModule),
+      },
+      {
+        path: 'consent/ssa89',
+         //canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./consentdocuments/ssa89/ssa89.module').then((m) => m.Ssa89Module),
+      },
+      {
+        path: 'consent/drugscreen',
+         //canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./consentdocuments/drugscreening/drugscreening.module').then((m) => m.DrugscreeningModule),
+      },
+      {
+        path: 'consent/ev',
+         //canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./consentdocuments/employementverify/employementverify.module').then((m) => m.EmployementverifyModule),
+      },
+      {
+        path: 'consent/cori',
+         //canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./consentdocuments/coriform/coriform.module').then((m) => m.CoriformModule),
+      },
+      {
+        path: 'MY_TEMPLATES',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./Client/mytemplates/mytemplates.module').then((m) => m.MytemplatesModule),
+      },
+      {
+        path: 'MY_INVOICES',
+        redirectTo : 'INVOICES',
+        canActivate: [AuthGuard],
       }
     ],
   },

@@ -26,18 +26,27 @@ export class MydocumentsComponent implements OnInit {
   displayDocuments = []
 
 
+  errMsg = "Legal team must sign MSA before viewing"
+  showErr : boolean = false;
   viewDoc(e)
   {
+    if (e["name"] == "MSA.pdf" && e["status"] == 1){
+      this.showErr = true;
 
-    console.log(e)
-    this.UserService.documentUserRelId = e;
-    this.UserService.pagestatus = 1;
+    }
+    else {
+      console.log(this.displayDocuments);
+      console.log(e)
+      this.UserService.documentUserRelId = e["documentUserRelId"];
+      this.UserService.pagestatus = 1;
 
-    this.modal.open(AgreementdocumentsComponent, {
-      size: 'xl',
+      this.modal.open(AgreementdocumentsComponent, {
+        size: 'xl',
 
+      });
+      this.showErr = false;
+    }
 
-    });
 
   }
 
@@ -87,7 +96,7 @@ export class MydocumentsComponent implements OnInit {
         {
          // console.log(d)
 
-          this.displayDocuments.push({"name" : d["documentName"], "documentUserRelId" : d["documentUserRelId"], "documentId" : d["documentId"]})
+          this.displayDocuments.push({"name" : d["documentName"], "documentUserRelId" : d["documentUserRelId"], "documentId" : d["documentId"], "status" : d["status"]})
         }
 
         this.dataSource = new MatTableDataSource(this.displayDocuments);

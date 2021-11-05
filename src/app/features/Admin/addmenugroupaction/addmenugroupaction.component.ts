@@ -259,25 +259,35 @@ updateGroupMenu : any = {
   
         else
         {
-          this.UserService.createcreateMenuActionGroupRelationteUser(this.menuActionGroupRelation)
-          .then((result) => {
-  
-            console.log(result)
-      
-            if(result["responseCode"] == 0)
+
+          var checkExisting = false;
+
+          for(var d of this.exisitngMenuRelation)
+          {
+            if(d["menuId"] == this.menuActionGroupRelation.menuId)
             {
-             
-              check = true;
-            
+              checkExisting = true
+              break;
             }
-            else
-            {
-              check = false;
-            }
-  
+          }
+
+
+          if(checkExisting == true)
+          {
             this.UserService.createcreateMenuActionGroupRelationteUser(this.subMenuData)
             .then((result1) => {
-  
+              if(result1["responseCode"] == 0)
+              {
+               
+                 localStorage.setItem("grpCreated", "yes")
+                 window.location.reload()
+              }
+              else
+              {
+                console.log("here")
+                this.msg = "Unable to create group menu. Response Message: " + result1["responseMessage"]
+                this.menuMsgs = true
+              }
             
             })
                 
@@ -287,30 +297,61 @@ updateGroupMenu : any = {
               
              });
   
-             if(result["responseCode"] == 0)
-             {
+          }
+          else
+          {
+
+            this.UserService.createcreateMenuActionGroupRelationteUser(this.menuActionGroupRelation)
+            .then((result) => {
+    
+              console.log(result)
+        
+              if(result["responseCode"] == 0)
+              {
+               
+                check = true;
               
-                localStorage.setItem("grpCreated", "yes")
-                window.location.reload()
-             }
-             else
-             {
-               this.msg = "Unable to create group menu"
-               this.menuMsgs = true
-             }
-      
-          })
+              }
+              else
+              {
+                check = false;
+              }
+    
+              this.UserService.createcreateMenuActionGroupRelationteUser(this.subMenuData)
+              .then((result1) => {
+                if(result1["responseCode"] == 0)
+                {
+                 
+                   localStorage.setItem("grpCreated", "yes")
+                   window.location.reload()
+                }
+                else
+                {
+                  this.msg = "Unable to create group menu. Response Message: " + result1["responseMessage"]
+                  this.menuMsgs = true
+                }
               
-      
-          .catch((err) => {
-            console.log(err);
+              })
+                  
+          
+              .catch((err) => {
+                console.log(err);
+                
+               });
+    
             
-           });
-        }
-      
-         
-  
-       
+        
+            })
+                
+        
+            .catch((err) => {
+              console.log(err);
+              
+             });
+          }
+
+          }
+
       }
       else
       {
@@ -367,7 +408,10 @@ updateGroupMenu : any = {
 
   editMenudata(e)
   {
-
+    var checkcreate = false;
+    var checkUpdate = false;
+    var checkdelete = false;
+    var checkview = false;
     
     this.checkUpdate = 1;
 
@@ -379,18 +423,59 @@ updateGroupMenu : any = {
     {
       if(d == "CREATE")
       {
-        (<HTMLInputElement>document.getElementById("createId")).checked = true
+        checkcreate = true;
+       // (<HTMLInputElement>document.getElementById("createId")).checked = true
       }
       else if(d == "UPDATE"){
-        (<HTMLInputElement>document.getElementById("updateId")).checked = true
+        checkUpdate = true;
+     //   (<HTMLInputElement>document.getElementById("updateId")).checked = true
       }
       else if(d == "DELETE"){
-        (<HTMLInputElement>document.getElementById("deleteId")).checked = true
+        checkdelete = true;
+       // (<HTMLInputElement>document.getElementById("deleteId")).checked = true
       }
       else if(d == "VIEW"){
-        (<HTMLInputElement>document.getElementById("viewId")).checked = true
+        checkview = true;
+        //(<HTMLInputElement>document.getElementById("viewId")).checked = true
       }
     
+    }
+
+
+    if(checkcreate == true)
+    {
+      (<HTMLInputElement>document.getElementById("createId")).checked = true
+    }
+    else
+    {
+      (<HTMLInputElement>document.getElementById("createId")).checked = false
+    }
+
+    if(checkUpdate == true)
+    {
+      (<HTMLInputElement>document.getElementById("updateId")).checked = true
+    }
+    else
+    {
+      (<HTMLInputElement>document.getElementById("updateId")).checked = false
+    }
+
+    if(checkdelete == true)
+    {
+      (<HTMLInputElement>document.getElementById("deleteId")).checked = true
+    }
+    else
+    {
+      (<HTMLInputElement>document.getElementById("deleteId")).checked = false
+    }
+
+    if(checkview == true)
+    {
+      (<HTMLInputElement>document.getElementById("viewId")).checked = true
+    }
+    else
+    {
+      (<HTMLInputElement>document.getElementById("viewId")).checked = false
     }
 
 

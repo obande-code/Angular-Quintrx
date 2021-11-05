@@ -24,6 +24,14 @@ export class ShowDocumentModalComponent implements OnInit {
   submitFlag;
   savedValues = null;
   errorshow = false;
+  errorshow2 = false;
+  errorshow3 = false;
+  errorshow4 = false;
+  errorshow5 = false;
+  errorshow6 = false;
+  errorshow7 = false;
+
+
   myDate = new Date();
 
   newDate  = formatDate(this.myDate, 'yyyy-MM-dd', 'en-US');
@@ -128,6 +136,55 @@ export class ShowDocumentModalComponent implements OnInit {
       this.errorshow = false;
     }
   }
+  OnInput2(event: any) {
+    if ((event.target.value).toString().slice(0, 3) === '000') {
+      this.errorshow2 = true;
+    }
+    else {
+      this.errorshow2 = false;
+    }
+  }
+  OnInput3(event: any) {
+    if ((event.target.value).toString().slice(0, 3) === '000') {
+      this.errorshow3 = true;
+    }
+    else {
+      this.errorshow3 = false;
+    }
+  }
+  OnInput4(event: any) {
+    if ((event.target.value).toString().slice(0, 3) === '000') {
+      this.errorshow4 = true;
+    }
+    else {
+      this.errorshow4 = false;
+    }
+  }
+  OnInput5(event: any) {
+    if ((event.target.value).toString().slice(0, 3) === '000') {
+      this.errorshow5 = true;
+    }
+    else {
+      this.errorshow5 = false;
+    }
+  }
+  OnInput6(event: any) {
+    if ((event.target.value).toString().slice(0, 3) === '000') {
+      this.errorshow6 = true;
+    }
+    else {
+      this.errorshow6 = false;
+    }
+  }
+  OnInput7(event: any) {
+    if ((event.target.value).toString().slice(0, 3) === '000') {
+      this.errorshow7 = true;
+    }
+    else {
+      this.errorshow7 = false;
+    }
+  }
+
 
   async uploadFiles() {
     this.loading = true
@@ -194,7 +251,7 @@ export class ShowDocumentModalComponent implements OnInit {
       }
 
     }
-    console.log(valueArray)
+   // console.log(valueArray.length)
 
     var signature = (<HTMLInputElement>document.getElementById("signature")).value;
     console.log(signature)
@@ -233,7 +290,7 @@ export class ShowDocumentModalComponent implements OnInit {
          const file = new File([blobString], this.fileName, {
            type: 'application/pdf',
          });
-
+         
          this._ClientDocumentBllService.upload(file, signature, this.ipAddress, valueArray).subscribe(
            (event: any) => {
 

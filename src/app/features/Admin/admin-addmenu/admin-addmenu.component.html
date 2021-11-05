@@ -7,20 +7,19 @@
           <h1 class="header-label">Menu & Action</h1>
         </header>
 
-
-
-
-
         <div class="admin__menuform">
 
           <div class="alert alert-success text-center" *ngIf = "showSuccessMsg">
             {{ successMessage }}
           </div>
 
+          <div class="alert alert-success text-center" *ngIf = "showSubMenuMsg">
+            {{ subMenuMessage }}
+          </div>
+
           <div class="alert alert-danger text-center" *ngIf = "showErrorMsg">
             {{ errorMessage }}
           </div>
-
 
           <div class="consent__checkboxContainer">
             <div class="form-check consent__checkbox">
@@ -32,10 +31,8 @@
                 value="1"
                 (click)="showMainMenu()"
                 checked
-
-
-
               />
+
               <label class="form-check-label" for="Radio2">
                 Main Menu
               </label>
@@ -56,25 +53,24 @@
             </div>
           </div>
 
-
           <div class="mainMenu">
             <form class="mainMenu__form" id="mainmenu-form" (ngSubmit)="onSubmit()">
               <div class="menu__input">
 
                 <div class="col-3">
                   <label class="form-label field__font fw-bold">Menu Name</label>
-                  <input [(ngModel)]="menuItem1.name" name="menuName" type="text" placeholder="Menu Name" class="form-control" required/>
+                  <input onkeypress="return /[-a-z/']/i.test(event.key)" [(ngModel)]="menuItem1.name" name="menuName" type="text" placeholder="Menu Name" class="form-control" required/>
                 </div>
                 <div class="col-3">
                   <label class="form-label field__font fw-bold">Menu Alias</label>
-                  <input [(ngModel)]="menuItem1.alias" name="menuAlias" type="text" placeholder="Menu Alias" class="form-control"/>
+                  <input onkeypress="return /[-a-z/']/i.test(event.key)" [(ngModel)]="menuItem1.alias" name="menuAlias" type="text" placeholder="Menu Alias" class="form-control"/>
                 </div>
               </div>
 
               <div class="buttons">
                 <button id="submitButton" type="submit" class="btn btn-active">
                   Submit
-                
+
                 </button>
 
                 <button id="submitButton" type="submit" class="btn btn-active" (click) = "navigate()">
@@ -86,12 +82,8 @@
             </form>
           </div>
 
-
-
           <div class="subMenu">
             <form class="mainMenu__form" id="submenu-form" (ngSubmit)="addSubMenu()" style="display: none;" >
-
-
               <div class="menu__input">
                   <div class="col-3 first__line">
                     <label class="form-label field__font fw-bold">Main Menu</label>
@@ -102,28 +94,25 @@
                   </div>
                 <div class="col-3">
                   <label class="form-label field__font fw-bold">Submenu Name</label>
-                  <input [(ngModel)]="subMenuItem.name" name="subMenuName"  [class.border-danger] = "!subMenuItem.name" type="text" placeholder="Sub Menu Name" class="form-control"/>
+                  <input onkeypress="return /[-a-z/']/i.test(event.key)" [(ngModel)]="subMenuItem.name" name="subMenuName"  [class.border-danger] = "!subMenuItem.name" type="text" placeholder="Sub Menu Name" class="form-control"/>
                 </div>
 
                 <div class="col-3">
                   <label class="form-label field__font fw-bold">Submenu Alias</label>
-                  <input [(ngModel)]="subMenuItem.alias" name="subMenuAlias" type="text" placeholder="Sub Menu Alias" class="form-control"/>
+                  <input onkeypress="return /[-a-z/']/i.test(event.key)" [(ngModel)]="subMenuItem.alias" name="subMenuAlias" type="text" placeholder="Sub Menu Alias" class="form-control"/>
                 </div>
               </div>
 
-
               <div class="buttons">
-
                 <button id="submitButton" type="submit" class="btn btn-active">
                   Submit
-                  
+
                 </button>
 
                 <button id="submitButton" type="submit" class="btn btn-active" (click) = "navigate()">
                   Cancel
                 </button>
               </div>
-
             </form>
           </div>
 

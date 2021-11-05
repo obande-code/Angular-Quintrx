@@ -5,9 +5,14 @@
                       && !router.url.includes('forgetPassword')  && !router.url.includes('reset-password')
                       && !router.url.includes('thank-submission') && !router.url.includes('confirmation')
                       && !router.url.includes('consentdocuments') && !router.url.includes('user-details')
-                      && !router.url.includes('client-document')"></app-header>
+                      && !router.url.includes('client-document') && !router.url.includes('consent/adf')
+                      && !router.url.includes('consent/drugscreen') && !router.url.includes('consent/ev')
+                      && !router.url.includes('consent/cori')  && !router.url.includes('consent/socr')
+                      && !router.url.includes('consent/ssa89')"></app-header>
   <div id="app-body">
     <router-outlet></router-outlet>
   </div>
-  <app-footer *ngIf="!router.url.includes('consentdocuments')"></app-footer>
+  <app-footer *ngIf="!router.url.includes('consentdocuments') && !router.url.includes('consent/socr') && !router.url.includes('consent/adf')
+                        && !router.url.includes('consent/ssa89')  && !router.url.includes('consent/drugscreen')  && !router.url.includes('consent/ev')
+                        && !router.url.includes('consent/cori') && !router.url.includes('consent-page')" ></app-footer>
 </div>

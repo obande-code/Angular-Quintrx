@@ -105,7 +105,8 @@
                         </div>
                         <div class="col-md-4 mt-auto">
                             <label class="form-label order__font fw-bold">Phone Number</label>
-                            <input class="form-control user__font" placeholder="Phone Number" type="number" formControlName = "phoneNumber"/>
+                            <input class="form-control user__font" placeholder="Phone Number" (input)="OnInput($event)" type="number" formControlName = "phoneNumber"/>
+                            <p class="error" *ngIf="errorshow">Invalid Phone Number</p>
 
 
 
@@ -113,7 +114,7 @@
 
                         <div class="col-md-4 mt-auto">
                             <label class="form-label order__font fw-bold">Social Security #</label>
-                            <input class="form-control user__font" placeholder="123-45-6789" type="text"  formControlName = "socialSecurityNumber" onkeypress="return /[0-9]/i.test(event.key)"  (keypress)="onRestrictZero($event)" [ngClass]="{ 'is-invalid': submitted && order.get('socialSecurityNumber').errors }"/>
+                            <input class="form-control user__font" (input)="OnInput2($event)" placeholder="123-45-6789" type="text"  formControlName = "socialSecurityNumber" onkeypress="return /[0-9]/i.test(event.key)"  (keypress)="onRestrictZero($event)" [ngClass]="{ 'is-invalid': submitted && order.get('socialSecurityNumber').errors }"/>
                             <div
                                 *ngIf="submitted && order.get('socialSecurityNumber').errors"
                                 class="invalid-feedback"
@@ -123,6 +124,8 @@
                                 </div>
 
                             </div>
+                            <p class="error" *ngIf="error2show">Invalid SSN</p>
+
 
 
                         </div>

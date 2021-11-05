@@ -4,10 +4,10 @@
 
         <main class="main">
             <section class="form-div">
-                
+
                     <header class="header-div">
                         <h1 class="header-label">Provider</h1>
-                        
+
                     </header>
                     <div
                         id="errorLabel"
@@ -15,6 +15,13 @@
                         *ngIf = "pkgMsgs"
                         >
                         {{msg}}
+                    </div>
+                    <div
+                        id="errorLabel"
+                        class="alert alert-danger text-center"
+                        *ngIf = "emailErr"
+                        >
+                        {{emailMsg}}
                     </div>
                     <div
                         id="errorLabel"
@@ -34,9 +41,10 @@
                             >Provider Name*</label
                             >
                             <input
+                            onkeypress="return /[-a-z /']/i.test(event.key)"
                             type="text"
                             class="form-control user__font"
-                            
+
                             id="user-Fname"
                             placeholder="Provider Name"
                             name="firstName"
@@ -44,10 +52,10 @@
                             [disabled]="isDisabled"
                             [(ngModel)]="newProvider.name"
                             value="{{providerName}}"
-                            
+
                             />
-    
-                            
+
+
                         </div>
 
                         <div class="col-md-3 mt-auto" >
@@ -59,18 +67,18 @@
                             <input
                             type="text"
                             class="form-control user__font"
-                            
+
                             id="provider-email"
                             placeholder="Provider Email"
                             name="email"
                             [class.border-danger] = "!newProvider.pocEmailAddress"
                             [(ngModel)]="newProvider.pocEmailAddress"
                             [disabled]="isDisabled"
-                           
-                            
+
+
                             />
-    
-                            
+
+
                         </div>
 
                         <div class="col-md-3 mt-auto" >
@@ -82,25 +90,25 @@
                             <input
                             type="text"
                             class="form-control user__font"
-                            
+
                             id="provider-phone"
                             placeholder="Phone Number"
                             name="phone"
-                          
+
                             [(ngModel)]="newProvider.pocPhone"
                             onkeypress="return /[0-9]/i.test(event.key)"
                             [disabled]="isDisabled"
-                           
-                            
+
+
                             />
-    
-                            
+
+
                         </div>
 
-                        <div class="col-md-3  mt-auto"> 
+                        <div class="col-md-3  mt-auto">
                             <div>
-                                
-                           
+
+
                             <label
                             for="user-status"
                             class="form-label user__font">Status*</label>
@@ -115,7 +123,7 @@
                             </div>
 
                         </div>
-    
+
 
                     </div>
                     <div class="d-flex mt-5">
@@ -123,22 +131,22 @@
                             Save
                             <span *ngIf="apihit" class="spinner-border" role="status" aria-hidden="true"></span>
                         </button>
-                        
-                    </div>
-                   
 
-                    
-                 
+                    </div>
+
+
+
+
 
                     <header class="header-div">
                         <h1 class="header-label">APIs</h1>
-                        
+
                     </header>
 
 
                     <form  #serviceForm = "ngForm" class="user__Form container mt-3">
                         <input type="submit" value="Add API" *ngIf="this.isButtonVisible" class="btn btn-active" id="add_user" [disabled]="isDisabled" (click)="addService()" />
-                     
+
 
                         <section class="container border mb-4 p-3" *ngFor="let service of services; let i = index;" >
                             <div  class="row">
@@ -159,11 +167,12 @@
                                     <div class="form-group">
                                         <label class="">API Name*</label>
                                         <input class="form-control user__font" placeholder="Api Name"  [class.border-danger] = "!service.apiName" type="text" [(ngModel)]="service.apiName"
+                                        onkeypress="return /[-a-z /']/i.test(event.key)"
                                         [name]="'name' +i">
 
                                     </div>
 
-                                    
+
 
                                 </div>
                                 <div class="col-md-3 mt-auto ">
@@ -177,10 +186,10 @@
 
                                 </div>
 
-                                <div class="col-md-3 "> 
+                                <div class="col-md-3 ">
                                     <div>
 
-                                   
+
                                     <label>API Price*</label>
                                     <input class="form-control user__font"  onkeypress="return /[0-9]/i.test(event.key)" placeholder="Api Price" [class.border-danger] = "!service.apiPrice" type="text" [(ngModel)]="service.apiPrice"
                                     [name]="'price' +i">
@@ -189,11 +198,11 @@
 
                                 </div>
 
-                               
-                                <div class="col-md-3 "> 
+
+                                <div class="col-md-3 ">
                                     <div>
-                                        
-                                   
+
+
                                     <label>Status*</label>
                                     <select [name]="'status' +i" [(ngModel)]="service.status" [class.border-danger] = "!service.status" id="service_status" class="form-control user__font">
                                         <option value="1">Active</option>
@@ -207,10 +216,10 @@
 
                                 </div>
 
-                                <div class="col-md-3 "> 
+                                <div class="col-md-3 ">
                                     <div>
-                                        
-                                   
+
+
                                     <label>Master Services*</label>
                                     <select [name]="'serviceMasterId' +i" [(ngModel)]="service.serviceMasterId" [class.border-danger] = "!service.serviceMasterId" id="service_master" class="form-control user__font">
                                         <option value="">--Select Service--</option>
@@ -227,8 +236,8 @@
 
                             </div>
 
-                           
-                         
+
+
 
 
                         </section>
@@ -239,7 +248,7 @@
 
                     </form>
 
-                   
+
 
 
             </section>

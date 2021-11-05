@@ -1,0 +1,301 @@
+
+
+	<div class="form-div modal-body" id="sign-CBSV">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card card-default">
+					<div class="card-header">
+						<h3 class="card-title">
+							<p>Employment History Verification Consent Form</p>
+						</h3>
+					</div>
+                    <div
+                    id="errorLabel"
+                    class="alert alert-danger text-center mt-auto"
+                    *ngIf = "showMsg"
+                    >
+                    {{msg}}
+                </div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-12">
+								<h4 class="fw-bold">PREVIOUS EMPLOYMENT</h4>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<h6 class="fw-bold">EMPLOYMENT HISTORY 1</h6>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4 form-group">
+								<label for="company1">Company</label> <input
+									class="form-control" type="text" name="company1" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" [(ngModel)]="disclosureData.companyName"
+									placeholder="Company Name" required>
+							</div>
+							<div class="col-md-4 form-group">
+								<label for="job1">Job Title</label> <input class="form-control"
+									type="text" name="job1" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" [(ngModel)]="disclosureData.jobtitle" placeholder="Job Title" required>
+							</div>
+							<div class="col-md-4 form-group">
+								<label for="supervisor1">Supervisor</label> <input
+                                     onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)"
+									class="form-control" type="text" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" name="supervisor1" [(ngModel)]="disclosureData.supervisor"
+									placeholder="Supervisor" required>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-md-4 form-group">
+								<label for="address1">Address</label> <input
+									class="form-control" type="text" name="address1" [(ngModel)]="disclosureData.address"
+									placeholder="Address" required>
+							</div>
+							<div class="col-md-2 form-group">
+								<label for="city1">City</label> <input class="form-control"
+									type="text" name="city1"  [(ngModel)]="disclosureData.city" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" placeholder="City" required>
+							</div>
+							<div class="col-md-2 form-group">
+								<label for="state1">State</label> <input class="form-control"
+									type="text" name="state1" [(ngModel)]="disclosureData.state" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" placeholder="State" required>
+							</div>
+							<div class="col-md-4 form-group">
+
+								<label for="country1">Country</label> <input
+									class="form-control" type="text" name="country1" [(ngModel)]="disclosureData.country"
+                                    onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)"
+									placeholder="Country" required>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3 form-group">
+								<label for="from1">From</label> <input class="form-control"
+									type="date" name="from1" max={{newDate}} [(ngModel)]="disclosureData.fromdate" placeholder="mm/dd/yyyy" required>
+							</div>
+							<div class="col-md-3 form-group">
+								<label for="from1">To</label> <input class="form-control"
+									type="date" name="to1" max={{newDate}} [(ngModel)]="disclosureData.todate" placeholder="mm/dd/yyyy" required>
+							</div>
+							<div class="col-md-6 form-group">
+								<label for="reason1">Reason for leaving</label> <input
+									class="form-control" type="text" name="reason1" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" [(ngModel)]="disclosureData.reason" placeholder=""
+									required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 form-group">
+								<label>May we contact your previous supervisor for a reference?</label>
+								<input type="radio" id="Company1Yes" name="Company1Ref" 
+					value="Yes"><label for="Company1Yes">Yes</label> <input
+					type="radio" id="Company1No" name="Company1Ref" value="No"><label
+					for="Company1No">No</label>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-12">
+								<h6 class="fw-bold">EMPLOYMENT HISTORY 2</h6>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4 form-group">
+								<label for="company2">Company</label> <input
+									class="form-control" type="text" name="company2"
+                                    onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)"
+									placeholder="Company Name" required>
+							</div>
+							<div class="col-md-4 form-group">
+								<label for="job2">Job Title</label> <input class="form-control"
+                                onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)"
+									type="text" name="job2" placeholder="Job Title" required>
+							</div>
+							<div class="col-md-4 form-group">
+								<label for="supervisor2">Supervisor</label> <input
+									class="form-control" type="text" name="supervisor2"
+                                    onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)"
+									placeholder="Supervisor" required>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-md-4 form-group">
+								<label for="address2">Address</label> <input
+									class="form-control" type="text" name="address2"
+									placeholder="Address" required>
+							</div>
+							<div class="col-md-2 form-group">
+								<label for="city2">City</label> <input class="form-control"
+                                onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)"
+									type="text" name="city2" placeholder="City" required>
+							</div>
+							<div class="col-md-2 form-group">
+								<label for="state2">State</label> <input class="form-control"
+                                onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)"
+									type="text" name="state2" placeholder="State" required>
+							</div>
+							<div class="col-md-4 form-group">
+
+								<label for="country2">Country</label> <input
+									class="form-control" type="text" name="country2"
+                                    onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)"
+									placeholder="Country" required>
+
+							</div>
+						</div>
+                        <br><br>
+						<div class="row">
+							<div class="col-md-3 form-group">
+								<label for="from2">From</label> <input class="form-control"
+                                    max={{newDate}}
+									type="date" name="from2" placeholder="mm/dd/yyyy" required>
+							</div>
+							<div class="col-md-3 form-group">
+								<label for="from2">To</label> <input class="form-control"
+                                    max={{newDate}}
+									type="date" name="from2" placeholder="mm/dd/yyyy" required>
+							</div>
+							<div class="col-md-6 form-group">
+								<label for="reason2">Reason for leaving</label> <input
+                                    onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)"
+									class="form-control" type="text" name="reason2" placeholder=""
+									required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 form-group">
+								<label>May we contact your previous supervisor for a reference?</label>
+								<input type="radio" id="Company2Yes" name="Company2Ref" 
+					value="Yes"><label for="Company2Yes">Yes</label> <input
+					type="radio" id="Company2No" name="Company2Ref" value="No"><label
+					for="Company2No">No</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	
+	<div class="row">
+			<div class="col-md-12">
+				<div class="card card-default">
+					<div class="card-header">
+						<h3 class="card-title">
+							<p>DISCLAIMER AND SIGNATURE</p>
+						</h3>
+					</div>
+					<div class="card-body">
+						<p>
+						I, <input type="text" id="printName" name="printName" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" [class.border-danger] = "!disclosureData.name" [(ngModel)]="disclosureData.name" />(PRINT
+						NAME), certify that my answers are true and complete to the best
+						of my knowledge. If this application leads to employment, I
+						understand that false or misleading information in my application
+						or interview may result in my release. If a job offer is made, I
+						understand and am hereby notified and authorize to run a
+						background check and procure a consumer report from a consumer
+						reporting agency in accordance with the Fair Credit Reporting Act,
+						15 U.S.C. 1681 et seq.(the “FCRA”),or any ”person” as defined
+						under the California Consumer Credit Reporting Agencies Act (if a
+						CA applicant) for evaluation of me for employment (i.e.
+						employment, promotion, reassignment, or retention as an employee).
+						I understand that these consumer reports may contain information
+						from public records, including written, oral, or other
+						communications bearing on my credit worthiness, credit standing,
+						credit capacity, character, general reputation, personal
+						characteristics, or mode of living, which may or may not be used
+						as a factor for employment purposes. I further understand that
+						such inquires may include, but are not limited to, criminal
+						history, motor vehicle records, employment history and
+						verification, income verification, DOT verifications, military
+						background, civil listings, education background, and professional
+						background, from any individual, corporation, partnership, law
+						enforcement agency, institution, school, organization, credit
+						bureau, state board, licensing agency, and other entities,
+						including present and past employers. In connection with my
+						application for employment and/or employment with Company, I
+						further understand and am hereby notified that Company may procure
+						an investigative consumer report concerning me from a consumer
+						reporting agency or any “person" as defined by the California
+						Consumer Credit Reporting Agencies Act (if a CA applicant). I
+						understand that an investigative consumer report may contain
+						information from public records, including but not <br><br> limited to,
+						written, oral or other communications bearing on my credit
+						worthiness, credit standing, character, general reputation,
+						personal characteristics, or mode of living, which may be obtained
+						through personal interviews with neighbors, friends or  associates
+						of me and may or may not be used as a factor for employment
+						purposes. I further understand that such inquires may include, but
+						are not limited to, investigations regarding worker’s
+						compensation, harassment, violence, theft, or fraud. I have
+						received and reviewed a copy of the Summary of Rights under the
+						FCRA and the California Investigative Consumer Reporting Agencies
+						Act (If a California applicant). I understand that I have the
+						right to request, in writing, information regarding the nature and
+						scope of any investigative report prepared on me. I authorize
+						without reservation any party or agency contacted by this employer
+						to furnish the above- referenced information. I further authorize
+						ongoing procurement of the above-referenced reports at any time,
+						either during the time my application for employment is being
+						considered or throughout the duration of my employment in the
+						event that I am hired or am a current Company employee. <br>Oklahoma,
+						Minnesota and California applicants only: You have the right to
+						receive a copy of your Consumer Credit Report free of charge
+						should one be requested for employment purposes. I wish to be
+						furnished with a copy of my consumer credit report should one be
+						ordered. <br>If you knowingly have background issues, you
+						must inform us prior to us conducting the background information
+						check in order not to be penalized for the background
+						reimbursement cost. By signing below you accept the background
+						clause, acknowledging that if you fail the required background
+						check, you are liable to pay the background fees within 24 hours
+						of being notified of the failed results. Additionally, if you
+						accept an offered position and you later decide not to take the
+						position after your drug and background screening, you are liable
+						for the cost of the background processing. If you accept the
+						offered position and are terminated for inability (or willfully
+						quit) within 72 hours of employment, you will not be eligible for
+						compensation for that time period.<br> **The Age
+						Discrimination in Employment Act of 1967 prohibits discrimination
+						on the basis of age with respect to individuals who are at least
+						40 years of age. *If ME, MI, MN, OH, PA, RI, or WV applicant DO
+						NOT provide DOB. Instead call 630-635-7410 within 2 hours of
+						submitting your application.<br> I acknowledge that I have
+						voluntarily provided the information contained in this form for
+						employment purposes, and I have carefully read, and I understand
+						this authorization. 
+						</p>
+						<div class="row">
+							<div class="col-md-4 form-group">
+								<label for="sign">Signature</label> <input
+									class="form-control fontStyle" type="text" name="sign"
+									placeholder="" [class.border-danger] = "!disclosureData.signature" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" [(ngModel)]="disclosureData.signature" required>
+							</div>
+							<div class="col-md-3 form-group">
+								<label for="date">Date</label> <input class="form-control"
+									type="date" name="date"  max={{newDate}} [class.border-danger] = "!disclosureData.date" [(ngModel)]="disclosureData.date" placeholder="" required>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+</div>
+		
+
+	</div>
+
+
+    
+    <div class="d-flex mt-3">
+           
+        <button
+      type="submit"
+      name="sign"
+      id="add_user"
+      class="btn btn-active"
+      (click) = "sign()"
+      >Sign
+      <div class="loader" *ngIf="isLoading$"></div>
+    
+    </button>
+</div>

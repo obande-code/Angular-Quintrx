@@ -224,7 +224,7 @@
                                     </div>
                                     <div class="col-md-4 mt-auto">
                                         <label class="">Package Name</label>
-                                        <input class="form-control user__font" type="text" formControlName = "packageName" [ngClass]="{ 'is-invalid': submitted && package.get('packageName').errors }"/>
+                                        <input class="form-control user__font" type="text" onkeypress="return /[a-z0-9 ]/i.test(event.key)" formControlName = "packageName" [ngClass]="{ 'is-invalid': submitted && package.get('packageName').errors }"/>
                                         <div
                                         *ngIf="submitted && package.get('packageName').errors"
                                         class="invalid-feedback"
@@ -288,7 +288,7 @@
 
                                             <div class="col-md-3 mt-auto">
                                                 <label class="">Service Alias</label>
-                                                <input class="form-control user__font" type="text" formControlName = "serviceAlias"/>
+                                                <input class="form-control user__font" onkeypress="return /[a-z ]/i.test(event.key)" type="text" formControlName = "serviceAlias"/>
 
 
 

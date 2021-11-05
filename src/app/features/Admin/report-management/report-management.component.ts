@@ -292,7 +292,6 @@ export class ReportManagementComponent implements OnInit {
     this.ngxService.start();
 
     var email = localStorage.getItem('USER_EMAIL');
-    //console.log(localStorage.getItem('USER_EMAIL'))
     var groupId;
 
     this.auth.getUserGroupRelationDetailByEmail(email).subscribe(x => {
@@ -300,520 +299,26 @@ export class ReportManagementComponent implements OnInit {
 
       groupId = x["responseObject"]["groupId"]
 
-      //this.UserService.groupId = groupId;
-
       localStorage.setItem("groupId", groupId);
 
-    if(groupId == 2)
+    
+    if(groupId == 3 || groupId == 2 || groupId == 4 || groupId == 309)
     {
-      if(localStorage.getItem("orderStatus") == "1")
+
+      if(groupId == 3)
       {
-        console.log("hi")
-      // this.showButton = true;
-        if(localStorage.getItem("inComp") == "yes")
+        if(localStorage.getItem("orderSnnUP") == "yes")
         {
-          this.isInCompleted = 'report-icon-button-active'
+          this.msg = "Order Updated Successfully"
+          this.successMsgs = true;
         }
-
-        this.UserService.getMyDashboardDetails().subscribe(data => {
-          let code = JSON.stringify(data);
-          const obj = JSON.parse(code);
-          var counts = obj["responseObject"]
-    
-          this.countCompleted = counts["completed"]
-          this.countNeedsAttention = counts["needsAttention"]
-          this.countCanceled = counts["canceled"]
-          this.countArchived = counts["archived"]
-          this.countIn = counts["inProgress"]
-          this.countAll = this.countCompleted + this.countNeedsAttention + this.countCanceled+ this.countArchived + this.countIn;
-          
-        })
-
-        this.UserService.getOrderByStatus(1).subscribe(data => {
-          let code = JSON.stringify(data);
-          const obj = JSON.parse(code);
-          var x = obj["responseObject"]
-
-          if(x.length < 1)
-          {
-            this.loading = false;
-            this.msg = "No Report Found"
-            this.isData = true;
-          }
-          else
-          {
-            
-            for(var d of x)
-            {
-
-            
-            
-              if(d["status"] == true)
-              {
-                var trimmedDate = d["createdDateTime"].slice(0, 10)
-                this.displayReports.push({ "status" : "Completed", "name" : d["firstName"] + " " + d["lastName"],
-                "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-                  "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-                  "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-                  "orderComment" : d["orderComment"]})
-                // this.countCompleted = this.countCompleted + 1;
-              }
-            
-              this.copyD = []
-
-
-            //  console.log(this.displayReports)
-              this.dataSource = new MatTableDataSource(this.displayReports);
-              this.dataSource.paginator = this.paginator;
-              this.dataSource.sort = this.sort;
-              
-
-
-            }
-            this.loading = false
-          }
-
-        })
-
-      }
-      else if(localStorage.getItem("orderStatus") == "2")
-      {
-        console.log("need attention")
-      //  this.showButton = true;
-        if(localStorage.getItem("inNeeds") == "yes")
+        else
         {
-          this.isInNeeds = 'report-icon-button-active'
+          this.successMsgs = false;
         }
-
-        this.UserService.getMyDashboardDetails().subscribe(data => {
-          let code = JSON.stringify(data);
-          const obj = JSON.parse(code);
-          var counts = obj["responseObject"]
-    
-          this.countCompleted = counts["completed"]
-          this.countNeedsAttention = counts["needsAttention"]
-          this.countCanceled = counts["canceled"]
-          this.countArchived = counts["archived"]
-          this.countIn = counts["inProgress"]
-          this.countAll = this.countCompleted + this.countNeedsAttention + this.countCanceled+ this.countArchived + this.countIn;
-          
-        })
-
-
-
-        this.UserService.getOrderByStatus(2).subscribe(data => {
-          let code = JSON.stringify(data);
-          const obj = JSON.parse(code);
-          var x = obj["responseObject"]
-
-
-          if(x.length < 1)
-          {
-            this.loading = false;
-          }
-          else
-          {
-            for(var d of x)
-            {
-            
-            
-              if(d["status"] == 2)
-              {
-                var trimmedDate = d["createdDateTime"].slice(0, 10)
-                this.displayReports.push({ "status" : "Needs Attention", "name" : d["firstName"] + " " + d["lastName"],
-                "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-                  "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-                  "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-                  "orderComment" : d["orderComment"]})
-                //  this.countNeedsAttention = this.countNeedsAttention + 1;
-              }
-    
-              this.copyD = []
-    
-    
-            //  console.log(this.displayReports)
-              this.dataSource = new MatTableDataSource(this.displayReports);
-              this.dataSource.paginator = this.paginator;
-              this.dataSource.sort = this.sort;
-            
-            }
-            this.loading = false;
-          }
-        
-
-        
-        })
-      }
-      else if(localStorage.getItem("orderStatus") == "3")
-      {
-        console.log("cancel")
-        console.log("need attention")
-      //  this.showButton = true;
-        if(localStorage.getItem("inCanceled") == "yes")
-        {
-          this.isInCanceled = 'report-icon-button-active'
-        }
-
-        this.UserService.getMyDashboardDetails().subscribe(data => {
-          let code = JSON.stringify(data);
-          const obj = JSON.parse(code);
-          var counts = obj["responseObject"]
-    
-          this.countCompleted = counts["completed"]
-          this.countNeedsAttention = counts["needsAttention"]
-          this.countCanceled = counts["canceled"]
-          this.countArchived = counts["archived"]
-          this.countIn = counts["inProgress"]
-          this.countAll = this.countCompleted + this.countNeedsAttention + this.countCanceled+ this.countArchived + this.countIn;
-          
-        })
-        this.UserService.getOrderByStatus(3).subscribe(data => {
-          let code = JSON.stringify(data);
-          const obj = JSON.parse(code);
-          var x = obj["responseObject"]
-
-        
-
-          for(var d of x)
-        {
-
-        
-          /*
-          for(var dd of d["serviceMasterData"])
-          {
-            //console.log(dd["serviceAlias"])
-            this.serviceArray.push(dd["serviceAlias"])
-          }
-          */
-          
-        
-        
-          if(d["status"] == 3)
-          {
-            var trimmedDate = d["createdDateTime"].slice(0, 10)
-            this.displayReports.push({ "status" : "Canceled", "name" : d["firstName"] + " " + d["lastName"],
-            "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-              "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-              "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-              "orderComment" : d["orderComment"]})
-            // this.countCanceled = this.countCanceled + 1;
-          }
-        
-          this.copyD = []
-
-
-        //  console.log(this.displayReports)
-          this.dataSource = new MatTableDataSource(this.displayReports);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-          this.loading = false;
-
-
-        }
-        })
-      }
-      else if(localStorage.getItem("orderStatus") == "4")
-      {
-        console.log("archive")
-      //  this.showButton = true;
-        if(localStorage.getItem("inArchived") == "yes")
-        {
-          this.isInArchived = 'report-icon-button-active'
-        }
-
-        this.UserService.getMyDashboardDetails().subscribe(data => {
-          let code = JSON.stringify(data);
-          const obj = JSON.parse(code);
-          var counts = obj["responseObject"]
-    
-          this.countCompleted = counts["completed"]
-          this.countNeedsAttention = counts["needsAttention"]
-          this.countCanceled = counts["canceled"]
-          this.countArchived = counts["archived"]
-          this.countIn = counts["inProgress"]
-          this.countAll = this.countCompleted + this.countNeedsAttention + this.countCanceled+ this.countArchived + this.countIn;
-          
-        })
-
-        this.UserService.getOrderByStatus(4).subscribe(data => {
-          let code = JSON.stringify(data);
-          const obj = JSON.parse(code);
-          var x = obj["responseObject"]
-
-        
-
-          for(var d of x)
-        {
-
-        
-          /*
-          for(var dd of d["serviceMasterData"])
-          {
-            //console.log(dd["serviceAlias"])
-            this.serviceArray.push(dd["serviceAlias"])
-          }
-          */
-          
-        
-        
-          if(d["status"] == 4)
-          {
-            var trimmedDate = d["createdDateTime"].slice(0, 10)
-            this.displayReports.push({ "status" : "Archived", "name" : d["firstName"] + " " + d["lastName"],
-            "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-              "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-              "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-              "orderComment" : d["orderComment"]})
-            //  this.countArchived = this.countArchived + 1;
-          }
-        
-          this.copyD = []
-
-
-        //  console.log(this.displayReports)
-          this.dataSource = new MatTableDataSource(this.displayReports);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-          this.loading = false;
-
-
-        }
-        })
-      }
-      else if(localStorage.getItem("orderStatus") == "0")
-      {
-        console.log("in progress")
-      //  this.showButton = true;
-
-
-        if(localStorage.getItem("inProgress") == "yes")
-        {
-          this.isInProgress = 'report-icon-button-active'
-        }
-
-        this.UserService.getMyDashboardDetails().subscribe(data => {
-          let code = JSON.stringify(data);
-          const obj = JSON.parse(code);
-          var counts = obj["responseObject"]
-    
-          this.countCompleted = counts["completed"]
-          this.countNeedsAttention = counts["needsAttention"]
-          this.countCanceled = counts["canceled"]
-          this.countArchived = counts["archived"]
-          this.countIn = counts["inProgress"]
-          this.countAll = this.countCompleted + this.countNeedsAttention + this.countCanceled+ this.countArchived + this.countIn;
-          
-        })
-        this.UserService.getOrderByStatus(0).subscribe(data => {
-          let code = JSON.stringify(data);
-          const obj = JSON.parse(code);
-          var x = obj["responseObject"]
-
-        
-
-          for(var d of x)
-        {
-
-        
-          /*
-          for(var dd of d["serviceMasterData"])
-          {
-            //console.log(dd["serviceAlias"])
-            this.serviceArray.push(dd["serviceAlias"])
-          }
-          */
-          
-        
-        
-          if(d["status"] == false)
-          {
-            var trimmedDate = d["createdDateTime"].slice(0, 10)
-            this.displayReports.push({ "status" : "In Progress", "name" : d["firstName"] + " " + d["lastName"],
-            "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-              "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-              "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-              "orderComment" : d["orderComment"]})
-            // this.countIn = this.countIn + 1;
-          }
-        
-        
-
-
-        //  console.log(this.displayReports)
-          this.dataSource = new MatTableDataSource(this.displayReports);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-          this.loading = false;
-
-
-        }
-        })
-      }
-      else
-      {
-      // console.log(localStorage.getItem("orderStatus"))
-      //  this.showButton = false;
-        if(localStorage.getItem("inAll") == "yes")
-        {
-          this.isInAll = 'report-icon-button-active'
-        }
-
-        this.UserService.getMyDashboardDetails().subscribe(data => {
-          let code = JSON.stringify(data);
-          const obj = JSON.parse(code);
-          var counts = obj["responseObject"]
-    
-          this.countCompleted = counts["completed"]
-          this.countNeedsAttention = counts["needsAttention"]
-          this.countCanceled = counts["canceled"]
-          this.countArchived = counts["archived"]
-          this.countIn = counts["inProgress"]
-          this.countAll = this.countCompleted + this.countNeedsAttention + this.countCanceled+ this.countArchived + this.countIn;
-          
-        })
-
-    
-      this.UserService.getAllOrderReport().subscribe(data => {
-
-        let code = JSON.stringify(data);
-        const obj = JSON.parse(code);
-        var x = obj["responseObject"]
-        var clientName;
-        var ccc = 0;
-
-
-      
-
-        /*
-        for(var d of x)
-        {
-
-          if(d["status"] == false)
-          {
-            this.displayReports.push({ "options" : this.serviceArray, "status" : "In Progress", "name" : d["firstName"] + " " + d["lastName"],
-              "clientName" : clientName, "email" : d["email"], "date" : d["date"], "city" : d["city"], "state" : d["state"],
-              "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-              "serviceMasterData" : this.copyD})
-              this.countIn = this.countIn + 1;
-          }
-          else if(d["status"] == true)
-          {
-            this.displayReports.push({ "options" : this.serviceArray, "status" : "Completed", "name" : d["firstName"] + " " + d["lastName"],
-              "clientName" : clientName, "email" : d["email"], "date" : d["date"], "city" : d["city"], "state" : d["state"],
-              "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-              "serviceMasterData" : this.copyD})
-              this.countCompleted = this.countCompleted + 1;
-          }
-
-        }
-        */
-
-
-        for(var d of x)
-        {
-
-          /*
-          for(var dd of d["serviceMasterData"])
-          {
-            //console.log(dd["serviceAlias"])
-            this.serviceArray.push(dd["serviceAlias"])
-          }
-          */
-
-          if(d["status"] == false)
-          {
-
-            var trimmedDate = d["createdDateTime"].slice(0, 10)
-
-            this.displayReports.push({ "status" : "In Progress", "name" : d["firstName"] + " " + d["lastName"],
-              "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-              "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-              "serviceMasterData" : d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-              "orderComment" : d["orderComment"]})
-          //   this.countIn = this.countIn + 1;
-          }
-          else if(d["status"] == true)
-          {
-
-            var trimmedDate = d["createdDateTime"].slice(0, 10)
-
-            this.displayReports.push({ "status" : "Completed", "name" : d["firstName"] + " " + d["lastName"],
-            "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-              "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-              "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-              "orderComment" : d["orderComment"]})
-            //  this.countCompleted = this.countCompleted + 1;
-          }
-          if(d["status"] == 4)
-          {
-
-            var trimmedDate = d["createdDateTime"].slice(0, 10)
-
-            this.displayReports.push({ "status" : "Archived", "name" : d["firstName"] + " " + d["lastName"],
-              "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-              "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-              "serviceMasterData" : d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-              "orderComment" : d["orderComment"]})
-            //  this.countArchived = this.countArchived + 1;
-          }
-          else if(d["status"] == 3)
-          {
-
-            var trimmedDate = d["createdDateTime"].slice(0, 10)
-            this.displayReports.push({  "status" : "Canceled", "name" : d["firstName"] + " " + d["lastName"],
-              "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-              "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-              "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"]
-              ,"orderComment" : d["orderComment"]})
-          //   this.countCanceled = this.countCanceled + 1;
-          }
-          else if(d["status"] == 2)
-          {
-
-            var trimmedDate = d["createdDateTime"].slice(0, 10)
-            this.displayReports.push({  "status" : "Needs Attention", "name" : d["firstName"] + " " + d["lastName"],
-              "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-              "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-              "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"]
-              ,"orderComment" : d["orderComment"]})
-            //  this.countNeedsAttention = this.countNeedsAttention + 1;
-          }
-          this.copyD = []
-
-
-        //  console.log(this.displayReports)
-          this.dataSource = new MatTableDataSource(this.displayReports);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-          this.loading = false;
-
-
-        }
-        })
-      }
-      localStorage.removeItem("orderSuccess")
-      localStorage.removeItem("orderStatus")
-      localStorage.removeItem("inProgress")
-      localStorage.removeItem("inComplete")
-      localStorage.removeItem("inCanceled")
-      localStorage.removeItem("inNeeds")
-      localStorage.removeItem("inArchived")
-
-    }
-
-    else if(groupId == 3)
-    {
-      if(localStorage.getItem("orderSnnUP") == "yes")
-      {
-        this.msg = "Order Updated Successfully"
-        this.successMsgs = true;
-      }
-      else
-      {
-        this.successMsgs = false;
+  
       }
 
-      
         if(localStorage.getItem("orderStatus") == "1")
         {
           console.log("hi")
@@ -842,36 +347,49 @@ export class ReportManagementComponent implements OnInit {
             const obj = JSON.parse(code);
             var x = obj["responseObject"]
 
-            console.log(x)
 
-            for(var d of x)
-          {
-
-          
-          
-            if(d["status"] == true)
+            if(x.length < 1)
             {
-              var trimmedDate = d["createdDateTime"].slice(0, 10)
-              this.displayReports.push({ "status" : "Completed", "name" : d["firstName"] + " " + d["lastName"],
-              "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-                "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-                "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-                "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
-              // this.countCompleted = this.countCompleted + 1;
+              this.loading = false;
+              this.msg = "No Report Found"
+              this.isData = true;
             }
-          
-            this.copyD = []
+            else
+            {
+              this.isData = false;
+              for(var d of x)
+              {
+
+              
+              
+                if(d["status"] == true)
+                {
+                  var trimmedDate = d["createdDateTime"].slice(0, 10)
+                  this.displayReports.push({ "status" : "Completed", "name" : d["firstName"] + " " + d["lastName"],
+                  "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
+                    "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
+                    "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
+                    "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
+                  // this.countCompleted = this.countCompleted + 1;
+                }
+              
+                this.copyD = []
 
 
-          //  console.log(this.displayReports)
-            this.dataSource = new MatTableDataSource(this.displayReports);
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-            this.loading = false;
+              //  console.log(this.displayReports)
+                this.dataSource = new MatTableDataSource(this.displayReports);
+                this.dataSource.paginator = this.paginator;
+                this.dataSource.sort = this.sort;
+                this.loading = false;
 
 
-          }
+              }
+            }
           })
+            
+
+             
+        
 
         }
         else if(localStorage.getItem("orderStatus") == "2")
@@ -905,43 +423,41 @@ export class ReportManagementComponent implements OnInit {
             var x = obj["responseObject"]
 
           
-
-            for(var d of x)
-          {
-
-            
-            /*
-            for(var dd of d["serviceMasterData"])
+            if(x.length < 1)
             {
-              //console.log(dd["serviceAlias"])
-              this.serviceArray.push(dd["serviceAlias"])
+              this.loading = false;
+              this.msg = "No Report Found"
+              this.isData = true;
             }
-            */
-            
-          
-          
-            if(d["status"] == 2)
+            else
             {
-              var trimmedDate = d["createdDateTime"].slice(0, 10)
-              this.displayReports.push({ "status" : "Needs Attention", "name" : d["firstName"] + " " + d["lastName"],
-              "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-                "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-                "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-                "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
-              //  this.countNeedsAttention = this.countNeedsAttention + 1;
-            }
+              this.isData = false;
+                for(var d of x)
+                {
 
-            this.copyD = []
+                if(d["status"] == 2)
+                {
+                  var trimmedDate = d["createdDateTime"].slice(0, 10)
+                  this.displayReports.push({ "status" : "Needs Attention", "name" : d["firstName"] + " " + d["lastName"],
+                  "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
+                    "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
+                    "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
+                    "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
+                  //  this.countNeedsAttention = this.countNeedsAttention + 1;
+                }
+
+                this.copyD = []
 
 
-          //  console.log(this.displayReports)
-            this.dataSource = new MatTableDataSource(this.displayReports);
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-            this.loading = false;
+              //  console.log(this.displayReports)
+                this.dataSource = new MatTableDataSource(this.displayReports);
+                this.dataSource.paginator = this.paginator;
+                this.dataSource.sort = this.sort;
+                this.loading = false;
 
 
-          }
+              }
+            } 
           })
         }
         else if(localStorage.getItem("orderStatus") == "3")
@@ -972,43 +488,41 @@ export class ReportManagementComponent implements OnInit {
             const obj = JSON.parse(code);
             var x = obj["responseObject"]
 
-          
-
-            for(var d of x)
-          {
-
-          
-            /*
-            for(var dd of d["serviceMasterData"])
+            if(x.length < 1)
             {
-              //console.log(dd["serviceAlias"])
-              this.serviceArray.push(dd["serviceAlias"])
+              this.loading = false;
+              this.msg = "No Report Found"
+              this.isData = true;
             }
-            */
-            
-          
-          
-            if(d["status"] == 3)
+            else
             {
-              var trimmedDate = d["createdDateTime"].slice(0, 10)
-              this.displayReports.push({ "status" : "Canceled", "name" : d["firstName"] + " " + d["lastName"],
-              "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-                "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-                "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-                "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
-              // this.countCanceled = this.countCanceled + 1;
+              this.isData = false;
+              for(var d of x)
+              {
+              
+              
+                if(d["status"] == 3)
+                {
+                  var trimmedDate = d["createdDateTime"].slice(0, 10)
+                  this.displayReports.push({ "status" : "Canceled", "name" : d["firstName"] + " " + d["lastName"],
+                  "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
+                    "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
+                    "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
+                    "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
+                  // this.countCanceled = this.countCanceled + 1;
+                }
+              
+                this.copyD = []
+
+
+              //  console.log(this.displayReports)
+                this.dataSource = new MatTableDataSource(this.displayReports);
+                this.dataSource.paginator = this.paginator;
+                this.dataSource.sort = this.sort;
+                this.loading = false;
+
+              }
             }
-          
-            this.copyD = []
-
-
-          //  console.log(this.displayReports)
-            this.dataSource = new MatTableDataSource(this.displayReports);
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-            this.loading = false;
-
-          }
           })
         }
         else if(localStorage.getItem("orderStatus") == "4")
@@ -1039,44 +553,42 @@ export class ReportManagementComponent implements OnInit {
             const obj = JSON.parse(code);
             var x = obj["responseObject"]
 
-          
 
-            for(var d of x)
-          {
-
-          
-            /*
-            for(var dd of d["serviceMasterData"])
+            if(x.length < 1)
             {
-              //console.log(dd["serviceAlias"])
-              this.serviceArray.push(dd["serviceAlias"])
+              this.loading = false;
+              this.msg = "No Report Found"
+              this.isData = true;
             }
-            */
-            
-          
-          
-            if(d["status"] == 4)
+            else
             {
-              var trimmedDate = d["createdDateTime"].slice(0, 10)
-              this.displayReports.push({ "status" : "Archived", "name" : d["firstName"] + " " + d["lastName"],
-              "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-                "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-                "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-                "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
-              //  this.countArchived = this.countArchived + 1;
+              this.isData = false;
+              for(var d of x)
+              {
+              
+                if(d["status"] == 4)
+                {
+                  var trimmedDate = d["createdDateTime"].slice(0, 10)
+                  this.displayReports.push({ "status" : "Archived", "name" : d["firstName"] + " " + d["lastName"],
+                  "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
+                    "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
+                    "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
+                    "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
+                  //  this.countArchived = this.countArchived + 1;
+                }
+              
+                this.copyD = []
+
+
+              //  console.log(this.displayReports)
+                this.dataSource = new MatTableDataSource(this.displayReports);
+                this.dataSource.paginator = this.paginator;
+                this.dataSource.sort = this.sort;
+                this.loading = false;
+
+
+              }
             }
-          
-            this.copyD = []
-
-
-          //  console.log(this.displayReports)
-            this.dataSource = new MatTableDataSource(this.displayReports);
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-            this.loading = false;
-
-
-          }
           })
         }
         else if(localStorage.getItem("orderStatus") == "0")
@@ -1108,49 +620,43 @@ export class ReportManagementComponent implements OnInit {
             const obj = JSON.parse(code);
             var x = obj["responseObject"]
 
-          
-
-            for(var d of x)
-          {
-
-          
-            /*
-            for(var dd of d["serviceMasterData"])
+            if(x.length < 1)
             {
-              //console.log(dd["serviceAlias"])
-              this.serviceArray.push(dd["serviceAlias"])
+              this.loading = false;
+              this.msg = "No Report Found"
+              this.isData = true;
             }
-            */
-            
-          
-          
-            if(d["status"] == false)
+            else
             {
-              var trimmedDate = d["createdDateTime"].slice(0, 10)
-              this.displayReports.push({ "status" : "In Progress", "name" : d["firstName"] + " " + d["lastName"],
-              "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-                "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-                "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-                "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
-              // this.countIn = this.countIn + 1;
+              this.isData = false;
+                for(var d of x)
+                {
+              
+                if(d["status"] == false)
+                {
+                  var trimmedDate = d["createdDateTime"].slice(0, 10)
+                  this.displayReports.push({ "status" : "In Progress", "name" : d["firstName"] + " " + d["lastName"],
+                  "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
+                    "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
+                    "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
+                    "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
+                  // this.countIn = this.countIn + 1;
+                }
+              
+              //  console.log(this.displayReports)
+                this.dataSource = new MatTableDataSource(this.displayReports);
+                this.dataSource.paginator = this.paginator;
+                this.dataSource.sort = this.sort;
+                this.loading = false;
+
+
+              }
             }
-          
-          
-
-
-          //  console.log(this.displayReports)
-            this.dataSource = new MatTableDataSource(this.displayReports);
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-            this.loading = false;
-
-
-          }
           })
         }
         else
         {
-        // console.log(localStorage.getItem("orderStatus"))
+       
         //  this.showButton = false;
           if(localStorage.getItem("inAll") == "yes")
           {
@@ -1180,114 +686,89 @@ export class ReportManagementComponent implements OnInit {
           var clientName;
           var ccc = 0;
 
-
-        
-
-          /*
-          for(var d of x)
+          if(x.length < 1)
           {
-
-            if(d["status"] == false)
-            {
-              this.displayReports.push({ "options" : this.serviceArray, "status" : "In Progress", "name" : d["firstName"] + " " + d["lastName"],
-                "clientName" : clientName, "email" : d["email"], "date" : d["date"], "city" : d["city"], "state" : d["state"],
-                "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-                "serviceMasterData" : this.copyD})
-                this.countIn = this.countIn + 1;
-            }
-            else if(d["status"] == true)
-            {
-              this.displayReports.push({ "options" : this.serviceArray, "status" : "Completed", "name" : d["firstName"] + " " + d["lastName"],
-                "clientName" : clientName, "email" : d["email"], "date" : d["date"], "city" : d["city"], "state" : d["state"],
-                "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-                "serviceMasterData" : this.copyD})
-                this.countCompleted = this.countCompleted + 1;
-            }
-
-          }
-          */
-
-
-          for(var d of x)
-          {
-
-            /*
-            for(var dd of d["serviceMasterData"])
-            {
-              //console.log(dd["serviceAlias"])
-              this.serviceArray.push(dd["serviceAlias"])
-            }
-            */
-
-            if(d["status"] == false)
-            {
-
-              var trimmedDate = d["createdDateTime"].slice(0, 10)
-
-              this.displayReports.push({ "status" : "In Progress", "name" : d["firstName"] + " " + d["lastName"],
-                "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-                "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-                "serviceMasterData" : d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-                "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
-            //   this.countIn = this.countIn + 1;
-            }
-            else if(d["status"] == true)
-            {
-
-              var trimmedDate = d["createdDateTime"].slice(0, 10)
-
-              this.displayReports.push({ "status" : "Completed", "name" : d["firstName"] + " " + d["lastName"],
-              "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-                "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-                "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-                "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
-              //  this.countCompleted = this.countCompleted + 1;
-            }
-            if(d["status"] == 4)
-            {
-
-              var trimmedDate = d["createdDateTime"].slice(0, 10)
-
-              this.displayReports.push({ "status" : "Archived", "name" : d["firstName"] + " " + d["lastName"],
-                "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-                "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-                "serviceMasterData" : d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-                "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
-              //  this.countArchived = this.countArchived + 1;
-            }
-            else if(d["status"] == 3)
-            {
-
-              var trimmedDate = d["createdDateTime"].slice(0, 10)
-              this.displayReports.push({  "status" : "Canceled", "name" : d["firstName"] + " " + d["lastName"],
-                "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-                "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-                "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-                "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
-            //   this.countCanceled = this.countCanceled + 1;
-            }
-            else if(d["status"] == 2)
-            {
-
-              var trimmedDate = d["createdDateTime"].slice(0, 10)
-              this.displayReports.push({  "status" : "Needs Attention", "name" : d["firstName"] + " " + d["lastName"],
-                "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-                "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-                "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
-                "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
-              //  this.countNeedsAttention = this.countNeedsAttention + 1;
-            }
-            this.copyD = []
-
-
-          //  console.log(this.displayReports)
-            this.dataSource = new MatTableDataSource(this.displayReports);
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
             this.loading = false;
-
-
+            this.msg = "No Report Found"
+            this.isData = true;
           }
+          else
+          {
+            this.isData = false;
+              for(var d of x)
+              {
+
+
+                if(d["status"] == false)
+                {
+
+                  var trimmedDate = d["createdDateTime"].slice(0, 10)
+
+                  this.displayReports.push({ "status" : "In Progress", "name" : d["firstName"] + " " + d["lastName"],
+                    "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
+                    "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
+                    "serviceMasterData" : d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
+                    "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
+                //   this.countIn = this.countIn + 1;
+                }
+                else if(d["status"] == true)
+                {
+
+                  var trimmedDate = d["createdDateTime"].slice(0, 10)
+
+                  this.displayReports.push({ "status" : "Completed", "name" : d["firstName"] + " " + d["lastName"],
+                  "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
+                    "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
+                    "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
+                    "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
+                  //  this.countCompleted = this.countCompleted + 1;
+                }
+                if(d["status"] == 4)
+                {
+
+                  var trimmedDate = d["createdDateTime"].slice(0, 10)
+
+                  this.displayReports.push({ "status" : "Archived", "name" : d["firstName"] + " " + d["lastName"],
+                    "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
+                    "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
+                    "serviceMasterData" : d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
+                    "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
+                  //  this.countArchived = this.countArchived + 1;
+                }
+                else if(d["status"] == 3)
+                {
+
+                  var trimmedDate = d["createdDateTime"].slice(0, 10)
+                  this.displayReports.push({  "status" : "Canceled", "name" : d["firstName"] + " " + d["lastName"],
+                    "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
+                    "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
+                    "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
+                    "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
+                //   this.countCanceled = this.countCanceled + 1;
+                }
+                else if(d["status"] == 2)
+                {
+
+                  var trimmedDate = d["createdDateTime"].slice(0, 10)
+                  this.displayReports.push({  "status" : "Needs Attention", "name" : d["firstName"] + " " + d["lastName"],
+                    "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
+                    "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
+                    "serviceMasterData" :  d["serviceMasterData"], "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"],
+                    "socialSecurityNumber" : d["socialSecurityNumber"], "orderComment" : d["orderComment"]})
+                  //  this.countNeedsAttention = this.countNeedsAttention + 1;
+                }
+                this.copyD = []
+
+
+              //  console.log(this.displayReports)
+                this.dataSource = new MatTableDataSource(this.displayReports);
+                this.dataSource.paginator = this.paginator;
+                this.dataSource.sort = this.sort;
+                this.loading = false;
+
+
+                }
+             }
           })
         }
      
@@ -1301,79 +782,7 @@ export class ReportManagementComponent implements OnInit {
         localStorage.removeItem("orderSnnUP")
 
     }
-    else if(groupId == 4)
-    {
-      this.UserService.getAllOrderReport().subscribe(data => {
-
-        let code = JSON.stringify(data);
-        const obj = JSON.parse(code);
-        var x = obj["responseObject"]
-        var clientName;
-        var ccc = 0;
-        console.log(x);
-
-        for(var d of x)
-        {
-
-          if(d["status"] == false)
-        {
-          var trimmedDate = d["createdDateTime"].slice(0, 10)
-          this.displayReports.push({ "status" : "In Progress", "name" : d["firstName"] + " " + d["lastName"],
-            "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-            "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-            "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"]})
-            this.countIn = this.countIn + 1;
-        }
-        else if(d["status"] == true)
-        {
-          var trimmedDate = d["createdDateTime"].slice(0, 10)
-          this.displayReports.push({ "status" : "Completed", "name" : d["firstName"] + " " + d["lastName"],
-           "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-            "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-            "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"]})
-            this.countCompleted = this.countCompleted + 1;
-        }
-        if(d["status"] == 4)
-        {
-          var trimmedDate = d["createdDateTime"].slice(0, 10)
-          this.displayReports.push({ "status" : "Archived", "name" : d["firstName"] + " " + d["lastName"],
-            "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-            "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-            "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"]})
-            this.countArchived = this.countArchived + 1;
-        }
-        else if(d["status"] == 3)
-        {
-          var trimmedDate = d["createdDateTime"].slice(0, 10)
-          this.displayReports.push({ "status" : "Canceled", "name" : d["firstName"] + " " + d["lastName"],
-           "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-            "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-            "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"],"middleName" : d["middleName"]})
-            this.countCanceled = this.countCanceled + 1;
-        }
-        else if(d["status"] == 2)
-        {
-          var trimmedDate = d["createdDateTime"].slice(0, 10)
-          this.displayReports.push({ "status" : "Needs Attention", "name" : d["firstName"] + " " + d["lastName"],
-           "email" : d["email"], "date" : trimmedDate, "city" : d["city"], "state" : d["state"],
-            "zip" : d["zipcode"], "userDetailId" : d["userDetailId"], "orderId" :  d["orderId"], "phone" : d["phoneNumber"], "streetAddress" : d["streetAddress"],
-            "dateOfBirth" : d["dateOfBirth"],  "houseApt" : d["houseApt"], "fname" :  d["firstName"], "lname" : d["lastName"], "middleName" : d["middleName"]})
-            this.countNeedsAttention = this.countNeedsAttention + 1;
-        }
-            //  console.log(this.displayReports[ccc]["status"])
-              this.dataSource = new MatTableDataSource(this.displayReports);
-              this.dataSource.paginator = this.paginator;
-              this.dataSource.sort = this.sort;
-
-
-        }
-        this.loading = false;
-
-       // this.newarray = this.displayReports
-
-     //  this.dtTrigger.next()
-      })
-    }
+  
     })
    
 

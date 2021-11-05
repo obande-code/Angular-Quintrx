@@ -1,5 +1,8 @@
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -79,6 +82,17 @@ export class ReportListComponent implements OnInit {
   showLegalButton = "notlegal";
   //checkReport = false;
 
+  displayedColumns: string[] = ['name',"Action", "upload"];
+  dataSource;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
+  @ViewChild(MatPaginator) paginator1: MatPaginator;
+  @ViewChild(MatSort) sort1: MatSort;
+
+  displayedColumns1: string[] = ['name',"status","Action", "upload"];
+  dataSource1;
+
 
 
   displayServices = []
@@ -94,8 +108,7 @@ export class ReportListComponent implements OnInit {
     //console.log(this.statusselected)
     this.orderStatus = (<HTMLInputElement>document.getElementById("order-Status")).value;
     console.log(this.orderStatus)
-    this.loading = true
-    this.isLoading$ = true;
+
     this.showStatusMsg = false;
 
     if(this.orderStatus == 'x')
@@ -107,6 +120,8 @@ export class ReportListComponent implements OnInit {
     else
     {
       this.showStatusMsg = false;
+      this.loading = true
+      this.isLoading$ = true;
       this.UserService.updateOrderReportStatus(this.displayServices[0]["orderId"], this.orderStatus)
       .then((result) => {
         console.log(result)
@@ -120,7 +135,7 @@ export class ReportListComponent implements OnInit {
       });
     }
 
-   
+
 
   }
 
@@ -150,7 +165,8 @@ openDoc(e)
   this.UserService.orderId = e["orderId"]
   this.UserService.orderDetailId = e["orderDetailId"]
   console.log(this.UserService.orderDetailId)
-
+  this.UserService.documentName = e["documentName"]
+  /*
   if(e["documentName"] == "Summary of Consumer Rights.html")
   {
     this.UserService.documentName = "Summary of Consumer Rights.pdf"
@@ -159,6 +175,7 @@ openDoc(e)
   {
     this.UserService.documentName = "application_disclosure_form.pdf"
   }
+  */
   if(e["isDefault"] == "Y")
   {
     this.UserService.isDefault = true
@@ -245,6 +262,11 @@ isCompleted = false;
 
                 }
               }
+
+
+              this.dataSource1 = new MatTableDataSource(this.displayServices);
+              this.dataSource1.paginator = this.paginator;
+              this.dataSource1.sort = this.sort;
 
 
             //  console.log(this.displayReports[ccc]["status"])
@@ -346,58 +368,56 @@ isCompleted = false;
     this.checkfileStatus = false;
     this.checkReport = false;
     this.file = e.target.files[0];
-    console.log(this.file)
+    console.log(this.file["name"])
+
+    this.UserService.docType = data["documentName"]
     var status = 2
-    console.log(data["orderDetailId"])
-
-    this.clientbill.uploadConsent(this.file, data["orderDetailId"], status).subscribe(
-      (event: any) => {
-
-        console.log("hello")
-
-       if (event.type === HttpEventType.UploadProgress) {
-         // console.log(Math.round((100 * event.loaded) / event.total));
-          this.count = Math.round((100 * event.loaded) / event.total)
-          console.log(this.count);
-          console.log('File Completely Uploaded Now');
-
-        } else if (event instanceof HttpResponse) {
-          console.log("Response while uploading :- ",event)
+    console.log(data["isDefault"])
 
 
+    this.clientbill.uploadConsent(this.file, data["orderDetailId"], this.UserService.docType).subscribe(
+        (event: any) => {
 
-          if(event["body"]["responseMessage"] == "Something Went Wrong")
-          {
-            console.log("Error While hitting API")
-          }
-          else
-          {
-            console.log("API Successfully hit")
-            console.log(this.UserService.documentName)
+          console.log("hello")
+
+         if (event.type === HttpEventType.UploadProgress) {
+           // console.log(Math.round((100 * event.loaded) / event.total));
+            this.count = Math.round((100 * event.loaded) / event.total)
+            console.log(this.count);
+            console.log('File Completely Uploaded Now');
+
+          } else if (event instanceof HttpResponse) {
+            console.log("Response while uploading :- ",event)
 
 
-            if(event["body"]["responseCode"] == 0)
+
+            if(event["body"]["responseMessage"] == "Something Went Wrong")
             {
+              console.log("Error While hitting API")
+            }
+            else
+            {
+              console.log("API Successfully hit")
+              console.log(this.UserService.documentName)
 
-              this.checkfileStatus = true;
 
+              if(event["body"]["responseCode"] == 0)
+              {
+
+                this.checkfileStatus = true;
+
+
+              }
 
             }
 
           }
+       },
 
+        (err: any) => {
+         console.log(err);
         }
-     },
-
-      (err: any) => {
-       console.log(err);
-      }
-      );
-
-
-
-
-
+        );
 
   }
 
@@ -456,9 +476,16 @@ isCompleted = false;
 
                   }
                 }
-               
-        
-             
+
+                this.dataSource1 = new MatTableDataSource(this.displayServices);
+                this.dataSource1.paginator = this.paginator;
+                this.dataSource1.sort = this.sort;
+                this.loading = false;
+
+
+
+
+
             })
 
           }
@@ -512,6 +539,10 @@ isCompleted = false;
   zipCheck = false;
 
 
+
+  public doFilter = (value: string) => {
+    this.dataSource.filter = value.trim().toLocaleLowerCase();
+  }
 
 
 
@@ -642,7 +673,7 @@ isCompleted = false;
         {
           localStorage.setItem("orderSnnUP", "yes")
           this._route.navigate(['/REPORT_MANAGEMENT'])
-          
+
         }
       })
       .catch((err) => {
@@ -672,13 +703,13 @@ isCompleted = false;
 
   }
 
-
+  isFifteen = false;
   ngOnInit(): void {
 
     var orderdetailid;
 
 
-    
+
         /*
                                       CLIENT SIDE ACCESS
 
@@ -690,8 +721,8 @@ isCompleted = false;
 
       this.showbuttons = false;
       this.isAdmin = false;
-      
-     
+
+
 
       this.fullname = localStorage.getItem("fullname");
       this.place = localStorage.getItem("place");
@@ -699,7 +730,7 @@ isCompleted = false;
       this.dob = localStorage.getItem("dob");
       this.zip = localStorage.getItem("zip");
       this.houseapt =  localStorage.getItem("houseApt");
-     
+
       if(this.houseapt == 'undefined' || this.houseapt == '')
       {
         console.log(this.houseapt)
@@ -721,7 +752,7 @@ isCompleted = false;
       {
         this.isClient = true;
       }
-      
+
       this.showGroup = true;
 
 
@@ -741,13 +772,28 @@ isCompleted = false;
 
         for(var d of orders["serviceMasterData"])
         {
-          this.displayDocuments.push({"isDefault" : "N","documentName" : d["documentName"], "documentId" : d["documentId"], "orderId" : orders["orderId"], "orderDetailId" : d["orderDetailId"]})
+
+          if(typeof d["documentName"] == 'undefined')
+          {
+            this.displayDocuments.push({"isDefault" : "N","documentName" : d["serviceAlias"], "documentId" : d["documentId"], "orderId" : orders["orderId"], "orderDetailId" : d["orderDetailId"]})
+          }
+          else
+          {
+            this.displayDocuments.push({"isDefault" : "N","documentName" : d["documentName"], "documentId" : d["documentId"], "orderId" : orders["orderId"], "orderDetailId" : d["orderDetailId"]})
+
+          }
           this.displayServices.push({"serviceAlias" : d["serviceAlias"], "orderDetailId" : d["orderDetailId"],  "orderId" : this.orderId, "status" : "Completed"})
          // this.UserService.sendOrderDetailId = d["orderDetailId"];
         }
 
+
+        this.dataSource = new MatTableDataSource(this.displayDocuments);
+        //this.dataSource.paginator = this.paginator;
+        //this.dataSource.sort = this.sort;
+        this.loading = false;
+
       })
-      
+
     }
     else
     {
@@ -760,7 +806,7 @@ isCompleted = false;
         this.showbuttons = true;
       }
       console.log(this.UserService.clientSideCheck)
-      if(x == "3" || x == "4")
+      if(x == "3" || x == "4" || x == "309")
       {
         this.showGroup = true;
       }
@@ -786,7 +832,7 @@ isCompleted = false;
       this.orderId = localStorage.getItem("orderId");
 
       console.log(this.UserService.groupId)
-   
+
 
       if(localStorage.getItem("status") == "Completed" || localStorage.getItem("status") == "Needs Attention")
       {
@@ -798,7 +844,7 @@ isCompleted = false;
                                       ADMIN SIDE ACCESS
 
       */
-      
+
       if(x == "3")
       {
         this.isClientLegal = false;
@@ -820,7 +866,7 @@ isCompleted = false;
          console.log(this.orderReportData)
 
 
-        
+
         this.UserService.getfindReportById(this.orderId).subscribe(data => {
           let code = JSON.stringify(data);
           const obj = JSON.parse(code);
@@ -846,10 +892,24 @@ isCompleted = false;
           }
 
 
+
+
           for(var d of orders["serviceMasterData"])
           {
-            
-            this.displayDocuments.push({"isDefault" : "N","documentName" : d["documentName"], "documentId" : d["documentId"], "orderId" : orders["orderId"], "orderDetailId" : d["orderDetailId"]})
+
+
+
+
+            if(typeof d["documentName"] == 'undefined')
+            {
+              this.displayDocuments.push({"isDefault" : "N","documentName" : d["serviceAlias"], "documentId" : d["documentId"], "orderId" : orders["orderId"], "orderDetailId" : d["orderDetailId"]})
+            }
+            else
+            {
+              this.displayDocuments.push({"isDefault" : "N","documentName" : d["documentName"], "documentId" : d["documentId"], "orderId" : orders["orderId"], "orderDetailId" : d["orderDetailId"]})
+
+            }
+
             if(d["status"] == false)
               {
                 this.displayServices.push({"serviceAlias" : d["serviceAlias"], "pkgSerMasterRelId" : d["pkgSerMasterRelId"],"orderDetailId" : d["orderDetailId"]  ,"orderId" : this.orderId, "status" : "Incomplete"})
@@ -857,27 +917,49 @@ isCompleted = false;
               else if(d["status"] == true)
               {
                 this.displayServices.push({"serviceAlias" : d["serviceAlias"], "pkgSerMasterRelId" : d["pkgSerMasterRelId"], "orderDetailId" : d["orderDetailId"]  ,"orderId" : this.orderId, "status" : "Completed"})
-      
+
               }
           }
 
+        
+          
+          if(this.displayServices.length > 15)
+          {
+            document.getElementById("checkFifteen").style.display = ""
+          }
+          else
+          {
+            document.getElementById("checkFifteen").style.display = "none"
+          }
+
+          this.dataSource = new MatTableDataSource(this.displayDocuments);
+       //   this.dataSource.paginator = this.paginator;
+        //  this.dataSource.sort = this.sort;
+
+
+          this.dataSource1 = new MatTableDataSource(this.displayServices);
+          this.dataSource1.paginator = this.paginator;
+          this.dataSource1.sort = this.sort;
+          this.loading = false;
+
+         
         })
       }
       else
       {
-    
+
         /*
                                         LEGAL SIDE ACCESS
 
         */
-      
-
 
         
+        console.log(this.orderId)
           this.UserService.getfindReportById(this.orderId).subscribe(data => {
             let code = JSON.stringify(data);
             const obj = JSON.parse(code);
             var orders = obj["responseObject"]
+            console.log(orders)
             for(var d  of orders["defaultConsentDocument"])
             {
               for(var d2 of orders["serviceMasterData"])
@@ -890,8 +972,16 @@ isCompleted = false;
 
             for(var d of orders["serviceMasterData"])
             {
-              console.log(d);
-              this.displayDocuments.push({"isDefault" : "N","documentName" : d["documentName"], "documentId" : d["documentId"], "orderId" : orders["orderId"], "orderDetailId" : d["orderDetailId"]})
+
+              if(typeof d["documentName"] == 'undefined')
+              {
+                this.displayDocuments.push({"isDefault" : "N","documentName" : d["serviceAlias"], "documentId" : d["documentId"], "orderId" : orders["orderId"], "orderDetailId" : d["orderDetailId"]})
+              }
+              else
+              {
+                this.displayDocuments.push({"isDefault" : "N","documentName" : d["documentName"], "documentId" : d["documentId"], "orderId" : orders["orderId"], "orderDetailId" : d["orderDetailId"]})
+
+              }
               if(d["status"] == false)
               {
                 this.displayServices.push({"serviceAlias" : d["serviceAlias"], "pkgSerMasterRelId" : d["pkgSerMasterRelId"],"orderDetailId" : d["orderDetailId"]  ,"orderId" : this.orderId, "status" : "Incomplete"})
@@ -899,16 +989,39 @@ isCompleted = false;
               else if(d["status"] == true)
               {
                 this.displayServices.push({"serviceAlias" : d["serviceAlias"], "orderDetailId" : d["orderDetailId"]  ,"orderId" : this.orderId, "status" : "Completed"})
-      
+
               }
             // this.UserService.sendOrderDetailId = d["orderDetailId"];
             }
 
-        
+              
+            if(this.displayServices.length > 15)
+            {
+              this.isFifteen = true;
+            }
+            else
+            {
+              this.isFifteen = false;
+            }
 
+              
+            if(this.displayServices.length > 15)
+            {
+              document.getElementById("checkFifteen").style.display = ""
+            }
+            else
+            {
+              document.getElementById("checkFifteen").style.display = "none"
+            }
 
+            this.dataSource = new MatTableDataSource(this.displayDocuments);
+            this.dataSource1 = new MatTableDataSource(this.displayServices);
+            this.dataSource1.paginator = this.paginator;
+            this.dataSource1.sort = this.sort;
+            this.loading = false;
           })
           this.showLegalButton = "legal";
+         
         }
 
     }

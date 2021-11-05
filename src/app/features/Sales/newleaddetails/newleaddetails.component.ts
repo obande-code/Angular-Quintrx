@@ -91,7 +91,7 @@ export class NewleaddetailsComponent implements OnInit {
   newPackage(): FormGroup {
     return this.fb.group({
       packageName: ['', Validators.required],
-      clientId: ['', Validators.required],
+      clientId: '',
       packagePrice: ['', Validators.required],
       userDetailId : '',
       serviceData:this.fb.array([])
@@ -343,7 +343,7 @@ export class NewleaddetailsComponent implements OnInit {
     }
 
 
-    /*
+
 
     if(isPrice == true)
     {
@@ -396,7 +396,7 @@ export class NewleaddetailsComponent implements OnInit {
 
 
     console.log(this.addedPackages)
-*/
+
 
    // this.packagesData.value["packages"].reset();
 /*

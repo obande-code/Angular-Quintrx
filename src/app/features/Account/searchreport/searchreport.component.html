@@ -32,7 +32,7 @@
                             <input
                             type="date"
                             class="form-control user__font"
-                            
+                            max={{newDate}}
                             id="user-fromdate"
                             name="fromdate"
                             [class.border-danger] = "fromdatecheck"
@@ -50,7 +50,7 @@
                             <input
                             type="date"
                             class="form-control user__font"
-                            
+                            max={{newDate}}
                             id="user-todate"
                             name="todate"
                             [class.border-danger] = "enddatecheck"
@@ -86,7 +86,7 @@
                             >
                             
                             <select name="userClient" [(ngModel)]="userId" id="user-Client" class="form-control user__font">
-                                <option value="" disabled>--Select Client--</option>
+                                <option value="">--Select Client--</option>
                                 <option *ngFor = "let clients of usersData" [ngValue]="clients.userId">{{clients.fullname}}</option>
                             </select>
                             

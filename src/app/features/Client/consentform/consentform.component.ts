@@ -100,7 +100,10 @@ export class ConsentformComponent implements OnInit {
       else {
         this.UserService.consentData = this.orderData;
         this.UserService.updateOrderReport(this.orderData.orderId, this.ssn)
-        .then((result) => {})
+        .then((result) => {
+          localStorage.setItem("consentDatainfo", JSON.stringify(this.orderData));
+
+        })
 
         .catch((err) => {
           console.log(err);

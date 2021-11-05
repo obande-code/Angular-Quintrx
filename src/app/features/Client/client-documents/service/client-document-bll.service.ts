@@ -60,9 +60,7 @@ export class ClientDocumentBllService {
 
   upload(file: File, sig :any, ipAddress:string, extraDetail): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
-
     var userId = localStorage.getItem("userId")
-
 
     formData.append('file', file);
     formData.append('userId', userId);
@@ -97,7 +95,7 @@ export class ClientDocumentBllService {
 
   uploadConsent(file: File, id :any, status : any): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
-
+    //console.log(id)
     formData.append('file', file);
     formData.append('orderDetailId', id);
     formData.append('documentType', status)

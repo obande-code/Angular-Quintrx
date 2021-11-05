@@ -1,0 +1,259 @@
+
+		<div class="container form-div modal-body " id="sign-CBSV">
+         
+				
+
+			<div class="row">
+				<div class="col-md-12">
+
+
+
+					<div class="row">
+						<div class="col-md-4">
+							Form <b>SSA-89</b> (12-2020)<br>
+							Discontinue Prior Editions<br> 
+							Social Security Administration
+						</div>
+						<div class="col-md-6"></div>
+                        <br><br>
+						<div class="col-md-2">
+							OMB 
+                            No.0960-0760
+						</div>
+					</div>
+
+					<hr>
+
+					<div class="row">
+						<div class="col-md-12">
+							<h1 style="text-align: center;font-weight: 700;margin: 0px 60px 0px 60px;font-size: 36px;">Authorization for the Social Security Administration (SSA) To Release Social Security Number (SSN) Verification</h1>
+						</div>
+					</div>
+
+
+                    <div
+                        id="errorLabel"
+                        class="alert alert-danger text-center mt-auto"
+                        *ngIf = "showMsg"
+                        >
+                        {{msg}}
+                    </div>
+
+					<div class="row mountted">
+						<div class="col-md-4 vertical-line">
+							<div class="form-group">
+								<label for="fname">Printed Name:</label>
+								<input class="form-control" type="text" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" [class.border-danger] = "!disclosureData.name"  [(ngModel)]="disclosureData.name" name="name" placeholder="Printed Name" required>
+							</div>
+
+						</div>
+						<div class="col-md-4 vertical-line">
+
+							<div class="form-group">
+								<label for="fname">Date of Birth:</label>
+								<input class="form-control" type="date"  max={{newDate}} name="name" [class.border-danger] = "!disclosureData.date" [(ngModel)]="disclosureData.date" placeholder="Date of Birth" required>
+							</div>
+
+						</div>
+						<div class="col-md-4" style="margin-top: -16px;">
+
+							<div class="form-group">
+								<label for="fname">Social Security Number:</label>
+								<input class="form-control" type="text" maxlength="9" onkeypress="return /^\d*[.]?\d*$/i.test(event.key)" name="name" [class.border-danger] = "!disclosureData.ssn" [(ngModel)]="disclosureData.ssn" placeholder="Social Security Number" required>
+							</div>
+
+						</div>
+					</div>
+
+					<hr>
+
+
+					<div class="form-check">
+						<h2>Reason for authorizing consent: (Please select one)</h2>
+
+						<div class="row" style="padding-right: 37px;padding-left: 37px;">
+							<div class="col-md-4">
+								<input class="form-check-input" type="checkbox" name="morgage" [(ngModel)]="disclosureData.morgage" value="" id="flexCheckChecked" >
+								<label class="form-check-label" for="flexCheckChecked">
+									To apply for a mortgage
+								</label>
+
+								<br>
+								<input class="form-check-input" type="checkbox" value="" name="account"  [(ngModel)]="disclosureData.bankAccount" id="flexCheckChecked2" >
+								<label class="form-check-label" for="flexCheckChecked2">
+									To open a bank account
+								</label>
+								<br>
+								<input class="form-check-input" type="checkbox" value=""  name="creditcard"  [(ngModel)]="disclosureData.creditCard" id="flexCheckChecked3" >
+								<label class="form-check-label" for="flexCheckChecked3">
+									To apply for a credit card
+								</label>
+
+
+
+							</div>
+							<div class="col-md-4">
+								
+								<input class="form-check-input" type="checkbox" value="" name="loan"  [(ngModel)]="disclosureData.loan" id="flexCheckChecked4" >
+								<label class="form-check-label" for="flexCheckChecked4">
+									To apply for a loan
+								</label>
+								<br>
+								<input class="form-check-input" type="checkbox" value="" name="retirement"  [(ngModel)]="disclosureData.retirement" id="flexCheckChecked5" >
+								<label class="form-check-label" for="flexCheckChecked5">
+									To open a retirement account
+								</label>
+								<br>
+								<input class="form-check-input" type="checkbox" value=""  name="job"  [(ngModel)]="disclosureData.job" id="flexCheckChecked6" checked>
+								<label class="form-check-label" for="flexCheckChecked6">
+									To apply for a job
+								</label>
+								
+
+
+							</div>
+							<div class="col-md-4">
+								
+								<input class="form-check-input" type="checkbox" value=""  name="licensing"  [(ngModel)]="disclosureData.licensing" id="flexCheckChecked7" >
+								<label class="form-check-label" for="flexCheckChecked7">
+									To meet a licensing requirement
+								</label>
+								<br>
+
+								<input class="form-check-input" type="checkbox" value="" name="Other"  [(ngModel)]="disclosureData.other" id="flexCheckChecked8" >
+								<label class="form-check-label" for="flexCheckChecked8">
+									Other
+								</label>
+
+								<input class="form-control" type="text" name="" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" style="border-top: 0px;border-right: 0px;border-left: 0px;margin-top: 0px;margin-bottom: 0px;">
+
+
+
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="row">
+								<label for="" class="col-md-4">With the following company ("the Company"):</label>
+								<input class="form-control col-md-8" type="text" name="" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)"  style="margin-right: auto;">
+								
+						</div>
+
+						<hr>
+						<div class="row">
+								<label for="" class="col-md-4">Company Name:</label>
+								<input class="form-control col-md-8" type="text" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" name="companyName" [class.border-danger] = "!disclosureData.companyName" [(ngModel)]="disclosureData.companyName" >
+								
+						</div>
+
+						<hr>
+						<div class="row">
+								<label for="" class="col-md-4">Company Address:</label>
+								<input class="form-control col-md-8" type="text" name="companyAddress" [class.border-danger] = "!disclosureData.companyAddress" [(ngModel)]="disclosureData.companyAddress">
+								
+						</div>
+
+						<hr>
+						<div class="row">
+								<label for="" class="col-md-4">The name and address of the Company's Agent (if applicable):</label>
+								<input class="form-control col-md-8" type="text" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" name="" >
+								
+						</div>
+
+						<hr>
+						<div class="row">
+								<label for="" class="col-md-4">Agent's Name:</label>
+								<input class="form-control col-md-8"  onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" type="text" name="" >
+								
+						</div>
+
+						<hr>
+						<div class="row">
+								<label for="" class="col-md-4">Agent's Address:</label>
+								<input class="form-control col-md-8" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" type="text" name="" >
+								
+						</div>
+
+						<hr>
+
+						<p>I authorize the Social Security Administration to verify my name and SSN to the Company and/or the Company's Agent, if applicable, for the purpose I identified. I am the individual to whom the Social Security number was issued or the parent or legal guardian of a minor, or the legal guardian of a legally incompetent adult. I declare and affirm under the penalty of perjury that the information contained herein is true and correct. I acknowledge that if I make any representation that I know is false to obtain <br><br> information from Social Security records, I could be found guilty of a misdemeanor and fined up to $5,000.</p>
+						<br>
+						<h2>This consent is valid only for one-time use. This consent is valid only for 90 days from the date signed, unless indicated otherwise by the individual named above. Ifyou wish to change this timeframe, fill in the following:</h2>
+						<br>
+
+						<h2>This consent is valid for__________days from the date signed.__________(Please initial.)</h2>
+
+						<hr>
+
+						<div class="row">
+							<div class="col-md-8 vertical-line">
+								<div class="form-group">
+									<label for="fname">Signature:</label>
+									<input class="form-control fontStyle" type="text" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" name="name" [class.border-danger] = "!disclosureData.signature" [(ngModel)]="disclosureData.signature" placeholder="Printed Name" required>
+								</div>
+
+							</div>
+							
+							<div class="col-md-4" style="margin-top: -16px;">
+
+								<div class="form-group">
+									<label for="fname">Date Signed:</label>
+									<input class="form-control" type="date" max={{newDate}} name="name" [class.border-danger] = "!disclosureData.ssnagain" [(ngModel)]="disclosureData.ssnagain" placeholder="Sign Date" required>
+								</div>
+
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="row">
+							<label for="" class="col-md-6">Relationship (if not the individual to whom the SSN was issued):</label>
+							<input class="form-control col-md-6" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" type="text" name="" >
+								
+						</div>
+
+						<hr>
+
+						<h2 style="margin-bottom: 15px;"><p>Privacy Act Statement Collection and Use of Personal Information</p></h2>
+						<p>
+							Sections 205(a) and 1106 of the Social Security Act, as amended, allow us to collect this information. Furnishing us this information is voluntary. However, failing to provide all or part of the information may prevent us from releasing information to a designated company or company’s agent. We will use the information to verify your name and Social Security number (SSN). In addition, we may share this information in accordance with the Privacy Act and other Federal laws. For example, where authorized, we may use and disclose this information in computer matching programs, in which our records are compared with other records to establish or verify a person’s eligibility for Federal benefit programs and for repayment of incorrect or delinquent debts under these programs. A list of routine uses is available in our Privacy Act System of Records Notice (SORN) 60-0058, entitled Master Files of SSN Holders and SSN Applications. Additional information and a full listing of all our SORNs are available on our website at <a href="www.socialsecurity.gov/foia/bluebook">www.socialsecurity.gov/foia/bluebook</a>.
+						</p>
+
+						<br>
+
+                        <p><b>Paperwork Reduction Act Statement - </b>This information collection meets the requirements of
+                        44 U.S.C. § 3507, as amended by section 2 of the Paperwork Reduction Act of 1995. You do not need to answer these
+                        questions unless we display a valid Office of Management and Budget control number. We estimate that it will take about 3 minutes to complete the form. You may send comments on our time estimate above to: SSA, 6401 Security Blvd., Baltimore, MD 21235-6401. <b><i>Send to this address only comments relating to our time estimate, not the completed form.</i></b></p>
+
+                        <h2>NOTICE TO NUMBER HOLDER</h2>
+                        <p>
+                            The Company and/or its Agent have entered into an agreement with SSA that, among other things, includes restrictions on the further use and disclosure of SSA's verification of your SSN. To view a copy of the entire model agreement, visit <a href="http://www.ssa.gov/cbsv/docs/SampleUserAgreement.pdf">http://www.ssa.gov/cbsv/docs/SampleUserAgreement.pdf</a>.
+                        </p>
+
+                        <hr>
+
+
+						
+						
+					</div>
+				</div>
+
+        </div>
+
+
+
+        </div>       
+<div class="d-flex mt-5">
+           
+	<button
+  type="submit"
+  name="sign"
+  id="add_user"
+  class="btn btn-active"
+  (click) = "sign()"
+  >Sign
+  <div class="loader" *ngIf="isLoading$"></div>
+
+</button>
+</div>

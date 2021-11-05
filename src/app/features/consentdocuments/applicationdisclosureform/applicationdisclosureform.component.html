@@ -1,0 +1,279 @@
+
+	
+           <div class="form-div modal-body " id="sign-CBSV">
+               <div class="row">
+                   <div class="col-md-12">
+                       <div class="card card-default">
+                                <div
+                                id="errorLabel"
+                                class="alert alert-danger text-center mt-auto"
+                                *ngIf = "showMsg"
+                                >
+                                {{msg}}
+                            </div>
+                           <div class="card-header">
+                               <h3 class="card-title"><p>Applicant Disclosure Statement</p></h3>
+                               <div class="card-tools">
+                               </div>
+                           </div>
+
+                        
+                           <div class="card-body">
+                               <p>In connection with your employment or application for employment (or contract for
+                                   services) and any future employment (or contract for services) with Company
+                                   (_______<span style="color:white;">/sn1/</span>________) and any subsidiary, you may have information requested about
+                                   you from a consumer reporting agency in connection with your application for
+                                   employment purposes. This information may be obtained in the form of background
+                                   reports and/or investigative reports. These reports may be obtained at any time after
+                                   receipt of your signed authorization and, if you are hired by Company, throughout your
+                                   employment if permissible under applicable Company policy and/or state law.
+                                   These reports may contain information about your character, general reputation
+                                   and/or mode of living. The types of information that may be obtained include, but are
+                                   not limited to: social security number verifications; address history; criminal records
+                                   checks; public court records checks; driving records checks; employment history
+                                   verifications; and professional licensing/certification checks. This information may be
+                                   obtained from private and/or public records sources, including, as appropriate,
+                                   governmental agencies and courthouses; educational institutions; former employers;
+                                   or other information sources.
+                                   If adverse action is taken resulting from information obtained, in whole or in part, from
+                                   consumer reports and/or investigative reports, you will have the option to receive a
+                                   copy of the report from Vetzu Inc can be contacted at 1700 Park Street, Suite 212,
+                               Naperville, IL-60563, USA or by phone at 630-635-8278 or by email at <a href="mailto:info@Vetzu.com?subject=feedback">info@Vetzu.com</a></p>
+                               
+                               <div class="row">
+                                   <div class="col-md-12">
+                                       <div class="form-group">
+                                           <label for="fname">Name:</label>
+                                           <input class="form-control" type="text" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" name="name" [(ngModel)]="disclosureData.name"  [class.border-danger] = "!disclosureData.name"  placeholder="Name" required>
+                                           <span style="color:white;">/sn2/</span>
+                                       </div>
+                                   </div>
+                                   <div class="col-md-4">
+                                       <div class="form-group">
+                                           <label for="fname">Signature:</label>
+                                           <textarea class="form-control fontStyle" name="signature" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" [class.border-danger] = "!disclosureData.signature" [(ngModel)]="disclosureData.signature"></textarea>
+                                           <span style="color:white;">/sn3/</span>
+                                       </div>
+                                   </div>
+                                   <div class="col-md-4">
+                                       <div class="form-group">
+                                           <label for="fname">Date:</label>
+                                           <input class="form-control" type="date" max={{newDate}} name="date" [class.border-danger] = "!disclosureData.date"  [(ngModel)]="disclosureData.date" placeholder="Date" required>
+                                           <span style="color:white;">/sn4/</span>
+                                       </div>
+                                   </div>
+                                   
+                               </div>
+                               
+                           </div>
+                           
+                       </div>
+                   </div>
+                   
+                   <div class="col-md-12">
+                       <div class="card card-default">
+                           <div class="card-header">
+                               <h3 class="card-title"><p>Authorization of Background Investigation</p></h3>
+                               <div class="card-tools">
+                               </div>
+                           </div>
+                           <div class="card-body">
+                               <p>I have carefully read, and understand, this Authorization form and further acknowledge
+                                   receipt of the separate document entitled “A Summary of Your Rights under the
+                                   Fair Credit Reporting Act” and the “Applicant Disclosure Statement” and certify
+                                   that I have read and understand both documents. By my signature below, I consent to
+                                   the release of background reports and/or investigative background reports prepared
+                                   by a background reporting agency, such as Vetzu Inc., to COMPANY and its
+                                   designated representatives and agents for the purposes of determining my eligibility
+                                   for employment, retention, or other lawful employment purposes. I understand that if
+                                   COMPANY hires me, my consent will apply, and COMPANY may obtain background
+                                   reports throughout my employment if permissible under applicable COMPANY policy.
+                                   I understand that information contained in my employment application, or otherwise
+                                   disclosed by me before, or during, my employment, if any, may be used for the
+                                   purpose of obtaining background reports and/or investigative background reports. I
+                                   also understand that nothing herein shall be construed as an offer of employment. I
+                                   hereby authorize law enforcement agencies, educational institutions (including public
+                                   and private <br><br> schools/universities), information service bureaus, record/data
+                                   repositories, courts (federal, state, and local), motor vehicle records agencies, my past
+                                   or present employers, the military, and other information sources to furnish any, and
+                                   all, information on me that is requested by the background reporting agency.
+                                   Additional State Law Notices
+                                   California, Oklahoma and Minnesota: You have the right to receive a copy of your background/investigative
+                                   report by checking the box on the Authorization of Background Investigation below.
+                                   California Applicants Only: I acknowledge receipt of a copy of California Civil Code 1786.22. Pursuant to
+                                   Section 1786.22 of the California Civil Code, you may view the file maintained on you by Vetzu Inc, during
+                                   normal business hours. You may also obtain a copy of this file, upon submitting proper identification by
+                                   appearing at Vetzu's offices in person, during normal business hours and on reasonable notice, or by mail. You
+                                   may also receive a summary of the file by telephone, upon submitting proper identification. Vetzu has trained
+                                   personnel available to explain your file to you, including any coded information. By signing below, you
+                                   acknowledge receipt of California Civil Code 1786.22.
+                                   Massachusetts and New Jersey: If we request an investigative background report, you have the right, upon written
+                                   request, to a copy of the report.
+                                   New York Applicants Only: I acknowledge receipt of a copy of Article 23-A of New York Correction
+                                   Law.
+                                   By signing below, you acknowledge receipt of Article 23-A of the New York Correction Law.
+                                   Washington State: If COMPANY requests an investigative background report, you have the right, upon written
+                                   request made within a reasonable period of time after your receipt of this disclosure, to receive from COMPANY
+                                   a complete and accurate disclosure of the nature and scope of the investigation requested by COMPANY. You
+                                   also have the right to request from the consumer reporting agency a written summary of your rights and remedies
+                                   under the Washington Fair Credit Reporting Act.
+                                   By my signature below, I certify the information I provided on, and in connection with, this form is true, accurate,
+                                   and complete. I agree that this Disclosure and Authorization form in original, facsimile, photocopy, or electronic
+                                   (including electronically signed) formats, will be valid for any reports that may be requested by, or on behalf of, <br><br>
+                                    COMPANY.</p>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="col-md-12">
+                       <div class="card card-default">
+                           <div class="card-header">
+                               <h3 class="card-title"><p>Authorization of Background Investigation</p></h3>
+                               <div class="card-tools">
+                               </div>
+                           </div>
+                           <div class="card-body">
+                               <h3>California, Minnesota or Oklahoma applicants only:</h3>
+                               <p>you may recieve a free copy of any consumer report or investigative consumer report obtained on you if you check the box bellow.</p>
+                               <div class="form-check">
+                                   <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                   <span style="color:white;">/sn5/</span>
+                                   <label class="form-check-label" for="flexCheckChecked">
+                                       I wish to receive a free copy of the report.
+                                   </label>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               
+               <div class="card card-default">
+                   <div class="card-header">
+                       <h3 class="card-title"><p>Fill this form</p></h3>
+                       <div class="card-tools">
+                           <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button> -->
+                           <!-- <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button> -->
+                       </div>
+                   </div>
+                   <!-- /.card-header -->
+                   <div class="card-body">
+                       <div id="error-message"></div>
+                       <div id="success-message"></div>
+                       <form id="add_user">
+                           <div class="row">
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <label for="fname">First Name:</label>
+                                       <input class="form-control" type="text" onkeypress="return /[-a-z/']/i.test(event.key)" name="fname" [class.border-danger] = "!disclosureData.firstname" [(ngModel)]="disclosureData.firstname" placeholder="First Name" required>
+                                       <span style="color:white;">/sn6/</span>
+                                   </div>
+                               </div>
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <label for="lname">Middle/Last Name:</label>
+                                       <input class="form-control" type="text" name="lname" onkeypress="return /[-a-z/']/i.test(event.key)" [class.border-danger] = "!disclosureData.lastname" [(ngModel)]="disclosureData.lastname" placeholder="Middle/Last Name" required>
+                                       <span style="color:white;">/sn7/</span>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-md-12">
+                                   <div class="form-group">
+                                       <label for="username">Address</label>
+                                       <textarea class="form-control" name="address" [class.border-danger] = "!disclosureData.address" [(ngModel)]="disclosureData.address"></textarea>
+                                       <span style="color:white;">/sn8/</span>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label>City:</label>
+                                       <input class="form-control" type="text" name="city" onkeypress="return /^[-a-z/']/i.test(event.key)" [class.border-danger] = "!disclosureData.city" [(ngModel)]="disclosureData.city" placeholder="City" required>
+                                       <span style="color:white;">/sn9/</span>
+                                   </div>
+                               </div>
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label>State:</label>
+                                       <input class="form-control" type="text" name="state" onkeypress="return /[-a-z/']/i.test(event.key)" [class.border-danger] = "!disclosureData.state" [(ngModel)]="disclosureData.state" placeholder="State" required>
+                                       <span style="color:white;">/sn10/</span>
+                                   </div>
+                               </div>
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label>Zip Code:</label>
+                                       <input class="form-control" type="text" name="zipcode" onkeypress="return /[0-9]/i.test(event.key)" [class.border-danger] = "!disclosureData.zipcode" [(ngModel)]="disclosureData.zipcode" placeholder="Zip Code" required>
+                                       <span style="color:white;">/sn11/</span>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <label>Social Security Number(SSN):</label>
+                                       <input class="form-control" type="text" name="ssn" maxlength="9" onkeypress="return /^\d*[.]?\d*$/i.test(event.key)" [class.border-danger] = "!disclosureData.ssn"  [(ngModel)]="disclosureData.ssn" placeholder="Social Security Number(SSN)" required>
+                                       <span style="color:white;">/sn12/</span>
+                                   </div>
+                               </div>
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label>Date of Birth:</label>
+                                       <input class="form-control" type="date" name="dob"  max={{newDate}} [class.border-danger] = "!disclosureData.dob" [(ngModel)]="disclosureData.dob" placeholder="Date of birth" required>
+                                       <span style="color:white;">/sn13/</span>
+                                   </div>
+                               </div>
+                               
+                           </div>
+                           <div class="row">
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <label>Driving license Number:</label>
+                                       <input class="form-control" type="text" name="dln" onkeypress="return /[0-9]/i.test(event.key)" placeholder="Driving license Number" required>
+                                       <span style="color:white;">/sn14/</span>
+                                   </div>
+                               </div>
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label>State of issue:</label>
+                                       <input class="form-control" type="date"  max={{newDate}} name="stateofissue" placeholder="State of issue" required>
+                                       <span style="color:white;">/sn15/</span>
+                                   </div>
+                               </div>
+                               
+                           </div>
+                           <div class="row">
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <label>Signature:</label>
+                                       <textarea class="form-control fontStyle" name="signature" onkeypress="return  /^[a-zA-Z\s']/i.test(event.key)" [class.border-danger] = "!disclosureData.signatureagain" [(ngModel)]="disclosureData.signatureagain" cols="10"></textarea>
+                                       <span style="color:white;">/sn16/</span>
+                                   </div>
+                               </div>
+                               <div class="col-md-4">
+                                   <div class="form-group">
+                                       <label>Date:</label>
+                                       <input class="form-control" type="date"  max={{newDate}} name="dateagain" placeholder="Date" required>
+                                       <span style="color:white;">/sn17/</span>
+                                   </div>
+                               </div>
+                               
+                           </div>
+                           
+                       </form>
+                       <!-- /.row -->
+                       </div><!-- /.container-fluid -->
+               </div>
+           </div>
+<div class="d-flex mt-3">
+           
+	<button
+  type="submit"
+  name="sign"
+  id="add_user"
+  class="btn btn-active"
+  (click) = "sign()"
+  >Submit
+  <div class="loader" *ngIf="isLoading$"></div>
+
+</button>
+</div>

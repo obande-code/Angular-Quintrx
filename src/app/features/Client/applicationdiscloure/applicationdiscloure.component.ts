@@ -7,6 +7,7 @@ import { ClientDocumentBllService } from '../client-documents/service/client-doc
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { AgreementdocumentsComponent } from 'src/app/modals/agreementdocuments/agreementdocuments.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SummaryofconsumerrightsComponent } from 'src/app/features/consentdocuments/summaryofconsumerrights/summaryofconsumerrights.component';
 /*
 {
   id : 42,
@@ -45,6 +46,8 @@ export class ApplicationdiscloureComponent implements OnInit {
 
   orderId;
   docName;
+  msg;
+  showMsg = false;
   //showButtons = false;
 
   fileData : any = {
@@ -80,10 +83,9 @@ export class ApplicationdiscloureComponent implements OnInit {
     this.UserService.tempId = this.UserService.consentData["defaultConsentDocument"][1]["documentId"]
     this.UserService.documentName = "application_disclosure_form.pdf"
 
-    this.UserService.docType = "application_disclosure_form.pdf"
-
+    this.UserService.docType = "Application Disclosure Form"
     this.UserService.defaultCheck = 1;
-    this._route.navigate(['/consentdocuments'])
+    this._route.navigate(['/consent/adf'])
   
   }
 
@@ -91,16 +93,18 @@ export class ApplicationdiscloureComponent implements OnInit {
   {
     console.log(this.UserService.consentData["defaultConsentDocument"]["42"])
     this.UserService.documentName = "Summary of Consumer Rights.pdf"
-    this.UserService.docType ="Summary of Consumer Rights.pdf"
+    this.UserService.docType ="Summary of Consumer Rights"
     this.UserService.defaultCheck = 1;
     this.UserService.tempId = this.UserService.consentData["defaultConsentDocument"][0]["documentId"]
-    this._route.navigate(['/consentdocuments'])
+   
+    this._route.navigate(['/consent/socr'])
   
   
   }
 
   signDoc(e)
   {
+    this.showMsg = false;
     console.log(e)
     /*
     for(var d of this.UserService.consentData["serviceMasterData"])
@@ -114,9 +118,30 @@ export class ApplicationdiscloureComponent implements OnInit {
     this.UserService.documentName = e["documentName"]
     this.UserService.docType = e["documentName"]
 
+    if(e["serviceAlias"] == "5 Panel Drug Test" || e["serviceAlias"] == "10 Panel Drug Test" || e["serviceAlias"] == "12 Panel Drug Test")
+    {
+      this._route.navigate(['/consent/drugscreen'])
+    }
+    else if(e["serviceAlias"] == "Social Check")
+    {
+      this._route.navigate(['/consent/ssa89'])
+    }
+    else if(e["serviceAlias"] == "Criminal Check")
+    {
+      this._route.navigate(['/consent/cori'])
+    }
+    else if(e["serviceAlias"] == "Employment Verification")
+    {
+      this._route.navigate(['/consent/ev'])
+    }
+    else
+    {
+      this.msg = "Document is not available to sign."
+      this.showMsg = true;
+    }
 
-    this._route.navigate(['/consentdocuments'])
-    
+
+          
   }
 
 
@@ -182,10 +207,10 @@ export class ApplicationdiscloureComponent implements OnInit {
 
      
       console.log( this.UserService.neworderDetailId)
-                            
+                           
       if((orders["fcraDocumentStatus"] == true) && (orders["appDisclosureDocumentStatus"] == true) && (status == true))
       {
-        this._route.navigate(['/thank-submission'])
+       // this._route.navigate(['/thank-submission'])
         console.log("all true")
       }
       
@@ -199,6 +224,7 @@ export class ApplicationdiscloureComponent implements OnInit {
       this.checkDoc2 = true;
       console.log("App")
     }
+    
     /*
     if(orders["serviceMasterData"][0]["consentDocumentStatus"] == true)
     {

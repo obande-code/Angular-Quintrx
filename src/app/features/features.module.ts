@@ -18,9 +18,6 @@ import { ProfileDetailsComponent } from './Client/profile-details/profile-detail
 import { LogoutComponent } from './Client/logout/logout.component';
 import { ViewpackageComponent } from './Client/viewpackage/viewpackage.component';
 
-
-
-
 @NgModule({
   declarations: [
     FeaturesComponent,

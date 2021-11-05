@@ -85,6 +85,9 @@ export class UserService {
   consolodatedORderID;
   neworderDetailId;
 
+  documentId;
+  invoiceId;
+
 
   orderStatusCode;
 
@@ -366,7 +369,7 @@ delProvider(id: any) {
 
 
 
-         
+
 
        //
 
@@ -398,7 +401,7 @@ delService(id: any) {
 
           console.log(response)
 
-         
+
 
        //
 
@@ -474,8 +477,8 @@ addProvider(data: any) {
           let code = JSON.stringify(response);
           const obj = JSON.parse(code);
          // console.log(obj);
-        
-         
+
+
           //var getId = id["providerId"]
           //this.provId = getId;
           //console.log(getId)
@@ -527,8 +530,8 @@ updateProvider(data: any) {
           let code = JSON.stringify(response);
           const obj = JSON.parse(code);
          // console.log(obj);
-         
-         
+
+
           //var getId = id["providerId"]
           //this.provId = getId;
 
@@ -626,7 +629,7 @@ pkgCode;
             let code = JSON.stringify(response);
             const obj = JSON.parse(code);
             var x = obj["responseCode"];
-      
+
 
           },
           (error) => {
@@ -720,11 +723,11 @@ pkgCode;
 
             let code = JSON.stringify(response);
             const obj = JSON.parse(code);
-           
-         
+
+
             console.log(response)
 
-         
+
 
 
           },
@@ -879,6 +882,9 @@ checkStat;
 
             if(x == "Order marked completed.")
             {
+              this._route.navigate(['/application-disclosure'])
+
+
 
               if((this.consentData["fcraDocumentStatus"] == true) && (this.consentData["appDisclosureDocumentStatus"] == true) &&(this.consentData["serviceMasterData"][0]["consentDocumentStatus"] == true))
               {
@@ -888,6 +894,7 @@ checkStat;
               {
                 this._route.navigate(['/application-disclosure'])
               }
+              
 
 
             }
@@ -1097,7 +1104,7 @@ checkStat;
             let code = JSON.stringify(response);
             const obj = JSON.parse(code);
            // console.log(obj);
-           
+
          //
 
 
@@ -1309,6 +1316,17 @@ public getDocTemplate(id : any): Observable<string> {
       // this.http refers to HttpClient. Note here that you cannot use the generic get<Blob> as it does not compile: instead you "choose" the appropriate API in this way.
       return this.httpClient.get(this.apiGetTemplate+id, { responseType: 'text'});
   }
+
+
+
+ // apiGetTemplate = environment.api_url + "/document/getDocumentByTemplateId?templateId="
+  public getDocTemplate1(id : any): Observable<Blob> {
+    //const options = { responseType: 'blob' }; there is no use of this
+      console.log(id)
+        let uri = '/my/uri';
+        // this.http refers to HttpClient. Note here that you cannot use the generic get<Blob> as it does not compile: instead you "choose" the appropriate API in this way.
+        return this.httpClient.get(this.apiGetTemplate+id, { responseType: 'blob'});
+    }
 
 
   apiGetConsentPDf = environment.api_url + "/document/downloadConsentDocument?orderDetailId="
@@ -1709,7 +1727,7 @@ public getConsolidatedReport(id : any): Observable<Blob> {
     });
   }
 
-
+/*
   generateInvoice(url : any) {
     return new Promise((resolve, reject) => {
       this.httpClient
@@ -1731,5 +1749,55 @@ public getConsolidatedReport(id : any): Observable<Blob> {
         );
     });
   }
+  */
+
+
+  generateInvoice(url : any)
+  {
+    return this.httpClient.get(url);
+  }
+
+
+
+
+  
+  searchInvoice(url : any)
+  {
+    return this.httpClient.get(url);
+  }
+
+
+  apiDelegateAgreement = environment.api_url +'/delegateAgreement?'
+
+  delegateAgreement(userId: any, email : any, name : any)
+  {
+    return new Promise((resolve, reject) => {
+      this.httpClient
+        .post(this.apiDelegateAgreement+"userId="+userId+"&emailId="+email+"&name="+name, null)
+        .subscribe(
+          (response) => {
+
+            resolve(response);
+            console.log(response);
+
+            let code = JSON.stringify(response);
+            const obj = JSON.parse(code);
+
+          },
+          (error) => {
+            reject(error);
+          }
+        );
+    });
+  }
+
+
+  apiGetInvoiceDoc = environment.api_url + "/document/downloadInvoiceDocument?invoiceId="
+  public getInvoiceDoc(id : any): Observable<Blob> {
+    //const options = { responseType: 'blob' }; there is no use of this
+        let uri = '/my/uri';
+        // this.http refers to HttpClient. Note here that you cannot use the generic get<Blob> as it does not compile: instead you "choose" the appropriate API in this way.
+        return this.httpClient.get(this.apiGetInvoiceDoc+id, { responseType: 'blob' });
+    }
 
 }

@@ -238,7 +238,7 @@ packageNewIds = []
             this.showStatusMsg = false
             this.loading = false
             localStorage.setItem("orderSuccess", "yes")
-            
+            localStorage.removeItem("savedForm")
             this._route.navigate(['/REPORT_MANAGEMENT']);
 
           }

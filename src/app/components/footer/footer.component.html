@@ -1,8 +1,8 @@
 <div class="w-100" style="position: absolute; bottom: 0;">
-  
+
 
 <footer class="page-footer font-small blue">
-  
+
 
   <div class="footer-copyright py-3">© Copyright Quintrx. All Rights Reserved
 
@@ -12,12 +12,23 @@
               id="userGuide"
               class="pdfbtn p-0 m-1"
               (click)="openUserGuide()"
-            
+
             >
               User Guide
 
-    </button>
-    <ngx-material-faq [faqList]="list"></ngx-material-faq>
+      </button>
+      <button
+              *ngIf="!router.url.includes('login')"
+              type="button"
+              id="userGuide"
+              class="pdfbtn p-0 m-1"
+              (click)="openFaq()"
+
+            >
+              FAQ
+
+      </button>
+
     </div>
 
 </footer>

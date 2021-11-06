@@ -385,7 +385,13 @@ const routes: Routes = [
         path: 'MY_INVOICES',
         redirectTo : 'INVOICES',
         canActivate: [AuthGuard],
-      }
+      },
+      {
+        path: 'FAQ',
+        //canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('../components/faq/faq.module').then((m) => m.FaqModule),
+      },
     ],
   },
 ];

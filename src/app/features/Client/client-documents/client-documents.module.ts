@@ -18,8 +18,7 @@ import { FormsModule } from '@angular/forms';
     ClientDocumentsRoutingModule,
     NgxDocViewerModule,
     NgbModalModule,
-    FormsModule
-
+    FormsModule,
   ]
 })
 export class ClientDocumentsModule { }

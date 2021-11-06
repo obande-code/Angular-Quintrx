@@ -13,6 +13,7 @@ import { FeaturesComponent } from './features/features.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgbModule, BrowserAnimationsModule, NgxUiLoaderModule],

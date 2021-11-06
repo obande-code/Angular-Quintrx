@@ -34,6 +34,7 @@ module.exports = function (config) {
     },
     map: {
       'ngx-material-faq': 'node_modules/ngx-material-faq/bundles/ngx-material-faq.umd.js',
+      '@angular-material-extensions/faq': 'node_modules/@angular-material-extensions/faq/bundles/faq.umd.js',
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,

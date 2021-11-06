@@ -21,9 +21,9 @@
             aria-expanded='false'><span>{{ itemMenu.name }}</span></a>
           <div *ngIf="itemMenu.subMenuList.length > 0" class="collapse" [id]="itemMenu.dropDownTarget">
             <ul class="list-unstyled subMenu">
-              <!-- <li class="subMenuItems" *ngFor="let subMenu of itemMenu.subMenuList">
+              <li class="subMenuItems" *ngFor="let subMenu of itemMenu.subMenuList">
                 <a class='ml-5 nav-link' [routerLink]="subMenu.alias" ><span>{{ subMenu.name }}</span></a>
-              </li> -->
+              </li>
             </ul>
           </div>
         </li>

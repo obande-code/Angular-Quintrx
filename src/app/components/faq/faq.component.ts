@@ -24,8 +24,8 @@ export class FaqComponent implements OnInit {
 
 
   onNewFaqItem(faqItem: FaqItem) {
-    // console.log('on new faqItem -> ', faqItem);
-    // this.list.splice(0, 0, faqItem);
+    console.log('on new faqItem -> ', faqItem);
+    this.list.splice(0, 0, faqItem);
   }
 
   constructor() { }

@@ -12,7 +12,7 @@ export class FaqComponent implements OnInit {
   list: FaqItem[] = [
 
     {
-      question: 'Why does it think the jQuery plugin is missing?',
+      // question: 'Why does it think the jQuery plugin is missing?',
       answer: 'Remember: load jQuery before AngularJS if you are using jQuery plugins!'
     },
     {
